@@ -704,10 +704,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
         m_MethodName: PlusItem
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Slot, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -826,6 +826,7 @@ RectTransform:
   - {fileID: 1912905804}
   - {fileID: 187527954}
   - {fileID: 597208451}
+  - {fileID: 1128890333}
   - {fileID: 805804860}
   - {fileID: 466130438}
   m_Father: {fileID: 477533115}
@@ -1852,7 +1853,7 @@ MonoBehaviour:
     itemPrice: 0
   image: {fileID: 548320577}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 1517161540}
+  itemCount: {fileID: 523769754}
 --- !u!114 &272524001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,7 +2486,7 @@ RectTransform:
   - {fileID: 1165919094}
   - {fileID: 228793373}
   m_Father: {fileID: 120329039}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -4962,11 +4963,11 @@ RectTransform:
   m_LocalScale: {x: 2.5186765, y: 2.5186765, z: 2.5186765}
   m_Children: []
   m_Father: {fileID: 120329039}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: -107}
+  m_AnchoredPosition: {x: 38, y: -107}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805804861
@@ -6932,6 +6933,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110240414}
   m_CullTransparentMesh: 1
+--- !u!1 &1128890332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1128890333}
+  - component: {fileID: 1128890335}
+  - component: {fileID: 1128890334}
+  m_Layer: 5
+  m_Name: DetailItemNum
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1128890333
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128890332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5186765, y: 2.5186765, z: 2.5186765}
+  m_Children: []
+  m_Father: {fileID: 120329039}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -32, y: -107}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1128890334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128890332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 1
+--- !u!222 &1128890335
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128890332}
+  m_CullTransparentMesh: 1
 --- !u!1 &1146642132
 GameObject:
   m_ObjectHideFlags: 0
@@ -8194,10 +8274,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
         m_MethodName: MinusItem
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Slot, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9253,7 +9333,7 @@ MonoBehaviour:
     itemPrice: 0
   image: {fileID: 1859700365}
   itemPrice: {fileID: 537220481}
-  itemCount: {fileID: 2092033956}
+  itemCount: {fileID: 986382816}
 --- !u!114 &1407833485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9857,7 +9937,7 @@ MonoBehaviour:
     itemPrice: 0
   image: {fileID: 474195891}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 1517161540}
+  itemCount: {fileID: 154797397}
 --- !u!114 &1530951724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10457,7 +10537,7 @@ MonoBehaviour:
     itemPrice: 0
   image: {fileID: 136461737}
   itemPrice: {fileID: 1988029826}
-  itemCount: {fileID: 467910429}
+  itemCount: {fileID: 1071643326}
 --- !u!114 &1684465362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10541,7 +10621,7 @@ MonoBehaviour:
   - name: gps
     sprite: {fileID: 21300000, guid: d720f756d71e01848b8162e53fc6e450, type: 3}
     itemCount: 5
-    itemPrice: 100
+    itemPrice: 10000
 --- !u!4 &1684940231
 Transform:
   m_ObjectHideFlags: 0
@@ -10895,7 +10975,7 @@ MonoBehaviour:
     itemPrice: 0
   image: {fileID: 178894271}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 1517161540}
+  itemCount: {fileID: 1935138401}
 --- !u!114 &1715314056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12240,7 +12320,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1912905806}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1984785263}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1912905806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12579,8 +12671,11 @@ MonoBehaviour:
   image: {fileID: 187527955}
   DetailPrice: {fileID: 805804859}
   DetailItemName: {fileID: 597208450}
-  BuyBtn: {fileID: 1912905803}
+  DetailItemNum: {fileID: 1128890332}
+  MinusBtn: {fileID: 1289554244}
+  PlusBtn: {fileID: 103278221}
   BuyNum: 1
+  slot: {fileID: 0}
 --- !u!1 &1988029826
 GameObject:
   m_ObjectHideFlags: 0
@@ -12962,7 +13057,7 @@ MonoBehaviour:
     itemPrice: 0
   image: {fileID: 55401611}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 1517161540}
+  itemCount: {fileID: 252846086}
 --- !u!114 &2015481100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13107,7 +13202,7 @@ MonoBehaviour:
     itemPrice: 0
   image: {fileID: 900366254}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 1517161540}
+  itemCount: {fileID: 725788472}
 --- !u!114 &2015582354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13474,7 +13569,7 @@ MonoBehaviour:
     itemPrice: 0
   image: {fileID: 661199787}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 1517161540}
+  itemCount: {fileID: 230661340}
 --- !u!114 &2052391332
 MonoBehaviour:
   m_ObjectHideFlags: 0

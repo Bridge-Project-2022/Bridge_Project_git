@@ -14,22 +14,27 @@ public class Store : MonoBehaviour
     public UnityEngine.UI.Image image;
     public GameObject DetailPrice;
     public GameObject DetailItemName;
+    public GameObject DetailItemNum;
 
-    public GameObject BuyBtn;
+    public Button MinusBtn;
+    public Button PlusBtn;
 
-    public int BuyNum = 1;
+    public int BuyNum;
+
+    public Slot slot;
 
     public System.Action<ItemProperty> onStoreSlotClick;//델리게이트 변수
 
     // Start is called before the first frame update
     void Start()
     {
+        DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
         slots = new List<Slot>();
         int slotCount = slotRoot.childCount;
 
         for (int i = 0; i < slotCount; i++)
         {
-            var slot = slotRoot.GetChild(i).GetComponent<Slot>();
+            slot = slotRoot.GetChild(i).GetComponent<Slot>();
 
             if (i < itemBuffer.items.Count)
             {
@@ -44,14 +49,15 @@ public class Store : MonoBehaviour
             slots.Add(slot);
         }
     }
-    public void OnClickSlot(Slot slot)
+    public void OnClickSlot(Slot clickedSlot)
     {
         
         ItemDetail.gameObject.SetActive(true);
-        image.sprite = slot.item.sprite;
-        DetailItemName.GetComponent<Text>().text = slot.item.name;
-        DetailPrice.GetComponent<Text>().text = BuyNum + " / " + slot.item.itemPrice.ToString() + "$";
-
+        image.sprite = clickedSlot.item.sprite;
+        DetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
+        DetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
+        slot = clickedSlot;
+       
         /*if (onStoreSlotClick != null)
         {
             onStoreSlotClick(slot.item);
@@ -62,17 +68,29 @@ public class Store : MonoBehaviour
         */
     }
 
-    public void PlusItem(Slot slot)
+    public void PlusItem()
     {
-        Debug.Log(slot.item.name);
         BuyNum += 1;
-        DetailPrice.GetComponent<Text>().text = BuyNum + " / " + slot.item.itemPrice.ToString() + "$";
+       
+        DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
     }
-    public void MinusItem(Slot slot)
+    public void MinusItem()
     {
-        Debug.Log(slot.item.name);
         BuyNum -= 1;
-        DetailPrice.GetComponent<Text>().text = BuyNum + " / " + slot.item.itemPrice.ToString() + "$";
+        
+        DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+    }
+
+    public void BuyItem()
+    {
+        if (onStoreSlotClick != null)
+        {
+            onStoreSlotClick(slot.item);
+        }
+
+        slot.item.itemCount -= 1 * BuyNum;
+        fd.Money -= slot.item.itemPrice * BuyNum;
+        
     }
     
     public void Close()
@@ -83,6 +101,28 @@ public class Store : MonoBehaviour
     public void CloseDetail()
     {
         ItemDetail.gameObject.SetActive(false);
+    }
+
+    public void Update()
+    {
+        if (BuyNum == 0)
+        {
+            MinusBtn.gameObject.GetComponent<Button>().interactable = false;
+        }
+        else 
+        {
+            MinusBtn.gameObject.GetComponent<Button>().interactable = true;
+        }
+
+        if (BuyNum * slot.item.itemPrice >= fd.Money)
+        {
+            Debug.Log("잔돈 없음. 더이상 추가 불가");
+            PlusBtn.gameObject.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            PlusBtn.gameObject.GetComponent<Button>().interactable = true;
+        }
     }
 
 }

@@ -46,6 +46,7 @@ public class Slot : MonoBehaviour
             image.enabled = true;
             gameObject.name = item.name;
             image.sprite = item.sprite;
+            itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "개 보유";
         }
     }
 
@@ -55,6 +56,7 @@ public class Slot : MonoBehaviour
         if (item.itemCount == 0)
         {
             this.GetComponent<UnityEngine.UI.Button>().interactable = false;
+            itemCount.gameObject.GetComponent<Text>().text = "판매 완료";
         }
     }
 }
