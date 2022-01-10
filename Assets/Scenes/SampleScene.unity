@@ -1061,7 +1061,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &154797400
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1501,7 +1501,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &230661343
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1738,7 +1738,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &252846089
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1851,9 +1851,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 548320577}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 523769754}
+  itemCount: {fileID: 438094774}
 --- !u!114 &272524001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3110,7 +3111,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &523769757
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4616,7 +4617,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &725788475
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5317,6 +5318,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 51156866}
   itemPrice: {fileID: 977779935}
   itemCount: {fileID: 634414566}
@@ -6290,7 +6292,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &986382819
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6652,7 +6654,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &1071643329
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6778,6 +6780,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 883482983}
   itemPrice: {fileID: 1260738757}
   itemCount: {fileID: 104705497}
@@ -7519,6 +7522,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 1839700465}
   itemPrice: {fileID: 901206431}
   itemCount: {fileID: 246040416}
@@ -7752,6 +7756,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 661217504}
   itemPrice: {fileID: 1958703498}
   itemCount: {fileID: 1380511380}
@@ -7910,6 +7915,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 1058985664}
   itemPrice: {fileID: 1305486707}
   itemCount: {fileID: 148782391}
@@ -8832,6 +8838,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 419927288}
   itemPrice: {fileID: 556819428}
   itemCount: {fileID: 2030313336}
@@ -9331,9 +9338,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 1859700365}
   itemPrice: {fileID: 537220481}
-  itemCount: {fileID: 986382816}
+  itemCount: {fileID: 2092033956}
 --- !u!114 &1407833485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9935,9 +9943,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 474195891}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 154797397}
+  itemCount: {fileID: 2108204236}
 --- !u!114 &1530951724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10535,9 +10544,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 136461737}
   itemPrice: {fileID: 1988029826}
-  itemCount: {fileID: 1071643326}
+  itemCount: {fileID: 467910429}
 --- !u!114 &1684465362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10610,18 +10620,22 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
     itemCount: 5
     itemPrice: 100
+    InvenItemNum: 0
   - name: animal
     sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
     itemCount: 5
     itemPrice: 100
+    InvenItemNum: 0
   - name: ice
     sprite: {fileID: 21300000, guid: 6a39b33d3c610354587750a241821746, type: 3}
     itemCount: 5
     itemPrice: 100
+    InvenItemNum: 0
   - name: gps
     sprite: {fileID: 21300000, guid: d720f756d71e01848b8162e53fc6e450, type: 3}
     itemCount: 5
     itemPrice: 10000
+    InvenItemNum: 0
 --- !u!4 &1684940231
 Transform:
   m_ObjectHideFlags: 0
@@ -10828,6 +10842,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 20334232}
   itemPrice: {fileID: 296468512}
   itemCount: {fileID: 479238212}
@@ -10973,9 +10988,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 178894271}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 1935138401}
+  itemCount: {fileID: 2143661786}
 --- !u!114 &1715314056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11968,6 +11984,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 1700281004}
   itemPrice: {fileID: 1182352568}
   itemCount: {fileID: 39338314}
@@ -12441,7 +12458,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &1935138404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13055,9 +13072,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 55401611}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 252846086}
+  itemCount: {fileID: 1517161540}
 --- !u!114 &2015481100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13200,9 +13218,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 900366254}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 725788472}
+  itemCount: {fileID: 1874577706}
 --- !u!114 &2015582354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13567,9 +13586,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     itemCount: 0
     itemPrice: 0
+    InvenItemNum: 0
   image: {fileID: 661199787}
   itemPrice: {fileID: 1436192069}
-  itemCount: {fileID: 230661340}
+  itemCount: {fileID: 1297156811}
 --- !u!114 &2052391332
 MonoBehaviour:
   m_ObjectHideFlags: 0

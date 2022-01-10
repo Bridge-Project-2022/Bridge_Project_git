@@ -9,5 +9,5 @@ public class ItemProperty
     public Sprite sprite;
     public int itemCount;
     public int itemPrice;
-    //public int itemNum;
+    public int InvenItemNum;
 }

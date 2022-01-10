@@ -28,7 +28,6 @@ public class Store : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
         slots = new List<Slot>();
         int slotCount = slotRoot.childCount;
 
@@ -51,13 +50,16 @@ public class Store : MonoBehaviour
     }
     public void OnClickSlot(Slot clickedSlot)
     {
-        
+        BuyNum = 1;
+        DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
         ItemDetail.gameObject.SetActive(true);
         image.sprite = clickedSlot.item.sprite;
         DetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         DetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
         slot = clickedSlot;
+
        
+
         /*if (onStoreSlotClick != null)
         {
             onStoreSlotClick(slot.item);
@@ -105,11 +107,12 @@ public class Store : MonoBehaviour
 
     public void Update()
     {
+
         if (BuyNum == 0)
         {
             MinusBtn.gameObject.GetComponent<Button>().interactable = false;
         }
-        else 
+        else
         {
             MinusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
