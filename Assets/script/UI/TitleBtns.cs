@@ -5,17 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class TitleBtns : MonoBehaviour
 {
-    public void NewGameBtn()
+    [SerializeField]
+    private GameObject OptionPanel;
+    public void NewGameBtnClicked()
     {
         SceneManager.LoadScene("Main");
     }
 
-    public void ExitBtn()
+    public void OptionBtnClicked()
+    {
+        OptionPanel.SetActive(true);
+    }
+
+    public void ExitBtnClicked()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
      Application.Quit();
 #endif
+    }
+
+    public void OptionCloseBtnClicked()
+    {
+        OptionPanel.SetActive(false);
     }
 }
