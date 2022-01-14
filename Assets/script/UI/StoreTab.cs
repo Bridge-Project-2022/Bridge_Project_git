@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class StoreTab : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<TabButton> tabButtons;
+    public List<GameObject> contentsPanels;
 
-    // Update is called once per frame
-    void Update()
+    public void ClickTab(int id)
     {
-        
+        for (int i = 0; i < contentsPanels.Count; i++)
+        {
+            if (i == id)
+            {
+                contentsPanels[i].SetActive(true);
+            }
+            else 
+            {
+                contentsPanels[i].SetActive(false);
+            }
+        }
     }
 }

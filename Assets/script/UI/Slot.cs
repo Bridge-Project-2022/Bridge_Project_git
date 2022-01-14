@@ -53,7 +53,7 @@ public class Slot : MonoBehaviour
     public void Update()
     {
         itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "개 보유";
-        if (item.itemCount == 0)
+        if (item.itemCount <= 0)
         {
             this.GetComponent<UnityEngine.UI.Button>().interactable = false;
             itemCount.gameObject.GetComponent<Text>().text = "판매 완료";
