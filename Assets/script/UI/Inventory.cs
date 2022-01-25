@@ -103,7 +103,9 @@ public class Inventory : MonoBehaviour
                     //Debug.Log(storeslots[i].item.name);
                     if (emptySlot != null)//슬롯 꽉차지 않은 경우
                     {
-                        storeslots[i].item = allItem;
+                        Debug.Log(storeslots[i].item.name);
+                        emptySlot.SetInvenItem(storeslots[i].item);
+                        //storeslots[i].item = allItem;
                         isAllsame = false;
                     }
                     else
@@ -124,13 +126,13 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        if (isAllsame == false)//중복인 아이템이 없는 경우 -> 슬롯 추가
+        /*if (isAllsame == false)//중복인 아이템이 없는 경우 -> 슬롯 추가
         {
             emptySlot.SetInvenItem(allItem);
             //allItem.InvenItemNum = 0;
             //allItem.InvenItemNum += store.AllBuyNum;
             //emptySlot.transform.GetChild(3).GetComponent<Text>().text = allItem.InvenItemNum.ToString();
-        }
+        }*/
     }
     public void Close()
     {

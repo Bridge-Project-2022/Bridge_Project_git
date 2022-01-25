@@ -44,6 +44,8 @@ public class Store : MonoBehaviour
     public GameObject BuyAllPrice;
     public GameObject BuyAllNum;
 
+    public Text alertText;
+
     public System.Action<ItemProperty> onStoreSlotClick;//델리게이트 변수
     //public System.Action<ItemProperty> onAllStoreSlotClick;//델리게이트 변수
 
@@ -51,6 +53,8 @@ public class Store : MonoBehaviour
     void Start()
     {
         slots = new List<Slot>();
+        Middleslots = new List<Slot>();
+
         int slotCount = slotRoot.childCount;
         int MiddleslotCount = MiddleslotRoot.childCount;
 
@@ -86,7 +90,7 @@ public class Store : MonoBehaviour
             }
 
 
-            slots.Add(slot);
+            Middleslots.Add(Middleslot);
         }
     }
     public void OnClickSlot(Slot clickedSlot)
@@ -142,7 +146,8 @@ public class Store : MonoBehaviour
 
         slot.item.itemCount -= 1 * BuyNum;
         fd.Money -= slot.item.itemPrice * BuyNum;
-        
+        alertText.GetComponent<Text>().text = slot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
+        StartCoroutine(FadeTextToZero());
     }
 
     public void BuyAllItemUI()
@@ -159,15 +164,15 @@ public class Store : MonoBehaviour
     }
     public void BuyAllItem()
     {
-        inven.GetComponent<Inventory>().AllBuyItem();
         if (fd.Money >= slotItemPrice * AllBuyNum)
         {
             fd.Money -= slotItemPrice * AllBuyNum;
-            for (int i = 0; i < slots.Count; i++)
+            for (int j = 0; j < slotRoot.childCount; j++)
             {
-                slots[i].item.itemCount -= 1 * AllBuyNum;
+                slots[j].item.itemCount -= 1 * AllBuyNum;
             }
         }
+        inven.GetComponent<Inventory>().AllBuyItem();
     }
     
     public void Close()
@@ -184,6 +189,16 @@ public class Store : MonoBehaviour
         BuyAll.gameObject.SetActive(false);
     }
 
+    public IEnumerator FadeTextToZero()  // 알파값 1에서 0으로 전환
+    {
+        alertText.color = new Color(alertText.color.r, alertText.color.g, alertText.color.b, 1);
+        while (alertText.color.a > 0.0f)
+        {
+            alertText.color = new Color(alertText.color.r, alertText.color.g, alertText.color.b, alertText.color.a - (Time.deltaTime / 2.0f));
+            yield return null;
+        }
+    }
+
     public void Update()
     {
 
@@ -196,7 +211,7 @@ public class Store : MonoBehaviour
             MinusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
-        /*if ((BuyNum + 1) * slot.item.itemPrice > fd.Money)
+        if ((BuyNum + 1) * slot.item.itemPrice > fd.Money)
         {
             Debug.Log("잔돈 없음. 더이상 추가 불가");
             PlusBtn.gameObject.GetComponent<Button>().interactable = false;
@@ -204,12 +219,14 @@ public class Store : MonoBehaviour
         else
         {
             PlusBtn.gameObject.GetComponent<Button>().interactable = true;
-        }*/
+        }
 
         if (fd.Money < slotItemPrice * AllBuyNum)
         {
             Debug.Log("잔액 부족");
             BuyAllBtn.gameObject.GetComponent<Button>().interactable = false;
+            alertText.GetComponent<Text>().text = "잔액이 부족합니다.";
+            StartCoroutine(FadeTextToZero());
         }
     }
 
