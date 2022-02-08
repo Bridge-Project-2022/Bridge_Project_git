@@ -1,0 +1,173 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Cooler : MonoBehaviour
+{
+    public GameObject CoolerDetail;
+
+    public ItemProperty ClickedItem;
+
+    public GameObject CoolerOne;//냉침 아이템 1
+    public GameObject CoolerTwo;// 냉침 아이템 2
+    public GameObject CoolerThree;// 냉침 아이템 3
+
+    public GameObject Particle1;
+    public GameObject Particle2;
+    public GameObject Particle3;
+
+    int ResultCount = 0;
+    int goodCount;
+
+
+    public Sprite[] ItemBurnSprites = new Sprite[1];//탄 아이템 이미지 배열
+
+    //냉침기 클릭 시 화면 확대되는 기능 -> ok
+    //클릭한 탑 아이템 타입 확인 -> 인간이면 5초 동물이면 4초 -> ok
+    //냉침 완료 시에 향료에 파티클 보여짐 -> ok
+    //냉침 이후 2초 이내 수거 안하면 bad로 바뀜 -> ok
+    //냉침기 위의 아이템 터치할 때마다 카운트 값 증가하고 카운트 값 = 3이면 자동으로 2초 뒤에 창 사라짐.
+    //파티클 생기면서 변수 카운트 증가하는데 3이면 굿 2면 노멀 1,0이면 배드 판정됨.
+
+    public void Start()
+    {
+        goodCount = 0;
+    }
+    public void CoolerOn(ItemProperty item)
+    {
+        this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
+        ClickedItem = item;
+        Debug.Log(ClickedItem.name);
+    }
+
+    public void CoolerStart()//냉침기 자세히 보여지고 기능 시작. 
+    {
+        CoolerDetail.gameObject.SetActive(true);
+        GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
+        //GameObject.Find("Desk").GetComponent<Button>().interactable = false;
+
+        CoolerOne.gameObject.GetComponent<Image>().sprite = ClickedItem.sprite;
+        CoolerTwo.gameObject.GetComponent<Image>().sprite = ClickedItem.sprite;
+        CoolerThree.gameObject.GetComponent<Image>().sprite = ClickedItem.sprite;
+        // 선택한 탑 아이템 냉침 123에 세팅 완료
+
+        if (ClickedItem.name.Equals("human"))
+        {
+            Invoke("ParticleShow", 5f);
+            Invoke("BurnItem", 7f);
+        }
+        else if (ClickedItem.name.Equals("animal"))
+        {
+            Invoke("ParticleShow", 4f);
+            Invoke("BurnItem", 6f);
+        }
+        else
+        {
+            Invoke("ParticleShow", 3f);
+            Invoke("BurnItem", 5f);
+        }
+    }
+    public void CoolerClose()//냉침기 종료
+    {
+        CoolerDetail.gameObject.SetActive(false);
+        GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
+        GameObject.Find("Desk").GetComponent<Button>().interactable = true;
+
+    }
+
+    public void ParticleShow()//각 초 후에 파티클 생기고 클릭 가능해짐.
+    {
+        Particle1.gameObject.SetActive(true);
+        Particle2.gameObject.SetActive(true);
+        Particle3.gameObject.SetActive(true);
+
+        CoolerOne.GetComponent<Button>().interactable = true;
+        CoolerTwo.GetComponent<Button>().interactable = true;
+        CoolerThree.GetComponent<Button>().interactable = true;
+
+        CoolerOne.gameObject.tag = "good";
+        CoolerTwo.gameObject.tag = "good";
+        CoolerThree.gameObject.tag = "good";
+    }
+
+    public void BurnItem()//파티클 생성 후 2초 뒤에 아이템 탄 이미지로 변환,
+    {
+        Debug.Log("아이템 타버림");
+        //여기에 아이템 이름별로 다르게 탄 이미지 변경하도록 조건문 추가해야함.
+
+        Particle1.gameObject.SetActive(false);
+        Particle2.gameObject.SetActive(false);
+        Particle3.gameObject.SetActive(false);
+
+        CoolerOne.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
+        CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
+        CoolerThree.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
+
+        CoolerOne.gameObject.tag = "bad";
+        CoolerTwo.gameObject.tag = "bad";
+        CoolerThree.gameObject.tag = "bad";
+
+    }
+
+    public void ItemResult(GameObject itemResult)//아이템 수거
+    {
+        if (itemResult.gameObject.tag == "good")
+        {
+            if (itemResult.name == "Cool1")
+            {
+                Particle1.gameObject.SetActive(false);
+            }
+            else if (itemResult.name == "Cool2")
+            {
+                Particle2.gameObject.SetActive(false);
+            }
+
+            else if (itemResult.name == "Cool3")
+            {
+                Particle3.gameObject.SetActive(false);
+            }
+            goodCount += 1;
+        }
+
+        itemResult.gameObject.GetComponent<Image>().sprite = null;
+        Color color = itemResult.gameObject.GetComponent<Image>().color;
+        color.a = 0;
+        itemResult.gameObject.GetComponent<Image>().color = color;//아이템 제거
+
+
+        if (itemResult.gameObject.tag == "bad")
+        {
+            goodCount += 0;
+        }//굿이면 1 추가, 배드면 0 추가
+
+        ResultCount += 1;
+
+        if (ResultCount == 3)
+        {
+            CoolTotalScore();
+            this.GetComponent<Button>().interactable = false;
+            Invoke("CoolerClose", 2);
+        }
+    }
+
+    public void CoolTotalScore()
+    {
+        if (goodCount == 3)
+        {
+            Debug.Log("3점");
+            TotalScore.isCoolGood = true;
+        }
+
+        else if (goodCount == 2)
+        {
+            Debug.Log("2점");
+            TotalScore.isCoolNormal = true;
+        }
+        else
+        {
+            Debug.Log("1또는 0점");
+            TotalScore.isCoolBad = true;
+        }
+    }
+}

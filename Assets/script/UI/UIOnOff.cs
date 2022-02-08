@@ -20,4 +20,11 @@ public class UIOnOff : MonoBehaviour
 
     }
 
+    public void StoreClose()
+    {
+        Debug.Log("º¸µû¸® ´ÝÀ½");
+       GameObject.Find("Customer").gameObject.SetActive(false);
+
+    }
+
 }

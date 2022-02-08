@@ -6,6 +6,9 @@ TagManager:
   tags:
   - RandomBuyer
   - StoryBuyer
+  - good
+  - normal
+  - bad
   layers:
   - Default
   - TransparentFX

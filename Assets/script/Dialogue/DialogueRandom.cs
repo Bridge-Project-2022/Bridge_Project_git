@@ -16,6 +16,10 @@ public class DialogueRandom : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    public bool makeStart = false;
+
+    public GameObject arrow;
+
     int A_random;
     int B_random;
     int C_1_random;
@@ -90,6 +94,9 @@ public class DialogueRandom : MonoBehaviour
         Seller.gameObject.SetActive(false);
         RandomDialogue();
         StartCoroutine(NormalChat(BuyerSentences[2]));
+        arrow.gameObject.SetActive(true);
+        makeStart = true;
+
     }
 
     public void D_2_Start()// 손님 : 거부 - 불만 표출

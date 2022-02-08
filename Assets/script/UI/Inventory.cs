@@ -59,7 +59,7 @@ public class Inventory : MonoBehaviour
                 Debug.Log(i + "번째 슬롯 아이템이 겹침");
                 isSame = true;
                 item.InvenItemNum += store.BuyNum;
-                slots[i].transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString();
+                slots[i].transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString() + "개 남음";
 
                 break;
             }
@@ -82,7 +82,7 @@ public class Inventory : MonoBehaviour
             Debug.Log("실행");
             emptySlot.SetInvenItem(item);
             item.InvenItemNum += store.BuyNum;
-            emptySlot.transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString();
+            emptySlot.transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString() + "개 남음";
         }
     }
 
