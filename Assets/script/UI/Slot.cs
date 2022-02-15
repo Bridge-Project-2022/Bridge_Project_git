@@ -59,7 +59,7 @@ public class Slot : MonoBehaviour
         GameObject.Find("ClickedItem").GetComponent<Image>().color = color;//클릭한 아이템 투명도 0이었다가 보여져야 하니까 255로 변경
         GameObject.Find("ClickedItem").GetComponent<Image>().sprite = this.image.sprite;
 
-        if (ClickedSlot.item.itemType == "Base")//증류기 실행
+        if (ClickedSlot.item.itemType == "Top")//증류기 실행
         {
             ClickedItem = ClickedSlot.item;
 
@@ -68,9 +68,12 @@ public class Slot : MonoBehaviour
             Debug.Log("냉침기 시작");
         }
 
-        else if (item.itemType == "Middle")//압착기 실행
+        else if (item.itemType == "Base")//압착기 실행
         {
-
+            ClickedItem = ClickedSlot.item;
+            Debug.Log("압착기 시작");
+            GameObject.Find("Presser").GetComponent<Presser>().GetComponent<Button>().interactable = true;
+            GameObject.Find("Presser").GetComponent<Presser>().PresserOn(ClickedItem);
         }
         else if (item.itemType == "Top")//냉침기 실행
         {
