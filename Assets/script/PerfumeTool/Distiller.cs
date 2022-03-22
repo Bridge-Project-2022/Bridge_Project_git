@@ -1,16 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Distiller : MonoBehaviour
 {
     public GameObject distillerWindow;
+    public GameObject clickedItem;
     public float distillerTime = 6.0f;
     public GameObject[] temperatureList;
     public int maxTemperature;
+    public GameObject itemImage;
 
     bool isWork = false;
+
     int temperature = 0;
+
+    float lowTempTime = 0;
+    float middleTempTime = 0;
+    float HighTempTime = 0;
+
+    public void OnDistillerBtnClick()
+    {
+        distillerWindow.SetActive(true);
+
+        if (clickedItem == null)
+            return;
+
+        itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
+    }
 
     public void StartDistiller()
     {
@@ -35,7 +53,6 @@ public class Distiller : MonoBehaviour
         if (temperature >= maxTemperature)
             return;
 
-        Debug.Log(temperature);
         temperatureList[temperature].SetActive(true);
         temperature++;
     }
@@ -52,6 +69,13 @@ public class Distiller : MonoBehaviour
 
     public void CloseWindow()
     {
+        isWork = false;
+        temperature = 0;
         distillerWindow.SetActive(false);
+    }
+
+    public void Update()
+    {
+        
     }
 }

@@ -67,7 +67,7 @@ public class Store : MonoBehaviour
             {
                 slot.SetItem(itemBuffer.items[i]);
             }
-            else//아이템이 없는 경우 클릭 불가하게 만듦.
+            else // 아이템이 없는 경우 클릭 불가하게 만듦.
             {
                 slot.GetComponent<UnityEngine.UI.Button>().interactable = false;
             }
@@ -84,7 +84,7 @@ public class Store : MonoBehaviour
             {
                 Middleslot.SetItem(MiddleitemBuffer.items[j]);
             }
-            else//아이템이 없는 경우 클릭 불가하게 만듦.
+            else // 아이템이 없는 경우 클릭 불가하게 만듦.
             {
                 Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
             }

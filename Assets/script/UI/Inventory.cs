@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
     public Store store;
 
     private List<Slot> slots;
-    private List<Slot> storeslots;
+    private List<Slot> storeSlots;
 
     //public bool isNew;//새로운 아이템이 들어온 경우 true
     public bool isSame;
@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
         isAllsame = false;
 
         slots = new List<Slot>();
-        storeslots = new List<Slot>();
+        storeSlots = new List<Slot>();
 
         int slotCount = slotRoot.childCount;
 
@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
         {
             var Storeslot = storeSlotRoot.GetChild(i).GetComponent<Slot>();
 
-            storeslots.Add(Storeslot);
+            storeSlots.Add(Storeslot);
         }
         store.onStoreSlotClick += BuyItem;//구매하기 버튼 누르면 다음 함수 실행.
         //store.onAllStoreSlotClick += AllBuyItem;
@@ -97,15 +97,15 @@ public class Inventory : MonoBehaviour
         {
             for (int j = 0; j < storeSlotRoot.childCount; j++)
             {
-                if (slots[i].item != storeslots[i].item)//중복이 아닌 경우
+                if (slots[i].item != storeSlots[i].item)//중복이 아닌 경우
                 {
                     Debug.Log("중복없음");
-                    //Debug.Log(storeslots[i].item.name);
+                    //Debug.Log(storeSlots[i].item.name);
                     if (emptySlot != null)//슬롯 꽉차지 않은 경우
                     {
-                        Debug.Log(storeslots[i].item.name);
-                        emptySlot.SetInvenItem(storeslots[i].item);
-                        //storeslots[i].item = allItem;
+                        Debug.Log(storeSlots[i].item.name);
+                        emptySlot.SetInvenItem(storeSlots[i].item);
+                        //storeSlots[i].item = allItem;
                         isAllsame = false;
                     }
                     else
@@ -114,7 +114,7 @@ public class Inventory : MonoBehaviour
                     }
                 }
 
-                if (slots[i].item == storeslots[i].item)
+                if (slots[i].item == storeSlots[i].item)
                 {
                     Debug.Log("중복있음");
                     isAllsame = true;

@@ -1822,6 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4738e3238baf5484d9e94bcdfc4cf6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distiller: {fileID: 0}
   distillerWindow: {fileID: 1298181245}
   distillerTime: 6
   temperatureList:
