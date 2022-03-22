@@ -1,0 +1,47 @@
+[
+   {
+      "index":0,
+      "actor":"손님1",
+      "sentence":"안녕하세요"
+   },
+   {
+      "index":1,
+      "actor":"손님1",
+      "sentence":"향수를 만들고 싶어서 왔어요"
+   },
+   {
+      "index":2,
+      "actor":"손님1",
+      "sentence":"가능할까요"
+   },
+   {
+      "index":3,
+      "actor":"주인",
+      "sentence":"네"
+   },
+   {
+      "index":4,
+      "actor":"주인",
+      "sentence":"어떤 향수를 원하시나요"
+   },
+   {
+      "index":5,
+      "actor":"손님1",
+      "sentence":"강렬한 향수를 원해요"
+   },
+   {
+      "index":6,
+      "actor":"주인",
+      "sentence":"가격은 1000원입니다"
+   },
+   {
+      "index":7,
+      "actor":"손님1",
+      "sentence":"감사합니다"
+   },
+   {
+      "index":8,
+      "actor":"주인",
+      "sentence":"안녕히 가세요"
+   }
+]
