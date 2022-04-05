@@ -69,17 +69,17 @@ public class Presser : MonoBehaviour
 
     public void PresserStart()//¾ÐÂø °úÁ¤ ½ÃÀÛ
     {
-        if (PressCount == 1|| PressCount == 3 || PressCount == 5)//³»·Á°¨
+        if (PressCount == 1 || PressCount == 3 || PressCount == 5 || PressCount == 7 || PressCount == 9 || PressCount == 11)//³»·Á°¨
         {
             handle.transform.position = new Vector3(985, 600, 0);
             Color color = PressItem.gameObject.GetComponent<Image>().color;
             color.a = 0;
             PressItem.gameObject.GetComponent<Image>().color = color;
             PressCount += 1;
-            
+
         }
 
-        else if (PressCount == 0 || PressCount == 2 || PressCount == 4 || PressCount == 6 )//¿Ã¶ó°¨
+        else if (PressCount == 0 || PressCount == 2 || PressCount == 4 || PressCount == 6 || PressCount == 8 || PressCount == 10 || PressCount == 12)//¿Ã¶ó°¨
         {
             if (PressCount == 2)
             {
@@ -91,33 +91,106 @@ public class Presser : MonoBehaviour
                 Debug.Log("µÎ¹ø »¨À½");
                 PressItem.GetComponent<Image>().color = Color.blue;
             }
+            if (PressCount == 6)
+            {
+                Debug.Log("¼¼¹ø »¨À½");
+                PressItem.GetComponent<Image>().color = Color.blue;
+            }
+            if (PressCount == 8)
+            {
+                Debug.Log("³×¹ø »¨À½");
+                PressItem.GetComponent<Image>().color = Color.blue;
+            }
+            if (PressCount == 10)
+            {
+                Debug.Log("´Ù¼¸¹ø »¨À½");
+                PressItem.GetComponent<Image>().color = Color.blue;
+            }
+            if (PressCount == 12)
+            {
+                Debug.Log("¿©¼¸¹ø »¨À½");
+                PressItem.GetComponent<Image>().color = Color.blue;
+            }
             handle.transform.position = new Vector3(985, 712, 0);
             Color color = PressItem.gameObject.GetComponent<Image>().color;
             color.a = 255;
             PressItem.gameObject.GetComponent<Image>().color = color;
             PressCount += 1;
         }
-        if (ClickedItem.name.Equals("human"))
+        if (ClickedItem.name.Equals("»ç¶û"))
         {
-            Debug.Log(PressCount);
-            if (PressCount == 5)
-            {
-                Debug.Log("Àß µÊ");
+            if (PressCount == 1)
                 PressItem.tag = "good";
-            }
             else if (PressCount == 3)
-            {
-                Debug.Log("º¸Åë");
                 PressItem.tag = "normal";
-            }
-
-            else
-            {
-                Debug.Log("¸ÁÇÔ");
+            else if (PressCount == 5)
                 PressItem.tag = "bad";
-            }
         }
-        
+
+        else if (ClickedItem.name.Equals("¿ìÁ¤"))
+        {
+            if (PressCount == 2)
+                PressItem.tag = "good";
+            else if (PressCount == 4)
+                PressItem.tag = "normal";
+            else if (PressCount == 6)
+                PressItem.tag = "bad";
+        }
+        else if (ClickedItem.name.Equals("±â»Ý"))
+        {
+            if (PressCount == 3)
+                PressItem.tag = "good";
+            else if (PressCount == 5)
+                PressItem.tag = "normal";
+            else if (PressCount == 7)
+                PressItem.tag = "bad";
+        }
+        else if (ClickedItem.name.Equals("½½ÇÄ"))
+        {
+            if (PressCount == 2)
+                PressItem.tag = "good";
+            else if (PressCount == 5)
+                PressItem.tag = "normal";
+            else if (PressCount == 8)
+                PressItem.tag = "bad";
+        }
+        else if (ClickedItem.name.Equals("Áñ°Å¿ò"))
+        {
+            if (PressCount == 1)
+                PressItem.tag = "good";
+            else if (PressCount == 4)
+                PressItem.tag = "normal";
+            else if (PressCount == 9)
+                PressItem.tag = "bad";
+        }
+        else if (ClickedItem.name.Equals("ºÐ³ë"))
+        {
+            if (PressCount == 2)
+                PressItem.tag = "good";
+            else if (PressCount == 3)
+                PressItem.tag = "normal";
+            else if (PressCount == 4)
+                PressItem.tag = "bad";
+        }
+        else if (ClickedItem.name.Equals("ÈÄÈ­"))
+        {
+            if (PressCount == 5)
+                PressItem.tag = "good";
+            else if (PressCount == 8)
+                PressItem.tag = "normal";
+            else if (PressCount == 10)
+                PressItem.tag = "bad";
+        }
+        else if (ClickedItem.name.Equals("°øÆ÷"))
+        {
+            if (PressCount == 4)
+                PressItem.tag = "good";
+            else if (PressCount == 7)
+                PressItem.tag = "normal";
+            else if (PressCount == 11)
+                PressItem.tag = "bad";
+        }
+
     }
 
     public void PressResult(GameObject PressResult)
@@ -130,18 +203,18 @@ public class Presser : MonoBehaviour
 
         if (PressResult.gameObject.tag == "good")
         {
-            TotalScore.isPressGood = true;
+            TotalScore.FindObjectOfType<TotalScore>().isPressGood = true;
             Debug.Log("¾ÐÂø ±Â");
         }
 
         else if (PressResult.gameObject.tag == "normal")
         {
-            TotalScore.isPressNormal = true;
+            TotalScore.FindObjectOfType<TotalScore>().isPressNormal = true;
             Debug.Log("¾ÐÂø ³ë¸Ö");
         }
         else if (PressResult.gameObject.tag == "bad")
         {
-            TotalScore.isPressBad = true;
+            TotalScore.FindObjectOfType<TotalScore>().isPressBad = true;
             Debug.Log("¾ÐÂø ¹èµå");
         }
 
@@ -150,6 +223,8 @@ public class Presser : MonoBehaviour
 
     public void PresserEnd()//¾ÐÂø °úÁ¤ Á¾·á
     {
+        TotalScore.FindObjectOfType<TotalScore>().isPressFin = true;
+        //TotalScore.isPressFin = true;
         PresserDetail.gameObject.SetActive(false);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
         //GameObject.Find("Desk").GetComponent<Button>().interactable = true;

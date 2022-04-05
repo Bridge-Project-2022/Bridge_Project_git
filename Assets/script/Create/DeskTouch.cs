@@ -18,13 +18,13 @@ public class DeskTouch : MonoBehaviour
             GameObject.Find("buyer").gameObject.SetActive(false);
             GameObject.Find("Random_Buyer").gameObject.transform.position = new Vector3(-0.14f, 3.98f, -0.04f);
 
-            //SceneManager.LoadScene("Manufacture");
             desk = GameObject.Find("Desk").gameObject;
             desk.transform.localScale = new Vector3(20, 11, 1);
             Manufacture.gameObject.SetActive(true);
             inven = GameObject.Find("InvenUI").gameObject;
             inven.transform.position = new Vector3(300, 400, 0);
             isDeskUp = true;
+            Timer.FindObjectOfType<Timer>().isTimerStart = true;
         }
     }
 }

@@ -1276,7 +1276,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: BuyItem
+        m_MethodName: BuyMiddleItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2640,7 +2640,7 @@ GameObject:
   - component: {fileID: 145766695}
   - component: {fileID: 145766694}
   m_Layer: 5
-  m_Name: DetailItemName
+  m_Name: MiddleDetailItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3003,7 +3003,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: PlusItem
+        m_MethodName: PlusMiddleItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3221,7 +3221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 189203252}
   m_Layer: 5
-  m_Name: ItemDetail
+  m_Name: MiddleItemDetail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3534,7 +3534,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickTopSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 222120341}
@@ -3593,8 +3593,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3737,7 +3737,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickMiddleSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 229402023}
@@ -3796,8 +3796,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4205,7 +4205,7 @@ GameObject:
   - component: {fileID: 276099037}
   - component: {fileID: 276099036}
   m_Layer: 5
-  m_Name: DetailItemImg
+  m_Name: TopDetailItemImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4783,7 +4783,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickTopSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 316399126}
@@ -4842,8 +4842,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4950,7 +4950,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickMiddleSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 333173300}
@@ -5009,8 +5009,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6058,7 +6058,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: MinusItem
+        m_MethodName: MinusMiddleItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6817,7 +6817,7 @@ GameObject:
   - component: {fileID: 458329182}
   - component: {fileID: 458329181}
   m_Layer: 5
-  m_Name: DetailItemNum
+  m_Name: MiddleDetailItemNum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7758,7 +7758,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: PlusItem
+        m_MethodName: PlusTopItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8093,7 +8093,7 @@ GameObject:
   - component: {fileID: 541725411}
   - component: {fileID: 541725410}
   m_Layer: 5
-  m_Name: DetailItemImg
+  m_Name: MiddleDetailItemImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10705,7 +10705,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickTopSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 669680709}
@@ -10764,8 +10764,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11580,24 +11580,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - name: gps
-    sprite: {fileID: 21300000, guid: d720f756d71e01848b8162e53fc6e450, type: 3}
-    itemCount: 10
-    itemPrice: 500
+  - name: "\uC0AC\uB791"
+    sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
+    itemCount: 3
+    itemPrice: 120
     InvenItemNum: 0
-    itemType: 
-  - name: ice
-    sprite: {fileID: 21300000, guid: 6a39b33d3c610354587750a241821746, type: 3}
-    itemCount: 10
-    itemPrice: 500
+    itemType: Middle
+  - name: "\uC6B0\uC815"
+    sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
+    itemCount: 3
+    itemPrice: 150
     InvenItemNum: 0
-    itemType: 
-  - name: animal
-    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
-    itemCount: 5
-    itemPrice: 1000
+    itemType: Middle
+  - name: "\uAE30\uC068"
+    sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
+    itemCount: 3
+    itemPrice: 170
     InvenItemNum: 0
-    itemType: 
+    itemType: Middle
+  - name: "\uC2AC\uD514"
+    sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
+    itemCount: 3
+    itemPrice: 200
+    InvenItemNum: 0
+    itemType: Middle
+  - name: "\uC990\uAC70\uC6C0"
+    sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
+    itemCount: 3
+    itemPrice: 220
+    InvenItemNum: 0
+    itemType: Middle
+  - name: "\uBD84\uB178"
+    sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
+    itemCount: 3
+    itemPrice: 250
+    InvenItemNum: 0
+    itemType: Middle
+  - name: "\uD6C4\uD68C"
+    sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
+    itemCount: 3
+    itemPrice: 320
+    InvenItemNum: 0
+    itemType: Middle
+  - name: "\uACF5\uD3EC"
+    sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
+    itemCount: 3
+    itemPrice: 380
+    InvenItemNum: 0
+    itemType: Middle
 --- !u!4 &742827557
 Transform:
   m_ObjectHideFlags: 0
@@ -11853,7 +11883,7 @@ GameObject:
   - component: {fileID: 758909515}
   - component: {fileID: 758909514}
   m_Layer: 5
-  m_Name: DetailItemPrice
+  m_Name: TopDetailItemPrice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12808,6 +12838,7 @@ MonoBehaviour:
   Buyer: {fileID: 2073503179}
   Select: {fileID: 1170537487}
   Customer: {fileID: 1136612323}
+  Distiller: {fileID: 2103140220}
   BuyerDialogue: {fileID: 78113239}
   SellerDialogue: {fileID: 2103647770}
   makeStart: 0
@@ -13595,7 +13626,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickTopSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 846686827}
@@ -13654,8 +13685,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14201,7 +14232,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: BuyItem
+        m_MethodName: BuyTopItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15202,7 +15233,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickMiddleSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 976083751}
@@ -15261,8 +15292,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -15631,7 +15662,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ccc3b143c920248a0bd71cefaae97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - name: "\uB0A8\uC790"
+    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
+    itemCount: 3
+    itemPrice: 100
+    InvenItemNum: 0
+    itemType: Top
+  - name: "\uC5EC\uC790"
+    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
+    itemCount: 3
+    itemPrice: 100
+    InvenItemNum: 0
+    itemType: Top
+  - name: "\uAC00\uC871"
+    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
+    itemCount: 3
+    itemPrice: 200
+    InvenItemNum: 0
+    itemType: Top
+  - name: "\uC80A\uC74C"
+    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
+    itemCount: 3
+    itemPrice: 250
+    InvenItemNum: 0
+    itemType: Top
+  - name: "\uB299\uC74C"
+    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
+    itemCount: 3
+    itemPrice: 280
+    InvenItemNum: 0
+    itemType: Top
+  - name: "\uD138"
+    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
+    itemCount: 3
+    itemPrice: 190
+    InvenItemNum: 0
+    itemType: Top
+  - name: "\uB530\uB4EF\uD568"
+    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
+    itemCount: 3
+    itemPrice: 310
+    InvenItemNum: 0
+    itemType: Top
+  - name: "\uCC28\uAC00\uC6C0"
+    sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
+    itemCount: 3
+    itemPrice: 240
+    InvenItemNum: 0
+    itemType: Top
 --- !u!4 &984100293
 Transform:
   m_ObjectHideFlags: 0
@@ -16101,7 +16180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cb6408fbb91ad9f4ab2581d7af7cb959, type: 3}
+  m_Sprite: {fileID: 21300054, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16509,15 +16588,15 @@ RectTransform:
   m_GameObject: {fileID: 1086897415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.1734476, y: 2.954893, z: 1.034382}
   m_Children: []
   m_Father: {fileID: 24981041}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 250}
+  m_AnchoredPosition: {x: -5, y: -8}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1086897417
 MonoBehaviour:
@@ -16539,7 +16618,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 312155675173212488271d6501edc007, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17030,7 +17109,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: MinusItem
+        m_MethodName: MinusTopItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18141,7 +18220,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickTopSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1192370867}
@@ -18200,8 +18279,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -19693,7 +19772,7 @@ GameObject:
   - component: {fileID: 1312904193}
   - component: {fileID: 1312904192}
   m_Layer: 5
-  m_Name: DetailItemPrice
+  m_Name: MiddleDetailItemPrice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20557,7 +20636,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickMiddleSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1408468887}
@@ -20616,8 +20695,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -22345,7 +22424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1544468917}
   m_Layer: 5
-  m_Name: ItemDetail
+  m_Name: TopItemDetail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22786,7 +22865,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickTopSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1580383770}
@@ -22845,8 +22924,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -23700,7 +23779,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1659029428}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834425813}
+        m_TargetAssemblyTypeName: TotalScore, Assembly-CSharp
+        m_MethodName: Calculate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1659029428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24089,28 +24180,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - name: human
+  - name: "\uC778\uAC04"
     sprite: {fileID: 21300000, guid: 9b07607234c7ba54b9350d447e9801d1, type: 3}
     itemCount: 5
     itemPrice: 100
     InvenItemNum: 0
     itemType: Base
-  - name: animal
+  - name: "\uB3D9\uBB3C"
     sprite: {fileID: 21300000, guid: 4779c3ac94fb2a548b0d807bee9428af, type: 3}
     itemCount: 5
-    itemPrice: 100
+    itemPrice: 80
     InvenItemNum: 0
     itemType: Base
-  - name: ice
+  - name: "\uBB3C\uAC74"
     sprite: {fileID: 21300000, guid: 6a39b33d3c610354587750a241821746, type: 3}
     itemCount: 5
-    itemPrice: 100
+    itemPrice: 150
     InvenItemNum: 0
     itemType: Base
-  - name: gps
+  - name: "\uACF5\uAC04"
     sprite: {fileID: 21300000, guid: d720f756d71e01848b8162e53fc6e450, type: 3}
     itemCount: 5
-    itemPrice: 10000
+    itemPrice: 200
     InvenItemNum: 0
     itemType: Base
 --- !u!4 &1684940231
@@ -24144,7 +24235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1693727924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24462,7 +24553,7 @@ GameObject:
   - component: {fileID: 1737370765}
   - component: {fileID: 1737370764}
   m_Layer: 5
-  m_Name: DetailItemNum
+  m_Name: TopDetailItemNum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25090,7 +25181,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickMiddleSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1750166675}
@@ -25149,8 +25240,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -25336,7 +25427,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickMiddleSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1769874743}
@@ -25395,8 +25486,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -26081,7 +26172,7 @@ GameObject:
   - component: {fileID: 1818286158}
   - component: {fileID: 1818286157}
   m_Layer: 5
-  m_Name: DetailItemName
+  m_Name: TopDetailItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26252,6 +26343,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535b2fb5b0c0c8f4bac4de466a69dace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCoolFin: 0
+  isPressFin: 0
+  isDistillFin: 0
+  totalScore: 0
+  Perfume: {fileID: 1659029425}
+  isStart: 0
+  totalTime: 0
 --- !u!4 &1834425814
 Transform:
   m_ObjectHideFlags: 0
@@ -26905,7 +27003,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickTopSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1876390094}
@@ -26964,8 +27062,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -27230,6 +27328,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1948855201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1948855203}
+  - component: {fileID: 1948855202}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1948855202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948855201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c56ec63ce55f242974aedff4adeab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  isTimerStart: 0
+--- !u!4 &1948855203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948855201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 979.92145, y: 655.2792, z: -79.70226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951724738
 GameObject:
   m_ObjectHideFlags: 0
@@ -27741,15 +27884,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotRoot: {fileID: 2032160123}
   MiddleslotRoot: {fileID: 80169007}
+  TopslotRoot: {fileID: 2075603221}
   itemBuffer: {fileID: 1684940230}
   MiddleitemBuffer: {fileID: 742827556}
+  TopitemBuffer: {fileID: 984100292}
   fd: {fileID: 402703633}
   inven: {fileID: 955573410}
   ItemDetail: {fileID: 120329038}
+  MiddleItemDetail: {fileID: 189203251}
+  TopItemDetail: {fileID: 1544468916}
   image: {fileID: 187527955}
   DetailPrice: {fileID: 805804859}
   DetailItemName: {fileID: 597208450}
   DetailItemNum: {fileID: 1128890332}
+  Middleimage: {fileID: 541725410}
+  MiddleDetailPrice: {fileID: 1312904190}
+  MiddleDetailItemName: {fileID: 145766692}
+  MiddleDetailItemNum: {fileID: 458329179}
+  Topimage: {fileID: 276099036}
+  TopDetailPrice: {fileID: 758909512}
+  TopDetailItemName: {fileID: 1818286155}
+  TopDetailItemNum: {fileID: 1737370762}
   slider: {fileID: 466130439}
   AllBuyslider: {fileID: 2058221879}
   MinusBtn: {fileID: 1289554244}
@@ -27761,6 +27916,7 @@ MonoBehaviour:
   AllBuyNum: 0
   slot: {fileID: 0}
   Middleslot: {fileID: 0}
+  Topslot: {fileID: 0}
   BuyAll: {fileID: 545033796}
   BuyAllPrice: {fileID: 658080012}
   BuyAllNum: {fileID: 1174333466}
@@ -29365,7 +29521,7 @@ GameObject:
   - component: {fileID: 2075603221}
   - component: {fileID: 2075603222}
   m_Layer: 5
-  m_Name: StoreSlots
+  m_Name: TopStoreSlots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29512,7 +29668,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickTopSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2095790279}
@@ -29571,8 +29727,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -29679,7 +29835,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickMiddleSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2096141399}
@@ -29738,8 +29894,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -29820,7 +29976,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -29834,7 +29990,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2103140223}
   m_OnClick:
     m_PersistentCalls:
@@ -29910,6 +30066,15 @@ MonoBehaviour:
   - {fileID: 1230319960}
   maxTemperature: 3
   itemImage: {fileID: 2122596455}
+  ClickedItem:
+    name: 
+    sprite: {fileID: 0}
+    itemCount: 0
+    itemPrice: 0
+    InvenItemNum: 0
+    itemType: 
+  DistillerStatus: 
+  DistillCnt: 0
 --- !u!1 &2103647768
 GameObject:
   m_ObjectHideFlags: 0
@@ -30131,7 +30296,7 @@ GameObject:
   - component: {fileID: 2122596458}
   - component: {fileID: 2122596457}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: DistillerItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30176,7 +30341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c6c531e9c23db0e40b2eba0a8f947629, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30251,7 +30416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cb6408fbb91ad9f4ab2581d7af7cb959, type: 3}
+  m_Sprite: {fileID: 21300054, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30721,7 +30886,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984785263}
         m_TargetAssemblyTypeName: Store, Assembly-CSharp
-        m_MethodName: OnClickSlot
+        m_MethodName: OnClickMiddleSlot
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2145936725}
@@ -30780,8 +30945,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dd51d0329596f74db3159e9df72ac45, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300090, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

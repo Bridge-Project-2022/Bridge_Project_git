@@ -11,6 +11,8 @@ public class DialogueRandom : MonoBehaviour
 
     public GameObject Customer;
 
+    public GameObject Distiller;
+
     public TextMeshProUGUI BuyerDialogue;
     public TextMeshProUGUI SellerDialogue;
 
@@ -114,8 +116,21 @@ public class DialogueRandom : MonoBehaviour
         Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
     }
 
-    IEnumerator NormalChat(string narration)// 타이핑 효과
+    IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
+        if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_D_1[0])
+        {
+            Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
+        }
+        else if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_D_1[1])
+        {
+            Distiller.GetComponent<Distiller>().DistillerStatus = "보통";
+        }
+        else if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_D_1[2])
+        {
+            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
+        }
+
         string writerText = "";
         for (int a = 0; a < narration.Length; a++)
         {

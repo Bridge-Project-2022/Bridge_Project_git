@@ -43,8 +43,8 @@ public class DialogueScript : MonoBehaviour
 
         //손님 : C_1 이후 대답. 향의 세기 선정
         Dialogue_D_1[0] = "아주 강렬하게 해주세요..";
-        Dialogue_D_1[1] = "은은하게 퍼지도록 해주세요.";
-        Dialogue_D_1[2] = "적당히 해주세요. \n너무 강하면 미쳐버릴지도..";
+        Dialogue_D_1[1] = "적당히 해주세요. \n너무 강하면 미쳐버릴지도..";
+        Dialogue_D_1[2] = "아주 약하게 해주세요..";
 
         //손님 : C_2 이후 대답. D_2 이후 다시 A로 돌아감.
         Dialogue_D_2[0] = "대체 왜죠? 그럴 거면 가게를 하지 말든가..";

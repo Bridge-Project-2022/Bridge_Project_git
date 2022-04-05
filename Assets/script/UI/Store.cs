@@ -7,21 +7,37 @@ public class Store : MonoBehaviour
 {
     public Transform slotRoot;
     public Transform MiddleslotRoot;
+    public Transform TopslotRoot;
 
     public ItemBuffer itemBuffer;
     public ItemBuffer MiddleitemBuffer;
+    public ItemBuffer TopitemBuffer;
 
     private List<Slot> slots;
     private List<Slot> Middleslots;
+    private List<Slot> Topslots;
 
     public FirstDaySetting fd;
     public GameObject inven;
 
     public GameObject ItemDetail;
+    public GameObject MiddleItemDetail;
+    public GameObject TopItemDetail;
+
     public UnityEngine.UI.Image image;
     public GameObject DetailPrice;
     public GameObject DetailItemName;
     public GameObject DetailItemNum;
+
+    public UnityEngine.UI.Image Middleimage;
+    public GameObject MiddleDetailPrice;
+    public GameObject MiddleDetailItemName;
+    public GameObject MiddleDetailItemNum;
+
+    public UnityEngine.UI.Image Topimage;
+    public GameObject TopDetailPrice;
+    public GameObject TopDetailItemName;
+    public GameObject TopDetailItemNum;
 
     public Slider slider;
     public Slider AllBuyslider;
@@ -39,6 +55,8 @@ public class Store : MonoBehaviour
 
     public Slot slot;
     public Slot Middleslot;
+    public Slot Topslot;
+
 
     public GameObject BuyAll;
     public GameObject BuyAllPrice;
@@ -54,9 +72,11 @@ public class Store : MonoBehaviour
     {
         slots = new List<Slot>();
         Middleslots = new List<Slot>();
+        Topslots = new List<Slot>();
 
         int slotCount = slotRoot.childCount;
         int MiddleslotCount = MiddleslotRoot.childCount;
+        int TopslotCount = TopslotRoot.childCount;
 
 
         for (int i = 0; i < slotCount; i++)
@@ -92,6 +112,23 @@ public class Store : MonoBehaviour
 
             Middleslots.Add(Middleslot);
         }
+
+        for (int k = 0; k < TopslotCount; k++)
+        {
+            Topslot = TopslotRoot.GetChild(k).GetComponent<Slot>();
+
+            if (k < TopitemBuffer.items.Count)
+            {
+                Topslot.SetItem(TopitemBuffer.items[k]);
+            }
+            else // 아이템이 없는 경우 클릭 불가하게 만듦.
+            {
+                Debug.Log("없");
+                Topslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+            }
+
+            Topslots.Add(Topslot);
+        }
     }
     public void OnClickSlot(Slot clickedSlot)
     {
@@ -107,6 +144,34 @@ public class Store : MonoBehaviour
       
     }
 
+    public void OnClickMiddleSlot(Slot clickedSlot)
+    {
+        slider.value = 0;
+        BuyNum = 0;
+        MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        MiddleItemDetail.gameObject.SetActive(true);
+        Middleimage.sprite = clickedSlot.item.sprite;
+        MiddleDetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
+        MiddleDetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
+        Middleslot = clickedSlot;
+        slider.maxValue = clickedSlot.item.itemCount;
+
+    }
+
+    public void OnClickTopSlot(Slot clickedSlot)
+    {
+        slider.value = 0;
+        BuyNum = 0;
+        TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        TopItemDetail.gameObject.SetActive(true);
+        Topimage.sprite = clickedSlot.item.sprite;
+        TopDetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
+        TopDetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
+        Topslot = clickedSlot;
+        slider.maxValue = clickedSlot.item.itemCount;
+
+    }
+
     public void PlusItem()
     {
         BuyNum += 1;
@@ -119,6 +184,36 @@ public class Store : MonoBehaviour
         BuyNum -= 1;
         
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        slider.value -= 1;
+    }
+
+    public void PlusMiddleItem()
+    {
+        BuyNum += 1;
+
+        MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        slider.value += 1;
+    }
+    public void MinusMiddleItem()
+    {
+        BuyNum -= 1;
+
+        MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        slider.value -= 1;
+    }
+
+    public void PlusTopItem()
+    {
+        BuyNum += 1;
+
+        TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        slider.value += 1;
+    }
+    public void MinusTopItem()
+    {
+        BuyNum -= 1;
+
+        TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
         slider.value -= 1;
     }
 
@@ -150,6 +245,32 @@ public class Store : MonoBehaviour
         StartCoroutine(FadeTextToZero());
     }
 
+    public void BuyMiddleItem()
+    {
+        if (onStoreSlotClick != null)
+        {
+            onStoreSlotClick(Middleslot.item);
+        }
+
+        Middleslot.item.itemCount -= 1 * BuyNum;
+        fd.Money -= Middleslot.item.itemPrice * BuyNum;
+        alertText.GetComponent<Text>().text = Middleslot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
+        StartCoroutine(FadeTextToZero());
+    }
+
+    public void BuyTopItem()
+    {
+        if (onStoreSlotClick != null)
+        {
+            onStoreSlotClick(Topslot.item);
+        }
+
+        Topslot.item.itemCount -= 1 * BuyNum;
+        fd.Money -= Topslot.item.itemPrice * BuyNum;
+        alertText.GetComponent<Text>().text = Topslot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
+        StartCoroutine(FadeTextToZero());
+    }
+
     public void BuyAllItemUI()
     {
         AllBuyNum = 0;
@@ -159,7 +280,6 @@ public class Store : MonoBehaviour
         {
             slotItemPrice += slots[i].item.itemPrice;
         }
-        //Debug.Log(slotItemPrice);
         BuyAllPrice.GetComponent<Text>().text = " / " + slotItemPrice.ToString() + "$";
     }
     public void BuyAllItem()
@@ -183,6 +303,8 @@ public class Store : MonoBehaviour
     public void CloseDetail()
     {
         ItemDetail.gameObject.SetActive(false);
+        MiddleItemDetail.gameObject.SetActive(false);
+        TopItemDetail.gameObject.SetActive(false);
     }
     public void CloseBuyAll()
     {

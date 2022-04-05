@@ -52,24 +52,51 @@ public class Cooler : MonoBehaviour
         CoolerThree.gameObject.GetComponent<Image>().sprite = ClickedItem.sprite;
         // 선택한 탑 아이템 냉침 123에 세팅 완료
 
-        if (ClickedItem.name.Equals("human"))
-        {
-            Invoke("ParticleShow", 5f);
-            Invoke("BurnItem", 7f);
-        }
-        else if (ClickedItem.name.Equals("animal"))
+        if (ClickedItem.name.Equals("남자"))
         {
             Invoke("ParticleShow", 4f);
             Invoke("BurnItem", 6f);
         }
-        else
+        else if (ClickedItem.name.Equals("여자"))
         {
-            Invoke("ParticleShow", 3f);
-            Invoke("BurnItem", 5f);
+            Invoke("ParticleShow", 2f);
+            Invoke("BurnItem", 4f);
+        }
+        else if (ClickedItem.name.Equals("가족"))
+        {
+            Invoke("ParticleShow", 4f);
+            Invoke("BurnItem", 6f);
+        }
+        else if (ClickedItem.name.Equals("젊음"))
+        {
+            Invoke("ParticleShow", 1f);
+            Invoke("BurnItem", 3f);
+        }
+        else if (ClickedItem.name.Equals("늙음"))
+        {
+            Invoke("ParticleShow", 8f);
+            Invoke("BurnItem", 10f);
+        }
+        else if (ClickedItem.name.Equals("털"))
+        {
+            Invoke("ParticleShow", 6f);
+            Invoke("BurnItem", 8f);
+        }
+        else if (ClickedItem.name.Equals("따듯함"))
+        {
+            Invoke("ParticleShow", 5f);
+            Invoke("BurnItem", 7f);
+        }
+        else if (ClickedItem.name.Equals("차가움"))
+        {
+            Invoke("ParticleShow", 4f);
+            Invoke("BurnItem", 6f);
         }
     }
     public void CoolerClose()//냉침기 종료
     {
+        TotalScore.FindObjectOfType<TotalScore>().isCoolFin = true;
+        //TotalScore.isCoolFin = true;
         CoolerDetail.gameObject.SetActive(false);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
         GameObject.Find("Desk").GetComponent<Button>().interactable = true;
@@ -156,18 +183,19 @@ public class Cooler : MonoBehaviour
         if (goodCount == 3)
         {
             Debug.Log("3점");
-            TotalScore.isCoolGood = true;
+            TotalScore.FindObjectOfType<TotalScore>().isCoolGood = true;
         }
 
         else if (goodCount == 2)
         {
             Debug.Log("2점");
-            TotalScore.isCoolNormal = true;
+            TotalScore.FindObjectOfType<TotalScore>().isCoolNormal = true;
         }
         else
         {
             Debug.Log("1또는 0점");
-            TotalScore.isCoolBad = true;
+            TotalScore.FindObjectOfType<TotalScore>().isCoolBad = true;
+
         }
     }
 }
