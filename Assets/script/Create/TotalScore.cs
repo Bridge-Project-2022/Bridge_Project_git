@@ -49,9 +49,10 @@ public class TotalScore : MonoBehaviour
     {
         if (isStart == true)
         {
-            Debug.Log("향수 계산");
+            Debug.Log("향수 계산중...");
             totalPrice();
             Debug.Log("최종 향수 가격 : "+ totalScore);
+
         }
     }
     public void totalPrice()
@@ -73,50 +74,41 @@ public class TotalScore : MonoBehaviour
         if (isCoolGood == true)
         {
             totalScore += 70;
-            Debug.Log("굿"+totalScore);
         }
         if (isPressGood == true)
         {
             totalScore += 70;
-            Debug.Log("굿" + totalScore);
         }
         if (isDistillGood == true)
         {
             totalScore += 70;
-            Debug.Log("굿" + totalScore);
         }
 
         //////////////////////////////////////
         if (isCoolNormal == true)
         {
             totalScore += 20;
-            Debug.Log("노멀" + totalScore);
         }
         if (isPressNormal == true)
         {
             totalScore += 20;
-            Debug.Log("노멀" + totalScore);
         }
         if (isDistillNormal == true)
         {
             totalScore += 20;
-            Debug.Log("노멀" + totalScore);
         }
         ///////////////////////////////////
         if (isCoolBad == true)
         {
             totalScore -= 30;
-            Debug.Log("배드" + totalScore);
         }
         if (isPressBad == true)
         {
             totalScore -= 30;
-            Debug.Log("배드" + totalScore);
         }
         if (isDistillBad == true)
         {
             totalScore -= 30;
-            Debug.Log("배드" + totalScore);
         }
 
         Timer.FindObjectOfType<Timer>().TimerStop();

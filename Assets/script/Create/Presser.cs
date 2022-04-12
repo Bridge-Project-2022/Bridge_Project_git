@@ -83,32 +83,26 @@ public class Presser : MonoBehaviour
         {
             if (PressCount == 2)
             {
-                Debug.Log("ÇÑ¹ø »¨À½");
                 PressItem.GetComponent<Image>().color = Color.red;
             }
             if (PressCount == 4)
             {
-                Debug.Log("µÎ¹ø »¨À½");
                 PressItem.GetComponent<Image>().color = Color.blue;
             }
             if (PressCount == 6)
             {
-                Debug.Log("¼¼¹ø »¨À½");
                 PressItem.GetComponent<Image>().color = Color.blue;
             }
             if (PressCount == 8)
             {
-                Debug.Log("³×¹ø »¨À½");
                 PressItem.GetComponent<Image>().color = Color.blue;
             }
             if (PressCount == 10)
             {
-                Debug.Log("´Ù¼¸¹ø »¨À½");
                 PressItem.GetComponent<Image>().color = Color.blue;
             }
             if (PressCount == 12)
             {
-                Debug.Log("¿©¼¸¹ø »¨À½");
                 PressItem.GetComponent<Image>().color = Color.blue;
             }
             handle.transform.position = new Vector3(985, 712, 0);
@@ -117,7 +111,7 @@ public class Presser : MonoBehaviour
             PressItem.gameObject.GetComponent<Image>().color = color;
             PressCount += 1;
         }
-        if (ClickedItem.name.Equals("»ç¶û"))
+        if (ClickedItem.name.Equals("Ä£±¸"))
         {
             if (PressCount == 1)
                 PressItem.tag = "good";
@@ -127,7 +121,7 @@ public class Presser : MonoBehaviour
                 PressItem.tag = "bad";
         }
 
-        else if (ClickedItem.name.Equals("¿ìÁ¤"))
+        else if (ClickedItem.name.Equals("¿¬ÀÎ"))
         {
             if (PressCount == 2)
                 PressItem.tag = "good";
@@ -136,7 +130,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 6)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("±â»Ý"))
+        else if (ClickedItem.name.Equals("°¡Á·"))
         {
             if (PressCount == 3)
                 PressItem.tag = "good";
@@ -145,7 +139,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 7)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("½½ÇÄ"))
+        else if (ClickedItem.name.Equals("¹Ý·Áµ¿¹°"))
         {
             if (PressCount == 2)
                 PressItem.tag = "good";
@@ -154,7 +148,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 8)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("Áñ°Å¿ò"))
+        else if (ClickedItem.name.Equals("Àå³­°¨"))
         {
             if (PressCount == 1)
                 PressItem.tag = "good";
@@ -163,7 +157,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 9)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("ºÐ³ë"))
+        else if (ClickedItem.name.Equals("ÀÎÇü"))
         {
             if (PressCount == 2)
                 PressItem.tag = "good";
@@ -172,7 +166,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 4)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("ÈÄÈ­"))
+        else if (ClickedItem.name.Equals("ÇÐ±³"))
         {
             if (PressCount == 5)
                 PressItem.tag = "good";
@@ -181,13 +175,31 @@ public class Presser : MonoBehaviour
             else if (PressCount == 10)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("°øÆ÷"))
+        else if (ClickedItem.name.Equals("³îÀÌÅÍ"))
         {
             if (PressCount == 4)
                 PressItem.tag = "good";
             else if (PressCount == 7)
                 PressItem.tag = "normal";
             else if (PressCount == 11)
+                PressItem.tag = "bad";
+        }
+        else if (ClickedItem.name.Equals("³îÀÌ°ø¿ø"))
+        {
+            if (PressCount == 6)
+                PressItem.tag = "good";
+            else if (PressCount == 8)
+                PressItem.tag = "normal";
+            else if (PressCount == 13)
+                PressItem.tag = "bad";
+        }
+        else if (ClickedItem.name.Equals("¿©ÇàÁö"))
+        {
+            if (PressCount == 3)
+                PressItem.tag = "good";
+            else if (PressCount == 10)
+                PressItem.tag = "normal";
+            else if (PressCount == 14)
                 PressItem.tag = "bad";
         }
 
@@ -204,18 +216,15 @@ public class Presser : MonoBehaviour
         if (PressResult.gameObject.tag == "good")
         {
             TotalScore.FindObjectOfType<TotalScore>().isPressGood = true;
-            Debug.Log("¾ÐÂø ±Â");
         }
 
         else if (PressResult.gameObject.tag == "normal")
         {
             TotalScore.FindObjectOfType<TotalScore>().isPressNormal = true;
-            Debug.Log("¾ÐÂø ³ë¸Ö");
         }
         else if (PressResult.gameObject.tag == "bad")
         {
             TotalScore.FindObjectOfType<TotalScore>().isPressBad = true;
-            Debug.Log("¾ÐÂø ¹èµå");
         }
 
     }

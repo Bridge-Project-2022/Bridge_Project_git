@@ -282,7 +282,7 @@ public class Store : MonoBehaviour
         }
         BuyAllPrice.GetComponent<Text>().text = " / " + slotItemPrice.ToString() + "$";
     }
-    public void BuyAllItem()
+   /* public void BuyAllItem()
     {
         if (fd.Money >= slotItemPrice * AllBuyNum)
         {
@@ -293,7 +293,7 @@ public class Store : MonoBehaviour
             }
         }
         inven.GetComponent<Inventory>().AllBuyItem();
-    }
+    }*/
     
     public void Close()
     {

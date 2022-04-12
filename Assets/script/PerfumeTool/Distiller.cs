@@ -39,7 +39,7 @@ public void DistillerOn(ItemProperty item)
         this.gameObject.GetComponent<Button>().interactable = true;//증류기 버튼 클릭 가능해짐.
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         ClickedItem = item;
-        Debug.Log(ClickedItem.name);
+        //Debug.Log(ClickedItem.name);
     }
 
 
@@ -73,7 +73,7 @@ public void DistillerOn(ItemProperty item)
     public void OnWickBtnClick()
     {
         DistillCnt += 1;
-        Debug.Log(DistillCnt);
+        //Debug.Log(DistillCnt);
         if (isWork)
         {
             RasieTemperature();
@@ -123,18 +123,15 @@ public void DistillerOn(ItemProperty item)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("완전 굳");
             }
             else if (DistillNormal == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("완전 노멀");
             }
             else
             {
                 TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("완전 밷");
             }
         }
 
@@ -144,18 +141,15 @@ public void DistillerOn(ItemProperty item)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("완전 굳");
             }
             else if (DistillNormal == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("완전 노멀");
             }
             else
             {
                 TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("완전 밷");
             }
         }
 
@@ -165,24 +159,20 @@ public void DistillerOn(ItemProperty item)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("완전 굳");
             }
             else if (DistillNormal == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("완전 노멀");
             }
             else
             {
                 TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("완전 밷");
             }
         }
         else
         {
             TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-            Debug.Log("완전 밷");
         }
     }
 

@@ -38,7 +38,7 @@ public class Cooler : MonoBehaviour
     {
         this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
         ClickedItem = item;
-        Debug.Log(ClickedItem.name);
+        //Debug.Log(ClickedItem.name);
     }
 
     public void CoolerStart()//냉침기 자세히 보여지고 기능 시작. 
@@ -52,46 +52,52 @@ public class Cooler : MonoBehaviour
         CoolerThree.gameObject.GetComponent<Image>().sprite = ClickedItem.sprite;
         // 선택한 탑 아이템 냉침 123에 세팅 완료
 
-        if (ClickedItem.name.Equals("남자"))
+        if (ClickedItem.name.Equals("행복"))
         {
             Invoke("ParticleShow", 4f);
             Invoke("BurnItem", 6f);
         }
-        else if (ClickedItem.name.Equals("여자"))
+        else if (ClickedItem.name.Equals("기쁨"))
         {
             Invoke("ParticleShow", 2f);
             Invoke("BurnItem", 4f);
         }
-        else if (ClickedItem.name.Equals("가족"))
+        else if (ClickedItem.name.Equals("사랑"))
         {
             Invoke("ParticleShow", 4f);
             Invoke("BurnItem", 6f);
         }
-        else if (ClickedItem.name.Equals("젊음"))
+        else if (ClickedItem.name.Equals("슬픔"))
         {
             Invoke("ParticleShow", 1f);
             Invoke("BurnItem", 3f);
         }
-        else if (ClickedItem.name.Equals("늙음"))
+        else if (ClickedItem.name.Equals("미움"))
         {
             Invoke("ParticleShow", 8f);
             Invoke("BurnItem", 10f);
         }
-        else if (ClickedItem.name.Equals("털"))
+        else if (ClickedItem.name.Equals("부끄러움"))
         {
             Invoke("ParticleShow", 6f);
             Invoke("BurnItem", 8f);
         }
-        else if (ClickedItem.name.Equals("따듯함"))
+        else if (ClickedItem.name.Equals("죄책감"))
         {
             Invoke("ParticleShow", 5f);
             Invoke("BurnItem", 7f);
         }
-        else if (ClickedItem.name.Equals("차가움"))
+        else if (ClickedItem.name.Equals("의심"))
         {
             Invoke("ParticleShow", 4f);
             Invoke("BurnItem", 6f);
         }
+        else if (ClickedItem.name.Equals("놀라움"))
+        {
+            Invoke("ParticleShow", 3f);
+            Invoke("BurnItem", 5f);
+        }
+
     }
     public void CoolerClose()//냉침기 종료
     {
@@ -120,7 +126,7 @@ public class Cooler : MonoBehaviour
 
     public void BurnItem()//파티클 생성 후 2초 뒤에 아이템 탄 이미지로 변환,
     {
-        Debug.Log("아이템 타버림");
+        //Debug.Log("아이템 타버림");
         //여기에 아이템 이름별로 다르게 탄 이미지 변경하도록 조건문 추가해야함.
 
         Particle1.gameObject.SetActive(false);
@@ -182,18 +188,15 @@ public class Cooler : MonoBehaviour
     {
         if (goodCount == 3)
         {
-            Debug.Log("3점");
             TotalScore.FindObjectOfType<TotalScore>().isCoolGood = true;
         }
 
         else if (goodCount == 2)
         {
-            Debug.Log("2점");
             TotalScore.FindObjectOfType<TotalScore>().isCoolNormal = true;
         }
         else
         {
-            Debug.Log("1또는 0점");
             TotalScore.FindObjectOfType<TotalScore>().isCoolBad = true;
 
         }

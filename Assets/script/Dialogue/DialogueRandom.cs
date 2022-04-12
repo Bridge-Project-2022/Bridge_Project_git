@@ -28,9 +28,13 @@ public class DialogueRandom : MonoBehaviour
     int C_2_random;
     int D_1_random;
     int D_2_random;
+    int E_1_random;
+    int E_2_random;
+    int E_3_random;
+
     int Sprite_random;
 
-    public string[] BuyerSentences = new string[4];// 손님 대화 배열
+    public string[] BuyerSentences = new string[7];// 손님 대화 배열
     public string[] SellerSentences = new string[2];// 유저 대화 배열
 
     public DialogueScript DS;
@@ -42,6 +46,9 @@ public class DialogueRandom : MonoBehaviour
         C_2_random = Random.Range(0, DS.Dialogue_C_2.Length);
         D_1_random = Random.Range(0, DS.Dialogue_D_1.Length);
         D_2_random = Random.Range(0, DS.Dialogue_D_2.Length);
+        E_1_random = Random.Range(0, DS.Dialogue_E_1.Length);
+        E_2_random = Random.Range(0, DS.Dialogue_E_2.Length);
+        E_3_random = Random.Range(0, DS.Dialogue_E_3.Length);
 
         Sprite_random = Random.Range(0, DS.customerSprites.Length);
 
@@ -49,6 +56,11 @@ public class DialogueRandom : MonoBehaviour
         BuyerSentences[1] = DS.Dialogue_B[B_random];
         BuyerSentences[2] = DS.Dialogue_D_1[D_1_random];
         BuyerSentences[3] = DS.Dialogue_D_2[D_2_random];
+        BuyerSentences[4] = DS.Dialogue_E_1[E_1_random];
+        BuyerSentences[5] = DS.Dialogue_E_2[E_2_random];
+        BuyerSentences[6] = DS.Dialogue_E_3[E_3_random];
+
+
 
         SellerSentences[0] = DS.Dialogue_C_1[C_1_random];
         SellerSentences[1] = DS.Dialogue_C_2[C_2_random];
@@ -107,6 +119,27 @@ public class DialogueRandom : MonoBehaviour
         Buyer.gameObject.SetActive(true);
         RandomDialogue();
         StartCoroutine(NormalChat(BuyerSentences[3]));
+        Invoke("End", 2f);
+    }
+
+    public void E_1_Start()//손님 : 향수 최종 GOOD일 경우 
+    {
+        RandomDialogue();
+        StartCoroutine(NormalChat(BuyerSentences[4]));
+        Invoke("End", 2f);
+    }
+
+    public void E_2_Start()//손님 : 향수 최종 NORMAL일 경우
+    {
+        RandomDialogue();
+        StartCoroutine(NormalChat(BuyerSentences[5]));
+        Invoke("End", 2f);
+    }
+
+    public void E_3_Start()//손님 : 향수 최종 BAD일 경우
+    {
+        RandomDialogue();
+        StartCoroutine(NormalChat(BuyerSentences[6]));
         Invoke("End", 2f);
     }
     public void End()
