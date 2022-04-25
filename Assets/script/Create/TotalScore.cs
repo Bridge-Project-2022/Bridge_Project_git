@@ -22,14 +22,20 @@ public class TotalScore : MonoBehaviour
     public bool isPressFin = false;
     public bool isDistillFin = false;
 
-    public int totalScore;
+    public int totalScore;//최종 향수 가격
 
     public GameObject Perfume;
 
-    public bool isStart = false;
+    public bool isStart = false;//모든 과정 끝나면 true됨.
 
-    public float totalTime = 0;
+    public float totalTime = 0;//최종 걸린 시간
 
+    public int RightItem = 0;//요구한 향료 썼는지?
+
+    public int originPrice = 0;//원가
+    public int reputationPrice = 0;//평판용 원가
+
+    public string reputation;// 평판
 
     private void Start()
     {
@@ -51,8 +57,61 @@ public class TotalScore : MonoBehaviour
         {
             Debug.Log("향수 계산중...");
             totalPrice();
-            Debug.Log("최종 향수 가격 : "+ totalScore);
+            if (RightItem == 3)
+            {
+                totalScore += originPrice + 50;
+            }
 
+            else if (RightItem == 2)
+            {
+                totalScore += originPrice + 30;
+            }
+
+            else if (RightItem == 1)
+            {
+                totalScore += originPrice + 10;
+            }
+
+            else if (RightItem == 0)
+            {
+                totalScore += originPrice - 50;
+            }
+
+            if (totalScore == reputationPrice + 260)
+            {
+                Debug.Log("평판 베리굳");
+                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
+                reputation = "verygood";
+            }
+            else if (totalScore >= reputationPrice + 190 && totalScore < reputationPrice + 260)
+            {
+                Debug.Log("평판 굳");
+                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
+                reputation = "good";
+            }
+            else if (totalScore >= reputationPrice + 120 && totalScore < reputationPrice + 190)
+            {
+                Debug.Log("평판 노멀");
+                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
+                reputation = "normal";
+            }
+            else if (totalScore >= reputationPrice + 60 && totalScore < reputationPrice + 120)
+            {
+                Debug.Log("평판 밷");
+                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+                reputation = "bad";
+            }
+            else
+            {
+                Debug.Log("평판 베리밷");
+                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
+                reputation = "verybad";
+            }
+
+            Debug.Log("최종 향수 가격 : "+ totalScore);
+            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money += totalScore;
+
+            //Invoke("ResetAll", 2f);
         }
     }
     public void totalPrice()
@@ -112,5 +171,36 @@ public class TotalScore : MonoBehaviour
         }
 
         Timer.FindObjectOfType<Timer>().TimerStop();
+    }
+
+    public void ResetAll()
+    {
+        isCoolGood = false;
+        isCoolNormal = false;
+        isCoolBad = false;
+
+        isPressGood = false;
+        isPressNormal = false;
+        isPressBad = false;
+
+        isDistillGood = false;
+        isDistillNormal = false;
+        isDistillBad = false;
+
+
+        isCoolFin = false;
+        isPressFin = false;
+        isDistillFin = false;
+
+        isStart = false;
+
+        totalTime = 0;
+
+        RightItem = 0;
+
+        originPrice = 0;
+        reputationPrice = 0;
+
+        totalScore = 0;
     }
 }

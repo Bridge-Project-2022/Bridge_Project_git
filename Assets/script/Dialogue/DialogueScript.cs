@@ -27,7 +27,7 @@ public class DialogueScript : MonoBehaviour
 
         //손님 : 향수 구매 이유
         Dialogue_B[0] = "제가 사랑했던 그의 향이 맡고 싶어요...";
-        Dialogue_B[1] = "사랑했던 그녀의 향이 맡고 싶은데 가능할까요...?";
+        Dialogue_B[1] = "어렸을 때 자주 갔던 놀이공원에 대한 기억을 찾아주세요..";
         Dialogue_B[2] = "무지개 다리를 건넌 강아지를 생각하면 너무 슬퍼요..";
        // Dialogue_B[3] = "저에게는 가족만큼 소중했거든요..";
 

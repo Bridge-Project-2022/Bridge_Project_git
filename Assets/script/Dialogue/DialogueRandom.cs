@@ -12,6 +12,8 @@ public class DialogueRandom : MonoBehaviour
     public GameObject Customer;
 
     public GameObject Distiller;
+    public GameObject Presser;
+    public GameObject Cooler;
 
     public TextMeshProUGUI BuyerDialogue;
     public TextMeshProUGUI SellerDialogue;
@@ -21,6 +23,8 @@ public class DialogueRandom : MonoBehaviour
     public bool makeStart = false;
 
     public GameObject arrow;
+
+    public int rejectCnt = 0;//거절 횟수 -> 평판 영향, 일차 지날 때 마다 리셋되어야 함.
 
     int A_random;
     int B_random;
@@ -94,6 +98,13 @@ public class DialogueRandom : MonoBehaviour
 
     public void C_2_Start()//유저 : 거부 - 거부 이유 제시
     {
+        rejectCnt += 1;
+        if(rejectCnt == 1)
+            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
+        else if (rejectCnt == 2)
+            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 10;
+        if (rejectCnt >= 3)
+            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 15;
         Select.SetActive(false);
         RandomDialogue();
         Buyer.gameObject.SetActive(false);
@@ -162,6 +173,25 @@ public class DialogueRandom : MonoBehaviour
         else if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_D_1[2])
         {
             Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
+        }
+
+        if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_B[0])
+        {
+            Distiller.GetComponent<Distiller>().BaseItemName = "인간";
+            Presser.GetComponent<Presser>().MiddleItemName = "연인";
+            Cooler.GetComponent<Cooler>().TopItemName = "사랑";
+        }
+        else if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_B[1])
+        {
+            Distiller.GetComponent<Distiller>().BaseItemName = "장소";
+            Presser.GetComponent<Presser>().MiddleItemName = "놀이공원";
+            Cooler.GetComponent<Cooler>().TopItemName = "행복";
+        }
+        else if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_B[2])
+        {
+            Distiller.GetComponent<Distiller>().BaseItemName = "동물";
+            Presser.GetComponent<Presser>().MiddleItemName = "반려동물";
+            Cooler.GetComponent<Cooler>().TopItemName = "슬픔";
         }
 
         string writerText = "";

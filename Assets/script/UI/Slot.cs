@@ -109,9 +109,9 @@ public class Slot : MonoBehaviour
             this.GetComponent<UnityEngine.UI.Button>().interactable = false;
             itemCount.gameObject.GetComponent<Text>().text = "판매 완료";
         }
-        if (FindObjectOfType<DeskTouch>().isDeskUp == true)// 데스크가 올라온 경우(아이템 제조 시작 경우)에만 인벤 아이템 클릭 가능 상태로 만듦.
+        /*if (FindObjectOfType<DeskTouch>().isDeskUp == true)// 데스크가 올라온 경우(아이템 제조 시작 경우)에만 인벤 아이템 클릭 가능 상태로 만듦.
         {
             this.gameObject.GetComponent<Button>().interactable = true;
-        }
+        }*/
     }
 }

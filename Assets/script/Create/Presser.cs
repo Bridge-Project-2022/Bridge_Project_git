@@ -28,6 +28,10 @@ public class Presser : MonoBehaviour
 
     int ResultCount = 0;
 
+    public string MiddleItemName; //손님이 요구하는 미들 향료 이름
+
+    public GameObject middleInvenSlots;
+
     public void Start()
     {
         isBtnOn = false;
@@ -39,6 +43,15 @@ public class Presser : MonoBehaviour
     {
         this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
         ClickedItem = item;
+        if (ClickedItem.name == MiddleItemName)
+        {
+            Debug.Log("미들 향료 맞음");
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().reputationPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
+        }
+        else
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         Debug.Log(ClickedItem.name);
     }
 
@@ -232,6 +245,10 @@ public class Presser : MonoBehaviour
 
     public void PresserEnd()//압착 과정 종료
     {
+        for (int i = 0; i < middleInvenSlots.transform.childCount; i++)
+        {
+            middleInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         TotalScore.FindObjectOfType<TotalScore>().isPressFin = true;
         //TotalScore.isPressFin = true;
         PresserDetail.gameObject.SetActive(false);

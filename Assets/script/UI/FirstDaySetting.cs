@@ -11,10 +11,17 @@ public class FirstDaySetting : MonoBehaviour
     public int Reputation = 60;
 
     public GameObject GameMoney;
+    public GameObject GameReputation;
 
 
     private void Update()
     {
        GameMoney.gameObject.GetComponent<Text>().text = Money.ToString();
+       GameReputation.gameObject.GetComponent<Text>().text = Reputation.ToString();
+
+        if (Reputation < 0)
+        { 
+            //배드 엔딩 ㄱ
+        }
     }
 }

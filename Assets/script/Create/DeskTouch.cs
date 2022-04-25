@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DeskTouch : MonoBehaviour
 {
@@ -11,6 +11,9 @@ public class DeskTouch : MonoBehaviour
     public GameObject Buyer;
     [SerializeField] 
     GameObject Manufacture;
+    public GameObject baseSlot;
+    public GameObject middleSlot;
+    public GameObject topSlot;
     public void TouchDesk()
     {
         if (FindObjectOfType<DialogueRandom>().makeStart == true)
@@ -25,6 +28,21 @@ public class DeskTouch : MonoBehaviour
             inven = GameObject.Find("InvenUI").gameObject;
             inven.transform.position = new Vector3(300, 400, 0);
             isDeskUp = true;
+
+            for (int i = 0; i < baseSlot.transform.childCount; i++)
+            {
+                baseSlot.transform.GetChild(i).GetComponent<Button>().interactable = true;
+            }
+            for (int i = 0; i < middleSlot.transform.childCount; i++)
+            {
+                middleSlot.transform.GetChild(i).GetComponent<Button>().interactable = true;
+            }
+            for (int i = 0; i < topSlot.transform.childCount; i++)
+            {
+                topSlot.transform.GetChild(i).GetComponent<Button>().interactable = true;
+            }
+
+
             Timer.FindObjectOfType<Timer>().isTimerStart = true;
         }
     }
@@ -41,22 +59,20 @@ public class DeskTouch : MonoBehaviour
         inven.transform.position = new Vector3(1651, 503, 0);
         isDeskUp = false;
 
-        DialogueRandom.FindObjectOfType<DialogueRandom>().E_1_Start();
-        /*if(평판 == GOOD)
+        if(TotalScore.FindObjectOfType<TotalScore>().reputation == "verygood" || TotalScore.FindObjectOfType<TotalScore>().reputation == "good")
         {
             DialogueRandom.FindObjectOfType<DialogueRandom>().E_1_Start();
+
         }
 
-        else if(평판 == NORMAL)
+        else if(TotalScore.FindObjectOfType<TotalScore>().reputation == "normal")
         {
-              DialogueRandom.FindObjectOfType<DialogueRandom>().E_2_Start();
+             DialogueRandom.FindObjectOfType<DialogueRandom>().E_2_Start();
         }
 
-        else if(평판 == BAD)
+        else if(TotalScore.FindObjectOfType<TotalScore>().reputation == "verybad" || TotalScore.FindObjectOfType<TotalScore>().reputation == "bad")
         {
-              DialogueRandom.FindObjectOfType<DialogueRandom>().E_3_Start();
+             DialogueRandom.FindObjectOfType<DialogueRandom>().E_3_Start();
         }
-
-        */
     }
 }

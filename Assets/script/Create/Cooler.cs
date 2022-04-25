@@ -17,18 +17,15 @@ public class Cooler : MonoBehaviour
     public GameObject Particle2;
     public GameObject Particle3;
 
+    public GameObject topInvenSlots;
+
+    public string TopItemName;//손님이 요구하는 탑 향료 이름
+
     int ResultCount = 0;
     int goodCount;
 
 
     public Sprite[] ItemBurnSprites = new Sprite[1];//탄 아이템 이미지 배열
-
-    //냉침기 클릭 시 화면 확대되는 기능 -> ok
-    //클릭한 탑 아이템 타입 확인 -> 인간이면 5초 동물이면 4초 -> ok
-    //냉침 완료 시에 향료에 파티클 보여짐 -> ok
-    //냉침 이후 2초 이내 수거 안하면 bad로 바뀜 -> ok
-    //냉침기 위의 아이템 터치할 때마다 카운트 값 증가하고 카운트 값 = 3이면 자동으로 2초 뒤에 창 사라짐.
-    //파티클 생기면서 변수 카운트 증가하는데 3이면 굿 2면 노멀 1,0이면 배드 판정됨.
 
     public void Start()
     {
@@ -38,6 +35,15 @@ public class Cooler : MonoBehaviour
     {
         this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
         ClickedItem = item;
+        if (ClickedItem.name == TopItemName)
+        {
+            Debug.Log("탑 향료 맞음");
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().reputationPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
+        }
+        else
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         //Debug.Log(ClickedItem.name);
     }
 
@@ -101,6 +107,10 @@ public class Cooler : MonoBehaviour
     }
     public void CoolerClose()//냉침기 종료
     {
+        for (int i = 0; i < topInvenSlots.transform.childCount; i++)
+        {
+            topInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         TotalScore.FindObjectOfType<TotalScore>().isCoolFin = true;
         //TotalScore.isCoolFin = true;
         CoolerDetail.gameObject.SetActive(false);

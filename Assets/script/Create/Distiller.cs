@@ -29,6 +29,11 @@ public class Distiller : MonoBehaviour
     bool DistillBad = true;
 
     public int DistillCnt;
+
+    public string BaseItemName;//손님이 요구하는 베이스 향료 이름
+
+    public GameObject baseInvenSlots;
+
     public void Start()
     {
         DistillCnt = 0; 
@@ -39,6 +44,15 @@ public void DistillerOn(ItemProperty item)
         this.gameObject.GetComponent<Button>().interactable = true;//증류기 버튼 클릭 가능해짐.
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         ClickedItem = item;
+        if (ClickedItem.name == BaseItemName)
+        {
+            Debug.Log("베이스 향료 맞음");
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().reputationPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
+        }
+        else
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         //Debug.Log(ClickedItem.name);
     }
 
@@ -106,6 +120,11 @@ public void DistillerOn(ItemProperty item)
 
     public void CloseWindow()
     {
+        for (int i = 0; i < baseInvenSlots.transform.childCount; i++)
+        {
+            Debug.Log("얍");
+            baseInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         TotalScore.FindObjectOfType<TotalScore>().isDistillFin = true;
         //TotalScore.isDistillFin = true;
         isWork = false;
