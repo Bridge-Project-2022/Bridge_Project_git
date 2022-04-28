@@ -22,7 +22,8 @@ public class TotalScore : MonoBehaviour
     public bool isPressFin = false;
     public bool isDistillFin = false;
 
-    public int totalScore;//최종 향수 가격
+    public int perfumePrice = 0;// 최종 향수 가격
+    public int totalScore = 0;//팁 가격
 
     public GameObject Perfume;
 
@@ -32,8 +33,9 @@ public class TotalScore : MonoBehaviour
 
     public int RightItem = 0;//요구한 향료 썼는지?
 
-    public int originPrice = 0;//원가
-    public int reputationPrice = 0;//평판용 원가
+    public int originPrice = 0;// 향수 제작에 사용된 향료 원가
+    public int rightPrice = 0;// 맞게 사용한 향료 원가
+    public int reputNum = 0;// 평판 카운트 숫자
 
     public string reputation;// 평판
 
@@ -57,60 +59,62 @@ public class TotalScore : MonoBehaviour
         {
             Debug.Log("향수 계산중...");
             totalPrice();
-            if (RightItem == 3)
+            if (originPrice == 0)//하나도 안고르고 바로 향수 제조 선택한 경우
             {
-                totalScore += originPrice + 50;
+                perfumePrice = 0;
             }
 
-            else if (RightItem == 2)
+            else if(originPrice > 0)//하나라도 고른 경우
             {
-                totalScore += originPrice + 30;
-            }
+                if (RightItem == 3)// 향료 3개가 모두 요구와 맞는 경우
+                {
+                    perfumePrice = rightPrice + totalScore;
+                    GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
 
-            else if (RightItem == 1)
-            {
-                totalScore += originPrice + 10;
-            }
+                }
 
-            else if (RightItem == 0)
-            {
-                totalScore += originPrice - 50;
-            }
+                else if (RightItem < 3)//하나라도 틀린 향료를 고른 경우
+                {
+                    perfumePrice = totalScore;
+                    if (perfumePrice < 0)
+                        perfumePrice = 0;
 
-            if (totalScore == reputationPrice + 260)
+                }
+            }
+         
+            if (reputNum == 35)
             {
                 Debug.Log("평판 베리굳");
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
                 reputation = "verygood";
             }
-            else if (totalScore >= reputationPrice + 190 && totalScore < reputationPrice + 260)
+            else if (reputNum < 35 && reputNum >= 10)
             {
                 Debug.Log("평판 굳");
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
                 reputation = "good";
             }
-            else if (totalScore >= reputationPrice + 120 && totalScore < reputationPrice + 190)
+            else if (reputNum < 10 && reputNum >= 0)
             {
                 Debug.Log("평판 노멀");
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
                 reputation = "normal";
             }
-            else if (totalScore >= reputationPrice + 60 && totalScore < reputationPrice + 120)
+            else if (reputNum < 0 && reputNum >= -10)
             {
                 Debug.Log("평판 밷");
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
                 reputation = "bad";
             }
-            else
+            else if(reputNum < -10 && reputNum >= -35)
             {
                 Debug.Log("평판 베리밷");
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
                 reputation = "verybad";
             }
-
             Debug.Log("최종 향수 가격 : "+ totalScore);
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money += totalScore;
-
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             //Invoke("ResetAll", 2f);
         }
     }
@@ -118,58 +122,70 @@ public class TotalScore : MonoBehaviour
     {
         if ((int)totalTime < 30)//굿 판정
         {
-            totalScore += 50;
+            totalScore += rightPrice * 5 / 100;
+            reputNum += 5;
         }
         else if ((int)totalTime >= 30 && (int)totalTime < 60)//노멀 판정
         {
-            totalScore += 30;
+            totalScore += 0;
+            reputNum += 0;
         }
         else if ((int)totalTime >= 60)//배드 판정
         {
-            totalScore -= 30;
+            totalScore += - (rightPrice * 5 / 100);
+            reputNum -= 5;
         }
         //여기에 totalScore += 향료 원가; 
-
+        
         if (isCoolGood == true)
         {
-            totalScore += 70;
+            totalScore += FindObjectOfType<Cooler>().ClickedItem.itemPrice * 10 / 100;
+            reputNum += 10;
         }
         if (isPressGood == true)
         {
-            totalScore += 70;
+            totalScore += FindObjectOfType<Presser>().ClickedItem.itemPrice * 10 / 100;
+            reputNum += 10;
         }
         if (isDistillGood == true)
         {
-            totalScore += 70;
+            totalScore += FindObjectOfType<Distiller>().ClickedItem.itemPrice * 10 / 100;
+            reputNum += 10;
         }
 
         //////////////////////////////////////
         if (isCoolNormal == true)
         {
-            totalScore += 20;
+            totalScore += 0;
+            reputNum += 0;
         }
         if (isPressNormal == true)
         {
-            totalScore += 20;
+            totalScore += 0;
+            reputNum += 0;
         }
         if (isDistillNormal == true)
         {
-            totalScore += 20;
+            totalScore += 0;
+            reputNum += 0;
         }
         ///////////////////////////////////
         if (isCoolBad == true)
         {
-            totalScore -= 30;
+            totalScore += -1 * (FindObjectOfType<Cooler>().ClickedItem.itemPrice * 10 / 100);
+            reputNum -= 10;
         }
         if (isPressBad == true)
         {
-            totalScore -= 30;
+            totalScore += -1 * (FindObjectOfType<Presser>().ClickedItem.itemPrice * 10 / 100);
+            reputNum -= 10;
         }
         if (isDistillBad == true)
         {
-            totalScore -= 30;
+            totalScore += -1 * (FindObjectOfType<Distiller>().ClickedItem.itemPrice * 10 / 100);
+            reputNum -= 10;
         }
-
+        
         Timer.FindObjectOfType<Timer>().TimerStop();
     }
 
@@ -199,8 +215,11 @@ public class TotalScore : MonoBehaviour
         RightItem = 0;
 
         originPrice = 0;
-        reputationPrice = 0;
+        rightPrice = 0;
 
         totalScore = 0;
+
+        reputNum = 0;
+        perfumePrice = 0;
     }
 }

@@ -46,13 +46,18 @@ public class Presser : MonoBehaviour
         if (ClickedItem.name == MiddleItemName)
         {
             Debug.Log("미들 향료 맞음");
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().reputationPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
         }
         else
+        {
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
-        Debug.Log(ClickedItem.name);
+        }
+            
+        //Debug.Log(ClickedItem.name);
     }
 
     public void PresserShow()//압착기 화면 보임.

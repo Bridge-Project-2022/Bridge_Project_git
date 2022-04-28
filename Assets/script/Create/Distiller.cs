@@ -47,12 +47,17 @@ public void DistillerOn(ItemProperty item)
         if (ClickedItem.name == BaseItemName)
         {
             Debug.Log("베이스 향료 맞음");
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().reputationPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
         }
         else
+        {
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+        }
+            
         //Debug.Log(ClickedItem.name);
     }
 

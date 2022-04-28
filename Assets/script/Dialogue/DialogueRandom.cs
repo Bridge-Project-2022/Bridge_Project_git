@@ -88,6 +88,7 @@ public class DialogueRandom : MonoBehaviour
     }
     public void C_1_Start()// 유저 : 승낙 - 향 세기 질문
     {
+        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         Select.SetActive(false);
         RandomDialogue();
         Buyer.gameObject.SetActive(false);
@@ -98,6 +99,8 @@ public class DialogueRandom : MonoBehaviour
 
     public void C_2_Start()//유저 : 거부 - 거부 이유 제시
     {
+        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
+        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().rejectNum += 1;
         rejectCnt += 1;
         if(rejectCnt == 1)
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
@@ -105,6 +108,8 @@ public class DialogueRandom : MonoBehaviour
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 10;
         if (rejectCnt >= 3)
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 15;
+
+        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
         RandomDialogue();
         Buyer.gameObject.SetActive(false);
