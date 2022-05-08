@@ -194,6 +194,25 @@ public void DistillerOn(ItemProperty item)
                 TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
             }
         }
+
+        else if (DistillerStatus == "아무거나")
+        {
+            if (DistillGood == true)
+            {
+                DistillBad = false;
+                TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
+            }
+            else if (DistillNormal == true)
+            {
+                DistillBad = false;
+                TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
+            }
+            else
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
+            }
+        }
+
         else
         {
             TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;

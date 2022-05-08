@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-public class DialogueRandom : MonoBehaviour
+public class DialogueRandom2 : MonoBehaviour
 {
     public GameObject Seller;
     public GameObject Buyer;
@@ -18,89 +18,61 @@ public class DialogueRandom : MonoBehaviour
     public TextMeshProUGUI BuyerDialogue;
     public TextMeshProUGUI SellerDialogue;
 
+    private SpriteRenderer spriteRenderer;
+
     public bool makeStart = false;
 
     public GameObject arrow;
 
     public int rejectCnt = 0;//거절 횟수 -> 평판 영향, 일차 지날 때 마다 리셋되어야 함.
 
+    int A_random;
+    int B_random;
     int C_1_random;
     int C_2_random;
+    int D_1_random;
+    int D_2_random;
+    int E_1_random;
+    int E_2_random;
+    int E_3_random;
+   
+    int Sprite_random;
 
     public string[] SellerSentences = new string[2];// 유저 대화 배열
+     
+    public static DialogueScript2 DS;
+    static int OrderLength = DS.Customer_PerfumeOrder.Length;//손님 향수 주문
+    static int IntensityLength = DS.Customer_IntensityOrder.Length;//손님 강도 선택
+    static int RejectLength = DS.Customer_RejectReaction.Length;//손님 거절 반응
+    static int PerfumeLength = DS.Customer_PerfumeReaction.Length;//손님 향수 반응
 
-    [SerializeField]
-    public DialogueScript DS;
 
-    public string[] BuyerOrder = new string[10];
-    public string[] BuyerIntensity = new string[5];
-    public string[] BuyerRejectReaction = new string[5];
-    public string[] BuyerPerfumeReaction = new string[5];
+    public string[] BuyerOrder = new string[OrderLength];
+    public string[] BuyerIntensity = new string[IntensityLength];
+    public string[] BuyerRejectReaction = new string[RejectLength];
+    public string[] BuyerPerfumeReaction = new string[PerfumeLength];
 
-    public Sprite[] BG_Sprite = new Sprite[3];
+
     public void Start()
     {
-        for (int i = 0; i < BuyerOrder.Length; i++)
+        for (int i = 0; i < OrderLength; i++)
         {
             BuyerOrder[i] = DS.Customer_PerfumeOrder[i];
         }
 
-        for (int i = 0; i < BuyerIntensity.Length; i++)
+        for (int i = 0; i < IntensityLength; i++)
         {
             BuyerIntensity[i] = DS.Customer_IntensityOrder[i];
         }
 
-        for (int i = 0; i < BuyerRejectReaction.Length; i++)
+        for (int i = 0; i < RejectLength; i++)
         {
             BuyerRejectReaction[i] = DS.Customer_RejectReaction[i];
         }
 
-        for (int i = 0; i < BuyerPerfumeReaction.Length; i++)
+        for (int i = 0; i < PerfumeLength; i++)
         {
             BuyerPerfumeReaction[i] = DS.Customer_PerfumeReaction[i];
-        }
-
-        Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
-        Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
-        Cooler.GetComponent<Cooler>().TopItemName = DS.Customer_Flavoring[2];
-    }
-
-    public void Update()
-    {
-
-        for (int i = 0; i < BuyerOrder.Length; i++)
-        {
-            BuyerOrder[i] = DS.Customer_PerfumeOrder[i];
-        }
-
-        for (int i = 0; i < BuyerIntensity.Length; i++)
-        {
-            BuyerIntensity[i] = DS.Customer_IntensityOrder[i];
-        }
-
-        for (int i = 0; i < BuyerRejectReaction.Length; i++)
-        {
-            BuyerRejectReaction[i] = DS.Customer_RejectReaction[i];
-        }
-
-        for (int i = 0; i < BuyerPerfumeReaction.Length; i++)
-        {
-            BuyerPerfumeReaction[i] = DS.Customer_PerfumeReaction[i];
-        }
-
-        Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
-        Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
-        Cooler.GetComponent<Cooler>().TopItemName = DS.Customer_Flavoring[2];
-
-        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)
-        {
-            Debug.Log("점심");
-            //GameObject.Find("BackGround").GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
-        }
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)
-        {
-            Debug.Log("저녁");
-            //GameObject.Find("BackGround").GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
         }
     }
     public void RandomDialogue()// 랜덤 함수(대화 랜덤)
@@ -117,21 +89,11 @@ public class DialogueRandom : MonoBehaviour
     {
         Customer.gameObject.SetActive(true);
         Buyer.gameObject.SetActive(true);
-
-        StartCoroutine(A_Script_Start());
-    }
-
-    IEnumerator A_Script_Start()
-    {
-
-        for (int i = 0; i < BuyerOrder.Length; i++)
+        for(int i = 0; i < BuyerOrder.Length; i++)
         {
-            yield return StartCoroutine(NormalChat(BuyerOrder[i]));
-            yield return new WaitForSeconds(1.5f);
-            if (BuyerOrder[i] == "")
-                break;
+            StartCoroutine(NormalChat(BuyerOrder[i]));
         }
-        Select.gameObject.SetActive(true);
+        Invoke("C_1_Start", 2f);
     }
     public void C_1_Start()// 유저 : 승낙 - 향 세기 질문
     {
@@ -169,64 +131,51 @@ public class DialogueRandom : MonoBehaviour
     {
         Buyer.gameObject.SetActive(true);
         Seller.gameObject.SetActive(false);
-
-        StartCoroutine(D_1_Script_Start());
-
-        arrow.gameObject.SetActive(true);
-        makeStart = true;
-    }
-    IEnumerator D_1_Script_Start()
-    {
         for (int i = 0; i < BuyerIntensity.Length; i++)
         {
-            yield return StartCoroutine(NormalChat(BuyerIntensity[i]));
-            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(NormalChat(BuyerIntensity[i]));
         }
+        arrow.gameObject.SetActive(true);
+        makeStart = true;
+
     }
 
     public void D_2_Start()// 손님 : 거부 - 불만 표출
     {
         Seller.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(true);
-
-        StartCoroutine(D_2_Script_Start());
-    }
-
-    IEnumerator D_2_Script_Start()
-    {
         for (int i = 0; i < BuyerRejectReaction.Length; i++)
         {
-            yield return StartCoroutine(NormalChat(BuyerRejectReaction[i]));
-            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(NormalChat(BuyerRejectReaction[i]));
         }
-        Invoke("End", 1f);
+        Invoke("End", 2f);
     }
 
     public void E_1_Start()//손님 : 향수 받고 반응
     {
-        StartCoroutine(E_1_Script_Start());
-    }
-
-    IEnumerator E_1_Script_Start()
-    {
         for (int i = 0; i < BuyerPerfumeReaction.Length; i++)
         {
-            yield return StartCoroutine(NormalChat(BuyerPerfumeReaction[i]));
-            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(NormalChat(BuyerPerfumeReaction[i]));
         }
-        Invoke("End", 1f);
+        Invoke("End", 2f);
     }
+
+    /*public void E_2_Start()//손님 : 향수 최종 NORMAL일 경우
+    {
+        RandomDialogue();
+        StartCoroutine(NormalChat(BuyerSentences[5]));
+        Invoke("End", 2f);
+    }
+
+    public void E_3_Start()//손님 : 향수 최종 BAD일 경우
+    {
+        RandomDialogue();
+        StartCoroutine(NormalChat(BuyerSentences[6]));
+        Invoke("End", 2f);
+    }*/
 
     public void End()
     {
-        int temp;
-        temp = DS.Customer_ID[0];
-        for (int i = 0; i < DS.Customer_ID.Length - 1; i++)
-        {
-            DS.Customer_ID[i] = DS.Customer_ID[i + 1];
-        }
-        DS.Customer_ID[DS.Customer_ID.Length - 1] = temp;
-
         Customer.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(false);
         Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
@@ -234,13 +183,32 @@ public class DialogueRandom : MonoBehaviour
 
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
+       /* if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_B[0])
+        {
+            Distiller.GetComponent<Distiller>().BaseItemName = "인간";
+            Presser.GetComponent<Presser>().MiddleItemName = "연인";
+            Cooler.GetComponent<Cooler>().TopItemName = "사랑";
+        }
+        else if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_B[1])
+        {
+            Distiller.GetComponent<Distiller>().BaseItemName = "장소";
+            Presser.GetComponent<Presser>().MiddleItemName = "놀이공원";
+            Cooler.GetComponent<Cooler>().TopItemName = "행복";
+        }
+        else if (narration == DialogueScript.FindObjectOfType<DialogueScript>().Dialogue_B[2])
+        {
+            Distiller.GetComponent<Distiller>().BaseItemName = "동물";
+            Presser.GetComponent<Presser>().MiddleItemName = "반려동물";
+            Cooler.GetComponent<Cooler>().TopItemName = "슬픔";
+        }*/
+
         string writerText = "";
         for (int a = 0; a < narration.Length; a++)
         {
             writerText += narration[a];
             BuyerDialogue.text = writerText;
             SellerDialogue.text = writerText;
-            yield return new WaitForSeconds(0.08f);
+            yield return new WaitForSeconds(0.05f);
             yield return null;
         }
     }

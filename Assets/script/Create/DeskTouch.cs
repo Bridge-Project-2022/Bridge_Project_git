@@ -21,6 +21,7 @@ public class DeskTouch : MonoBehaviour
             GameObject.Find("Arrow").gameObject.SetActive(false);
             Buyer.gameObject.SetActive(false);
             GameObject.Find("Random_Buyer").gameObject.transform.position = new Vector3(-0.14f, 3.98f, -0.04f);
+            //GameObject.Find("BackGround").gameObject.transform.position = new Vector3(0, 1.98f, 0);
 
             desk = GameObject.Find("Desk").gameObject;
             desk.transform.localScale = new Vector3(20, 11, 1);
@@ -59,20 +60,6 @@ public class DeskTouch : MonoBehaviour
         inven.transform.position = new Vector3(1651, 503, 0);
         isDeskUp = false;
 
-        if(TotalScore.FindObjectOfType<TotalScore>().reputation == "verygood" || TotalScore.FindObjectOfType<TotalScore>().reputation == "good")
-        {
-            DialogueRandom.FindObjectOfType<DialogueRandom>().E_1_Start();
-
-        }
-
-        else if(TotalScore.FindObjectOfType<TotalScore>().reputation == "normal")
-        {
-             DialogueRandom.FindObjectOfType<DialogueRandom>().E_2_Start();
-        }
-
-        else if(TotalScore.FindObjectOfType<TotalScore>().reputation == "verybad" || TotalScore.FindObjectOfType<TotalScore>().reputation == "bad")
-        {
-             DialogueRandom.FindObjectOfType<DialogueRandom>().E_3_Start();
-        }
+        DialogueRandom.FindObjectOfType<DialogueRandom>().E_1_Start();
     }
 }

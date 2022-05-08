@@ -32,6 +32,5 @@ public class DailyResult : MonoBehaviour
         revenueText.text = todayRevenue.ToString();
         costText.text = originCost.ToString();
         allRevenueText.text = allRevenue.ToString();
-
     }
 }
