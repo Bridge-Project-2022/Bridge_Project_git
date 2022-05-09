@@ -14,6 +14,8 @@ public class DeskTouch : MonoBehaviour
     public GameObject baseSlot;
     public GameObject middleSlot;
     public GameObject topSlot;
+
+    public GameObject BackGround;
     public void TouchDesk()
     {
         if (FindObjectOfType<DialogueRandom>().makeStart == true)
@@ -21,7 +23,7 @@ public class DeskTouch : MonoBehaviour
             GameObject.Find("Arrow").gameObject.SetActive(false);
             Buyer.gameObject.SetActive(false);
             GameObject.Find("Random_Buyer").gameObject.transform.position = new Vector3(-0.14f, 3.98f, -0.04f);
-            //GameObject.Find("BackGround").gameObject.transform.position = new Vector3(0, 1.98f, 0);
+            BackGround.transform.position = new Vector3(0, 1.98f, 0);
 
             desk = GameObject.Find("Desk").gameObject;
             desk.transform.localScale = new Vector3(20, 11, 1);

@@ -26,7 +26,7 @@ public class Presser : MonoBehaviour
     public int PressCount;
     public bool isEnd = false;//끝나서 수거하면 true
 
-    int ResultCount = 0;
+    //int ResultCount = 0;
 
     public string MiddleItemName; //손님이 요구하는 미들 향료 이름
 
@@ -250,10 +250,10 @@ public class Presser : MonoBehaviour
 
     public void PresserEnd()//압착 과정 종료
     {
-        for (int i = 0; i < middleInvenSlots.transform.childCount; i++)
+        /*for (int i = 0; i < middleInvenSlots.transform.childCount; i++)
         {
             middleInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
-        }
+        }*/
         TotalScore.FindObjectOfType<TotalScore>().isPressFin = true;
         //TotalScore.isPressFin = true;
         PresserDetail.gameObject.SetActive(false);

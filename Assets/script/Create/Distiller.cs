@@ -18,9 +18,9 @@ public class Distiller : MonoBehaviour
 
     int temperature = 0;
 
-    float lowTempTime = 0;
+    /*float lowTempTime = 0;
     float middleTempTime = 0;
-    float HighTempTime = 0;
+    float HighTempTime = 0;*/
 
     public string DistillerStatus = "";
 
@@ -125,11 +125,10 @@ public void DistillerOn(ItemProperty item)
 
     public void CloseWindow()
     {
-        for (int i = 0; i < baseInvenSlots.transform.childCount; i++)
+        /*for (int i = 0; i < baseInvenSlots.transform.childCount; i++)
         {
-            Debug.Log("¾å");
             baseInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
-        }
+        }*/
         TotalScore.FindObjectOfType<TotalScore>().isDistillFin = true;
         //TotalScore.isDistillFin = true;
         isWork = false;

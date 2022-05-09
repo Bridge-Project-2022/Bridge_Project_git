@@ -120,7 +120,7 @@ public class Cooler : MonoBehaviour
         //TotalScore.isCoolFin = true;
         CoolerDetail.gameObject.SetActive(false);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
-        GameObject.Find("Desk").GetComponent<Button>().interactable = true;
+        //GameObject.Find("Desk").GetComponent<Button>().interactable = true;
 
     }
 

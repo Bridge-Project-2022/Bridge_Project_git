@@ -15,6 +15,8 @@ public class DialogueRandom : MonoBehaviour
     public GameObject Presser;
     public GameObject Cooler;
 
+    public GameObject BackGround;
+
     public TextMeshProUGUI BuyerDialogue;
     public TextMeshProUGUI SellerDialogue;
 
@@ -91,17 +93,6 @@ public class DialogueRandom : MonoBehaviour
         Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
         Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
         Cooler.GetComponent<Cooler>().TopItemName = DS.Customer_Flavoring[2];
-
-        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)
-        {
-            Debug.Log("점심");
-            //GameObject.Find("BackGround").GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
-        }
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)
-        {
-            Debug.Log("저녁");
-            //GameObject.Find("BackGround").GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
-        }
     }
     public void RandomDialogue()// 랜덤 함수(대화 랜덤)
     {
@@ -126,10 +117,15 @@ public class DialogueRandom : MonoBehaviour
 
         for (int i = 0; i < BuyerOrder.Length; i++)
         {
-            yield return StartCoroutine(NormalChat(BuyerOrder[i]));
-            yield return new WaitForSeconds(1.5f);
             if (BuyerOrder[i] == "")
+            {
                 break;
+            }
+            else
+            { 
+                yield return StartCoroutine(NormalChat(BuyerOrder[i]));
+                yield return new WaitForSeconds(1.5f);
+            }
         }
         Select.gameObject.SetActive(true);
     }
@@ -141,7 +137,7 @@ public class DialogueRandom : MonoBehaviour
         Buyer.gameObject.SetActive(false);
         Seller.gameObject.SetActive(true);
         StartCoroutine(NormalChat(SellerSentences[0]));
-        Invoke("D_1_Start", 2f);
+        Invoke("D_1_Start", 3f);
     }
 
     public void C_2_Start()//유저 : 거부 - 거부 이유 제시
@@ -162,7 +158,7 @@ public class DialogueRandom : MonoBehaviour
         Buyer.gameObject.SetActive(false);
         Seller.gameObject.SetActive(true);
         StartCoroutine(NormalChat(SellerSentences[1]));
-        Invoke("D_2_Start", 2f);
+        Invoke("D_2_Start", 3f);
     }
 
     public void D_1_Start()//손님 : 승낙 - 향 세기 결정
@@ -171,17 +167,23 @@ public class DialogueRandom : MonoBehaviour
         Seller.gameObject.SetActive(false);
 
         StartCoroutine(D_1_Script_Start());
-
-        arrow.gameObject.SetActive(true);
         makeStart = true;
     }
     IEnumerator D_1_Script_Start()
     {
         for (int i = 0; i < BuyerIntensity.Length; i++)
         {
-            yield return StartCoroutine(NormalChat(BuyerIntensity[i]));
-            yield return new WaitForSeconds(1.5f);
+            if (BuyerIntensity[i] == "")
+            {
+                break;
+            }
+            else
+            {
+                yield return StartCoroutine(NormalChat(BuyerIntensity[i]));
+                yield return new WaitForSeconds(1.5f);
+            }
         }
+        arrow.gameObject.SetActive(true);
     }
 
     public void D_2_Start()// 손님 : 거부 - 불만 표출
@@ -196,8 +198,16 @@ public class DialogueRandom : MonoBehaviour
     {
         for (int i = 0; i < BuyerRejectReaction.Length; i++)
         {
-            yield return StartCoroutine(NormalChat(BuyerRejectReaction[i]));
-            yield return new WaitForSeconds(1.5f);
+            if (BuyerRejectReaction[i] == "")
+            {
+                break;
+            }
+            else
+            { 
+                yield return StartCoroutine(NormalChat(BuyerRejectReaction[i]));
+                yield return new WaitForSeconds(1.5f);
+            }
+            
         }
         Invoke("End", 1f);
     }
@@ -211,8 +221,15 @@ public class DialogueRandom : MonoBehaviour
     {
         for (int i = 0; i < BuyerPerfumeReaction.Length; i++)
         {
-            yield return StartCoroutine(NormalChat(BuyerPerfumeReaction[i]));
-            yield return new WaitForSeconds(1.5f);
+            if (BuyerPerfumeReaction[i] == "")
+            {
+                break;
+            }
+            else
+            {
+                yield return StartCoroutine(NormalChat(BuyerPerfumeReaction[i]));
+                yield return new WaitForSeconds(1.5f);
+            }
         }
         Invoke("End", 1f);
     }
@@ -229,6 +246,16 @@ public class DialogueRandom : MonoBehaviour
 
         Customer.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(false);
+
+        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
+        {
+            BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
+        }
+        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
+        {
+            BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
+        }
+
         Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
     }
 

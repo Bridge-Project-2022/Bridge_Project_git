@@ -66,20 +66,17 @@ public class TotalScore : MonoBehaviour
 
             else if(originPrice > 0)//하나라도 고른 경우
             {
-                if (RightItem == 3)// 향료 3개가 모두 요구와 맞는 경우
-                {
-                    perfumePrice = rightPrice + totalScore;
-                    GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
 
-                }
+                perfumePrice = rightPrice + totalScore;
+                GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
 
-                else if (RightItem < 3)//하나라도 틀린 향료를 고른 경우
+                /*else if (RightItem < 3)//하나라도 틀린 향료를 고른 경우
                 {
                     perfumePrice = totalScore;
                     if (perfumePrice < 0)
                         perfumePrice = 0;
 
-                }
+                }*/
             }
          
             if (reputNum == 35)
@@ -139,51 +136,85 @@ public class TotalScore : MonoBehaviour
         
         if (isCoolGood == true)
         {
-            totalScore += FindObjectOfType<Cooler>().ClickedItem.itemPrice * 10 / 100;
-            reputNum += 10;
+            if (FindObjectOfType<Cooler>().ClickedItem.name == FindObjectOfType<Cooler>().TopItemName)
+            {
+                totalScore += FindObjectOfType<Cooler>().ClickedItem.itemPrice * 10 / 100;
+                reputNum += 10;
+            }
         }
         if (isPressGood == true)
         {
-            totalScore += FindObjectOfType<Presser>().ClickedItem.itemPrice * 10 / 100;
-            reputNum += 10;
+            if (FindObjectOfType<Presser>().ClickedItem.name == FindObjectOfType<Presser>().MiddleItemName)
+            {
+                totalScore += FindObjectOfType<Presser>().ClickedItem.itemPrice * 10 / 100;
+                reputNum += 10;
+            }
         }
         if (isDistillGood == true)
         {
-            totalScore += FindObjectOfType<Distiller>().ClickedItem.itemPrice * 10 / 100;
-            reputNum += 10;
+            if (FindObjectOfType<Distiller>().ClickedItem.name == FindObjectOfType<Distiller>().BaseItemName)
+            { 
+                totalScore += FindObjectOfType<Distiller>().ClickedItem.itemPrice * 10 / 100;
+                reputNum += 10;
+            }
+                
         }
 
         //////////////////////////////////////
         if (isCoolNormal == true)
         {
-            totalScore += 0;
-            reputNum += 0;
+            if (FindObjectOfType<Cooler>().ClickedItem.name == FindObjectOfType<Cooler>().TopItemName)
+            { 
+                totalScore += 0;
+                reputNum += 0;
+            }
+                
         }
         if (isPressNormal == true)
         {
-            totalScore += 0;
-            reputNum += 0;
+            if (FindObjectOfType<Presser>().ClickedItem.name == FindObjectOfType<Presser>().MiddleItemName)
+            { 
+                totalScore += 0;
+                reputNum += 0;
+            }
+              
         }
         if (isDistillNormal == true)
         {
-            totalScore += 0;
-            reputNum += 0;
+            if (FindObjectOfType<Distiller>().ClickedItem.name == FindObjectOfType<Distiller>().BaseItemName)
+            { 
+                totalScore += 0;
+                reputNum += 0;
+            }
+                
         }
         ///////////////////////////////////
         if (isCoolBad == true)
         {
-            totalScore += -1 * (FindObjectOfType<Cooler>().ClickedItem.itemPrice * 10 / 100);
-            reputNum -= 10;
+            if (FindObjectOfType<Cooler>().ClickedItem.name == FindObjectOfType<Cooler>().TopItemName)
+            { 
+                totalScore += -1 * (FindObjectOfType<Cooler>().ClickedItem.itemPrice * 10 / 100);
+                reputNum -= 10;
+            }
+               
         }
         if (isPressBad == true)
         {
-            totalScore += -1 * (FindObjectOfType<Presser>().ClickedItem.itemPrice * 10 / 100);
-            reputNum -= 10;
+            if (FindObjectOfType<Presser>().ClickedItem.name == FindObjectOfType<Presser>().MiddleItemName)
+            { 
+                totalScore += -1 * (FindObjectOfType<Presser>().ClickedItem.itemPrice * 10 / 100);
+                reputNum -= 10;
+            }
+           
         }
         if (isDistillBad == true)
         {
-            totalScore += -1 * (FindObjectOfType<Distiller>().ClickedItem.itemPrice * 10 / 100);
-            reputNum -= 10;
+            if (FindObjectOfType<Distiller>().ClickedItem.name == FindObjectOfType<Distiller>().BaseItemName)
+            { 
+                totalScore += -1 * (FindObjectOfType<Distiller>().ClickedItem.itemPrice * 10 / 100);
+                reputNum -= 10;
+            }
+                
         }
         
         Timer.FindObjectOfType<Timer>().TimerStop();

@@ -14141,6 +14141,7 @@ MonoBehaviour:
   Distiller: {fileID: 2103140220}
   Presser: {fileID: 1644046650}
   Cooler: {fileID: 1292974976}
+  BackGround: {fileID: 634799056}
   BuyerDialogue: {fileID: 78113239}
   SellerDialogue: {fileID: 2103647770}
   makeStart: 0
@@ -24589,6 +24590,7 @@ MonoBehaviour:
   baseSlot: {fileID: 1495714501}
   middleSlot: {fileID: 653978481}
   topSlot: {fileID: 908338774}
+  BackGround: {fileID: 634799056}
 --- !u!114 &1459232583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35644,6 +35646,7 @@ MonoBehaviour:
   baseSlot: {fileID: 0}
   middleSlot: {fileID: 0}
   topSlot: {fileID: 0}
+  BackGround: {fileID: 0}
 --- !u!114 &2138220241
 MonoBehaviour:
   m_ObjectHideFlags: 0

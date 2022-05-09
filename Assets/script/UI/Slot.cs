@@ -103,15 +103,18 @@ public class Slot : MonoBehaviour
 
     public void Update()
     {
-        itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "개 보유";
-        if (item.itemCount <= 0)
+        if (this.item != null)
         {
-            this.GetComponent<UnityEngine.UI.Button>().interactable = false;
-            itemCount.gameObject.GetComponent<Text>().text = "판매 완료";
+            itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "개 보유";
+            if (item.itemCount <= 0)
+            {
+                this.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                itemCount.gameObject.GetComponent<Text>().text = "판매 완료";
+            }
+            /*if (FindObjectOfType<DeskTouch>().isDeskUp == true)// 데스크가 올라온 경우(아이템 제조 시작 경우)에만 인벤 아이템 클릭 가능 상태로 만듦.
+            {
+                this.gameObject.GetComponent<Button>().interactable = true;
+            }*/
         }
-        /*if (FindObjectOfType<DeskTouch>().isDeskUp == true)// 데스크가 올라온 경우(아이템 제조 시작 경우)에만 인벤 아이템 클릭 가능 상태로 만듦.
-        {
-            this.gameObject.GetComponent<Button>().interactable = true;
-        }*/
     }
 }
