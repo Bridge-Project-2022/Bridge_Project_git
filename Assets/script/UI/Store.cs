@@ -39,7 +39,10 @@ public class Store : MonoBehaviour
     public GameObject TopDetailItemName;
     public GameObject TopDetailItemNum;
 
-    public Slider slider;
+    public Slider BaseSlider;
+    public Slider MiddleSlider;
+    public Slider TopSlider;
+
     public Slider AllBuyslider;
 
     public Button MinusBtn;
@@ -132,7 +135,7 @@ public class Store : MonoBehaviour
     }
     public void OnClickSlot(Slot clickedSlot)
     {
-        slider.value = 0;
+        BaseSlider.value = 0;
         BuyNum = 0;
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
         ItemDetail.gameObject.SetActive(true);
@@ -140,13 +143,13 @@ public class Store : MonoBehaviour
         DetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         DetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
         slot = clickedSlot;
-        slider.maxValue = clickedSlot.item.itemCount;
+        BaseSlider.maxValue = clickedSlot.item.itemCount;
       
     }
 
     public void OnClickMiddleSlot(Slot clickedSlot)
     {
-        slider.value = 0;
+        MiddleSlider.value = 0;
         BuyNum = 0;
         MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
         MiddleItemDetail.gameObject.SetActive(true);
@@ -154,13 +157,13 @@ public class Store : MonoBehaviour
         MiddleDetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         MiddleDetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
         Middleslot = clickedSlot;
-        slider.maxValue = clickedSlot.item.itemCount;
+        MiddleSlider.maxValue = clickedSlot.item.itemCount;
 
     }
 
     public void OnClickTopSlot(Slot clickedSlot)
     {
-        slider.value = 0;
+        TopSlider.value = 0;
         BuyNum = 0;
         TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
         TopItemDetail.gameObject.SetActive(true);
@@ -168,7 +171,7 @@ public class Store : MonoBehaviour
         TopDetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         TopDetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
         Topslot = clickedSlot;
-        slider.maxValue = clickedSlot.item.itemCount;
+        TopSlider.maxValue = clickedSlot.item.itemCount;
 
     }
 
@@ -177,14 +180,14 @@ public class Store : MonoBehaviour
         BuyNum += 1;
        
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
-        slider.value += 1;
+        BaseSlider.value += 1;
     }
     public void MinusItem()
     {
         BuyNum -= 1;
         
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
-        slider.value -= 1;
+        BaseSlider.value -= 1;
     }
 
     public void PlusMiddleItem()
@@ -192,14 +195,14 @@ public class Store : MonoBehaviour
         BuyNum += 1;
 
         MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
-        slider.value += 1;
+        MiddleSlider.value += 1;
     }
     public void MinusMiddleItem()
     {
         BuyNum -= 1;
 
         MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
-        slider.value -= 1;
+        MiddleSlider.value -= 1;
     }
 
     public void PlusTopItem()
@@ -207,14 +210,14 @@ public class Store : MonoBehaviour
         BuyNum += 1;
 
         TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
-        slider.value += 1;
+        TopSlider.value += 1;
     }
     public void MinusTopItem()
     {
         BuyNum -= 1;
 
         TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
-        slider.value -= 1;
+        TopSlider.value -= 1;
     }
 
     public void PlusAllItem()
