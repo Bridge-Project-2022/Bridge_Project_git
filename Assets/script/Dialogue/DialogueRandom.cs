@@ -247,11 +247,11 @@ public class DialogueRandom : MonoBehaviour
         Customer.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(false);
 
-        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
+        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 1)//손님 3명 가고 나서 점심으로 바뀜
         {
             BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
         }
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
+        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 2)//손님 6명 가고 나서 저녁으로 바뀜
         {
             BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
         }

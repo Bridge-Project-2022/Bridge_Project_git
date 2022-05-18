@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class Store : MonoBehaviour
 {
     public Transform slotRoot;
@@ -28,16 +28,19 @@ public class Store : MonoBehaviour
     public GameObject DetailPrice;
     public GameObject DetailItemName;
     public GameObject DetailItemNum;
+    public TextMeshProUGUI DetailItemExplanation;
 
     public UnityEngine.UI.Image Middleimage;
     public GameObject MiddleDetailPrice;
     public GameObject MiddleDetailItemName;
     public GameObject MiddleDetailItemNum;
+    public TextMeshProUGUI MiddleDetailItemExplanation;
 
     public UnityEngine.UI.Image Topimage;
     public GameObject TopDetailPrice;
     public GameObject TopDetailItemName;
     public GameObject TopDetailItemNum;
+    public TextMeshProUGUI TopDetailItemExplanation;
 
     public Slider BaseSlider;
     public Slider MiddleSlider;
@@ -142,6 +145,7 @@ public class Store : MonoBehaviour
         image.sprite = clickedSlot.item.sprite;
         DetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         DetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
+        DetailItemExplanation.text = clickedSlot.item.itemExplanation;
         slot = clickedSlot;
         BaseSlider.maxValue = clickedSlot.item.itemCount;
       
@@ -156,6 +160,7 @@ public class Store : MonoBehaviour
         Middleimage.sprite = clickedSlot.item.sprite;
         MiddleDetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         MiddleDetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
+        MiddleDetailItemExplanation.text = clickedSlot.item.itemExplanation;
         Middleslot = clickedSlot;
         MiddleSlider.maxValue = clickedSlot.item.itemCount;
 
@@ -170,6 +175,7 @@ public class Store : MonoBehaviour
         Topimage.sprite = clickedSlot.item.sprite;
         TopDetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         TopDetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
+        TopDetailItemExplanation.text = clickedSlot.item.itemExplanation;
         Topslot = clickedSlot;
         TopSlider.maxValue = clickedSlot.item.itemCount;
 

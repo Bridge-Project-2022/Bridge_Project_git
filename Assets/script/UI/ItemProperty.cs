@@ -11,4 +11,5 @@ public class ItemProperty
     public int itemPrice;
     public int InvenItemNum;
     public string itemType;
+    public string itemExplanation;
 }
