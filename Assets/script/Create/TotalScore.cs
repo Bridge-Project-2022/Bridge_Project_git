@@ -39,6 +39,8 @@ public class TotalScore : MonoBehaviour
 
     public string reputation;// 평판
 
+    public FirstDaySetting fd;
+
     private void Start()
     {
         totalScore = 0;
@@ -48,71 +50,80 @@ public class TotalScore : MonoBehaviour
     {
         if (isCoolFin == true && isPressFin == true && isDistillFin == true)//모든 과정 끝나면 향수 계산
         {
-            isStart = true;
             Perfume.gameObject.SetActive(true);
         }
     }
 
     public void Calculate()
     {
-        if (isStart == true)
+
+        Debug.Log("향수 계산중...");
+        totalPrice();
+        if (originPrice == 0)//하나도 안고르고 바로 향수 제조 선택한 경우
         {
-            Debug.Log("향수 계산중...");
-            totalPrice();
-            if (originPrice == 0)//하나도 안고르고 바로 향수 제조 선택한 경우
+            Debug.Log("하나도 안고르고 바로 향수 제조 선택한 경우");
+            perfumePrice = 0;
+            fd.Money += perfumePrice;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
+            Debug.Log("평판 밷");
+            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+            reputation = "bad";
+        }
+        else if (RightItem != 3 && originPrice > 0)// 하나라도 고르긴 했는데 맞는 향료가 아닐 경우
+        {
+            Debug.Log("하나라도 고르긴 했는데 맞는 향료가 아닐 경우");
+            perfumePrice = totalScore;
+            fd.Money += perfumePrice;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
+            Debug.Log("평판 밷");
+            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+            reputation = "bad";
+        }
+
+        else if ( RightItem == 3 && originPrice > 0)//3개 향료 다 맞은 경우
+        {
+            Debug.Log("3개 향료 다 맞은 경우");
+            perfumePrice = rightPrice + totalScore;
+            fd.Money += perfumePrice;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
+
+            if (RightItem == 3)
             {
-                perfumePrice = 0;
-            }
-
-            else if(originPrice > 0)//하나라도 고른 경우
-            {
-
-                perfumePrice = rightPrice + totalScore;
-                GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
-
-                /*else if (RightItem < 3)//하나라도 틀린 향료를 고른 경우
+                if (reputNum == 35)
                 {
-                    perfumePrice = totalScore;
-                    if (perfumePrice < 0)
-                        perfumePrice = 0;
-
-                }*/
+                    Debug.Log("평판 베리굳");
+                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
+                    reputation = "verygood";
+                }
+                else if (reputNum < 35 && reputNum >= 10)
+                {
+                    Debug.Log("평판 굳");
+                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
+                    reputation = "good";
+                }
+                else if (reputNum < 10 && reputNum >= 0)
+                {
+                    Debug.Log("평판 노멀");
+                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
+                    reputation = "normal";
+                }
+                else if (reputNum < 0 && reputNum >= -10)
+                {
+                    Debug.Log("평판 밷");
+                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+                    reputation = "bad";
+                }
+                else if (reputNum < -10 && reputNum >= -35)
+                {
+                    Debug.Log("평판 베리밷");
+                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
+                    reputation = "verybad";
+                }
+                Debug.Log("최종 향수 가격 : " + totalScore);
+                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money += totalScore;
+                GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+                //Invoke("ResetAll", 2f);
             }
-         
-            if (reputNum == 35)
-            {
-                Debug.Log("평판 베리굳");
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
-                reputation = "verygood";
-            }
-            else if (reputNum < 35 && reputNum >= 10)
-            {
-                Debug.Log("평판 굳");
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
-                reputation = "good";
-            }
-            else if (reputNum < 10 && reputNum >= 0)
-            {
-                Debug.Log("평판 노멀");
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
-                reputation = "normal";
-            }
-            else if (reputNum < 0 && reputNum >= -10)
-            {
-                Debug.Log("평판 밷");
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
-                reputation = "bad";
-            }
-            else if(reputNum < -10 && reputNum >= -35)
-            {
-                Debug.Log("평판 베리밷");
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
-                reputation = "verybad";
-            }
-            Debug.Log("최종 향수 가격 : "+ totalScore);
-            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money += totalScore;
-            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
-            //Invoke("ResetAll", 2f);
         }
     }
     public void totalPrice()

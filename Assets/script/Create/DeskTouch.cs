@@ -16,19 +16,32 @@ public class DeskTouch : MonoBehaviour
     public GameObject topSlot;
 
     public GameObject BackGround;
+    public GameObject BGWindow;
+    public GameObject deskBG;
+
+    public GameObject InvenUI;
+    public GameObject RandomBuyer;
+
     public void TouchDesk()
     {
         if (FindObjectOfType<DialogueRandom>().makeStart == true)
         {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
             GameObject.Find("Arrow").gameObject.SetActive(false);
             Buyer.gameObject.SetActive(false);
-            GameObject.Find("Random_Buyer").gameObject.transform.position = new Vector3(-0.14f, 3.98f, -0.04f);
-            BackGround.transform.position = new Vector3(0, 1.98f, 0);
+            //GameObject.Find("Random_Buyer").gameObject.transform.position = new Vector3(-0.14f, 3.98f, -0.04f);
+            GameObject.Find("Random_Buyer").gameObject.SetActive(false);
+            //BackGround.transform.position = new Vector3(0, 1.98f, 0);
+            BackGround.gameObject.SetActive(false);
+            BGWindow.gameObject.SetActive(false);
 
+            deskBG.gameObject.SetActive(true);
             desk = GameObject.Find("Desk").gameObject;
-            desk.transform.localScale = new Vector3(20, 11, 1);
+            desk.gameObject.SetActive(false);
+            //desk.transform.localScale = new Vector3(20, 11, 1);
             Manufacture.gameObject.SetActive(true);
-            inven = GameObject.Find("InvenUI").gameObject;
+            inven = InvenUI.gameObject;
+            inven.gameObject.SetActive(true);
             inven.transform.position = new Vector3(300, 400, 0);
             isDeskUp = true;
 
@@ -52,16 +65,28 @@ public class DeskTouch : MonoBehaviour
 
     public void TouchPerfume()
     {
-        GameObject.Find("Random_Buyer").gameObject.transform.position = new Vector3(-0.1f, 0.4f, 0.0f);
+        BackGround.gameObject.SetActive(true);
+        BGWindow.gameObject.SetActive(true);
+        deskBG.gameObject.SetActive(false);
+
+        inven.gameObject.SetActive(false);
+        //GameObject.Find("Random_Buyer").gameObject.transform.position = new Vector3(-0.1f, 0.4f, 0.0f);
+        RandomBuyer.gameObject.SetActive(true);
         Buyer.gameObject.SetActive(true);
 
-        desk = GameObject.Find("Desk").gameObject;
-        desk.transform.localScale = new Vector3(20, 4, 1);
+        //desk.transform.localScale = new Vector3(20, 4, 1);
+        desk.gameObject.SetActive(true);
         Manufacture.gameObject.SetActive(false);
-        inven = GameObject.Find("InvenUI").gameObject;
-        inven.transform.position = new Vector3(1651, 503, 0);
+        //inven = GameObject.Find("InvenUI").gameObject;
+        //inven.transform.position = new Vector3(1651, 503, 0);
         isDeskUp = false;
+        Invoke("PerfumeDialogue", 0.3f);
+      
+    }
 
+    public void PerfumeDialogue()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         DialogueRandom.FindObjectOfType<DialogueRandom>().E_1_Start();
     }
 }

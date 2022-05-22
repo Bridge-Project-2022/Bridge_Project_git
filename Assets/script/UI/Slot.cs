@@ -53,6 +53,7 @@ public class Slot : MonoBehaviour
 
     public void ItemClick(Slot ClickedSlot)//슬롯 아이템 클릭 경우
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         //클릭한 아이템이 화면에 보여짐.
         Color color = GameObject.Find("ClickedItem").GetComponent<Image>().color;
         color.a = 255;

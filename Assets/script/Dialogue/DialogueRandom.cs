@@ -16,6 +16,7 @@ public class DialogueRandom : MonoBehaviour
     public GameObject Cooler;
 
     public GameObject BackGround;
+    public GameObject WindowBG;
 
     public TextMeshProUGUI BuyerDialogue;
     public TextMeshProUGUI SellerDialogue;
@@ -39,7 +40,18 @@ public class DialogueRandom : MonoBehaviour
     public string[] BuyerRejectReaction = new string[5];
     public string[] BuyerPerfumeReaction = new string[5];
 
-    public Sprite[] BG_Sprite = new Sprite[3];
+    public Sprite[] BG_Sprite = new Sprite[5];
+
+    bool AStart = false;
+    bool D1Start = false;
+    bool D2Start = false;
+    bool EStart = false;
+
+    int ACount = 0;
+    int D1Count = 0;
+    int D2Count = 0;
+    int ECount = 0;
+
     public void Start()
     {
         for (int i = 0; i < BuyerOrder.Length; i++)
@@ -94,6 +106,68 @@ public class DialogueRandom : MonoBehaviour
         Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
         Cooler.GetComponent<Cooler>().TopItemName = DS.Customer_Flavoring[2];
     }
+    public void NextDialogue()
+    {
+        if (AStart == true)
+        {
+            Buyer.gameObject.GetComponent<Button>().interactable = true;
+            StartCoroutine(NormalChat(BuyerOrder[ACount]));
+            ACount++;
+
+            if (BuyerOrder[ACount] == "")
+            {
+                //Debug.Log("A끝남");
+                Buyer.gameObject.GetComponent<Button>().interactable = false;
+                ACount = 0;
+                AStart = false;
+                Select.gameObject.SetActive(true);
+            }
+        }
+        if (D1Start == true)
+        {
+            Buyer.gameObject.GetComponent<Button>().interactable = true;
+            StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
+            D1Count++;
+
+            if (BuyerIntensity[D1Count] == "")
+            {
+                //Debug.Log("D1끝남");
+                Buyer.gameObject.GetComponent<Button>().interactable = false;
+                D1Count = 0;
+                D1Start = false;
+                arrow.gameObject.SetActive(true);
+            }
+        }
+        if (D2Start == true)
+        {
+            Buyer.gameObject.GetComponent<Button>().interactable = true;
+            StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
+            D2Count++;
+
+            if (BuyerRejectReaction[D2Count] == "")
+            {
+                //Debug.Log("D2끝남");
+                D2Count = 0;
+                D2Start = false;
+                Invoke("End", 2f);
+            }
+        }
+        if (EStart == true)
+        {
+            Buyer.gameObject.GetComponent<Button>().interactable = true;
+            StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
+            ECount++;
+
+            if (BuyerPerfumeReaction[ECount] == "")
+            {
+                //Debug.Log("E끝남");
+                ECount = 0;
+                EStart = false;
+                Invoke("End", 2f);
+            }
+        }
+    }
+    
     public void RandomDialogue()// 랜덤 함수(대화 랜덤)
     {
         C_1_random = Random.Range(0, DS.Dialogue_C_1.Length);
@@ -106,31 +180,17 @@ public class DialogueRandom : MonoBehaviour
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
         Customer.gameObject.SetActive(true);
         Buyer.gameObject.SetActive(true);
 
-        StartCoroutine(A_Script_Start());
+        AStart = true;
+        NextDialogue();
     }
 
-    IEnumerator A_Script_Start()
-    {
-
-        for (int i = 0; i < BuyerOrder.Length; i++)
-        {
-            if (BuyerOrder[i] == "")
-            {
-                break;
-            }
-            else
-            { 
-                yield return StartCoroutine(NormalChat(BuyerOrder[i]));
-                yield return new WaitForSeconds(1.5f);
-            }
-        }
-        Select.gameObject.SetActive(true);
-    }
     public void C_1_Start()// 유저 : 승낙 - 향 세기 질문
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         Select.SetActive(false);
         RandomDialogue();
@@ -142,6 +202,7 @@ public class DialogueRandom : MonoBehaviour
 
     public void C_2_Start()//유저 : 거부 - 거부 이유 제시
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().rejectNum += 1;
         rejectCnt += 1;
@@ -165,25 +226,9 @@ public class DialogueRandom : MonoBehaviour
     {
         Buyer.gameObject.SetActive(true);
         Seller.gameObject.SetActive(false);
-
-        StartCoroutine(D_1_Script_Start());
         makeStart = true;
-    }
-    IEnumerator D_1_Script_Start()
-    {
-        for (int i = 0; i < BuyerIntensity.Length; i++)
-        {
-            if (BuyerIntensity[i] == "")
-            {
-                break;
-            }
-            else
-            {
-                yield return StartCoroutine(NormalChat(BuyerIntensity[i]));
-                yield return new WaitForSeconds(1.5f);
-            }
-        }
-        arrow.gameObject.SetActive(true);
+        D1Start = true;
+        NextDialogue();
     }
 
     public void D_2_Start()// 손님 : 거부 - 불만 표출
@@ -191,47 +236,15 @@ public class DialogueRandom : MonoBehaviour
         Seller.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(true);
 
-        StartCoroutine(D_2_Script_Start());
+        D2Start = true;
+        NextDialogue();
     }
 
-    IEnumerator D_2_Script_Start()
-    {
-        for (int i = 0; i < BuyerRejectReaction.Length; i++)
-        {
-            if (BuyerRejectReaction[i] == "")
-            {
-                break;
-            }
-            else
-            { 
-                yield return StartCoroutine(NormalChat(BuyerRejectReaction[i]));
-                yield return new WaitForSeconds(1.5f);
-            }
-            
-        }
-        Invoke("End", 1f);
-    }
 
     public void E_1_Start()//손님 : 향수 받고 반응
     {
-        StartCoroutine(E_1_Script_Start());
-    }
-
-    IEnumerator E_1_Script_Start()
-    {
-        for (int i = 0; i < BuyerPerfumeReaction.Length; i++)
-        {
-            if (BuyerPerfumeReaction[i] == "")
-            {
-                break;
-            }
-            else
-            {
-                yield return StartCoroutine(NormalChat(BuyerPerfumeReaction[i]));
-                yield return new WaitForSeconds(1.5f);
-            }
-        }
-        Invoke("End", 1f);
+        EStart = true;
+        NextDialogue();
     }
 
     public void End()
@@ -250,10 +263,13 @@ public class DialogueRandom : MonoBehaviour
         if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 1)//손님 3명 가고 나서 점심으로 바뀜
         {
             BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
+            WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
+
         }
         else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 2)//손님 6명 가고 나서 저녁으로 바뀜
         {
             BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
+            WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
         }
 
         Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
@@ -262,6 +278,7 @@ public class DialogueRandom : MonoBehaviour
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
         for (int a = 0; a < narration.Length; a++)
         {
             writerText += narration[a];
@@ -270,6 +287,7 @@ public class DialogueRandom : MonoBehaviour
             yield return new WaitForSeconds(0.08f);
             yield return null;
         }
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
     }
 }
 

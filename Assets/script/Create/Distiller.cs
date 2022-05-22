@@ -70,10 +70,12 @@ public void DistillerOn(ItemProperty item)
             return;
 
         itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
     }
 
     public void StartDistiller()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boiling");
         Invoke("EndDistiller", distillerTime);
         isWork = true;
 
@@ -114,6 +116,7 @@ public void DistillerOn(ItemProperty item)
 
     public void EndDistiller()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
         foreach (GameObject temp in temperatureList)
         {
             temp.SetActive(false);

@@ -10,12 +10,14 @@ public class UIOnOff : MonoBehaviour
     public void InvenOpen()
     {
         Debug.Log("인벤토리 오픈");
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("inven");
         Inven.gameObject.SetActive(true);
 
     }
     public void StoreOpen()
     {
         Debug.Log("보따리 오픈");
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         Store.gameObject.SetActive(true);
 
     }
@@ -23,7 +25,8 @@ public class UIOnOff : MonoBehaviour
     public void StoreClose()
     {
         Debug.Log("보따리 닫음");
-       GameObject.Find("Customer").gameObject.SetActive(false);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        GameObject.Find("Customer").gameObject.SetActive(false);
 
     }
 

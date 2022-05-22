@@ -9,6 +9,7 @@ public class StoreTab : MonoBehaviour
 
     public void ClickTab(int id)
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject BaseDetail = GameObject.Find("Store").transform.GetChild(0).GetChild(0).GetChild(5).gameObject;
         GameObject MiddleDetail = GameObject.Find("Store").transform.GetChild(0).GetChild(1).GetChild(5).gameObject;
         GameObject TopDetail = GameObject.Find("Store").transform.GetChild(0).GetChild(2).GetChild(5).gameObject;
@@ -26,6 +27,22 @@ public class StoreTab : MonoBehaviour
                 contentsPanels[i].SetActive(true);
             }
             else 
+            {
+                contentsPanels[i].SetActive(false);
+            }
+        }
+    }
+
+    public void ClickInvenTab(int id)
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        for (int i = 0; i < contentsPanels.Count; i++)
+        {
+            if (i == id)
+            {
+                contentsPanels[i].SetActive(true);
+            }
+            else
             {
                 contentsPanels[i].SetActive(false);
             }

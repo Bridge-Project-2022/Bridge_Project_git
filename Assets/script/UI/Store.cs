@@ -129,7 +129,6 @@ public class Store : MonoBehaviour
             }
             else // 아이템이 없는 경우 클릭 불가하게 만듦.
             {
-                Debug.Log("없");
                 Topslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
             }
 
@@ -138,6 +137,7 @@ public class Store : MonoBehaviour
     }
     public void OnClickSlot(Slot clickedSlot)
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BaseSlider.value = 0;
         BuyNum = 0;
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -153,6 +153,7 @@ public class Store : MonoBehaviour
 
     public void OnClickMiddleSlot(Slot clickedSlot)
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         MiddleSlider.value = 0;
         BuyNum = 0;
         MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -168,6 +169,7 @@ public class Store : MonoBehaviour
 
     public void OnClickTopSlot(Slot clickedSlot)
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         TopSlider.value = 0;
         BuyNum = 0;
         TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -183,6 +185,7 @@ public class Store : MonoBehaviour
 
     public void PlusItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BuyNum += 1;
        
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -190,6 +193,7 @@ public class Store : MonoBehaviour
     }
     public void MinusItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BuyNum -= 1;
         
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -198,6 +202,7 @@ public class Store : MonoBehaviour
 
     public void PlusMiddleItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BuyNum += 1;
 
         MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -205,6 +210,7 @@ public class Store : MonoBehaviour
     }
     public void MinusMiddleItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BuyNum -= 1;
 
         MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -213,6 +219,7 @@ public class Store : MonoBehaviour
 
     public void PlusTopItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BuyNum += 1;
 
         TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -220,6 +227,7 @@ public class Store : MonoBehaviour
     }
     public void MinusTopItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BuyNum -= 1;
 
         TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
@@ -228,6 +236,7 @@ public class Store : MonoBehaviour
 
     public void PlusAllItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         AllBuyNum += 1;
 
         BuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
@@ -235,6 +244,7 @@ public class Store : MonoBehaviour
     }
     public void MinusAllItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         AllBuyNum -= 1;
 
         BuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
@@ -243,6 +253,7 @@ public class Store : MonoBehaviour
 
     public void BuyItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         if (onStoreSlotClick != null)
         {
             onStoreSlotClick(slot.item);
@@ -256,6 +267,7 @@ public class Store : MonoBehaviour
 
     public void BuyMiddleItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         if (onStoreSlotClick != null)
         {
             onStoreSlotClick(Middleslot.item);
@@ -269,6 +281,7 @@ public class Store : MonoBehaviour
 
     public void BuyTopItem()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         if (onStoreSlotClick != null)
         {
             onStoreSlotClick(Topslot.item);
@@ -282,6 +295,7 @@ public class Store : MonoBehaviour
 
     public void BuyAllItemUI()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         AllBuyNum = 0;
         slotItemPrice = 0;
         BuyAll.gameObject.SetActive(true);
@@ -306,17 +320,20 @@ public class Store : MonoBehaviour
     
     public void Close()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         this.gameObject.SetActive(false);
         ItemDetail.gameObject.SetActive(false);
     }
     public void CloseDetail()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
         TopItemDetail.gameObject.SetActive(false);
     }
     public void CloseBuyAll()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BuyAll.gameObject.SetActive(false);
     }
 
