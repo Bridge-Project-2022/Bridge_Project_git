@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TotalScore : MonoBehaviour
 {
@@ -63,60 +64,75 @@ public class TotalScore : MonoBehaviour
         {
             Debug.Log("하나도 안고르고 바로 향수 제조 선택한 경우");
             perfumePrice = 0;
+            float imsiMoney = fd.Money;
             fd.Money += perfumePrice;
+            StartCoroutine(Count(imsiMoney, fd.Money));
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
             Debug.Log("평판 밷");
+            float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+            StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
         }
         else if (RightItem != 3 && originPrice > 0)// 하나라도 고르긴 했는데 맞는 향료가 아닐 경우
         {
             Debug.Log("하나라도 고르긴 했는데 맞는 향료가 아닐 경우");
             perfumePrice = totalScore;
+            float imsiMoney = fd.Money;
             fd.Money += perfumePrice;
+            StartCoroutine(Count(imsiMoney, fd.Money));
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
             Debug.Log("평판 밷");
+            float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+            StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
         }
 
         else if ( RightItem == 3 && originPrice > 0)//3개 향료 다 맞은 경우
         {
             Debug.Log("3개 향료 다 맞은 경우");
+            float imsiMoney = fd.Money;
             perfumePrice = rightPrice + totalScore;
             fd.Money += perfumePrice;
+            StartCoroutine(Count(imsiMoney, fd.Money));
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
-
+            float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             if (RightItem == 3)
             {
                 if (reputNum == 35)
                 {
                     Debug.Log("평판 베리굳");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
+                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verygood";
                 }
                 else if (reputNum < 35 && reputNum >= 10)
                 {
                     Debug.Log("평판 굳");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
+                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "good";
                 }
                 else if (reputNum < 10 && reputNum >= 0)
                 {
                     Debug.Log("평판 노멀");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
+                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "normal";
                 }
                 else if (reputNum < 0 && reputNum >= -10)
                 {
                     Debug.Log("평판 밷");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "bad";
                 }
                 else if (reputNum < -10 && reputNum >= -35)
                 {
                     Debug.Log("평판 베리밷");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
+                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verybad";
                 }
                 Debug.Log("최종 향수 가격 : " + totalScore);
@@ -229,6 +245,46 @@ public class TotalScore : MonoBehaviour
         }
         
         Timer.FindObjectOfType<Timer>().TimerStop();
+    }
+
+    IEnumerator Count(float target, float current)
+
+    {
+        float duration = 0.5f; // 카운팅에 걸리는 시간 설정. 
+
+        float offset = (target - current) / duration; // 
+
+        while (current < target)
+        {
+            current += offset * Time.deltaTime;
+
+            fd.GetComponent<Text>().text = ((int)current).ToString();
+
+            yield return null;
+        }
+        current = target;
+        fd.GetComponent<Text>().text = ((int)current).ToString();
+
+    }
+
+    IEnumerator Countt(float target, float current)
+
+    {
+        float duration = 0.5f; // 카운팅에 걸리는 시간 설정. 
+
+        float offset = (target - current) / duration; // 
+
+        while (current < target)
+        {
+            current += offset * Time.deltaTime;
+
+            GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+
+            yield return null;
+        }
+        current = target;
+        GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+
     }
 
     public void ResetAll()

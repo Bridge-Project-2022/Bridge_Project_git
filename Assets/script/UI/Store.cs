@@ -260,7 +260,9 @@ public class Store : MonoBehaviour
         }
 
         slot.item.itemCount -= 1 * BuyNum;
+        float imsiMoney = fd.Money;
         fd.Money -= slot.item.itemPrice * BuyNum;
+        StartCoroutine(Count(imsiMoney, fd.Money));
         alertText.GetComponent<Text>().text = slot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
         StartCoroutine(FadeTextToZero());
     }
@@ -274,7 +276,9 @@ public class Store : MonoBehaviour
         }
 
         Middleslot.item.itemCount -= 1 * BuyNum;
+        float imsiMoney = fd.Money;
         fd.Money -= Middleslot.item.itemPrice * BuyNum;
+        StartCoroutine(Count(imsiMoney, fd.Money));
         alertText.GetComponent<Text>().text = Middleslot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
         StartCoroutine(FadeTextToZero());
     }
@@ -288,7 +292,9 @@ public class Store : MonoBehaviour
         }
 
         Topslot.item.itemCount -= 1 * BuyNum;
+        float imsiMoney = fd.Money;
         fd.Money -= Topslot.item.itemPrice * BuyNum;
+        StartCoroutine(Count(imsiMoney, fd.Money));
         alertText.GetComponent<Text>().text = Topslot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
         StartCoroutine(FadeTextToZero());
     }
@@ -377,5 +383,27 @@ public class Store : MonoBehaviour
             StartCoroutine(FadeTextToZero());
         }
     }
+
+
+     IEnumerator Count(float target, float current)
+
+    {
+        float duration = 0.5f; // 카운팅에 걸리는 시간 설정. 
+
+        float offset = (target - current) / duration; // 
+
+        while (current < target)
+        {
+            current += offset * Time.deltaTime;
+
+            fd.GetComponent<Text>().text = ((int)current).ToString();
+
+            yield return null;
+        }
+        current = target;
+        fd.GetComponent<Text>().text = ((int)current).ToString();
+
+    }
+
 
 }

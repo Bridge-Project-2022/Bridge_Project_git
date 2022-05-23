@@ -205,13 +205,25 @@ public class DialogueRandom : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().rejectNum += 1;
+        float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         rejectCnt += 1;
         if (rejectCnt == 1)
+        {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
+            StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
+        }
+            
+
         else if (rejectCnt == 2)
+        {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 10;
+            StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
+        }
         if (rejectCnt >= 3)
+        {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 15;
+            StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
+        }
 
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
@@ -289,5 +301,26 @@ public class DialogueRandom : MonoBehaviour
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
     }
+
+    IEnumerator Count(float target, float current)
+
+    {
+        float duration = 0.5f; // 카운팅에 걸리는 시간 설정. 
+
+        float offset = (target - current) / duration; // 
+
+        while (current < target)
+        {
+            current += offset * Time.deltaTime;
+
+            GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+
+            yield return null;
+        }
+        current = target;
+        GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+
+    }
+
 }
 
