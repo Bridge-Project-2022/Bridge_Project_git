@@ -12,9 +12,9 @@ public class Inventory : MonoBehaviour
     public Transform storeSlotRoot;
     public Store store;
 
-    private List<Slot> Baseslots;
-    private List<Slot> Middleslots;
-    private List<Slot> Topslots;
+    public List<Slot> Baseslots;
+    public List<Slot> Middleslots;
+    public List<Slot> Topslots;
 
     private List<Slot> storeSlots;
 
@@ -71,7 +71,7 @@ public class Inventory : MonoBehaviour
         //store.onAllStoreSlotClick += AllBuyItem;
     }
 
-    void BuyItem(ItemProperty item)
+    public void BuyItem(ItemProperty item)
     {
         if (item.itemType == "Base")
         {
@@ -80,6 +80,7 @@ public class Inventory : MonoBehaviour
                 return t.item == null || t.item.name == string.Empty;
             });//모든 슬롯중에 아이템이 빈 슬롯을 emptyslot이라는 변수 할당.
                //var imsiSlot = imsiSlots[0];
+
             for (int i = 0; i < BaseslotRoot.childCount; i++)
             {
                 if (Baseslots[i].item == item)//중복인 경우
@@ -148,10 +149,17 @@ public class Inventory : MonoBehaviour
 
             if (isSame == false)//중복인 아이템이 없는 경우 -> 슬롯 추가
             {
-                //Debug.Log("실행");
-                emptySlot.SetInvenItem(item);
-                item.InvenItemNum += store.BuyNum;
-                emptySlot.transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString() + "개 남음";
+                if (emptySlot != null)//슬롯 꽉차지 않은 경우
+                {
+                    emptySlot.SetInvenItem(item);
+                    item.InvenItemNum += store.BuyNum;
+                    emptySlot.transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString() + "개 남음";
+                }
+                else
+                {
+                    Debug.Log("슬롯 꽉참");
+                }
+               
             }
         }
 
@@ -189,10 +197,16 @@ public class Inventory : MonoBehaviour
 
             if (isSame == false)//중복인 아이템이 없는 경우 -> 슬롯 추가
             {
-                //Debug.Log("실행");
-                emptySlot.SetInvenItem(item);
-                item.InvenItemNum += store.BuyNum;
-                emptySlot.transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString() + "개 남음";
+                if (emptySlot != null)//슬롯 꽉차지 않은 경우
+                {
+                    emptySlot.SetInvenItem(item);
+                    item.InvenItemNum += store.BuyNum;
+                    emptySlot.transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString() + "개 남음";
+                }
+                else
+                {
+                    Debug.Log("슬롯 꽉참");
+                }
             }
         }
 

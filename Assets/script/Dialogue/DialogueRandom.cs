@@ -52,6 +52,9 @@ public class DialogueRandom : MonoBehaviour
     int D2Count = 0;
     int ECount = 0;
 
+
+    public bool isDialogueStart = false;
+
     public void Start()
     {
         for (int i = 0; i < BuyerOrder.Length; i++)
@@ -185,6 +188,7 @@ public class DialogueRandom : MonoBehaviour
         Buyer.gameObject.SetActive(true);
 
         AStart = true;
+        isDialogueStart = true;
         NextDialogue();
     }
 
@@ -193,6 +197,7 @@ public class DialogueRandom : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         Select.SetActive(false);
+        isDialogueStart = false;
         RandomDialogue();
         Buyer.gameObject.SetActive(false);
         Seller.gameObject.SetActive(true);
@@ -227,6 +232,7 @@ public class DialogueRandom : MonoBehaviour
 
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
+        isDialogueStart = false;
         RandomDialogue();
         Buyer.gameObject.SetActive(false);
         Seller.gameObject.SetActive(true);
@@ -240,6 +246,7 @@ public class DialogueRandom : MonoBehaviour
         Seller.gameObject.SetActive(false);
         makeStart = true;
         D1Start = true;
+        isDialogueStart = true;
         NextDialogue();
     }
 
@@ -249,6 +256,7 @@ public class DialogueRandom : MonoBehaviour
         Buyer.gameObject.SetActive(true);
 
         D2Start = true;
+        isDialogueStart = true;
         NextDialogue();
     }
 
@@ -256,11 +264,13 @@ public class DialogueRandom : MonoBehaviour
     public void E_1_Start()//손님 : 향수 받고 반응
     {
         EStart = true;
+        isDialogueStart = true;
         NextDialogue();
     }
 
     public void End()
     {
+        isDialogueStart = false;
         int temp;
         temp = DS.Customer_ID[0];
         for (int i = 0; i < DS.Customer_ID.Length - 1; i++)

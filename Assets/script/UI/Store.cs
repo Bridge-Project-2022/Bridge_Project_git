@@ -51,27 +51,50 @@ public class Store : MonoBehaviour
     public Button MinusBtn;
     public Button PlusBtn;
 
-    public Button BuyAllBtn;
-    public Button AllBuyMinusBtn;
-    public Button AllBuyPlusBtn;
+    public Button BaseBuyAllBtn;
+    public Button BaseAllBuyMinusBtn;
+    public Button BaseAllBuyPlusBtn;
+
+    public Button MiddleBuyAllBtn;
+    public Button MiddleAllBuyMinusBtn;
+    public Button MiddleAllBuyPlusBtn;
+
+    public Button TopBuyAllBtn;
+    public Button TopAllBuyMinusBtn;
+    public Button TopAllBuyPlusBtn;
 
     public int BuyNum;
     public int AllBuyNum;
     int slotItemPrice = 0;
+    int MiddleslotItemPrice = 0;
+    int TopslotItemPrice = 0;
 
     public Slot slot;
     public Slot Middleslot;
     public Slot Topslot;
 
 
-    public GameObject BuyAll;
-    public GameObject BuyAllPrice;
-    public GameObject BuyAllNum;
+    public GameObject BaseBuyAll;
+    public GameObject BaseBuyAllPrice;
+    public GameObject BaseBuyAllNum;
+
+    public GameObject MiddleBuyAll;
+    public GameObject MiddleBuyAllPrice;
+    public GameObject MiddleBuyAllNum;
+
+    public GameObject TopBuyAll;
+    public GameObject TopBuyAllPrice;
+    public GameObject TopBuyAllNum;
 
     public Text alertText;
 
     public System.Action<ItemProperty> onStoreSlotClick;//델리게이트 변수
     //public System.Action<ItemProperty> onAllStoreSlotClick;//델리게이트 변수
+
+    public ItemProperty[] BaseItemList = new ItemProperty[10];
+    public ItemProperty[] MiddleItemList = new ItemProperty[10];
+    public ItemProperty[] TopItemList = new ItemProperty[10];
+
 
     // Start is called before the first frame update
     void Start()
@@ -239,7 +262,31 @@ public class Store : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         AllBuyNum += 1;
 
-        BuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        slotItemPrice *= AllBuyNum;
+        /*string BaseAll = BaseBuyAllPrice.GetComponent<Text>().text;
+        int BaseAllPrice = int.Parse(BaseAll);
+        BaseAllPrice = 0;
+        BaseAllPrice *= AllBuyNum;*/
+
+        BaseBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        AllBuyslider.value += 1;
+    }
+
+    public void MiddlePlusAllItem()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        AllBuyNum += 1;
+
+        MiddleBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        AllBuyslider.value += 1;
+    }
+
+    public void TopPlusAllItem()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        AllBuyNum += 1;
+
+        TopBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
         AllBuyslider.value += 1;
     }
     public void MinusAllItem()
@@ -247,7 +294,28 @@ public class Store : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         AllBuyNum -= 1;
 
-        BuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+
+        BaseBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        AllBuyslider.value -= 1;
+    }
+
+    public void MiddleMinusAllItem()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        AllBuyNum -= 1;
+
+
+        MiddleBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        AllBuyslider.value -= 1;
+    }
+
+    public void TopMinusAllItem()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        AllBuyNum -= 1;
+
+
+        TopBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
         AllBuyslider.value -= 1;
     }
 
@@ -302,28 +370,117 @@ public class Store : MonoBehaviour
     public void BuyAllItemUI()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        for (int i = 0; i < BaseItemList.Length; i++)
+        {
+            if (slots[i].item == null)
+                break;
+
+            BaseItemList[i] = slots[i].item;
+        }
         AllBuyNum = 0;
         slotItemPrice = 0;
-        BuyAll.gameObject.SetActive(true);
+        BaseBuyAll.gameObject.SetActive(true);
+        inven.gameObject.SetActive(true);
+        inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
         for (int i = 0; i < slots.Count; i++)
         {
             slotItemPrice += slots[i].item.itemPrice;
         }
-        BuyAllPrice.GetComponent<Text>().text = " / " + slotItemPrice.ToString() + "$";
+        BaseBuyAllPrice.GetComponent<Text>().text = " / " + slotItemPrice.ToString() + "$";
     }
-   /* public void BuyAllItem()
+
+    public void MiddleBuyAllItemUI()
     {
-        if (fd.Money >= slotItemPrice * AllBuyNum)
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        for (int i = 0; i < MiddleItemList.Length; i++)
         {
-            fd.Money -= slotItemPrice * AllBuyNum;
-            for (int j = 0; j < slotRoot.childCount; j++)
-            {
-                slots[j].item.itemCount -= 1 * AllBuyNum;
-            }
+            if (Middleslots[i].item == null)
+                break;
+
+            MiddleItemList[i] = Middleslots[i].item;
         }
-        inven.GetComponent<Inventory>().AllBuyItem();
-    }*/
-    
+        AllBuyNum = 0;
+        MiddleslotItemPrice = 0;
+        MiddleBuyAll.gameObject.SetActive(true);
+        inven.gameObject.SetActive(true);
+        inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+        for (int i = 0; i < Middleslots.Count; i++)
+        {
+            MiddleslotItemPrice += Middleslots[i].item.itemPrice;
+        }
+        MiddleBuyAllPrice.GetComponent<Text>().text = " / " + MiddleslotItemPrice.ToString() + "$";
+    }
+
+    public void TopBuyAllItemUI()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        for (int i = 0; i < TopItemList.Length; i++)
+        {
+            if (Topslots[i].item == null)
+                break;
+
+            TopItemList[i] = Topslots[i].item;
+        }
+        AllBuyNum = 0;
+        TopslotItemPrice = 0;
+        TopBuyAll.gameObject.SetActive(true);
+        inven.gameObject.SetActive(true);
+        inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+        for (int i = 0; i < Topslots.Count; i++)
+        {
+            TopslotItemPrice += Topslots[i].item.itemPrice;
+        }
+        TopBuyAllPrice.GetComponent<Text>().text = " / " + TopslotItemPrice.ToString() + "$";
+    }
+
+    public void BaseBuyAllItem()
+    {
+        for (int i = 0; i < BaseItemList.Length; i++)
+        {
+            if (BaseItemList[i] == null)
+                break;
+
+            inven.GetComponent<Inventory>().BuyItem(BaseItemList[i]);
+            BaseItemList[i].itemCount -= 1 * AllBuyNum;
+        }
+        float imsiMoney = fd.Money;
+        fd.Money -= slotItemPrice * AllBuyNum;
+        StartCoroutine(Count(imsiMoney, fd.Money));
+    }
+    public void MiddleBuyAllItem()
+    {
+        for (int i = 0; i < MiddleItemList.Length; i++)
+        {
+            if (MiddleItemList[i] == null)
+                break;
+
+            inven.GetComponent<Inventory>().BuyItem(MiddleItemList[i]);
+            MiddleItemList[i].itemCount -= 1 * AllBuyNum;
+        }
+
+        float imsiMoney = fd.Money;
+        fd.Money -= slotItemPrice * AllBuyNum;
+        StartCoroutine(Count(imsiMoney, fd.Money));
+    }
+
+    public void TopBuyAllItem()
+    {
+        for (int i = 0; i < TopItemList.Length; i++)
+        {
+            if (TopItemList[i] == null)
+                break;
+
+            inven.GetComponent<Inventory>().BuyItem(TopItemList[i]);
+            TopItemList[i].itemCount -= 1 * AllBuyNum;
+        }
+
+        float imsiMoney = fd.Money;
+        fd.Money -= slotItemPrice * AllBuyNum;
+        StartCoroutine(Count(imsiMoney, fd.Money));
+    }
     public void Close()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
@@ -340,7 +497,12 @@ public class Store : MonoBehaviour
     public void CloseBuyAll()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        BuyAll.gameObject.SetActive(false);
+        BaseBuyAll.gameObject.SetActive(false);
+        MiddleBuyAll.gameObject.SetActive(false);
+        TopBuyAll.gameObject.SetActive(false);
+        inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+        inven.gameObject.SetActive(false);
     }
 
     public IEnumerator FadeTextToZero()  // 알파값 1에서 0으로 전환
@@ -378,7 +540,7 @@ public class Store : MonoBehaviour
         if (fd.Money < slotItemPrice * AllBuyNum)
         {
             Debug.Log("잔액 부족");
-            BuyAllBtn.gameObject.GetComponent<Button>().interactable = false;
+            BaseBuyAllBtn.gameObject.GetComponent<Button>().interactable = false;
             alertText.GetComponent<Text>().text = "잔액이 부족합니다.";
             StartCoroutine(FadeTextToZero());
         }
