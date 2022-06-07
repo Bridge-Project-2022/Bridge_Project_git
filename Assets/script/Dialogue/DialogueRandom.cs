@@ -198,11 +198,11 @@ public class DialogueRandom : MonoBehaviour
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         Select.SetActive(false);
         isDialogueStart = false;
-        RandomDialogue();
+        //RandomDialogue();
         Buyer.gameObject.SetActive(false);
-        Seller.gameObject.SetActive(true);
-        StartCoroutine(NormalChat(SellerSentences[0]));
-        Invoke("D_1_Start", 3f);
+        //Seller.gameObject.SetActive(true);
+        //StartCoroutine(NormalChat(SellerSentences[0]));
+        Invoke("D_1_Start", 0.3f);
     }
 
     public void C_2_Start()//유저 : 거부 - 거부 이유 제시
@@ -233,11 +233,11 @@ public class DialogueRandom : MonoBehaviour
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
         isDialogueStart = false;
-        RandomDialogue();
+        //RandomDialogue();
         Buyer.gameObject.SetActive(false);
-        Seller.gameObject.SetActive(true);
-        StartCoroutine(NormalChat(SellerSentences[1]));
-        Invoke("D_2_Start", 3f);
+        //Seller.gameObject.SetActive(true);
+        //StartCoroutine(NormalChat(SellerSentences[1]));
+        Invoke("D_2_Start", 0.3f);
     }
 
     public void D_1_Start()//손님 : 승낙 - 향 세기 결정

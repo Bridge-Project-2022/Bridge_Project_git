@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Manufacture.unity
     guid: e20e1d2440eb6644f90ebc01efe84d63
+  - enabled: 1
+    path: Assets/Scenes/SecondDay.unity
+    guid: c3e409ec94309e14ba95760a84d6d186
   m_configObjects: {}
