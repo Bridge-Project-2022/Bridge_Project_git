@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class DialogueScript : MonoBehaviour
 {
-    public GameObject Customer;
-    public GameObject Distiller;
+    GameObject Customer;
+    GameObject Distiller;
 
 
     //손님 대사 배열 - 전체는 랜덤이지만 내부는 순차적으로
@@ -28,6 +28,7 @@ public class DialogueScript : MonoBehaviour
 
     public void Start()
     {
+        Distiller = GameObject.Find("Canvas").transform.GetChild(6).GetChild(3).gameObject;
         //손님 아이디 배열에 1-9까지 중에 랜덤으로 넣되 중복되지 않도록 배치함. 
         for (int i = 0; i < Customer_ID.Length; i++)
         {
@@ -41,7 +42,7 @@ public class DialogueScript : MonoBehaviour
                 }
             }
         }
-
+        Customer = GameObject.Find("Else").transform.GetChild(0).gameObject;
        /* //유저 : '예' 선택한 경우
         Dialogue_C_1[0] = "향의 세기는 어느 정도로 해드릴까요?";
         Dialogue_C_1[1] = "향은 어느 정도로 해드릴까요?";

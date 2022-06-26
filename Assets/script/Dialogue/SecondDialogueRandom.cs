@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-public class DialogueRandom : MonoBehaviour
+public class SecondDialogueRandom : MonoBehaviour
 {
     GameObject Seller;
     GameObject Buyer;
@@ -21,7 +21,7 @@ public class DialogueRandom : MonoBehaviour
     TextMeshProUGUI BuyerDialogue;
     TextMeshProUGUI SellerDialogue;
 
-    //public bool makeStart = false;
+    public bool makeStart = false;
 
     GameObject arrow;
 
@@ -32,7 +32,7 @@ public class DialogueRandom : MonoBehaviour
 
     public string[] SellerSentences = new string[2];// 유저 대화 배열
 
-    DialogueScript DS;
+    SecondDialogueScript DS;
 
     public string[] BuyerOrder = new string[10];
     public string[] BuyerIntensity = new string[5];
@@ -56,7 +56,14 @@ public class DialogueRandom : MonoBehaviour
 
     public void Start()
     {
-        DS = GameObject.Find("DS").transform.GetChild(0).gameObject.GetComponent<DialogueScript>();
+
+    }
+
+    public void Update()
+    {
+        DS = GameObject.FindGameObjectWithTag("DialogueScript").GetComponent<SecondDialogueScript>();
+
+        Customer = GameObject.Find("Else").transform.GetChild(0).gameObject;
 
         Seller = GameObject.Find("Dialogue").transform.GetChild(1).gameObject;
         Buyer = GameObject.Find("Dialogue").transform.GetChild(2).gameObject;
@@ -65,46 +72,13 @@ public class DialogueRandom : MonoBehaviour
         Distiller = GameObject.Find("Canvas").transform.GetChild(6).GetChild(3).gameObject;
         Presser = GameObject.Find("Canvas").transform.GetChild(6).GetChild(4).gameObject;
         Cooler = GameObject.Find("Canvas").transform.GetChild(6).GetChild(1).gameObject;
-        arrow = GameObject.Find("Desk").transform.GetChild(0).gameObject;
+        arrow = GameObject.Find("TopBar").transform.GetChild(5).GetChild(0).gameObject;
 
         BuyerDialogue = GameObject.Find("Dialogue").transform.GetChild(2).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         SellerDialogue = GameObject.Find("Dialogue").transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
 
-        for (int i = 0; i < BuyerOrder.Length; i++)
-        {
-            BuyerOrder[i] = DS.Customer_PerfumeOrder[i];
-        }
-
-        for (int i = 0; i < BuyerIntensity.Length; i++)
-        {
-            BuyerIntensity[i] = DS.Customer_IntensityOrder[i];
-        }
-
-        for (int i = 0; i < BuyerRejectReaction.Length; i++)
-        {
-            BuyerRejectReaction[i] = DS.Customer_RejectReaction[i];
-        }
-
-        for (int i = 0; i < BuyerPerfumeReaction.Length; i++)
-        {
-            BuyerPerfumeReaction[i] = DS.Customer_PerfumeReaction[i];
-        }
-
-        Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
-        Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
-        Cooler.GetComponent<Cooler>().TopItemName = DS.Customer_Flavoring[2];
-
         BackGround = GameObject.Find("BG").transform.GetChild(0).gameObject;
         WindowBG = GameObject.Find("BG").transform.GetChild(1).gameObject;
-    }
-
-    public void Update()
-    {
-
-        DS = GameObject.Find("DS").transform.GetChild(0).gameObject.GetComponent<DialogueScript>();
-
-
-        Customer = GameObject.Find("Else").transform.GetChild(0).gameObject;
 
         for (int i = 0; i < BuyerOrder.Length; i++)
         {
@@ -191,7 +165,7 @@ public class DialogueRandom : MonoBehaviour
             }
         }
     }
-    
+
     public void RandomDialogue()// 랜덤 함수(대화 랜덤)
     {
         C_1_random = Random.Range(0, DS.Dialogue_C_1.Length);
@@ -238,7 +212,7 @@ public class DialogueRandom : MonoBehaviour
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
             StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
-            
+
 
         else if (rejectCnt == 2)
         {
@@ -265,7 +239,7 @@ public class DialogueRandom : MonoBehaviour
     {
         Buyer.gameObject.SetActive(true);
         Seller.gameObject.SetActive(false);
-        //makeStart = true;
+        makeStart = true;
         D1Start = true;
         isDialogueStart = true;
         NextDialogue();

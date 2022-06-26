@@ -12,4 +12,5 @@ public class ItemProperty
     public int InvenItemNum;
     public string itemType;
     public string itemExplanation;
+    public bool isNew;
 }
