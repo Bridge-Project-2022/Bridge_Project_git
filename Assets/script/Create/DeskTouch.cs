@@ -14,6 +14,8 @@ public class DeskTouch : MonoBehaviour
     public GameObject baseSlot;
     public GameObject middleSlot;
     public GameObject topSlot;
+    public GameObject TopBar;
+    public GameObject Receipt;
 
     GameObject BackGround;
     GameObject BGWindow;
@@ -31,11 +33,12 @@ public class DeskTouch : MonoBehaviour
     }
     public void TouchDesk()
     {
-
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Arrow").gameObject.SetActive(false);
         Buyer.gameObject.SetActive(false);
-       
+
+        TopBar.transform.Translate(new Vector3(200, 200, 0));
+        Receipt.gameObject.SetActive(true);
         GameObject.Find("Random_Buyer").gameObject.SetActive(false);
         BackGround.gameObject.SetActive(false);
         BGWindow.gameObject.SetActive(false);
@@ -69,6 +72,9 @@ public class DeskTouch : MonoBehaviour
 
     public void TouchPerfume()
     {
+        TopBar.transform.Translate(new Vector3(-200, -200, 0));
+        Receipt.gameObject.SetActive(false);
+
         BackGround.gameObject.SetActive(true);
         BGWindow.gameObject.SetActive(true);
         deskBG.gameObject.SetActive(false);

@@ -53,11 +53,10 @@ public class SecondDialogueRandom : MonoBehaviour
 
 
     public bool isDialogueStart = false;
+    public bool isDialogueEnd = false;
 
-    public void Start()
-    {
-
-    }
+    bool isSelectStart = false;
+    bool isArrowStart = false;
 
     public void Update()
     {
@@ -72,7 +71,7 @@ public class SecondDialogueRandom : MonoBehaviour
         Distiller = GameObject.Find("Canvas").transform.GetChild(6).GetChild(3).gameObject;
         Presser = GameObject.Find("Canvas").transform.GetChild(6).GetChild(4).gameObject;
         Cooler = GameObject.Find("Canvas").transform.GetChild(6).GetChild(1).gameObject;
-        arrow = GameObject.Find("TopBar").transform.GetChild(5).GetChild(0).gameObject;
+        arrow = GameObject.Find("Etc").transform.GetChild(2).GetChild(0).gameObject;
 
         BuyerDialogue = GameObject.Find("Dialogue").transform.GetChild(2).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         SellerDialogue = GameObject.Find("Dialogue").transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
@@ -103,9 +102,33 @@ public class SecondDialogueRandom : MonoBehaviour
         Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
         Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
         Cooler.GetComponent<Cooler>().TopItemName = DS.Customer_Flavoring[2];
+
+        if (isDialogueEnd == true)
+        {
+            if (isSelectStart == true)
+            {
+                Select.gameObject.SetActive(true);
+            }
+            if (isArrowStart == true)
+            {
+                arrow.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            if (isSelectStart == false)
+            {
+                Select.gameObject.SetActive(false);
+            }
+            if (isArrowStart == false)
+            {
+                arrow.gameObject.SetActive(false);
+            }
+        }
     }
     public void NextDialogue()
     {
+        StopAll();
         if (AStart == true)
         {
             Buyer.gameObject.GetComponent<Button>().interactable = true;
@@ -115,10 +138,10 @@ public class SecondDialogueRandom : MonoBehaviour
             if (BuyerOrder[ACount] == "")
             {
                 //Debug.Log("A끝남");
+                isSelectStart = true;
                 Buyer.gameObject.GetComponent<Button>().interactable = false;
                 ACount = 0;
                 AStart = false;
-                Select.gameObject.SetActive(true);
             }
         }
         if (D1Start == true)
@@ -130,10 +153,10 @@ public class SecondDialogueRandom : MonoBehaviour
             if (BuyerIntensity[D1Count] == "")
             {
                 //Debug.Log("D1끝남");
+                isArrowStart = true;
                 Buyer.gameObject.GetComponent<Button>().interactable = false;
                 D1Count = 0;
                 D1Start = false;
-                arrow.gameObject.SetActive(true);
             }
         }
         if (D2Start == true)
@@ -189,6 +212,7 @@ public class SecondDialogueRandom : MonoBehaviour
 
     public void C_1_Start()// 유저 : 승낙 - 향 세기 질문
     {
+        isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         Select.SetActive(false);
@@ -202,6 +226,7 @@ public class SecondDialogueRandom : MonoBehaviour
 
     public void C_2_Start()//유저 : 거부 - 거부 이유 제시
     {
+        isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().rejectNum += 1;
@@ -258,6 +283,7 @@ public class SecondDialogueRandom : MonoBehaviour
 
     public void E_1_Start()//손님 : 향수 받고 반응
     {
+        isArrowStart = false;
         EStart = true;
         isDialogueStart = true;
         NextDialogue();
@@ -299,10 +325,16 @@ public class SecondDialogueRandom : MonoBehaviour
         for (int a = 0; a < narration.Length; a++)
         {
             writerText += narration[a];
+
+            if (a + 1 == narration.Length)
+                isDialogueEnd = true;
+            else
+                isDialogueEnd = false;
             BuyerDialogue.text = writerText;
             SellerDialogue.text = writerText;
             yield return new WaitForSeconds(0.08f);
             yield return null;
+
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
     }
@@ -325,6 +357,12 @@ public class SecondDialogueRandom : MonoBehaviour
         current = target;
         GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
 
+    }
+
+    public void StopAll()
+    {
+        StopAllCoroutines();
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
     }
 
 }
