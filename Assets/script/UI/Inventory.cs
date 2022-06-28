@@ -88,6 +88,7 @@ public class Inventory : MonoBehaviour
                     Debug.Log(i + "번째 슬롯 아이템이 겹침");
                     isSame = true;
                     item.InvenItemNum += store.BuyNum;
+
                     Baseslots[i].transform.GetChild(3).GetComponent<Text>().text = item.InvenItemNum.ToString() + "개 남음";
 
                     break;

@@ -17,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Receipt
+  - 
   - 
   - 
   - 
@@ -47,9 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Receipt
+  - name: 
     uniqueID: 598394063
     locked: 0
   - name: UI
     uniqueID: 1634758813
+    locked: 0
+  - name: 
+    uniqueID: 3578541125
     locked: 0
