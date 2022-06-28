@@ -26059,7 +26059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1649469898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30775,8 +30775,12 @@ MonoBehaviour:
   TopDetailItemName: {fileID: 1884971853}
   TopDetailItemNum: {fileID: 798135587}
   TopDetailItemExplanation: {fileID: 152553114}
-  MinusBtn: {fileID: 1289554244}
-  PlusBtn: {fileID: 103278221}
+  BaseMinusBtn: {fileID: 1289554244}
+  BasePlusBtn: {fileID: 103278221}
+  MiddleMinusBtn: {fileID: 584574855}
+  MiddlePlusBtn: {fileID: 711373256}
+  TopMinusBtn: {fileID: 2026380144}
+  TopPlusBtn: {fileID: 888213187}
   BaseBuyAllBtn: {fileID: 1792477004}
   BaseAllBuyMinusBtn: {fileID: 658561093}
   BaseAllBuyPlusBtn: {fileID: 1807922658}
@@ -30800,6 +30804,9 @@ MonoBehaviour:
   TopBuyAll: {fileID: 1847576296}
   TopBuyAllPrice: {fileID: 428609578}
   TopBuyAllNum: {fileID: 338365177}
+  BaseBuyBtn: {fileID: 1912905803}
+  MiddleBuyBtn: {fileID: 247393485}
+  TopBuyBtn: {fileID: 1663378563}
   alertText: {fileID: 1438921468}
   BaseItemList:
   - name: 
@@ -30996,6 +31003,7 @@ MonoBehaviour:
     itemType: 
     itemExplanation: 
     isNew: 0
+  maxItemNum: 0
 --- !u!114 &1984785264
 MonoBehaviour:
   m_ObjectHideFlags: 0

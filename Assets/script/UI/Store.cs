@@ -48,8 +48,13 @@ public class Store : MonoBehaviour
 
     public Slider AllBuyslider;*/
 
-    public Button MinusBtn;
-    public Button PlusBtn;
+    public Button BaseMinusBtn;
+    public Button BasePlusBtn;
+    public Button MiddleMinusBtn;
+    public Button MiddlePlusBtn;
+    public Button TopMinusBtn;
+    public Button TopPlusBtn;
+
 
     public Button BaseBuyAllBtn;
     public Button BaseAllBuyMinusBtn;
@@ -86,6 +91,10 @@ public class Store : MonoBehaviour
     public GameObject TopBuyAllPrice;
     public GameObject TopBuyAllNum;
 
+    public GameObject BaseBuyBtn;
+    public GameObject MiddleBuyBtn;
+    public GameObject TopBuyBtn;
+
     public Text alertText;
 
     public System.Action<ItemProperty> onStoreSlotClick;//델리게이트 변수
@@ -98,6 +107,10 @@ public class Store : MonoBehaviour
     int BaseAllPrice = 0;
     int MiddleAllPrice = 0;
     int TopAllPrice = 0;
+
+    int ItemCurPrice = 0;
+
+    public int maxItemNum = 0;
 
     public void Start()
     {
@@ -190,6 +203,8 @@ public class Store : MonoBehaviour
         DetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         DetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
         DetailItemExplanation.text = clickedSlot.item.itemExplanation;
+        ItemCurPrice = clickedSlot.item.itemPrice;
+        maxItemNum = clickedSlot.item.itemCount;
         slot = clickedSlot;
         //BaseSlider.maxValue = clickedSlot.item.itemCount;
       
@@ -206,6 +221,8 @@ public class Store : MonoBehaviour
         MiddleDetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         MiddleDetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
         MiddleDetailItemExplanation.text = clickedSlot.item.itemExplanation;
+        ItemCurPrice = clickedSlot.item.itemPrice;
+        maxItemNum = clickedSlot.item.itemCount;
         Middleslot = clickedSlot;
         //MiddleSlider.maxValue = clickedSlot.item.itemCount;
 
@@ -222,6 +239,8 @@ public class Store : MonoBehaviour
         TopDetailItemName.GetComponent<Text>().text = clickedSlot.item.name;
         TopDetailPrice.GetComponent<Text>().text = " / " + clickedSlot.item.itemPrice.ToString() + "$";
         TopDetailItemExplanation.text = clickedSlot.item.itemExplanation;
+        ItemCurPrice = clickedSlot.item.itemPrice;
+        maxItemNum = clickedSlot.item.itemCount;
         Topslot = clickedSlot;
         //TopSlider.maxValue = clickedSlot.item.itemCount;
 
@@ -233,7 +252,9 @@ public class Store : MonoBehaviour
         BuyNum += 1;
        
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        DetailPrice.GetComponent<Text>().text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
         //BaseSlider.value += 1;
+
     }
     public void MinusItem()
     {
@@ -241,6 +262,7 @@ public class Store : MonoBehaviour
         BuyNum -= 1;
         
         DetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        DetailPrice.GetComponent<Text>().text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
         //BaseSlider.value -= 1;
     }
 
@@ -250,6 +272,7 @@ public class Store : MonoBehaviour
         BuyNum += 1;
 
         MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        DetailPrice.GetComponent<Text>().text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
         //MiddleSlider.value += 1;
     }
     public void MinusMiddleItem()
@@ -258,6 +281,8 @@ public class Store : MonoBehaviour
         BuyNum -= 1;
 
         MiddleDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        DetailPrice.GetComponent<Text>().text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
+
         //MiddleSlider.value -= 1;
     }
 
@@ -267,6 +292,7 @@ public class Store : MonoBehaviour
         BuyNum += 1;
 
         TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        DetailPrice.GetComponent<Text>().text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
         //TopSlider.value += 1;
     }
     public void MinusTopItem()
@@ -275,6 +301,7 @@ public class Store : MonoBehaviour
         BuyNum -= 1;
 
         TopDetailItemNum.GetComponent<Text>().text = BuyNum.ToString();
+        DetailPrice.GetComponent<Text>().text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
         //TopSlider.value -= 1;
     }
 
@@ -582,23 +609,31 @@ public class Store : MonoBehaviour
     public void Update()
     {
 
-        if (BuyNum <= 0)
+        if (BuyNum <= 1)
         {
-            MinusBtn.gameObject.GetComponent<Button>().interactable = false;
+            BaseMinusBtn.gameObject.GetComponent<Button>().interactable = false;
+            MiddleMinusBtn.gameObject.GetComponent<Button>().interactable = false;
+            TopMinusBtn.gameObject.GetComponent<Button>().interactable = false;
         }
         else
         {
-            MinusBtn.gameObject.GetComponent<Button>().interactable = true;
+            BaseMinusBtn.gameObject.GetComponent<Button>().interactable = true;
+            MiddleMinusBtn.gameObject.GetComponent<Button>().interactable = true;
+            TopMinusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
         if ((BuyNum + 1) * slot.item.itemPrice > fd.Money)
         {
             Debug.Log("잔돈 없음. 더이상 추가 불가");
-            PlusBtn.gameObject.GetComponent<Button>().interactable = false;
+            BasePlusBtn.gameObject.GetComponent<Button>().interactable = false;
+            MiddlePlusBtn.gameObject.GetComponent<Button>().interactable = false;
+            TopPlusBtn.gameObject.GetComponent<Button>().interactable = false;
         }
         else
         {
-            PlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            BasePlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            MiddlePlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            TopPlusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
         if (fd.Money < slotItemPrice)
@@ -616,6 +651,19 @@ public class Store : MonoBehaviour
             GameObject.Find("Store").transform.GetChild(0).GetChild(0).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = true;
             GameObject.Find("Store").transform.GetChild(0).GetChild(1).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = true;
             GameObject.Find("Store").transform.GetChild(0).GetChild(2).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = true;
+        }
+
+        if (BuyNum.ToString() == maxItemNum.ToString())
+        {
+            BasePlusBtn.gameObject.GetComponent<Button>().interactable = false;
+            MiddlePlusBtn.gameObject.GetComponent<Button>().interactable = false;
+            TopPlusBtn.gameObject.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            BasePlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            MiddlePlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            TopPlusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
     }
 
