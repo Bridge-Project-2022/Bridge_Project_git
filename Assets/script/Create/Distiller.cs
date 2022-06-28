@@ -5,38 +5,34 @@ using UnityEngine.UI;
 
 public class Distiller : MonoBehaviour
 {
+    public float distillerTime = 6.0f;
+
     public GameObject distillerWindow;
     public GameObject clickedItem;
-    public float distillerTime = 6.0f;
-    public GameObject[] temperatureList;
-    public int maxTemperature;
-    public GameObject itemImage;
-
     public ItemProperty ClickedItem;
-
-    bool isWork = false;
-
-    int temperature = 0;
-
-    /*float lowTempTime = 0;
-    float middleTempTime = 0;
-    float HighTempTime = 0;*/
-
+    public GameObject itemImage;
+    
+    bool isWickDown = false;
     public string DistillerStatus = "";
+
+    public GameObject temperatureSlider;
+    int temperature = 0;
+    int maxTemperature = 135;
+    float maxTemperDuration = 0.0f;
+    float minTemperDuration = 0.0f;
 
     bool DistillGood = false;
     bool DistillNormal = false;
     bool DistillBad = true;
 
-    public int DistillCnt;
-
-    public string BaseItemName;//손님이 요구하는 베이스 향료 이름
+    public string BaseItemName; //손님이 요구하는 베이스 향료 이름
 
     public GameObject baseInvenSlots;
 
-    public void Start()
+    public void OnEnable()
     {
-        DistillCnt = 0; 
+        // GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boiling");
+        Invoke("EndDistiller", distillerTime);
     }
 
 public void DistillerOn(ItemProperty item)
@@ -44,6 +40,7 @@ public void DistillerOn(ItemProperty item)
         this.gameObject.GetComponent<Button>().interactable = true;//증류기 버튼 클릭 가능해짐.
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         ClickedItem = item;
+
         if (ClickedItem.name == BaseItemName)
         {
             Debug.Log("베이스 향료 맞음");
@@ -57,10 +54,7 @@ public void DistillerOn(ItemProperty item)
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         }
-            
-        //Debug.Log(ClickedItem.name);
     }
-
 
     public void OnDistillerBtnClick()
     {
@@ -73,68 +67,46 @@ public void DistillerOn(ItemProperty item)
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
     }
 
-    public void StartDistiller()
+    void Update()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boiling");
-        Invoke("EndDistiller", distillerTime);
-        isWork = true;
+        float curTemper = temperatureSlider.GetComponent<Slider>().value;
 
-        Invoke("DistillerNormal",2f);
-        Invoke("DistillerGood", 4f);
-    }
-    void DistillerGood()
-    {
-        DistillGood = true;
-    }
-    void DistillerNormal()
-    {
-        DistillNormal = true;
-    }
-
-    public void OnWickBtnClick()
-    {
-        DistillCnt += 1;
-        //Debug.Log(DistillCnt);
-        if (isWork)
+        if (isWickDown)
         {
-            RasieTemperature();
+            temperatureSlider.GetComponent<Slider>().value += 1;
+
+            if (curTemper > maxTemperature - 1)
+            {
+                maxTemperDuration += Time.deltaTime;
+                if (maxTemperDuration > 1.5f)
+                {
+                    gameObject.SetActive(false);
+                    maxTemperDuration = 0.0f;
+                }
+            }
+            else
+            {
+                maxTemperDuration = 0.0f;
+            }
         }
         else
         {
-            StartDistiller();
+            temperatureSlider.GetComponent<Slider>().value -= 1;
         }
-    }
-
-    void RasieTemperature()
-    {
-        if (temperature >= maxTemperature)
-            return;
-
-        temperatureList[temperature].SetActive(true);
-        temperature++;
     }
 
     public void EndDistiller()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
-        foreach (GameObject temp in temperatureList)
-        {
-            temp.SetActive(false);
-        }
+        // GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
 
         Invoke("CloseWindow", 0.5f);
-        DistillerResult();
+        // DistillerResult();
     }
 
     public void CloseWindow()
     {
-        /*for (int i = 0; i < baseInvenSlots.transform.childCount; i++)
-        {
-            baseInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
-        }*/
         TotalScore.FindObjectOfType<TotalScore>().isDistillFin = true;
         //TotalScore.isDistillFin = true;
-        isWork = false;
         temperature = 0;
         distillerWindow.SetActive(false);
         this.gameObject.GetComponent<Button>().interactable = false;
@@ -143,7 +115,7 @@ public void DistillerOn(ItemProperty item)
 
     public void DistillerResult()
     {
-        if (DistillerStatus == "강함" && DistillCnt == 4)
+        if (DistillerStatus == "강함")
         {
             if (DistillGood == true)
             {
@@ -161,7 +133,7 @@ public void DistillerOn(ItemProperty item)
             }
         }
 
-        else if (DistillerStatus == "보통" && DistillCnt == 3)
+        else if (DistillerStatus == "보통")
         {
             if (DistillGood == true)
             {
@@ -179,7 +151,7 @@ public void DistillerOn(ItemProperty item)
             }
         }
 
-        else if (DistillerStatus == "약함" && DistillCnt == 2)
+        else if (DistillerStatus == "약함")
         {
             if (DistillGood == true)
             {
@@ -220,5 +192,13 @@ public void DistillerOn(ItemProperty item)
             TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
         }
     }
+    public void WickDown()
+    {
+        isWickDown = true;
+    }
 
+    public void WickUp()
+    {
+        isWickDown = false;
+    }
 }
