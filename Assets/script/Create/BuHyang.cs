@@ -7,6 +7,10 @@ public class BuHyang : MonoBehaviour
     public GameObject SliderCursor;
     public GameObject BarCursor;
 
+    // 제조 결과
+    public GameObject Desk;
+    public GameObject TotalScore;
+
     int sliderCursorDir;
     float sliderCursorSpeed;
     bool isSliderMovable;
@@ -131,5 +135,7 @@ public class BuHyang : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         gameObject.SetActive(false);
+        Desk.GetComponent<DeskTouch>().TouchPerfume();
+        TotalScore.GetComponent<TotalScore>().Calculate();
     }
 }
