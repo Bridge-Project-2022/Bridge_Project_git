@@ -25,7 +25,7 @@ public class Distiller : MonoBehaviour
     bool DistillNormal = false;
     bool DistillBad = true;
 
-    public string BaseItemName; //손님이 요구하는 베이스 향료 이름
+    public string BaseItemName = ""; //손님이 요구하는 베이스 향료 이름
 
     public GameObject baseInvenSlots;
 
@@ -109,8 +109,6 @@ public void DistillerOn(ItemProperty item)
         //TotalScore.isDistillFin = true;
         temperature = 0;
         distillerWindow.SetActive(false);
-        this.gameObject.GetComponent<Button>().interactable = false;
-        GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
     }
 
     public void DistillerResult()

@@ -11,9 +11,9 @@ public class DialogueRandom : MonoBehaviour
 
     GameObject Customer;
 
-    GameObject Distiller;
-    GameObject Presser;
-    GameObject Cooler;
+    public GameObject Distiller;
+    public GameObject Presser;
+    public GameObject Cooler;
 
     GameObject BackGround;
     GameObject WindowBG;
@@ -67,7 +67,6 @@ public class DialogueRandom : MonoBehaviour
         Buyer = GameObject.Find("Dialogue").transform.GetChild(2).gameObject;
         Select = GameObject.Find("Dialogue").transform.GetChild(3).gameObject;
 
-        Distiller = GameObject.Find("Canvas").transform.GetChild(6).GetChild(3).gameObject;
         Presser = GameObject.Find("Canvas").transform.GetChild(6).GetChild(4).gameObject;
         Cooler = GameObject.Find("Canvas").transform.GetChild(6).GetChild(1).gameObject;
         arrow = GameObject.Find("Desk").transform.GetChild(0).gameObject;

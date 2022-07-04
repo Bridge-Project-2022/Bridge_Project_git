@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DialogueScript : MonoBehaviour
 {
     GameObject Customer;
-    GameObject Distiller;
+    public GameObject Distiller;
 
 
     //손님 대사 배열 - 전체는 랜덤이지만 내부는 순차적으로
@@ -28,7 +28,6 @@ public class DialogueScript : MonoBehaviour
 
     public void Start()
     {
-        Distiller = GameObject.Find("Canvas").transform.GetChild(6).GetChild(3).gameObject;
         //손님 아이디 배열에 1-9까지 중에 랜덤으로 넣되 중복되지 않도록 배치함. 
         for (int i = 0; i < Customer_ID.Length; i++)
         {
