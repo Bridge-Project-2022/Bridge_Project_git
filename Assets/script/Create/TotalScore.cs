@@ -42,10 +42,13 @@ public class TotalScore : MonoBehaviour
 
     public FirstDaySetting fd;
 
+    GameObject RC;
+
+    public bool isAllFinished = false;
     private void Start()
     {
         totalScore = 0;
-       
+        RC = GameObject.Find("RC").gameObject;
     }
     private void Update()
     {
@@ -98,6 +101,7 @@ public class TotalScore : MonoBehaviour
             StartCoroutine(Count(imsiMoney, fd.Money));
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
             float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+            isAllFinished = true;
             if (RightItem == 3)
             {
                 if (reputNum == 35)
@@ -106,6 +110,7 @@ public class TotalScore : MonoBehaviour
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verygood";
+                    RC.GetComponent<RandomImage>().CurrentFeel = "good";
                 }
                 else if (reputNum < 35 && reputNum >= 10)
                 {
@@ -113,6 +118,7 @@ public class TotalScore : MonoBehaviour
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "good";
+                    RC.GetComponent<RandomImage>().CurrentFeel = "good";
                 }
                 else if (reputNum < 10 && reputNum >= 0)
                 {
@@ -120,6 +126,7 @@ public class TotalScore : MonoBehaviour
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "normal";
+                    RC.GetComponent<RandomImage>().CurrentFeel = "basic";
                 }
                 else if (reputNum < 0 && reputNum >= -10)
                 {
@@ -127,6 +134,7 @@ public class TotalScore : MonoBehaviour
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "bad";
+                    RC.GetComponent<RandomImage>().CurrentFeel = "bad";
                 }
                 else if (reputNum < -10 && reputNum >= -35)
                 {
@@ -134,6 +142,7 @@ public class TotalScore : MonoBehaviour
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verybad";
+                    RC.GetComponent<RandomImage>().CurrentFeel = "bad";
                 }
                 Debug.Log("최종 향수 가격 : " + totalScore);
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money += totalScore;
@@ -289,6 +298,7 @@ public class TotalScore : MonoBehaviour
 
     public void ResetAll()
     {
+        isAllFinished = false;
         isCoolGood = false;
         isCoolNormal = false;
         isCoolBad = false;

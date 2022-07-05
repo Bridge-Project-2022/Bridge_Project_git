@@ -5,25 +5,24 @@ using TMPro;
 using UnityEngine.UI;
 public class SecondDialogueRandom : MonoBehaviour
 {
-    GameObject Seller;
-    GameObject Buyer;
-    GameObject Select;
+    //public GameObject Seller;
+    public GameObject Buyer;
+    public GameObject Select;
 
-    GameObject Customer;
+    public GameObject Customer;
 
-    GameObject Distiller;
-    GameObject Presser;
-    GameObject Cooler;
+    public GameObject Distiller;
+    public GameObject Presser;
+    public GameObject Cooler;
 
     GameObject BackGround;
     GameObject WindowBG;
 
-    TextMeshProUGUI BuyerDialogue;
-    TextMeshProUGUI SellerDialogue;
+    public TextMeshProUGUI BuyerDialogue;
 
     public bool makeStart = false;
 
-    GameObject arrow;
+    public GameObject arrow;
 
     public int rejectCnt = 0;//거절 횟수 -> 평판 영향, 일차 지날 때 마다 리셋되어야 함.
 
@@ -60,21 +59,7 @@ public class SecondDialogueRandom : MonoBehaviour
 
     public void Update()
     {
-        DS = GameObject.FindGameObjectWithTag("DialogueScript").GetComponent<SecondDialogueScript>();
-
-        Customer = GameObject.Find("Else").transform.GetChild(0).gameObject;
-
-        Seller = GameObject.Find("Dialogue").transform.GetChild(1).gameObject;
-        Buyer = GameObject.Find("Dialogue").transform.GetChild(2).gameObject;
-        Select = GameObject.Find("Dialogue").transform.GetChild(3).gameObject;
-
-        Distiller = GameObject.Find("Canvas").transform.GetChild(6).GetChild(3).gameObject;
-        Presser = GameObject.Find("Canvas").transform.GetChild(6).GetChild(4).gameObject;
-        Cooler = GameObject.Find("Canvas").transform.GetChild(6).GetChild(1).gameObject;
-        arrow = GameObject.Find("Etc").transform.GetChild(2).GetChild(0).gameObject;
-
-        BuyerDialogue = GameObject.Find("Dialogue").transform.GetChild(2).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        SellerDialogue = GameObject.Find("Dialogue").transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        DS = GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>();
 
         BackGround = GameObject.Find("BG").transform.GetChild(0).gameObject;
         WindowBG = GameObject.Find("BG").transform.GetChild(1).gameObject;
@@ -263,7 +248,7 @@ public class SecondDialogueRandom : MonoBehaviour
     public void D_1_Start()//손님 : 승낙 - 향 세기 결정
     {
         Buyer.gameObject.SetActive(true);
-        Seller.gameObject.SetActive(false);
+        //Seller.gameObject.SetActive(false);
         makeStart = true;
         D1Start = true;
         isDialogueStart = true;
@@ -272,7 +257,7 @@ public class SecondDialogueRandom : MonoBehaviour
 
     public void D_2_Start()// 손님 : 거부 - 불만 표출
     {
-        Seller.gameObject.SetActive(false);
+        //Seller.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(true);
 
         D2Start = true;
@@ -305,12 +290,14 @@ public class SecondDialogueRandom : MonoBehaviour
 
         if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 1)//손님 3명 가고 나서 점심으로 바뀜
         {
+            RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
             BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
             WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
         }
         else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 2)//손님 6명 가고 나서 저녁으로 바뀜
         {
+            RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
             BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
             WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
         }
@@ -331,7 +318,7 @@ public class SecondDialogueRandom : MonoBehaviour
             else
                 isDialogueEnd = false;
             BuyerDialogue.text = writerText;
-            SellerDialogue.text = writerText;
+            //SellerDialogue.text = writerText;
             yield return new WaitForSeconds(0.08f);
             yield return null;
 

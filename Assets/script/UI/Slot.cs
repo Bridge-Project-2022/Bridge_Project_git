@@ -64,8 +64,8 @@ public class Slot : MonoBehaviour
         {
             ClickedItem = ClickedSlot.item;
 
-            GameObject.Find("DistillerDetail").GetComponent<Distiller>().GetComponent<Button>().interactable = true;
-            GameObject.Find("DistillerDetail").GetComponent<Distiller>().DistillerOn(ClickedItem);
+            GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
+            GameObject.Find("Manufacture").transform.GetChild(7).GetComponent<Distiller>().DistillerOn(ClickedItem);
             Debug.Log("증류기 시작");
         }
 

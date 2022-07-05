@@ -9,6 +9,7 @@ public class Store : MonoBehaviour
     public Transform MiddleslotRoot;
     public Transform TopslotRoot;
 
+    public GameObject IB;
     ItemBuffer itemBuffer;
     ItemBuffer MiddleitemBuffer;
     ItemBuffer TopitemBuffer;
@@ -114,10 +115,21 @@ public class Store : MonoBehaviour
 
     public void Start()
     {
+        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+        {
+            Debug.Log("1");
+            itemBuffer = IB.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
+            MiddleitemBuffer = IB.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
+            TopitemBuffer = IB.transform.GetChild(0).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+        }
 
-        itemBuffer = GameObject.Find("ItemBuffer").transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
-        MiddleitemBuffer = GameObject.Find("ItemBuffer").transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
-        TopitemBuffer = GameObject.Find("ItemBuffer").transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        {
+            Debug.Log("2");
+            itemBuffer = IB.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
+            MiddleitemBuffer = IB.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
+            TopitemBuffer = IB.transform.GetChild(0).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+        }
 
         slots = new List<Slot>();
         Middleslots = new List<Slot>();
