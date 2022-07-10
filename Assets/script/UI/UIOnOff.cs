@@ -12,6 +12,7 @@ public class UIOnOff : MonoBehaviour
         //Debug.Log("인벤토리 오픈");
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("inven");
         Inven.gameObject.SetActive(true);
+        Inven.transform.position = new Vector3(998, 540, 0);
 
     }
     public void StoreOpen()

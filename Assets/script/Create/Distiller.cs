@@ -40,7 +40,6 @@ public class Distiller : MonoBehaviour
 public void DistillerOn(ItemProperty item)
     {
         //this.gameObject.GetComponent<Button>().interactable = true;//증류기 버튼 클릭 가능해짐.
-        GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         ClickedItem = item;
         itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
         if (ClickedItem.name == BaseItemName)
@@ -60,6 +59,7 @@ public void DistillerOn(ItemProperty item)
 
     public void OnDistillerBtnClick()
     {
+        GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         distillerWindow.SetActive(true);
 
         if (clickedItem == null)

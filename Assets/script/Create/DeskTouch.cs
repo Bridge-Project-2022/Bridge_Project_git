@@ -27,9 +27,9 @@ public class DeskTouch : MonoBehaviour
     private void Update()
     {
         RandomBuyer = GameObject.Find("Else").transform.GetChild(0).gameObject;
-        BackGround = GameObject.Find("BG").transform.GetChild(0).gameObject;
-        BGWindow = GameObject.Find("BG").transform.GetChild(1).gameObject;
-        deskBG = GameObject.Find("BG").transform.GetChild(2).gameObject;
+        BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
+        BGWindow = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
+        deskBG = GameObject.Find("BGIMG").transform.GetChild(2).gameObject;
     }
     public void TouchDesk()
     {
@@ -91,7 +91,7 @@ public class DeskTouch : MonoBehaviour
 
         isDeskUp = false;
         Invoke("PerfumeDialogue", 0.3f);
-      
+        GameObject.Find("ClickedItem").GetComponent<Button>().interactable = false;
     }
 
     public void PerfumeDialogue()

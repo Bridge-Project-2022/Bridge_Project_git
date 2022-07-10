@@ -11,6 +11,7 @@ public class Slot : MonoBehaviour
     public GameObject itemCount;
 
     public ItemProperty ClickedItem;
+
     public void SetItem(ItemProperty item)
     {
         this.item = item;
@@ -53,6 +54,7 @@ public class Slot : MonoBehaviour
 
     public void ItemClick(Slot ClickedSlot)//슬롯 아이템 클릭 경우
     {
+        GameObject.Find("Inventory").transform.position = new Vector3(998, 540, 0);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         //클릭한 아이템이 화면에 보여짐.
         Color color = GameObject.Find("ClickedItem").GetComponent<Image>().color;
@@ -63,7 +65,9 @@ public class Slot : MonoBehaviour
         if (ClickedSlot.item.itemType == "Base")//증류기 실행
         {
             ClickedItem = ClickedSlot.item;
+            ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
+            GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
             GameObject.Find("Manufacture").transform.GetChild(7).GetComponent<Distiller>().DistillerOn(ClickedItem);
             Debug.Log("증류기 시작");
@@ -72,6 +76,9 @@ public class Slot : MonoBehaviour
         else if (item.itemType == "Middle")//압착기 실행
         {
             ClickedItem = ClickedSlot.item;
+            ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
+
+            GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             Debug.Log("압착기 시작");
             GameObject.Find("Presser").GetComponent<Presser>().GetComponent<Button>().interactable = true;
             GameObject.Find("Presser").GetComponent<Presser>().PresserOn(ClickedItem);
@@ -79,7 +86,9 @@ public class Slot : MonoBehaviour
         else if (item.itemType == "Top")//냉침기 실행
         {
             ClickedItem = ClickedSlot.item;
+            ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
+            GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Cooler").GetComponent<Cooler>().GetComponent<Button>().interactable = true;
             GameObject.Find("Cooler").GetComponent<Cooler>().CoolerOn(ClickedItem);
             Debug.Log("냉침기 시작");
@@ -101,7 +110,6 @@ public class Slot : MonoBehaviour
             }
         }
     }
-
     public void Update()
     {
         if (this.item != null)

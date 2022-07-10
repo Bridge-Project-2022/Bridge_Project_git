@@ -70,7 +70,7 @@ public class Store : MonoBehaviour
     public Button TopAllBuyPlusBtn;
 
     public int BuyNum = 1;
-    public int AllBuyNum = 1;
+    //public int AllBuyNum = 1;
     int slotItemPrice = 0;
     int MiddleslotItemPrice = 0;
     int TopslotItemPrice = 0;
@@ -319,11 +319,10 @@ public class Store : MonoBehaviour
     public void PlusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum += 1;
+        BuyNum += 1;
+        slotItemPrice = BaseAllPrice * BuyNum;
 
-        slotItemPrice = BaseAllPrice * AllBuyNum;
-
-        BaseBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        BaseBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         BaseBuyAllPrice.GetComponent<Text>().text = " / " +  slotItemPrice.ToString() + "$";
 
         //AllBuyslider.value += 1;
@@ -332,11 +331,11 @@ public class Store : MonoBehaviour
     public void MiddlePlusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum += 1;
+        BuyNum += 1;
 
-        MiddleslotItemPrice = MiddleAllPrice * AllBuyNum;
+        MiddleslotItemPrice = MiddleAllPrice * BuyNum;
 
-        MiddleBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        MiddleBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         MiddleBuyAllPrice.GetComponent<Text>().text = " / " + MiddleslotItemPrice.ToString() + "$";
         //AllBuyslider.value += 1;
     }
@@ -344,23 +343,23 @@ public class Store : MonoBehaviour
     public void TopPlusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum += 1;
+        BuyNum += 1;
 
-        TopslotItemPrice = TopAllPrice * AllBuyNum;
+        TopslotItemPrice = TopAllPrice * BuyNum;
 
-        TopBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        TopBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         TopBuyAllPrice.GetComponent<Text>().text = " / " + TopslotItemPrice.ToString() + "$";
         //AllBuyslider.value += 1;
     }
     public void MinusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum -= 1;
+        BuyNum -= 1;
 
-        slotItemPrice = BaseAllPrice * AllBuyNum;
+        slotItemPrice = BaseAllPrice * BuyNum;
 
 
-        BaseBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        BaseBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         BaseBuyAllPrice.GetComponent<Text>().text = " / " + slotItemPrice.ToString() + "$";
         //AllBuyslider.value -= 1;
     }
@@ -368,11 +367,11 @@ public class Store : MonoBehaviour
     public void MiddleMinusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum -= 1;
+        BuyNum -= 1;
 
-        MiddleslotItemPrice = MiddleAllPrice * AllBuyNum;
+        MiddleslotItemPrice = MiddleAllPrice * BuyNum;
 
-        MiddleBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        MiddleBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         MiddleBuyAllPrice.GetComponent<Text>().text = " / " + MiddleslotItemPrice.ToString() + "$";
         //AllBuyslider.value -= 1;
     }
@@ -380,11 +379,11 @@ public class Store : MonoBehaviour
     public void TopMinusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum -= 1;
+        BuyNum -= 1;
 
-        TopslotItemPrice = TopAllPrice * AllBuyNum;
+        TopslotItemPrice = TopAllPrice * BuyNum;
 
-        TopBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        TopBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         TopBuyAllPrice.GetComponent<Text>().text = " / " + TopslotItemPrice.ToString() + "$";
         //AllBuyslider.value -= 1;
     }
@@ -449,13 +448,13 @@ public class Store : MonoBehaviour
 
             BaseItemList[i] = slots[i].item;
         }
-        AllBuyNum = 1;
-        BaseBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        BuyNum = 1;
+        BaseBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         slotItemPrice = 0;
         BaseBuyAll.gameObject.SetActive(true);
-        inven.gameObject.SetActive(true);
-        inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-        inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+        //inven.gameObject.SetActive(true);
+        //inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        //inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
         for (int i = 0; i < slots.Count; i++)
         {
             if (slots[i].item.itemCount == 0)
@@ -481,13 +480,13 @@ public class Store : MonoBehaviour
 
             MiddleItemList[i] = Middleslots[i].item;
         }
-        AllBuyNum = 1;
-        MiddleBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        BuyNum = 1;
+        MiddleBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         MiddleslotItemPrice = 0;
         MiddleBuyAll.gameObject.SetActive(true);
-        inven.gameObject.SetActive(true);
-        inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-        inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+        //inven.gameObject.SetActive(true);
+        //inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        //inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
         for (int i = 0; i < Middleslots.Count; i++)
         {
             if (Middleslots[i].item.itemCount == 0)
@@ -513,13 +512,13 @@ public class Store : MonoBehaviour
 
             TopItemList[i] = Topslots[i].item;
         }
-        AllBuyNum = 1;
-        TopBuyAllNum.GetComponent<Text>().text = AllBuyNum.ToString();
+        BuyNum = 1;
+        TopBuyAllNum.GetComponent<Text>().text = BuyNum.ToString();
         TopslotItemPrice = 0;
         TopBuyAll.gameObject.SetActive(true);
-        inven.gameObject.SetActive(true);
-        inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-        inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+        //inven.gameObject.SetActive(true);
+        //inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        //inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
         for (int i = 0; i < Topslots.Count; i++)
         {
             if (Topslots[i].item.itemCount == 0)
@@ -542,12 +541,12 @@ public class Store : MonoBehaviour
 
             inven.GetComponent<Inventory>().BuyItem(BaseItemList[i]);
 
-            BaseItemList[i].itemCount -= AllBuyNum;
-            BaseItemList[i].InvenItemNum += AllBuyNum;
+            BaseItemList[i].itemCount -= BuyNum;
+            //BaseItemList[i].InvenItemNum += BuyNum;
             //Debug.Log(BaseItemList[i].InvenItemNum);
         }
         float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice * AllBuyNum;
+        fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
     }
     public void MiddleBuyAllItem()
@@ -558,12 +557,12 @@ public class Store : MonoBehaviour
                 break;
 
             inven.GetComponent<Inventory>().BuyItem(MiddleItemList[i]);
-            MiddleItemList[i].itemCount -= 1 * AllBuyNum;
-            MiddleItemList[i].InvenItemNum += AllBuyNum;
+            MiddleItemList[i].itemCount -= 1 * BuyNum;
+            //MiddleItemList[i].InvenItemNum += BuyNum;
         }
 
         float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice * AllBuyNum;
+        fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
     }
 
@@ -575,12 +574,12 @@ public class Store : MonoBehaviour
                 break;
 
             inven.GetComponent<Inventory>().BuyItem(TopItemList[i]);
-            TopItemList[i].itemCount -= 1 * AllBuyNum;
-            TopItemList[i].InvenItemNum += AllBuyNum;
+            TopItemList[i].itemCount -= 1 * BuyNum;
+            //TopItemList[i].InvenItemNum += BuyNum;
         }
 
         float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice * AllBuyNum;
+        fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
     }
     public void Close()
@@ -602,9 +601,9 @@ public class Store : MonoBehaviour
         BaseBuyAll.gameObject.SetActive(false);
         MiddleBuyAll.gameObject.SetActive(false);
         TopBuyAll.gameObject.SetActive(false);
-        inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-        inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
-        inven.gameObject.SetActive(false);
+        //inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        //inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+        //inven.gameObject.SetActive(false);
     }
 
     public IEnumerator FadeTextToZero()  // 알파값 1에서 0으로 전환

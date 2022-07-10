@@ -263,6 +263,7 @@ public class Inventory : MonoBehaviour
     }*/
     public void Close()
     {
-        this.gameObject.SetActive(false);
+        this.transform.Translate(new Vector3(1000, 1000, 0));
+        //this.gameObject.SetActive(false);
     }
 }

@@ -63,8 +63,8 @@ public class DialogueRandom : MonoBehaviour
         
         DS = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>();
 
-        BackGround = GameObject.Find("BG").transform.GetChild(0).gameObject;
-        WindowBG = GameObject.Find("BG").transform.GetChild(1).gameObject;
+        BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
+        WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
 
         for (int i = 0; i < BuyerOrder.Length; i++)
         {
