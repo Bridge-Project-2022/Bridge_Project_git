@@ -2620,6 +2620,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1984785263}
+        m_TargetAssemblyTypeName: Store, Assembly-CSharp
+        m_MethodName: StoreOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &158775437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4394,6 +4406,7 @@ MonoBehaviour:
   Distiller: {fileID: 223599881}
   RC: {fileID: 1965479738}
   DR: {fileID: 806175965}
+  Customer_Name: 
   Customer_ID: 000000000000000000000000000000000000000000000000000000000000000000000000
   Customer_PerfumeOrder:
   - 
@@ -4849,10 +4862,10 @@ RectTransform:
   m_Children:
   - {fileID: 806175966}
   - {fileID: 1065875905}
+  - {fileID: 772955857}
   - {fileID: 2073503180}
   - {fileID: 1170537488}
   - {fileID: 1991984847}
-  - {fileID: 772955857}
   m_Father: {fileID: 477533115}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8289,6 +8302,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1738050520}
     m_Modifications:
+    - target: {fileID: 793175675688560879, guid: db3e5262a7689504eb4afdbeefb964a2, type: 3}
+      propertyPath: InvenUI
+      value: 
+      objectReference: {fileID: 1649469897}
+    - target: {fileID: 793175675688560879, guid: db3e5262a7689504eb4afdbeefb964a2, type: 3}
+      propertyPath: distiller
+      value: 
+      objectReference: {fileID: 2103140220}
     - target: {fileID: 793175675688560879, guid: db3e5262a7689504eb4afdbeefb964a2, type: 3}
       propertyPath: itemImage
       value: 
@@ -12175,7 +12196,7 @@ GameObject:
   - component: {fileID: 772955857}
   - component: {fileID: 772955859}
   - component: {fileID: 772955858}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Random_Buyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12189,12 +12210,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772955856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 334722707}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13012,6 +13033,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
+  AStart: 0
+  D1Start: 0
+  D2Start: 0
+  EStart: 0
   isDialogueStart: 0
 --- !u!1 &810775496
 GameObject:
@@ -18105,7 +18130,7 @@ RectTransform:
   - {fileID: 1738626797}
   - {fileID: 1534247469}
   m_Father: {fileID: 334722707}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21507,8 +21532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93782a2368052a6449134f171ca3e0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Customer: {fileID: 0}
   Distiller: {fileID: 223599881}
+  Customer_Name: 
   Customer_ID: 000000000000000000000000000000000000000000000000000000000000000000000000
   Customer_PerfumeOrder:
   - 
@@ -22609,6 +22634,7 @@ MonoBehaviour:
   TopBar: {fileID: 188896850}
   Receipt: {fileID: 946179471}
   InvenUI: {fileID: 1649469897}
+  Customer: {fileID: 772955856}
 --- !u!222 &1459232584
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30626,19 +30652,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e040fc420e5dcd47b045110a78afd64, type: 3}
   - {fileID: 21300000, guid: 831b0b85d2e08b04f984fc00f51f4274, type: 3}
   H_Image:
-  - {fileID: 21300000, guid: 151640e23c090c24ea608b731a8ff3af, type: 3}
-  - {fileID: 21300000, guid: 0c6c7937ad04c3c48b8593a008cf063f, type: 3}
-  - {fileID: 21300000, guid: 2131fda7fc0e4704084fc57350e280cb, type: 3}
-  - {fileID: 21300000, guid: 34898d10155bce94dac7b25a03e2f3ee, type: 3}
-  - {fileID: 21300000, guid: f47a9b9e52048fa47acef212fbf555d3, type: 3}
-  - {fileID: 21300000, guid: f5cb3031989fe5147abbd86579f25ea4, type: 3}
-  - {fileID: 21300000, guid: 959fcead8e1e0e549ae7397d16c02266, type: 3}
-  - {fileID: 21300000, guid: 5585984fca0e6414dad7252ad1d1cf2d, type: 3}
-  - {fileID: 21300000, guid: 2ce3ead51ccbe3f438b84150cadf5d45, type: 3}
-  - {fileID: 21300000, guid: ae2722f841346674a88933549c1f783f, type: 3}
-  - {fileID: 21300000, guid: 4db96e3c22f751a48acba31c5a23a47b, type: 3}
-  - {fileID: 21300000, guid: 45de7e419e36ded4c9d6fc16097f3bb9, type: 3}
-  CurrentID: 
+  - {fileID: 21300000, guid: 12056f1c9518e1b4186f03b82ca05c2b, type: 3}
+  - {fileID: 21300000, guid: 6b46fb3ee96f23d4284c75b6a80b3b85, type: 3}
+  - {fileID: 21300000, guid: b676e4f903092af46b2087be8298a596, type: 3}
+  - {fileID: 21300000, guid: b5ea5475894933c4299055d0391871e1, type: 3}
+  - {fileID: 21300000, guid: f25eb8c997ae8d04ea3fc7ed907c938e, type: 3}
+  - {fileID: 21300000, guid: 9ffe30e7fe55c174392af151a34b6c35, type: 3}
+  - {fileID: 21300000, guid: 1b7f383f4ee58a744adb6a04fa3159b4, type: 3}
+  - {fileID: 21300000, guid: a21f66741624eaf4395bb1015196437b, type: 3}
+  - {fileID: 21300000, guid: 62e9f80a93a40ee439cbae8fb62f43a5, type: 3}
+  - {fileID: 21300000, guid: 245bffd5958f2394f8a39286c9af9ba5, type: 3}
+  - {fileID: 21300000, guid: 9a97daebfeaf4e644a8d27b1be2f6097, type: 3}
+  - {fileID: 21300000, guid: f59ee6f8a75aa2a40b107bce12e02aab, type: 3}
+  CurrentName: 
   CurrentFeel: basic
   CurrentTime: morning
   Customer: {fileID: 772955856}
@@ -31352,7 +31378,7 @@ RectTransform:
   m_Children:
   - {fileID: 232361501}
   m_Father: {fileID: 334722707}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33200,7 +33226,7 @@ RectTransform:
   m_Children:
   - {fileID: 78113238}
   m_Father: {fileID: 334722707}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33258,7 +33284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -35087,6 +35113,7 @@ MonoBehaviour:
   TopBar: {fileID: 0}
   Receipt: {fileID: 0}
   InvenUI: {fileID: 0}
+  Customer: {fileID: 0}
 --- !u!114 &2138220241
 MonoBehaviour:
   m_ObjectHideFlags: 0

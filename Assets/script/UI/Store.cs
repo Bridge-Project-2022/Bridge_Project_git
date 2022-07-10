@@ -113,11 +113,11 @@ public class Store : MonoBehaviour
 
     public int maxItemNum = 0;
 
-    public void Start()
+
+    public void StoreOpen()
     {
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
-            Debug.Log("1");
             itemBuffer = IB.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
             MiddleitemBuffer = IB.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
             TopitemBuffer = IB.transform.GetChild(0).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
@@ -125,10 +125,9 @@ public class Store : MonoBehaviour
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {
-            Debug.Log("2");
             itemBuffer = IB.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
-            MiddleitemBuffer = IB.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
-            TopitemBuffer = IB.transform.GetChild(0).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+            MiddleitemBuffer = IB.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
+            TopitemBuffer = IB.transform.GetChild(1).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
         }
 
         slots = new List<Slot>();
@@ -157,7 +156,7 @@ public class Store : MonoBehaviour
             {
                 slot.GetComponent<UnityEngine.UI.Button>().interactable = false;
             }
-            
+
 
 
             slots.Add(slot);

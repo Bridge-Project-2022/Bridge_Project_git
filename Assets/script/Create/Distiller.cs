@@ -8,10 +8,12 @@ public class Distiller : MonoBehaviour
     public float distillerTime = 6.0f;
 
     public GameObject distillerWindow;
+    public GameObject distiller;
     public GameObject clickedItem;
     public ItemProperty ClickedItem;
     public GameObject itemImage;
-    
+    public GameObject InvenUI;
+
     bool isWickDown = false;
     public string DistillerStatus = "";
 
@@ -98,7 +100,7 @@ public void DistillerOn(ItemProperty item)
     public void EndDistiller()
     {
         // GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
-
+        InvenUI.GetComponent<Button>().interactable = true;
         Invoke("CloseWindow", 0.5f);
         // DistillerResult();
     }
@@ -106,10 +108,10 @@ public void DistillerOn(ItemProperty item)
     public void CloseWindow()
     {
         TotalScore.FindObjectOfType<TotalScore>().isDistillFin = true;
-        //TotalScore.isDistillFin = true;
         temperature = 0;
-        GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
+        distiller.gameObject.GetComponent<Button>().interactable = false;
         distillerWindow.SetActive(false);
+        
     }
 
     public void DistillerResult()

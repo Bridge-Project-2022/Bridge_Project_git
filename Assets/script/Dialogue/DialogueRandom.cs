@@ -42,10 +42,10 @@ public class DialogueRandom : MonoBehaviour
 
     public Sprite[] BG_Sprite = new Sprite[5];
 
-    bool AStart = false;
-    bool D1Start = false;
-    bool D2Start = false;
-    bool EStart = false;
+    public bool AStart = false;
+    public bool D1Start = false;
+    public bool D2Start = false;
+    public bool EStart = false;
 
     int ACount = 0;
     int D1Count = 0;
@@ -278,6 +278,7 @@ public class DialogueRandom : MonoBehaviour
 
     public void End()
     {
+        GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
         isDialogueStart = false;
         int temp;
         temp = DS.Customer_ID[0];

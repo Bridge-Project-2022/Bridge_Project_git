@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SecondDialogueScript : MonoBehaviour
 {
-   public GameObject Customer;
+   //public GameObject Customer;
    public GameObject Distiller;
 
     GameObject RC;
@@ -14,6 +14,7 @@ public class SecondDialogueScript : MonoBehaviour
 
     public static int FirstDayCustomerNum = 9;
 
+    public string Customer_Name = "";
     public int[] Customer_ID = new int[FirstDayCustomerNum];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
     //public Sprite[] Customer_Image = new Sprite[10];//손님 이미지 -> 아이디랑 연관
     public string[] Customer_PerfumeOrder = new string[10];//손님 향수 주문 대사
@@ -43,13 +44,14 @@ public class SecondDialogueScript : MonoBehaviour
             }
         }
 
-        Customer = GameObject.Find("Dialogue").transform.GetChild(5).gameObject;
+        //Customer = GameObject.Find("Etc").transform.GetChild(5).gameObject;
         RC = GameObject.Find("RC").gameObject;
     }
     public void Update()
     {
         if (Customer_ID[0] == 2001)
         {
+            Customer_Name = "J";
             //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[0];
 
             Customer_PerfumeOrder[0] = "저기요?";
@@ -74,7 +76,7 @@ public class SecondDialogueScript : MonoBehaviour
             }
             Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "사람";
+            Customer_Flavoring[0] = "인간";
             Customer_Flavoring[1] = "연인";
             Customer_Flavoring[2] = "놀라움";
 
@@ -140,8 +142,9 @@ public class SecondDialogueScript : MonoBehaviour
 
         }
 
-        else if (Customer_ID[0] == 2002)//베레모를 쓴 푸근한 인상의 할아버지
+        else if (Customer_ID[0] == 2002)//K: 베레모를 쓴 푸근한 인상의 할아버지
         {
+            Customer_Name = "K";
             //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[1];
 
             Customer_PerfumeOrder[0] = "반갑네, 주인 양반!";
@@ -163,7 +166,7 @@ public class SecondDialogueScript : MonoBehaviour
             }
             Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
 
-            Customer_Flavoring[0] = "사람";
+            Customer_Flavoring[0] = "인간";
             Customer_Flavoring[1] = "연인";
             Customer_Flavoring[2] = "행복";
 
@@ -226,10 +229,10 @@ public class SecondDialogueScript : MonoBehaviour
             }
         }
 
-        else if (Customer_ID[0] == 2003)//덥수룩한 머리의 꼬마 남자아이
+        else if (Customer_ID[0] == 2003)//A: 덥수룩한 머리의 꼬마 남자아이
         {
             //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[2];
-
+            Customer_Name = "A";
             Customer_PerfumeOrder[0] = "안녕하세요 ?";
             Customer_PerfumeOrder[1] = "저도 동생을 가지고 싶어요!!";
             Customer_PerfumeOrder[2] = "친구들이 동생이랑만 아주 신나게 소꿉놀이를 하더라구요!";
@@ -247,7 +250,7 @@ public class SecondDialogueScript : MonoBehaviour
             }
             Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "사람";
+            Customer_Flavoring[0] = "인간";
             Customer_Flavoring[1] = "가족";
             Customer_Flavoring[2] = "기쁨";
 
@@ -311,38 +314,38 @@ public class SecondDialogueScript : MonoBehaviour
             }
         }
 
-        else if (Customer_ID[0] == 2004)//반짝이는 눈의 20대 여자
+        else if (Customer_ID[0] == 2004)//F:반짝이는 눈의 20대 여자
         {
             //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[3];
+            Customer_Name = "F";
+            Customer_PerfumeOrder[0] = "저기 너 말이야!";
+            Customer_PerfumeOrder[1] = "루트 대륙 끝에 작은 산맥이 있는 거 알아?";
+            Customer_PerfumeOrder[2] = "그 작은 산맥을 가로지르는 길이 하나 있는데";
+            Customer_PerfumeOrder[3] = "거기서 주위를 둘러보면 그렇게 좋을 수가 없다...?";
+            Customer_PerfumeOrder[4] = "그 풍경에 놀라서 아직도 입이 다 물어지지 않아!";
+            Customer_PerfumeOrder[5] = "그때 생각나게 해줄 거지?";
 
-            Customer_PerfumeOrder[0] = "안녕하세요!";
-            Customer_PerfumeOrder[1] = "어른이 되고 나니까 괜히 어릴 때로 돌아가고 싶은 거 있죠?";
-            Customer_PerfumeOrder[2] = "친구들과 학교 다닐 때가 정말 좋았는데..";
-            Customer_PerfumeOrder[3] = "매일 아침 지각해서 복도에서 손들고 있었다니까요~?";
-            Customer_PerfumeOrder[4] = "하하! 그때는 볼이 빨개져서 쥐구멍에 숨고 싶었는데..";
-            Customer_PerfumeOrder[5] = "지나보니 그런 게 다 저에겐 추억이더라고요.";
-            Customer_PerfumeOrder[6] = "혹시 이것도 향수로 받을 수 있을까요?";
-
-            for (int i = 7; i < Customer_PerfumeOrder.Length; i++)
+            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
             {
                 Customer_PerfumeOrder[i] = "";
             }
 
-            Customer_IntensityOrder[0] = "향은 너무 진하지 않도록 적당하게 부탁해요!";
+            Customer_IntensityOrder[0] = "좋아! 내가 언제나 다시 여행할 수 있도록 향은 은은하게 해줘!";
             for (int i = 1; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "보통";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
             Customer_Flavoring[0] = "장소";
-            Customer_Flavoring[1] = "학교";
-            Customer_Flavoring[2] = "부끄러움";
+            Customer_Flavoring[1] = "여행지";
+            Customer_Flavoring[2] = "놀라움";
 
-            Customer_RejectReaction[0] = "네? 지금 거절하신 건가요?";
-            Customer_RejectReaction[1] = "그래요, 제 기분을 제대로 망치셨네요.";
+            Customer_RejectReaction[0] = "뭐..?";
+            Customer_RejectReaction[1] = "손님을 그렇게 대해도 되는거야?";
+            Customer_RejectReaction[2] = "실망이야..";
 
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            for (int i = 3; i < Customer_RejectReaction.Length; i++)
             {
                 Customer_RejectReaction[i] = "";
             }
@@ -351,8 +354,8 @@ public class SecondDialogueScript : MonoBehaviour
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "저의 학창 시절의 모습이 그대로 담겨있네요.";
-                    Customer_PerfumeReaction[1] = "순수했던 모습을 찾아줘서 고마워요!";
+                    Customer_PerfumeReaction[0] = "너무 짜릿해! 너 덕분에 그 풍경을 다시 즐길 수 있었어.";
+                    Customer_PerfumeReaction[1] = "정말 고마워!";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -361,8 +364,8 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "바로 이거야..!";
-                    Customer_PerfumeReaction[0] = "정말 고마워요!";
+                    Customer_PerfumeReaction[0] = "오.. 만족스러운걸?";
+                    Customer_PerfumeReaction[1] = "정말 고마워!";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -372,7 +375,7 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "이걸 내 돈 주고 샀다는 게 정말 부끄럽네요..";
+                    Customer_PerfumeReaction[0] = "으으.. 최악이야..";
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -383,8 +386,8 @@ public class SecondDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "이거 맞나요?";
-                    Customer_PerfumeReaction[1] = "정말로... 다 한 거 맞는 거죠..?";
+                    Customer_PerfumeReaction[0] = "이거 맞아?";
+                    Customer_PerfumeReaction[1] = "정말로 다 한 거 맞아..?";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -393,8 +396,8 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else
                 {
-                    Customer_PerfumeReaction[0] = "이게 대체 무슨 냄새지?";
-                    Customer_PerfumeReaction[1] = "조..금.. 실망인걸요..";
+                    Customer_PerfumeReaction[0] = "이게 대체 무슨 냄새야?";
+                    Customer_PerfumeReaction[1] = "내가 원하는 게 아니잖아!";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -404,10 +407,10 @@ public class SecondDialogueScript : MonoBehaviour
             }
         }
 
-        else if (Customer_ID[0] == 2005)//양갈래 머리의 꼬마 여자 아이
+        else if (Customer_ID[0] == 2005)//B: 양갈래 머리의 꼬마 여자 아이
         {
-           // Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[4];
-
+            // Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[4];
+            Customer_Name = "B";
             Customer_PerfumeOrder[0] = "저기...";
             Customer_PerfumeOrder[1] = "내 애착 인형이 너무 그리워..";
             Customer_PerfumeOrder[2] = "그 인형을 껴안으면 진짜 행복했는데..";
@@ -494,41 +497,38 @@ public class SecondDialogueScript : MonoBehaviour
             }
         }
 
-        else if (Customer_ID[0] == 2006)//눈에 상처가 있는 40대 남성
+        else if (Customer_ID[0] == 2006)//D
         {
             //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[5];
-
-            Customer_PerfumeOrder[0] = "자네 리프 섬에 가봤나?";
-            Customer_PerfumeOrder[1] = "리프 섬을 모르는 모양이군..?";
-            Customer_PerfumeOrder[2] = "젊은 사람이 말이야…";
-            Customer_PerfumeOrder[3] = "내가 좀 얘기해 주지!";
-            Customer_PerfumeOrder[4] = "리프 섬은 에메랄드 빛의 바다로 둘러싸인 아름다운 섬이라네!";
-            Customer_PerfumeOrder[5] = "그늘에서 눈부시도록 반짝이는 바다를 바라보면 어찌나 황홀한지…";
-            Customer_PerfumeOrder[6] = "꼭 다시 한번 가고 싶은 곳이야…!";
-            Customer_PerfumeOrder[7] = "그때만 생각하면 너무나 행복하군!";
-            Customer_PerfumeOrder[8] = "푸른 바닷가에 노을빛이 내려앉은 광경은 내 평생 잊지 못할 걸세!";
-
-            for (int i = 9; i < Customer_PerfumeOrder.Length; i++)
+            Customer_Name = "D";
+            Customer_PerfumeOrder[0] = "저기..";
+            Customer_PerfumeOrder[1] = "엄마가 어릴 때 사준 자동차가 왜 아직도 생각나는 걸까?";
+            Customer_PerfumeOrder[2] = "그때 가지고 놀기만 해도 행복해서 그랬나?";
+            Customer_PerfumeOrder[3] = "나도 잘 모르겠는데 장난감 자동차가 자꾸 생각나";
+            Customer_PerfumeOrder[4] = "나 좀 도와주지 않을래?";
+ 
+            for (int i = 5; i < Customer_PerfumeOrder.Length; i++)
             {
                 Customer_PerfumeOrder[i] = "";
             }
 
-            Customer_IntensityOrder[0] = "향은 아주 진하게 부탁하네!";
+            Customer_IntensityOrder[0] = "음.. 향은 은은하게 부탁할게!";
 
             for (int i = 1; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
 
-            Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "장소";
-            Customer_Flavoring[1] = "여행지";
+            Customer_Flavoring[0] = "물건";
+            Customer_Flavoring[1] = "장난감";
             Customer_Flavoring[2] = "행복";
 
-            Customer_RejectReaction[0] = "흠..알겠네..";
-            Customer_RejectReaction[1] = "실망이 크구만..";
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            Customer_RejectReaction[0] = "뭐??";
+            Customer_RejectReaction[1] = "칫 기분 나빠졌어.";
+            Customer_RejectReaction[1] = "여긴 다시 안 올 거야!";
+            for (int i = 3; i < Customer_RejectReaction.Length; i++)
             {
                 Customer_RejectReaction[i] = "";
             }
@@ -537,8 +537,8 @@ public class SecondDialogueScript : MonoBehaviour
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "상쾌한 바다 내음...";
-                    Customer_PerfumeReaction[1] = "바로 이거지!";
+                    Customer_PerfumeReaction[0] = "오 진짜같아!!";
+                    Customer_PerfumeReaction[1] = "자동차 타고 날아다닐 수 있을 거 같아!!!";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -548,8 +548,9 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "고맙구만 자네!";
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    Customer_PerfumeReaction[0] = "음 좀 비슷하네요?";
+                    Customer_PerfumeReaction[1] = "내가 찾던 자동차랑 닮은 거 같아!";
+                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
                     }
@@ -557,10 +558,8 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "이게 뭔가..?";
-                    Customer_PerfumeReaction[1] = "정신 차리게 젊은이..";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    Customer_PerfumeReaction[0] = "어…. 너무 별론데?";
+                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
                     }
@@ -570,9 +569,10 @@ public class SecondDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "아무 향이 안 나는데...";
-                    Customer_PerfumeReaction[1] = "이런 걸 팔아도 되는 건가?";
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    Customer_PerfumeReaction[0] = "이건 대체 무슨 냄새야?";
+                    Customer_PerfumeReaction[1] = "아무 냄새 안나잖아";
+                    Customer_PerfumeReaction[2] = "뭘 만든거야 대체?";
+                    for (int i = 3; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
                     }
@@ -580,8 +580,9 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else
                 {
-                    Customer_PerfumeReaction[0] = "이건 리프 섬 냄새가 아니군 그래..";
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    Customer_PerfumeReaction[0] = "내가 찾던 자동차가 아니잖아??";
+                    Customer_PerfumeReaction[1] = "이런 쓰레기를 왜 만들었어?";
+                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
                     }
@@ -589,10 +590,10 @@ public class SecondDialogueScript : MonoBehaviour
             }
         }
 
-        else if (Customer_ID[0] == 2007)//수척하고 다크서클 있는 20대 남성
+        else if (Customer_ID[0] == 2007)//E: 수척하고 다크서클 있는 20대 남성
         {
             //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[6];
-
+            Customer_Name = "E";
             Customer_PerfumeOrder[0] = "....여...";
             Customer_PerfumeOrder[1] = "....여자..친..구...";
             Customer_PerfumeOrder[2] = "...보..고...싶어...";
@@ -610,7 +611,7 @@ public class SecondDialogueScript : MonoBehaviour
             }
             Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
 
-            Customer_Flavoring[0] = "사람";
+            Customer_Flavoring[0] = "인간";
             Customer_Flavoring[1] = "연인";
             Customer_Flavoring[2] = "사랑";
 
@@ -678,34 +679,34 @@ public class SecondDialogueScript : MonoBehaviour
         else if (Customer_ID[0] == 2008)//H : 단발머리 안경을 쓴 청소년 여성
         {
             //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[7];
+            Customer_Name = "H";
+            Customer_PerfumeOrder[0] = "안녕하세요~";
+            Customer_PerfumeOrder[1] = "축하해줘야 하는 일이 하나 있어요.";
+            Customer_PerfumeOrder[2] = "바로바로..";
+            Customer_PerfumeOrder[3] = "제가 그토록 원하던 로스쿨에 드디어 합격했다고요!";
+            Customer_PerfumeOrder[4] = "이 기분 좋은 날을 평생 기억하고 싶어요~";
+            Customer_PerfumeOrder[5] = "향수 하나만 부탁드릴게요!";
 
-            Customer_PerfumeOrder[0] = "저기..";
-            Customer_PerfumeOrder[1] = "나 도와주고 싶은 친구가 있어..";
-            Customer_PerfumeOrder[2] = "친구가 괴롭힘 당하지만 아무 것도 못 하고 있어..";
-            Customer_PerfumeOrder[3] = "내가 조금만 더 용기를 내면 괜찮을까..?";
-            Customer_PerfumeOrder[4] = "조금이라도 달라질까..?";
-            Customer_PerfumeOrder[5] = "그 친구만 생각하면 너무 미안하구..";
-            Customer_PerfumeOrder[6] = "내가 그 친구를 도와줄 수 있을까..?";
-
-            for (int i = 7; i < Customer_PerfumeOrder.Length; i++)
+            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
             {
                 Customer_PerfumeOrder[i] = "";
             }
 
-            Customer_IntensityOrder[0] = "내가 힘낼 수 있도록 향은 적당히 조절해줘..";
+            Customer_IntensityOrder[0] = "향은 적당히만 해도 충분할 거 같아요!";
             for (int i = 1; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
             Distiller.GetComponent<Distiller>().DistillerStatus = "보통";
 
-            Customer_Flavoring[0] = "사람";
-            Customer_Flavoring[1] = "친구";
-            Customer_Flavoring[2] = "죄책감";
+            Customer_Flavoring[0] = "장소";
+            Customer_Flavoring[1] = "학교";
+            Customer_Flavoring[2] = "기쁨";
 
-            Customer_RejectReaction[0] = "....";
-            Customer_RejectReaction[1] = "그래 내가 알아서 할게..";
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            Customer_RejectReaction[0] = "네..?";
+            Customer_RejectReaction[1] = "참.. 어이가 없네요..";
+            Customer_RejectReaction[2] = "여기는 괜히 왔던 것 같아요.";
+            for (int i = 3; i < Customer_RejectReaction.Length; i++)
             {
                 Customer_RejectReaction[i] = "";
             }
@@ -714,8 +715,8 @@ public class SecondDialogueScript : MonoBehaviour
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "고마워!";
-                    Customer_PerfumeReaction[1] = "이제야 친구를 도울 수 있을 것 같아..!";
+                    Customer_PerfumeReaction[0] = "이 추억을 소중하게 잘 간직해서 멋진 변호사가 될게요.";
+                    Customer_PerfumeReaction[1] = "정말 감사합니다!";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -724,9 +725,10 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "이 정도면 괜찮은 것 같아..!";
-      
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    Customer_PerfumeReaction[0] = "오.. 좋아요!";
+                    Customer_PerfumeReaction[1] = "만족합니다!";
+
+                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
                     }
@@ -734,8 +736,8 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "왜 이렇게 만든 거야..?";
-                    Customer_PerfumeReaction[1] = "정말 싫어..";
+                    Customer_PerfumeReaction[0] = "악.. 이게 뭔가요..?";
+                    Customer_PerfumeReaction[1] = "이건 문제가 있다고 생각하는 걸요..";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -746,8 +748,8 @@ public class SecondDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "일부로 이런 거야..?";
-                    Customer_PerfumeReaction[1] = "이러지 않아도 됐잖아...";
+                    Customer_PerfumeReaction[0] = "무슨 향이 난다는 건지..";
+                    Customer_PerfumeReaction[1] = "그게 완성품인가요?";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -756,8 +758,8 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else
                 {
-                    Customer_PerfumeReaction[0] = "대체 뭘 만든 거야..?";
-                    Customer_PerfumeReaction[1] = "이건 완전 다른 거잖아!!";
+                    Customer_PerfumeReaction[0] = "제가..찾는 향은 아니겠죠?";
+                    Customer_PerfumeReaction[1] = "실수는 용납할 수 없어요.";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -766,44 +768,37 @@ public class SecondDialogueScript : MonoBehaviour
             }
         }
 
-        else if (Customer_ID[0] == 2009)//수척하고 다크서클이 낀 20대 남성
+        else if (Customer_ID[0] == 2009)//C
         {
-           //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[8];
+            //Customer.GetComponent<SpriteRenderer>().sprite = Customer_Image[8];
+            Customer_Name = "C";
+            Customer_PerfumeOrder[0] = "저기요..?";
+            Customer_PerfumeOrder[1] = "아니.. 그게..";
+            Customer_PerfumeOrder[2] = "혹시 짝사랑을 해본 적이 있나요..?";
+            Customer_PerfumeOrder[3] = "요즘 같은 반 짝꿍과 눈만 마주치면 제 심장이 두근거려요.";
+            Customer_PerfumeOrder[4] = "예쁜 그 갈색 눈동자..";
+            Customer_PerfumeOrder[5] = "이런 제 마음이 어디 새어나가지 않도록 보관할 방법이 없을까요?";
 
-            Customer_PerfumeOrder[0] = "안녕..?";
-            Customer_PerfumeOrder[1] = "저기.. 부탁할 게 있는데..";
-            Customer_PerfumeOrder[2] = "우리 집 고양이 나비를 한 번만이라도 다시 만나고 싶어...";
-            Customer_PerfumeOrder[3] = "힘 없이 네 발로 비틀거리면서 일어서려고 노력하는 게 엊그제 같은데..";
-            Customer_PerfumeOrder[4] = "축 처져서 아무것도 안 하더니...";
-            Customer_PerfumeOrder[5] = "이젠 더 이상 볼 수 없어..";
-            Customer_PerfumeOrder[6] = "그 조그만 아이가 얼마나 아팠는지 생각하면...";
-            Customer_PerfumeOrder[7] = "생각조차 힘들어서 눈물이 나...";
-            Customer_PerfumeOrder[8] = "제발 나비를 한 번만이라도 만날 수 있게 해줘...";
-
-            for (int i = 9; i < Customer_PerfumeOrder.Length; i++)
+            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
             {
                 Customer_PerfumeOrder[i] = "";
             }
 
-            Customer_IntensityOrder[0] = "향은 너무 진하지도... 너무 은은하지도 않게 해줘...";
+            Customer_IntensityOrder[0] = "향은 저만 느껴질 정도로 은은하게 부탁해요.";
             for (int i = 1; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "보통";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "동물";
-            Customer_Flavoring[1] = "반려동물";
-            Customer_Flavoring[2] = "슬픔";
+            Customer_Flavoring[0] = "인간";
+            Customer_Flavoring[1] = "친구";
+            Customer_Flavoring[2] = "사랑";
 
-            Customer_RejectReaction[0] = "...나한테 대체 왜 그래요?";
-            Customer_RejectReaction[1] = "단 한 번만 나비를 만나는 것도 안 되는 거야?";
-            Customer_RejectReaction[2] = "내가 이렇게까지 했는데...";
-            Customer_RejectReaction[3] = "다른 사람들한테도 말할 거야";
-            Customer_RejectReaction[4] = "후회하지 마. 당신이 한 선택이잖아.";
+            Customer_RejectReaction[0] = "에휴.. 이러다 진짜 들키는 거 아니야..?";
+            Customer_RejectReaction[1] = "돌겠다..";
 
-
-            for (int i = 5; i < Customer_RejectReaction.Length; i++)
+            for (int i = 2; i < Customer_RejectReaction.Length; i++)
             {
                 Customer_RejectReaction[i] = "";
             }
@@ -822,8 +817,8 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "고마워요...";
-                    Customer_PerfumeReaction[1] = "이렇게라도 나비를 볼 수 있어서...";
+                    Customer_PerfumeReaction[0] = "와!";
+                    Customer_PerfumeReaction[1] = "제 마음에 쏙 들어요.";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -832,8 +827,8 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "정말 최악이네요...";
-                    Customer_PerfumeReaction[1] = "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?";
+                    Customer_PerfumeReaction[0] = "제 마음을 들킬 일은 없겠네요.";
+                    Customer_PerfumeReaction[1] = "뭐.. 감사합니다.";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -844,8 +839,8 @@ public class SecondDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "제대로 만든 거 맞나요..?";
-                    Customer_PerfumeReaction[1] = "느껴지는 게 없는데..?";
+                    Customer_PerfumeReaction[0] = "뭐지..?";
+                    Customer_PerfumeReaction[1] = "내 코가 이상한건가..?";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";
@@ -854,8 +849,8 @@ public class SecondDialogueScript : MonoBehaviour
 
                 else
                 {
-                    Customer_PerfumeReaction[0] = "이 향이 아닌데요..?";
-                    Customer_PerfumeReaction[1] = "뭘 만든 거죠..? ";
+                    Customer_PerfumeReaction[0] = "이건..음...";
+                    Customer_PerfumeReaction[1] = "제가 찾던 향수가 아니에요.";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";

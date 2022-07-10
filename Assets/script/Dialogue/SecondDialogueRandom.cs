@@ -276,6 +276,7 @@ public class SecondDialogueRandom : MonoBehaviour
 
     public void End()
     {
+        GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
         isDialogueStart = false;
         int temp;
         temp = DS.Customer_ID[0];

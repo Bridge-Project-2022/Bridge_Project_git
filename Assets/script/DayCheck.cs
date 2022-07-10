@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DayCheck : MonoBehaviour
 {
-
     GameObject RC;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +33,7 @@ public class DayCheck : MonoBehaviour
 
     public void C1_Check()
     {
+        RC.GetComponent<RandomImage>().CurrentFeel = "good";
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
             GameObject.Find("Trigger").GetComponent<DialogueRandom>().C_1_Start();

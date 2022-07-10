@@ -11,7 +11,6 @@ public class NextDay : MonoBehaviour
         day++;
         if (day == 2)
         {
-            Debug.Log("22");
             SecondDayStart();
         }
     }

@@ -23,7 +23,7 @@ public class DeskTouch : MonoBehaviour
 
     public GameObject InvenUI;
     GameObject RandomBuyer;
-
+    public GameObject Customer;
     private void Update()
     {
         RandomBuyer = GameObject.Find("Else").transform.GetChild(0).gameObject;
@@ -72,6 +72,7 @@ public class DeskTouch : MonoBehaviour
 
     public void TouchPerfume()
     {
+        Customer.gameObject.SetActive(true);
         TopBar.transform.Translate(new Vector3(-200, -200, 0));
         Receipt.gameObject.SetActive(false);
 
@@ -97,6 +98,5 @@ public class DeskTouch : MonoBehaviour
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         DayCheck.FindObjectOfType<DayCheck>().E1_Check();
-        //DialogueRandom.FindObjectOfType<DialogueRandom>().E_1_Start();
     }
 }
