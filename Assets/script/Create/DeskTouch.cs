@@ -91,7 +91,7 @@ public class DeskTouch : MonoBehaviour
 
         isDeskUp = false;
         Invoke("PerfumeDialogue", 0.3f);
-        GameObject.Find("ClickedItem").GetComponent<Button>().interactable = false;
+        //GetComponent<Button>().interactable = false;
     }
 
     public void PerfumeDialogue()

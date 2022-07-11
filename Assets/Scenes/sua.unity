@@ -13000,8 +13000,9 @@ MonoBehaviour:
   Distiller: {fileID: 223599881}
   Presser: {fileID: 1644046650}
   Cooler: {fileID: 1292974976}
+  DailyResult: {fileID: 2015426897}
   BuyerDialogue: {fileID: 78113239}
-  makeStart: 0
+  isDialogueEnd: 0
   arrow: {fileID: 832237960}
   rejectCnt: 0
   SellerSentences:
@@ -13043,8 +13044,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
+  AStart: 0
+  D1Start: 0
+  D2Start: 0
+  EStart: 0
   isDialogueStart: 0
-  isDialogueEnd: 0
 --- !u!222 &806175970
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13071,6 +13075,7 @@ MonoBehaviour:
   Distiller: {fileID: 223599881}
   Presser: {fileID: 1644046650}
   Cooler: {fileID: 1292974976}
+  DailyResult: {fileID: 2015426897}
   BuyerDialogue: {fileID: 78113239}
   isDialogueEnd: 0
   arrow: {fileID: 832237960}
@@ -18452,7 +18457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1195423524
 RectTransform:
   m_ObjectHideFlags: 0

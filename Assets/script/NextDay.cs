@@ -17,6 +17,7 @@ public class NextDay : MonoBehaviour
 
     public void SecondDayStart()
     {
+        RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<DialogueRandom>().enabled = false;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = true;

@@ -15,6 +15,8 @@ public class DialogueRandom : MonoBehaviour
     public GameObject Presser;
     public GameObject Cooler;
 
+    public GameObject DailyResult;
+
     GameObject BackGround;
     GameObject WindowBG;
 
@@ -291,23 +293,36 @@ public class DialogueRandom : MonoBehaviour
         Customer.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(false);
 
-        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 1)//손님 3명 가고 나서 점심으로 바뀜
+        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9)
         {
-            RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
-            BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
-            WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
+            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
+            {
+                RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
+                BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
+                WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
+            }
+            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
+            {
+                RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
+                BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
+                WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
+            }
+
+            Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
         }
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 2)//손님 6명 가고 나서 저녁으로 바뀜
+        
+
+        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9)//손님 9명 가고 나서 최종 창이 뜸.
         {
-            RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
-            BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
-            WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
+            Invoke("DailyWindowOpen", 3f);
         }
-
-        Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
     }
 
+    public void DailyWindowOpen()
+    {
+        DailyResult.gameObject.SetActive(true);
+    }
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";

@@ -15,12 +15,16 @@ public class SecondDialogueRandom : MonoBehaviour
     public GameObject Presser;
     public GameObject Cooler;
 
+    public GameObject DailyResult;
+
     GameObject BackGround;
     GameObject WindowBG;
 
     public TextMeshProUGUI BuyerDialogue;
 
-    public bool makeStart = false;
+    public bool isDialogueEnd = false;
+
+    //public bool makeStart = false;
 
     public GameObject arrow;
 
@@ -40,10 +44,10 @@ public class SecondDialogueRandom : MonoBehaviour
 
     public Sprite[] BG_Sprite = new Sprite[5];
 
-    bool AStart = false;
-    bool D1Start = false;
-    bool D2Start = false;
-    bool EStart = false;
+    public bool AStart = false;
+    public bool D1Start = false;
+    public bool D2Start = false;
+    public bool EStart = false;
 
     int ACount = 0;
     int D1Count = 0;
@@ -52,17 +56,17 @@ public class SecondDialogueRandom : MonoBehaviour
 
 
     public bool isDialogueStart = false;
-    public bool isDialogueEnd = false;
 
     bool isSelectStart = false;
     bool isArrowStart = false;
 
     public void Update()
     {
+
         DS = GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>();
 
-        BackGround = GameObject.Find("BG").transform.GetChild(0).gameObject;
-        WindowBG = GameObject.Find("BG").transform.GetChild(1).gameObject;
+        BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
+        WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
 
         for (int i = 0; i < BuyerOrder.Length; i++)
         {
@@ -249,7 +253,7 @@ public class SecondDialogueRandom : MonoBehaviour
     {
         Buyer.gameObject.SetActive(true);
         //Seller.gameObject.SetActive(false);
-        makeStart = true;
+        //makeStart = true;
         D1Start = true;
         isDialogueStart = true;
         NextDialogue();
@@ -289,23 +293,36 @@ public class SecondDialogueRandom : MonoBehaviour
         Customer.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(false);
 
-        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 1)//손님 3명 가고 나서 점심으로 바뀜
+        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9)
         {
-            RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
-            BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
-            WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
+            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
+            {
+                RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
+                BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
+                WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
+            }
+            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
+            {
+                RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
+                BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
+                WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
+            }
+
+            Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
         }
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 2)//손님 6명 가고 나서 저녁으로 바뀜
+
+
+        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9)//손님 9명 가고 나서 최종 창이 뜸.
         {
-            RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
-            BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
-            WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
+            Invoke("DailyWindowOpen", 3f);
         }
-
-        Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
     }
 
+    public void DailyWindowOpen()
+    {
+        DailyResult.gameObject.SetActive(true);
+    }
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";
