@@ -117,10 +117,8 @@ public class Cooler : MonoBehaviour
             topInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
         }
         TotalScore.FindObjectOfType<TotalScore>().isCoolFin = true;
-        //TotalScore.isCoolFin = true;
         CoolerDetail.gameObject.SetActive(false);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
-        //GameObject.Find("Desk").GetComponent<Button>().interactable = true;
 
     }
 
@@ -141,7 +139,6 @@ public class Cooler : MonoBehaviour
 
     public void BurnItem()//파티클 생성 후 2초 뒤에 아이템 탄 이미지로 변환,
     {
-        //Debug.Log("아이템 타버림");
         //여기에 아이템 이름별로 다르게 탄 이미지 변경하도록 조건문 추가해야함.
 
         Particle1.gameObject.SetActive(false);
