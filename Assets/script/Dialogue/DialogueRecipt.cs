@@ -23,6 +23,10 @@ public class DialogueRecipt : MonoBehaviour
         {
             DialogueScript = GameObject.Find("DialogueScript2").gameObject;
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        {
+            DialogueScript = GameObject.Find("DialogueScript3").gameObject;
+        }
 
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
@@ -63,6 +67,29 @@ public class DialogueRecipt : MonoBehaviour
                     break;
 
                 IntensityOrder[i] = DialogueScript.GetComponent<SecondDialogueScript>().Customer_IntensityOrder[i];
+            }
+
+
+            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrder[0] + "\n" + PerfumeOrder[1] + "\n" + PerfumeOrder[2] + "\n" + PerfumeOrder[3] + "\n" + PerfumeOrder[4] + "\n" + PerfumeOrder[5] + "\n"
+            + "\n" + IntensityOrder[0] + "\n" + IntensityOrder[1] + "\n" + IntensityOrder[2] + "\n" + IntensityOrder[3];
+        }
+
+        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        {
+            for (int i = 0; i < DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder.Length; i++)
+            {
+                if (DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder[i] == "")
+                    break;
+
+                PerfumeOrder[i] = DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder[i];
+            }
+
+            for (int i = 0; i < DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder.Length; i++)
+            {
+                if (DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder[i] == "")
+                    break;
+
+                IntensityOrder[i] = DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder[i];
             }
 
 
