@@ -80,9 +80,12 @@ public void DistillerOn(ItemProperty item)
             if (curTemper > maxTemperature - 1)
             {
                 maxTemperDuration += Time.deltaTime;
+
                 if (maxTemperDuration > 1.5f)
                 {
-                    gameObject.SetActive(false);
+                    itemImage.GetComponent<Image>().color = new Color(1, 0, 0);
+                    clickedItem.GetComponent<Image>().color = new Color(1, 0, 0);
+                    EndDistiller();
                     maxTemperDuration = 0.0f;
                 }
             }
