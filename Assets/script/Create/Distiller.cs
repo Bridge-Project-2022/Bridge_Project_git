@@ -49,9 +49,12 @@ public void DistillerOn(ItemProperty item)
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
+            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
+
         }
         else
         {
+            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         }

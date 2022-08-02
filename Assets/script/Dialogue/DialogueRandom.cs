@@ -41,6 +41,7 @@ public class DialogueRandom : MonoBehaviour
     public string[] BuyerIntensity = new string[5];
     public string[] BuyerRejectReaction = new string[5];
     public string[] BuyerPerfumeReaction = new string[5];
+    public string[] BuyerFeel = new string[10];
 
     public Sprite[] BG_Sprite = new Sprite[5];
 
@@ -53,7 +54,7 @@ public class DialogueRandom : MonoBehaviour
     int D1Count = 0;
     int D2Count = 0;
     int ECount = 0;
-
+    public int FeelCnt = 0;
 
     public bool isDialogueStart = false;
 
@@ -87,6 +88,10 @@ public class DialogueRandom : MonoBehaviour
         {
             BuyerPerfumeReaction[i] = DS.Customer_PerfumeReaction[i];
         }
+        for (int i = 0; i < BuyerFeel.Length; i++)
+        {
+            BuyerFeel[i] = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[i];
+        }
 
         Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
         Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
@@ -118,6 +123,9 @@ public class DialogueRandom : MonoBehaviour
     public void NextDialogue()
     {
         StopAll();
+        RandomImage.FindObjectOfType<RandomImage>().CurrentFeel = BuyerFeel[FeelCnt];
+        FeelCnt++;
+
         if (AStart == true)
         {
             Buyer.gameObject.GetComponent<Button>().interactable = true;
@@ -177,16 +185,7 @@ public class DialogueRandom : MonoBehaviour
             }
         }
     }
-    
-    public void RandomDialogue()// 랜덤 함수(대화 랜덤)
-    {
-        C_1_random = Random.Range(0, DS.Dialogue_C_1.Length);
-        C_2_random = Random.Range(0, DS.Dialogue_C_2.Length);
-
-        SellerSentences[0] = DS.Dialogue_C_1[C_1_random];
-        SellerSentences[1] = DS.Dialogue_C_2[C_2_random];
-
-    }
+   
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
@@ -280,10 +279,11 @@ public class DialogueRandom : MonoBehaviour
 
     public void End()
     {
-        GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
+        //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
         isDialogueStart = false;
         int temp;
         temp = DS.Customer_ID[0];
+
         for (int i = 0; i < DS.Customer_ID.Length - 1; i++)
         {
             DS.Customer_ID[i] = DS.Customer_ID[i + 1];

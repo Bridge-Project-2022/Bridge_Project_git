@@ -51,4 +51,14 @@ public class NextDay : MonoBehaviour
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = true;
         TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
+
+    public void FourthDayStart()
+    {
+        RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
+        GameObject Trigger = GameObject.Find("Trigger").gameObject;
+        Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
+        //Trigger.GetComponent<FourthDialogueRandom>().enabled = true;
+        CriminalSystem.FindObjectOfType<CriminalSystem>().isCriminalStart = true;
+        TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+    }
 }

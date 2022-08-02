@@ -119,7 +119,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "대체 뭘 만든 거야..?";
                     Customer_PerfumeReaction[1] = "이건 완전 다른 거잖아!!";
@@ -214,7 +214,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "이게 무슨 냄새인가요??";
                     Customer_PerfumeReaction[1] = "둥이 냄새가 아닌데?";
@@ -314,7 +314,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "내가 우습나?";
                     Customer_PerfumeReaction[1] = "이럴 거면 때려치우게 ";
@@ -413,7 +413,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "이건 내가 맡고 싶은 향이 아니에요..";
                     Customer_PerfumeReaction[1] = "정말 최악이네요..";
@@ -511,7 +511,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -609,7 +609,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -707,7 +707,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -805,7 +805,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -903,7 +903,7 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if(TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -914,7 +914,6 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-
         }
     }
 }

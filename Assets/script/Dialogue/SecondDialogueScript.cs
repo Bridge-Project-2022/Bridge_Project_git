@@ -129,7 +129,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "대체 무슨 향수를 만든 거죠?";
                     Customer_PerfumeReaction[1] = "정말 형편없네요.";
@@ -218,7 +218,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "내가 찾던 향수는 이게 아닌 것 같은데..";
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
@@ -303,7 +303,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "저는.. 이런 향수를… 사러 온 게 아니에요..";
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
@@ -394,7 +394,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "이게 대체 무슨 냄새야?";
                     Customer_PerfumeReaction[1] = "내가 원하는 게 아니잖아!";
@@ -485,7 +485,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "그러니까.. .이게.. 내 인형이야.?";
                     Customer_PerfumeReaction[1] = "이럴 리가 없는데..";
@@ -578,7 +578,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "내가 찾던 자동차가 아니잖아??";
                     Customer_PerfumeReaction[1] = "이런 쓰레기를 왜 만들었어?";
@@ -665,7 +665,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "이게..아닌..데.....?"; ;
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
@@ -756,7 +756,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "제가..찾는 향은 아니겠죠?";
                     Customer_PerfumeReaction[1] = "실수는 용납할 수 없어요.";
@@ -847,7 +847,7 @@ public class SecondDialogueScript : MonoBehaviour
                     }
                 }
 
-                else
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
                     Customer_PerfumeReaction[0] = "이건..음...";
                     Customer_PerfumeReaction[1] = "제가 찾던 향수가 아니에요.";
