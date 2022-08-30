@@ -5,13 +5,14 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     public GameObject DeletePoint;
+    public NoteType noteType;
     float speed = 900.0f;
 
     void Awake()
     {
         DeletePoint = GameObject.Find("DeletePoint").gameObject;
     }
-    // Update is called once per frame
+
     void Update()
     {
         transform.position += new Vector3(-speed * Time.deltaTime, 0.0f);
@@ -20,5 +21,14 @@ public class Note : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public enum NoteType
+    {
+        Left,
+        Right,
+        Both,
+        Long,
+        LongBoth
     }
 }
