@@ -7,15 +7,12 @@ public class PresserTap : MonoBehaviour
 {
     public GameObject EndPoint;
     public GameObject Notes;
-<<<<<<< HEAD
     public TextMeshProUGUI result;
-    public void OnLeftBtnClicked()
-=======
+    //public void OnLeftBtnClicked()
 
     [SerializeField]
     Transform[] ChildList;
     public void OnTapBtnClicked(int tapType)
->>>>>>> 12d374d3a570b007321283a902430ed3ba57aa42
     {
         ChildList = Notes.GetComponentsInChildren<Transform>();
 
