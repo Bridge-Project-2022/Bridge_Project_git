@@ -36,7 +36,8 @@ public class RandomImage : MonoBehaviour
     {
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
-            CurrentName = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_Name.ToString();
+            CurrentName = GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_Name.ToString();
+            //CurrentName = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_Name.ToString();
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {

@@ -30,4 +30,22 @@ public class TitleBtns : MonoBehaviour
     {
         OptionPanel.SetActive(false);
     }
+
+    public void OnMouseEnter()
+    {
+        if(this.gameObject.name == "GameStart")
+        {
+            Debug.Log("s");
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        
+    }
+
+    public void OnMouseDown()
+    {
+        
+    }
 }

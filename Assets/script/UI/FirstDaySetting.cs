@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FirstDaySetting : MonoBehaviour
 {
@@ -10,14 +11,14 @@ public class FirstDaySetting : MonoBehaviour
     public int Money = 50000;
     public int Reputation = 60;
 
-    public GameObject GameMoney;
+    public TextMeshProUGUI GameMoney;
     public GameObject GameReputation;
 
 
     private void Update()
     {
-       GameMoney.gameObject.GetComponent<Text>().text = Money.ToString();
-       GameReputation.gameObject.GetComponent<Text>().text = Reputation.ToString();
+        GameMoney.text = Money.ToString();
+        GameReputation.gameObject.GetComponent<Text>().text = Reputation.ToString();
 
         if (Reputation < 0)
         { 
