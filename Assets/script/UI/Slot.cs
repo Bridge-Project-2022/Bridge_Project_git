@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Slot : MonoBehaviour
 {
     public ItemProperty item;
     public UnityEngine.UI.Image image;
-    public GameObject itemPrice;
-    public GameObject itemCount;
+    public TextMeshProUGUI itemPrice;
+    public TextMeshProUGUI itemCount;
 
     public ItemProperty ClickedItem;
 
@@ -28,7 +29,7 @@ public class Slot : MonoBehaviour
 
             gameObject.name = item.name;
             image.sprite = item.sprite;
-            itemPrice.gameObject.GetComponent<Text>().text = item.itemPrice.ToString();
+            itemPrice.text = item.itemPrice.ToString();
             //itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "개 보유";
         }
     }
@@ -48,7 +49,7 @@ public class Slot : MonoBehaviour
             image.enabled = true;
             gameObject.name = item.name;
             image.sprite = item.sprite;
-            itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "개 보유";
+            itemCount.text = item.itemCount.ToString() + "개 보유";
         }
     }
 
@@ -100,10 +101,10 @@ public class Slot : MonoBehaviour
         if (ClickedSlot.item.InvenItemNum >= 1)
         {
             ClickedSlot.item.InvenItemNum -= 1;
-            ClickedSlot.transform.GetChild(3).GetComponent<Text>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 남음";
+            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshPro>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 남음";
             if (ClickedSlot.item.InvenItemNum == 0)
             {
-                ClickedSlot.transform.GetChild(3).GetComponent<Text>().text = "";
+                ClickedSlot.transform.GetChild(3).GetComponent<TextMeshPro>().text = "";
                 ClickedSlot.item = null;
                 ClickedSlot.image.enabled = false;
                 ClickedSlot.gameObject.name = "Empty";
@@ -114,12 +115,12 @@ public class Slot : MonoBehaviour
     {
         if (this.item != null)
         {
-            itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "개 보유";
+            itemCount.text = item.itemCount.ToString() + "개 보유";
             if (item.itemCount <= 0)
             {
-                this.itemPrice.GetComponent<Text>().text = "0";
+                this.itemPrice.text = "0";
                 this.GetComponent<UnityEngine.UI.Button>().interactable = false;
-                itemCount.gameObject.GetComponent<Text>().text = "판매 완료";
+                itemCount.text = "판매 완료";
             }
             /*if (FindObjectOfType<DeskTouch>().isDeskUp == true)// 데스크가 올라온 경우(아이템 제조 시작 경우)에만 인벤 아이템 클릭 가능 상태로 만듦.
             {

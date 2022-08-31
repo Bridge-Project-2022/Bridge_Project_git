@@ -49,6 +49,10 @@ public class DayCheck : MonoBehaviour
             GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().C_1_Start();
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().FeelCnt = 0;
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().C_1_Start();
+            if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1003)
+            {
+                Debug.Log("범죄자 향수 판매");
+            }
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {
@@ -70,6 +74,10 @@ public class DayCheck : MonoBehaviour
             GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().C_2_Start();
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().FeelCnt = 0;
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().C_2_Start();
+            if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1003)
+            {
+                Debug.Log("범죄자 향수 거절");
+            }
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {

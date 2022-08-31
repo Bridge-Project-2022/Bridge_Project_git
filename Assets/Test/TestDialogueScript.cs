@@ -18,6 +18,7 @@ public class TestDialogueScript : MonoBehaviour
     public string[] Customer_Flavoring = new string[3];//원하는 향료 선택(베, 미, 탑)
     public string[] Customer_RejectReaction = new string[5];//손님 거절 반응
     public string[] Customer_PerfumeReaction = new string[5];//향수 받을 시 손님 반응
+    public string[] Customer_CriminalDeclareReaction = new string[5];//신고했을 시 반응
 
     public void Start()
     {
@@ -52,6 +53,14 @@ public class TestDialogueScript : MonoBehaviour
             {
                 Customer_IntensityOrder[i] = "";
             }
+
+            Customer_CriminalDeclareReaction[0] = "감히 나를 신고해?";
+
+            for (int i = 1; i < Customer_CriminalDeclareReaction.Length; i++)
+            {
+                Customer_CriminalDeclareReaction[i] = "";
+            }
+
             Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
 
             Customer_Flavoring[0] = "장소";
@@ -144,6 +153,13 @@ public class TestDialogueScript : MonoBehaviour
             }
             Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
 
+            Customer_CriminalDeclareReaction[0] = "아니.. 들켰잖아?";
+
+            for (int i = 1; i < Customer_CriminalDeclareReaction.Length; i++)
+            {
+                Customer_CriminalDeclareReaction[i] = "";
+            }
+
             Customer_Flavoring[0] = "인간";
             Customer_Flavoring[1] = "연인";
             Customer_Flavoring[2] = "사랑";
@@ -224,6 +240,13 @@ public class TestDialogueScript : MonoBehaviour
             for (int i = 5; i < Customer_PerfumeOrder.Length; i++)
             {
                 Customer_PerfumeOrder[i] = "";
+            }
+
+            Customer_CriminalDeclareReaction[0] = "감히 나를 신고해?";
+
+            for (int i = 1; i < Customer_CriminalDeclareReaction.Length; i++)
+            {
+                Customer_CriminalDeclareReaction[i] = "";
             }
 
             Customer_IntensityOrder[0] = "향의 세기는 아무거나 상관없어요!!";
@@ -312,6 +335,13 @@ public class TestDialogueScript : MonoBehaviour
             for (int i = 5; i < Customer_PerfumeOrder.Length; i++)
             {
                 Customer_PerfumeOrder[i] = "";
+            }
+
+            Customer_CriminalDeclareReaction[0] = "감히 나를 신고해?";
+
+            for (int i = 1; i < Customer_CriminalDeclareReaction.Length; i++)
+            {
+                Customer_CriminalDeclareReaction[i] = "";
             }
 
             Customer_IntensityOrder[0] = "향은 완전 진하게? 해주세요!!!";

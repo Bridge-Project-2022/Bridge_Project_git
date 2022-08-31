@@ -24,6 +24,7 @@ public class TestDialogueRandom : MonoBehaviour
     public bool isDialogueEnd = false;
 
     public GameObject arrow;
+    public GameObject Declaration;
 
     public int rejectCnt = 0;//거절 횟수 -> 평판 영향, 일차 지날 때 마다 리셋되어야 함.
 
@@ -38,6 +39,7 @@ public class TestDialogueRandom : MonoBehaviour
     public string[] BuyerIntensity = new string[5];
     public string[] BuyerRejectReaction = new string[5];
     public string[] BuyerPerfumeReaction = new string[5];
+    public string[] CriminalDeclareReaction = new string[5];
 
     public string[] BuyerFeel = new string[10];
 
@@ -47,6 +49,7 @@ public class TestDialogueRandom : MonoBehaviour
     public bool D1Start = false;
     public bool D2Start = false;
     public bool EStart = false;
+    public bool F2Start = false;
 
     public int FeelCnt = 0;
 
@@ -54,12 +57,16 @@ public class TestDialogueRandom : MonoBehaviour
     int D1Count = 0;
     int D2Count = 0;
     int ECount = 0;
+    int F2Count = 0;
 
 
     public bool isDialogueStart = false;
 
     bool isSelectStart = false;
     bool isArrowStart = false;
+
+    public bool isCriminal = false;
+    public bool isCriminalFalse = false;
 
     public void Update()
     {
@@ -89,6 +96,11 @@ public class TestDialogueRandom : MonoBehaviour
             BuyerPerfumeReaction[i] = DS.Customer_PerfumeReaction[i];
         }
 
+        for (int i = 0; i < CriminalDeclareReaction.Length; i++)
+        {
+            CriminalDeclareReaction[i] = DS.Customer_CriminalDeclareReaction[i];
+        }
+
         Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
         Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
         Cooler.GetComponent<Cooler>().TopItemName = DS.Customer_Flavoring[2];
@@ -98,6 +110,7 @@ public class TestDialogueRandom : MonoBehaviour
             if (isSelectStart == true)
             {
                 Select.gameObject.SetActive(true);
+                Declaration.gameObject.SetActive(true);
             }
             if (isArrowStart == true)
             {
@@ -109,6 +122,7 @@ public class TestDialogueRandom : MonoBehaviour
             if (isSelectStart == false)
             {
                 Select.gameObject.SetActive(false);
+                Declaration.gameObject.SetActive(false);
             }
             if (isArrowStart == false)
             {
@@ -182,6 +196,21 @@ public class TestDialogueRandom : MonoBehaviour
                 Invoke("End", 2f);
             }
         }
+        if (F2Start == true)
+        {
+            isSelectStart = false;
+            Select.SetActive(false);
+            Buyer.gameObject.GetComponent<Button>().interactable = true;
+            StartCoroutine(NormalChat(CriminalDeclareReaction[F2Count]));
+            F2Count++;
+
+            if (CriminalDeclareReaction[F2Count] == "")
+            {
+                F2Count = 0;
+                F2Start = false;
+                Invoke("End", 2f);
+            }
+        }
     }
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
@@ -201,6 +230,7 @@ public class TestDialogueRandom : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         Select.SetActive(false);
+        Declaration.gameObject.SetActive(false);
         isDialogueStart = false;
         //RandomDialogue();
         Buyer.gameObject.SetActive(false);
@@ -220,6 +250,7 @@ public class TestDialogueRandom : MonoBehaviour
         if (rejectCnt == 1)
         {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
+            GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.08f;
             StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
 
@@ -227,16 +258,19 @@ public class TestDialogueRandom : MonoBehaviour
         else if (rejectCnt == 2)
         {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 10;
+            GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.1f;
             StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
         if (rejectCnt >= 3)
         {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 15;
+            GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.15f;
             StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
 
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
+        Declaration.gameObject.SetActive(false);
         isDialogueStart = false;
         Buyer.gameObject.SetActive(false);
         Invoke("D_2_Start", 0.3f);
@@ -264,6 +298,24 @@ public class TestDialogueRandom : MonoBehaviour
     {
         isArrowStart = false;
         EStart = true;
+        isDialogueStart = true;
+        NextDialogue();
+    }
+
+    public void F_1Start()
+    {
+        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        Select.SetActive(false);
+        Declaration.gameObject.SetActive(false);
+        isDialogueStart = false;
+        Buyer.gameObject.SetActive(false);
+        F_2Start();
+    }
+    public void F_2Start()
+    {
+        Buyer.gameObject.SetActive(true);
+        Select.SetActive(false);
+        F2Start = true;
         isDialogueStart = true;
         NextDialogue();
     }
@@ -312,6 +364,29 @@ public class TestDialogueRandom : MonoBehaviour
     {
         DailyResult.gameObject.SetActive(true);
     }
+
+    public void PressDeclaration()//신고버튼 클릭 시
+    {
+        if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1003)//범죄자 등장
+        {
+            Debug.Log("범죄자 신고 성공");
+            isCriminal = true;
+            isCriminalFalse = false;
+        }
+        else//잘못 누른 경우
+        {
+            Debug.Log("잘못 신고함");
+            isCriminalFalse = true;
+            isCriminal = false;
+        }
+        Invoke("DeclareActiveFalse", 3f);
+    }
+
+    public void DeclareActiveFalse()
+    {
+        Declaration.gameObject.SetActive(false);
+    }
+
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";
@@ -344,12 +419,12 @@ public class TestDialogueRandom : MonoBehaviour
         {
             current += offset * Time.deltaTime;
 
-            GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+            //GameObject.Find("reputation_num").GetComponent<TextMeshPro>().text = ((int)current).ToString();
 
             yield return null;
         }
         current = target;
-        GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+       // GameObject.Find("reputation_num").GetComponent<TextMeshPro>().text = ((int)current).ToString();
 
     }
 

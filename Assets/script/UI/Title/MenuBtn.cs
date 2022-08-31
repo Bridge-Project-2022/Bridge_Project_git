@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuBtn : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MenuBtn : MonoBehaviour
     public GameObject RepHandle;
 
     public GameObject BGMSlider;
+    public GameObject GameQuit;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,20 @@ public class MenuBtn : MonoBehaviour
             BGMSlider.gameObject.SetActive(false);
         }
     }
+
+    public void HomeIconClick()
+    {
+        GameQuit.gameObject.SetActive(true);
+    }
+    public void QuitYes()
+    {
+        SceneManager.LoadScene("Title");
+    }
+    public void QuitNo()
+    {
+        GameQuit.gameObject.SetActive(false);
+    }
+
 
     public void NewsClose()
     {
