@@ -101,9 +101,9 @@ public class Store : MonoBehaviour
     public System.Action<ItemProperty> onStoreSlotClick;//델리게이트 변수
     //public System.Action<ItemProperty> onAllStoreSlotClick;//델리게이트 변수
 
-    public ItemProperty[] BaseItemList = new ItemProperty[10];
-    public ItemProperty[] MiddleItemList = new ItemProperty[10];
-    public ItemProperty[] TopItemList = new ItemProperty[10];
+    public ItemProperty[] BaseItemList = new ItemProperty[4];
+    public ItemProperty[] MiddleItemList = new ItemProperty[5];
+    public ItemProperty[] TopItemList = new ItemProperty[4];
 
     int BaseAllPrice = 0;
     int MiddleAllPrice = 0;
@@ -447,6 +447,7 @@ public class Store : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         for (int i = 0; i < BaseItemList.Length; i++)
         {
+            Debug.Log(slots[i].item.itemCount);
             if (slots[i].item.itemCount == 0)
             {
                 continue;
@@ -479,6 +480,7 @@ public class Store : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         for (int i = 0; i < MiddleItemList.Length; i++)
         {
+            Debug.Log(Middleslots[i].itemCount);
             if (Middleslots[i].item.itemCount == 0)
             {
                 continue;
@@ -490,9 +492,7 @@ public class Store : MonoBehaviour
         MiddleBuyAllNum.text = BuyNum.ToString();
         MiddleslotItemPrice = 0;
         MiddleBuyAll.gameObject.SetActive(true);
-        //inven.gameObject.SetActive(true);
-        //inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-        //inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
+
         for (int i = 0; i < Middleslots.Count; i++)
         {
             if (Middleslots[i].item.itemCount == 0)
@@ -695,12 +695,12 @@ public class Store : MonoBehaviour
         {
             current += offset * Time.deltaTime;
 
-            fd.GetComponent<TextMeshPro>().text = ((int)current).ToString();
+            fd.GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
 
             yield return null;
         }
         current = target;
-        fd.GetComponent<TextMeshPro>().text = ((int)current).ToString();
+        fd.GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
 
     }
 

@@ -10,6 +10,7 @@ TagManager:
   - normal
   - bad
   - DialogueScript
+  - InvenSlot
   layers:
   - Default
   - TransparentFX

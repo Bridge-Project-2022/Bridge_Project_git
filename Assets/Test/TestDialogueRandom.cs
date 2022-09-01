@@ -58,6 +58,7 @@ public class TestDialogueRandom : MonoBehaviour
     int D2Count = 0;
     int ECount = 0;
     int F2Count = 0;
+    int LolenaCnt = 0;
 
 
     public bool isDialogueStart = false;
@@ -68,6 +69,9 @@ public class TestDialogueRandom : MonoBehaviour
     public bool isCriminal = false;
     public bool isCriminalFalse = false;
 
+    public GameObject Criminal;
+    public Sprite Success;
+    public Sprite Fail;
     public void Update()
     {
 
@@ -142,73 +146,133 @@ public class TestDialogueRandom : MonoBehaviour
         RandomImage.FindObjectOfType<RandomImage>().CurrentFeel = BuyerFeel[FeelCnt];
         FeelCnt++;
 
-        if (AStart == true)
+        if (DS.Customer_ID[0] == 1010)
         {
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(BuyerOrder[ACount]));
-            ACount++;
-
-            if (BuyerOrder[ACount] == "")
+            if (AStart == true)
             {
-                isSelectStart = true;
-                Buyer.gameObject.GetComponent<Button>().interactable = false;
-                ACount = 0;
-                AStart = false;
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                if (LolenaCnt == 4)
+                {
+                    GameObject.Find("Dialogue").transform.GetChild(6).gameObject.SetActive(true);
+                    StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
+                    LolenaCnt++;
+                }
+                else
+                {
+                    GameObject.Find("Dialogue").transform.GetChild(6).gameObject.SetActive(false);
+                    StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
+                    LolenaCnt++;
+                }
+
+
+                if (BuyerOrder[ACount] == "")
+                {
+                    isSelectStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    LolenaCnt = 0;
+                    AStart = false;
+                }
+
             }
         }
-        if (D1Start == true)
-        {
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
-            D1Count++;
 
-            if (BuyerIntensity[D1Count] == "")
+        if (DS.Customer_ID[0] == 1011)
+        {
+            if (AStart == true)
             {
-                isArrowStart = true;
-                Buyer.gameObject.GetComponent<Button>().interactable = false;
-                D1Count = 0;
-                D1Start = false;
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                if (LolenaCnt == 2)
+                {
+                    Debug.Log("컷씬 나오기");
+                    LolenaCnt++;
+                }
+                else
+                {
+                    StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
+                    LolenaCnt++;
+                }
+
+
+                if (BuyerOrder[ACount] == "")
+                {
+                    isSelectStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    LolenaCnt = 0;
+                    AStart = false;
+                }
+
             }
         }
-        if (D2Start == true)
+        else
         {
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
-            D2Count++;
-
-            if (BuyerRejectReaction[D2Count] == "")
+            if (AStart == true)
             {
-                D2Count = 0;
-                D2Start = false;
-                Invoke("End", 2f);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerOrder[ACount]));
+                ACount++;
+
+                if (BuyerOrder[ACount] == "")
+                {
+                    isSelectStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    ACount = 0;
+                    AStart = false;
+                }
             }
-        }
-        if (EStart == true)
-        {
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
-            ECount++;
-
-            if (BuyerPerfumeReaction[ECount] == "")
+            if (D1Start == true)
             {
-                ECount = 0;
-                EStart = false;
-                Invoke("End", 2f);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
+                D1Count++;
+
+                if (BuyerIntensity[D1Count] == "")
+                {
+                    isArrowStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    D1Count = 0;
+                    D1Start = false;
+                }
             }
-        }
-        if (F2Start == true)
-        {
-            isSelectStart = false;
-            Select.SetActive(false);
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(CriminalDeclareReaction[F2Count]));
-            F2Count++;
-
-            if (CriminalDeclareReaction[F2Count] == "")
+            if (D2Start == true)
             {
-                F2Count = 0;
-                F2Start = false;
-                Invoke("End", 2f);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
+                D2Count++;
+
+                if (BuyerRejectReaction[D2Count] == "")
+                {
+                    D2Count = 0;
+                    D2Start = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (EStart == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
+                ECount++;
+
+                if (BuyerPerfumeReaction[ECount] == "")
+                {
+                    ECount = 0;
+                    EStart = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (F2Start == true)
+            {
+                isSelectStart = false;
+                Select.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(CriminalDeclareReaction[F2Count]));
+                F2Count++;
+
+                if (CriminalDeclareReaction[F2Count] == "")
+                {
+                    F2Count = 0;
+                    F2Start = false;
+                    Invoke("End", 2f);
+                }
             }
         }
     }
@@ -370,12 +434,14 @@ public class TestDialogueRandom : MonoBehaviour
         if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1003)//범죄자 등장
         {
             Debug.Log("범죄자 신고 성공");
+            Criminal.GetComponent<Image>().sprite = Success;
             isCriminal = true;
             isCriminalFalse = false;
         }
         else//잘못 누른 경우
         {
             Debug.Log("잘못 신고함");
+            Criminal.GetComponent<Image>().sprite = Fail;
             isCriminalFalse = true;
             isCriminal = false;
         }

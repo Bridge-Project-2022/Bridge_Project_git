@@ -49,6 +49,7 @@ public class Slot : MonoBehaviour
             image.enabled = true;
             gameObject.name = item.name;
             image.sprite = item.sprite;
+            Debug.Log("ss");
             itemCount.text = item.itemCount.ToString() + "개 보유";
         }
     }
@@ -113,8 +114,9 @@ public class Slot : MonoBehaviour
     }
     public void Update()
     {
-        if (this.item != null)
+        if (this.item != null && this.tag != "InvenSlot")
         {
+            //Debug.Log("s");
             itemCount.text = item.itemCount.ToString() + "개 보유";
             if (item.itemCount <= 0)
             {

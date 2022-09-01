@@ -133,6 +133,36 @@ public class TestDialogueScript : MonoBehaviour
 
         }
 
+        else if (Customer_ID[0] == 1010)// 로레나 1
+        {
+            Customer_Name = "Lorena1";
+            Customer_PerfumeOrder[0] = "...";
+            Customer_PerfumeOrder[1] = "……";
+            Customer_PerfumeOrder[2] = "………";
+            Customer_PerfumeOrder[3] = "……향수..좀..줘…";
+            Customer_PerfumeOrder[4] = "......";
+            Customer_PerfumeOrder[5] = "남자친구...";
+
+            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
+            {
+                Customer_PerfumeOrder[i] = "";
+            }
+        }
+
+        else if (Customer_ID[0] == 1011)// 로레나 1
+        {
+            Customer_Name = "Lorena2";
+            Customer_PerfumeOrder[0] = "저...";
+            Customer_PerfumeOrder[1] = "같이 캠퍼스 거닐 때..., 행복했는데….";
+            Customer_PerfumeOrder[2] = "..";
+            Customer_PerfumeOrder[3] = "....그때가 너무 그리워...";
+            Customer_PerfumeOrder[4] = "내가 더 잘할 걸...";
+
+            for (int i = 5; i < Customer_PerfumeOrder.Length; i++)
+            {
+                Customer_PerfumeOrder[i] = "";
+            }
+        }
         else if (Customer_ID[0] == 1003)//G : 건장한 30대 남성
         {
             Customer_Name = "G";
@@ -249,12 +279,12 @@ public class TestDialogueScript : MonoBehaviour
                 Customer_CriminalDeclareReaction[i] = "";
             }
 
-            Customer_IntensityOrder[0] = "향의 세기는 아무거나 상관없어요!!";
+            Customer_IntensityOrder[0] = "향의 세기는 적당히 해주세요!!";
             for (int i = 1; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "아무거나";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "보통";
 
             Customer_Flavoring[0] = "인간";
             Customer_Flavoring[1] = "가족";
