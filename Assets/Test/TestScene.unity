@@ -13991,9 +13991,9 @@ MonoBehaviour:
   isDialogueStart: 0
   isCriminal: 0
   isCriminalFalse: 0
-  Criminal: {fileID: 0}
-  Success: {fileID: 0}
-  Fail: {fileID: 0}
+  Criminal: {fileID: 893151654}
+  Success: {fileID: 21300000, guid: 9d705893fbd2deb479632efd7bdb2998, type: 3}
+  Fail: {fileID: 21300000, guid: 90a4e59311550354ebdaa7e34d5027b6, type: 3}
 --- !u!222 &806175970
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19206,7 +19206,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBB34\uC2A8 \uD5A5\uC218..?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef285a93382d8244380ca08127b079eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5e1ad6d8d9597064192a8dc874d752ca, type: 2}
   m_sharedMaterial: {fileID: 1404156002158725717, guid: ef285a93382d8244380ca08127b079eb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -19270,7 +19270,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -143.90454, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1175755399

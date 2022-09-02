@@ -133,7 +133,7 @@ public class TestDialogueScript : MonoBehaviour
 
         }
 
-        else if (Customer_ID[0] == 1010)// 로레나 1
+        else if (Customer_ID[0] == 1010)// 로레나 1번쨰 방문
         {
             Customer_Name = "Lorena1";
             Customer_PerfumeOrder[0] = "...";
@@ -147,9 +147,51 @@ public class TestDialogueScript : MonoBehaviour
             {
                 Customer_PerfumeOrder[i] = "";
             }
+
+            Customer_IntensityOrder[0] = "";
+
+            for (int i = 1; i < Customer_IntensityOrder.Length; i++)
+            {
+                Customer_IntensityOrder[i] = "";
+            }
+
+            Customer_CriminalDeclareReaction[0] = "";
+
+            for (int i = 1; i < Customer_CriminalDeclareReaction.Length; i++)
+            {
+                Customer_CriminalDeclareReaction[i] = "";
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = "";
+
+            Customer_Flavoring[0] = "인간";
+            Customer_Flavoring[1] = "연인";
+            Customer_Flavoring[2] = "사랑";
+
+            Customer_RejectReaction[0] = "";
+            Customer_RejectReaction[1] = "";
+
+            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            {
+                Customer_RejectReaction[i] = "";
+            }
         }
 
-        else if (Customer_ID[0] == 1011)// 로레나 1
+        else if (Customer_ID[0] == 1011)// 로레나2번째 방문
+        {
+            Customer_Name = "Lorena2";
+            Customer_PerfumeOrder[0] = "저...";
+            Customer_PerfumeOrder[1] = "같이 캠퍼스 거닐 때..., 행복했는데….";
+            Customer_PerfumeOrder[2] = "..";
+            Customer_PerfumeOrder[3] = "....그때가 너무 그리워...";
+            Customer_PerfumeOrder[4] = "내가 더 잘할 걸...";
+
+            for (int i = 5; i < Customer_PerfumeOrder.Length; i++)
+            {
+                Customer_PerfumeOrder[i] = "";
+            }
+        }
+        else if (Customer_ID[0] == 1012)// 로레나1 거절 시 로레나 2 다르게 나옴.
         {
             Customer_Name = "Lorena2";
             Customer_PerfumeOrder[0] = "저...";

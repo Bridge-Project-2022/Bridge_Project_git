@@ -422,6 +422,7 @@ public class TestDialogueRandom : MonoBehaviour
         {
             Invoke("DailyWindowOpen", 3f);
         }
+        FeelCnt = 0;
     }
 
     public void DailyWindowOpen()

@@ -49,7 +49,7 @@ public class Slot : MonoBehaviour
             image.enabled = true;
             gameObject.name = item.name;
             image.sprite = item.sprite;
-            Debug.Log("ss");
+            //Debug.Log("ss");
             itemCount.text = item.itemCount.ToString() + "개 보유";
         }
     }
@@ -102,10 +102,10 @@ public class Slot : MonoBehaviour
         if (ClickedSlot.item.InvenItemNum >= 1)
         {
             ClickedSlot.item.InvenItemNum -= 1;
-            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshPro>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 남음";
+            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 남음";
             if (ClickedSlot.item.InvenItemNum == 0)
             {
-                ClickedSlot.transform.GetChild(3).GetComponent<TextMeshPro>().text = "";
+                ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "";
                 ClickedSlot.item = null;
                 ClickedSlot.image.enabled = false;
                 ClickedSlot.gameObject.name = "Empty";

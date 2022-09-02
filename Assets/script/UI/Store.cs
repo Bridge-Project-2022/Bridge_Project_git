@@ -447,7 +447,7 @@ public class Store : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         for (int i = 0; i < BaseItemList.Length; i++)
         {
-            Debug.Log(slots[i].item.itemCount);
+            //Debug.Log(slots[i].item.itemCount);
             if (slots[i].item.itemCount == 0)
             {
                 continue;
