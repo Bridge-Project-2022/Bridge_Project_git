@@ -62,19 +62,28 @@ public class TestDialogueRandom : MonoBehaviour
 
 
     public bool isDialogueStart = false;
+    public bool isLorenaReject = false;
+
 
     bool isSelectStart = false;
     bool isArrowStart = false;
 
     public bool isCriminal = false;
     public bool isCriminalFalse = false;
+    public bool isDeclare = false;
 
     public GameObject Criminal;
     public Sprite Success;
     public Sprite Fail;
+
+    public GameObject CutScene;
+
     public void Update()
     {
-
+        if (DailyResult.GetComponent<DailyResult>().personNum == 6)
+        {
+            Invoke("DailyWindowOpen", 3f);
+        }
         DS = GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>();
 
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
@@ -114,7 +123,10 @@ public class TestDialogueRandom : MonoBehaviour
             if (isSelectStart == true)
             {
                 Select.gameObject.SetActive(true);
-                Declaration.gameObject.SetActive(true);
+                if (isDeclare == false)
+                {
+                    Declaration.gameObject.SetActive(true);
+                }
             }
             if (isArrowStart == true)
             {
@@ -153,13 +165,13 @@ public class TestDialogueRandom : MonoBehaviour
                 Buyer.gameObject.GetComponent<Button>().interactable = true;
                 if (LolenaCnt == 4)
                 {
-                    GameObject.Find("Dialogue").transform.GetChild(6).gameObject.SetActive(true);
+                    GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(true);
                     StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
                     LolenaCnt++;
                 }
                 else
                 {
-                    GameObject.Find("Dialogue").transform.GetChild(6).gameObject.SetActive(false);
+                    GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(false);
                     StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
                     LolenaCnt++;
                 }
@@ -174,6 +186,63 @@ public class TestDialogueRandom : MonoBehaviour
                 }
 
             }
+            if (D1Start == true)
+            {
+                GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
+                D1Count++;
+
+                if (BuyerIntensity[D1Count] == "")
+                {
+                    isArrowStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    D1Count = 0;
+                    D1Start = false;
+                }
+            }
+            if (D2Start == true)
+            {
+                GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
+                D2Count++;
+
+                if (BuyerRejectReaction[D2Count] == "")
+                {
+                    D2Count = 0;
+                    D2Start = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (EStart == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
+                ECount++;
+
+                if (BuyerPerfumeReaction[ECount] == "")
+                {
+                    ECount = 0;
+                    EStart = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (F2Start == true)
+            {
+                isSelectStart = false;
+                Select.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(CriminalDeclareReaction[F2Count]));
+                F2Count++;
+
+                if (CriminalDeclareReaction[F2Count] == "")
+                {
+                    F2Count = 0;
+                    F2Start = false;
+                    Invoke("End", 2f);
+                }
+            }
         }
 
         if (DS.Customer_ID[0] == 1011)
@@ -181,15 +250,100 @@ public class TestDialogueRandom : MonoBehaviour
             if (AStart == true)
             {
                 Buyer.gameObject.GetComponent<Button>().interactable = true;
-                if (LolenaCnt == 2)
+                if (ACount == 2)
                 {
-                    Debug.Log("컷씬 나오기");
-                    LolenaCnt++;
+                    CutScene.gameObject.SetActive(true);
+                    ACount++;
                 }
                 else
                 {
-                    StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
-                    LolenaCnt++;
+                    CutScene.gameObject.SetActive(false);
+                    StartCoroutine(NormalChat(BuyerOrder[ACount]));
+                    ACount++;
+                }
+
+
+                if (BuyerOrder[LolenaCnt] == "")
+                {
+                    isSelectStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    ACount = 0;
+                    AStart = false;
+                }
+            }
+
+            if (D1Start == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
+                D1Count++;
+
+                if (BuyerIntensity[D1Count] == "")
+                {
+                    isArrowStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    D1Count = 0;
+                    D1Start = false;
+                }
+            }
+            if (D2Start == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
+                D2Count++;
+
+                if (BuyerRejectReaction[D2Count] == "")
+                {
+                    D2Count = 0;
+                    D2Start = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (EStart == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
+                ECount++;
+
+                if (BuyerPerfumeReaction[ECount] == "")
+                {
+                    ECount = 0;
+                    EStart = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (F2Start == true)
+            {
+                isSelectStart = false;
+                Select.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(CriminalDeclareReaction[F2Count]));
+                F2Count++;
+
+                if (CriminalDeclareReaction[F2Count] == "")
+                {
+                    F2Count = 0;
+                    F2Start = false;
+                    Invoke("End", 2f);
+                }
+            }
+        }
+        if (DS.Customer_ID[0] == 1012)
+        {
+            if (AStart == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                if (ACount == 4)
+                {
+                    GameObject.Find("Dialogue").transform.GetChild(8).gameObject.SetActive(true);
+                    StartCoroutine(NormalChat(BuyerOrder[ACount]));
+                    ACount++;
+                }
+                else
+                {
+                    GameObject.Find("Dialogue").transform.GetChild(8).gameObject.SetActive(false);
+                    StartCoroutine(NormalChat(BuyerOrder[ACount]));
+                    ACount++;
                 }
 
 
@@ -197,10 +351,160 @@ public class TestDialogueRandom : MonoBehaviour
                 {
                     isSelectStart = true;
                     Buyer.gameObject.GetComponent<Button>().interactable = false;
-                    LolenaCnt = 0;
+                    ACount = 0;
                     AStart = false;
                 }
 
+            }
+
+            if (D1Start == true)
+            {
+                GameObject.Find("Dialogue").transform.GetChild(8).gameObject.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
+                D1Count++;
+
+                if (BuyerIntensity[D1Count] == "")
+                {
+                    isArrowStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    D1Count = 0;
+                    D1Start = false;
+                }
+            }
+            if (D2Start == true)
+            {
+                GameObject.Find("Dialogue").transform.GetChild(8).gameObject.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
+                D2Count++;
+
+                if (BuyerRejectReaction[D2Count] == "")
+                {
+                    D2Count = 0;
+                    D2Start = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (EStart == true)
+            {
+                if (ECount == 2)
+                {
+                    CutScene.gameObject.SetActive(true);
+                    Buyer.gameObject.GetComponent<Button>().interactable = true;
+                    ECount++;
+                }
+                else
+                {
+                    CutScene.gameObject.SetActive(false);
+                    Buyer.gameObject.GetComponent<Button>().interactable = true;
+                    StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
+                    ECount++;
+                }
+                if (BuyerPerfumeReaction[ECount] == "")
+                {
+                    ECount = 0;
+                    EStart = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (F2Start == true)
+            {
+                isSelectStart = false;
+                Select.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(CriminalDeclareReaction[F2Count]));
+                F2Count++;
+
+                if (CriminalDeclareReaction[F2Count] == "")
+                {
+                    F2Count = 0;
+                    F2Start = false;
+                    Invoke("End", 2f);
+                }
+            }
+        }
+        if (DS.Customer_ID[0] == 1013)
+        {
+            if (AStart == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                if (ACount == 2)
+                {
+                    CutScene.gameObject.SetActive(true);
+                    ACount++;
+                }
+                else
+                {
+                    CutScene.gameObject.SetActive(false);
+                    StartCoroutine(NormalChat(BuyerOrder[ACount]));
+                    ACount++;
+                }
+
+
+                if (BuyerOrder[LolenaCnt] == "")
+                {
+                    isSelectStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    ACount = 0;
+                    AStart = false;
+                }
+            }
+
+            if (D1Start == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
+                D1Count++;
+
+                if (BuyerIntensity[D1Count] == "")
+                {
+                    isArrowStart = true;
+                    Buyer.gameObject.GetComponent<Button>().interactable = false;
+                    D1Count = 0;
+                    D1Start = false;
+                }
+            }
+            if (D2Start == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
+                D2Count++;
+
+                if (BuyerRejectReaction[D2Count] == "")
+                {
+                    D2Count = 0;
+                    D2Start = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (EStart == true)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
+                ECount++;
+
+                if (BuyerPerfumeReaction[ECount] == "")
+                {
+                    ECount = 0;
+                    EStart = false;
+                    Invoke("End", 2f);
+                }
+            }
+            if (F2Start == true)
+            {
+                isSelectStart = false;
+                Select.SetActive(false);
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(CriminalDeclareReaction[F2Count]));
+                F2Count++;
+
+                if (CriminalDeclareReaction[F2Count] == "")
+                {
+                    F2Count = 0;
+                    F2Start = false;
+                    Invoke("End", 2f);
+                }
             }
         }
         else
@@ -401,14 +705,14 @@ public class TestDialogueRandom : MonoBehaviour
 
         if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9)
         {
-            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
+            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 2)//손님 3명 가고 나서 점심으로 바뀜
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
             }
-            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
+            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 4)//손님 6명 가고 나서 저녁으로 바뀜
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
@@ -418,7 +722,7 @@ public class TestDialogueRandom : MonoBehaviour
             Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
         }
 
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9)//손님 9명 가고 나서 최종 창이 뜸.
+        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 9명 가고 나서 최종 창이 뜸.
         {
             Invoke("DailyWindowOpen", 3f);
         }
@@ -438,6 +742,7 @@ public class TestDialogueRandom : MonoBehaviour
             Criminal.GetComponent<Image>().sprite = Success;
             isCriminal = true;
             isCriminalFalse = false;
+            isDeclare = true;
         }
         else//잘못 누른 경우
         {
@@ -445,6 +750,7 @@ public class TestDialogueRandom : MonoBehaviour
             Criminal.GetComponent<Image>().sprite = Fail;
             isCriminalFalse = true;
             isCriminal = false;
+            isDeclare = true;
         }
         Invoke("DeclareActiveFalse", 3f);
     }
