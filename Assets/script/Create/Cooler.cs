@@ -24,9 +24,10 @@ public class Cooler : MonoBehaviour
     int ResultCount = 0;
     int goodCount;
 
-
+    public Sprite[] ItemSprites = new Sprite[4];
     public Sprite[] ItemBurnSprites = new Sprite[1];//탄 아이템 이미지 배열
 
+    public GameObject Receipt;
     public void Start()
     {
         goodCount = 0;
@@ -56,15 +57,41 @@ public class Cooler : MonoBehaviour
 
     public void CoolerStart()//냉침기 자세히 보여지고 기능 시작. 
     {
+        Receipt.gameObject.SetActive(false);
         CoolerDetail.gameObject.SetActive(true);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         //GameObject.Find("Desk").GetComponent<Button>().interactable = false;
 
-        CoolerOne.gameObject.GetComponent<Image>().sprite = ClickedItem.sprite;
-        CoolerTwo.gameObject.GetComponent<Image>().sprite = ClickedItem.sprite;
-        CoolerThree.gameObject.GetComponent<Image>().sprite = ClickedItem.sprite;
+        if (ClickedItem.name == "기쁨")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[0];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[0];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[0];
+        }
+        if (ClickedItem.name == "사랑")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[1];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[1];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[1];
+        }
+        if (ClickedItem.name == "슬픔")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[2];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[2];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[2];
+        }
+        if (ClickedItem.name == "행복")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
+        }
         // 선택한 탑 아이템 냉침 123에 세팅 완료
+        Invoke("Cooling", 3.5f);
+    }
 
+    public void Cooling()
+    {
         if (ClickedItem.name.Equals("행복"))
         {
             Invoke("ParticleShow", 4f);
@@ -110,10 +137,10 @@ public class Cooler : MonoBehaviour
             Invoke("ParticleShow", 3f);
             Invoke("BurnItem", 5f);
         }
-
     }
     public void CoolerClose()//냉침기 종료
     {
+        Receipt.gameObject.SetActive(true);
         for (int i = 0; i < topInvenSlots.transform.childCount; i++)
         {
             topInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;

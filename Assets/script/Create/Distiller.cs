@@ -14,6 +14,7 @@ public class Distiller : MonoBehaviour
     public GameObject itemImage;
     public GameObject InvenUI;
 
+    public GameObject Receipt;
     bool isWickDown = false;
     public string DistillerStatus = "";
 
@@ -36,6 +37,10 @@ public class Distiller : MonoBehaviour
 
     public Animator Anim;
 
+    public bool isLow = false;
+    public bool isMiddle = false;
+    public bool isHigh = false;
+
     //public GameObject baseInvenSlots;
 
     public void OnEnable()
@@ -46,6 +51,7 @@ public class Distiller : MonoBehaviour
 
 public void DistillerOn(ItemProperty item)
     {
+        Receipt.gameObject.SetActive(false);
         //this.gameObject.GetComponent<Button>().interactable = true;//증류기 버튼 클릭 가능해짐.
         ClickedItem = item;
         itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
@@ -81,14 +87,36 @@ public void DistillerOn(ItemProperty item)
 
     void Update()
     {
+        if (isLow == true)
+        {
+            LowTemperDuration += Time.deltaTime;
+            HighTemperDuration = 0;
+            TemperDuration = 0;
+        }
+        if (isMiddle == true)
+        {
+            TemperDuration += Time.deltaTime;
+            HighTemperDuration = 0;
+            LowTemperDuration = 0;
+        }
+        if (isHigh == true)
+        {
+            HighTemperDuration += Time.deltaTime;
+            TemperDuration = 0;
+            LowTemperDuration = 0;
+        }
+
         float curTemper = temperatureSlider.GetComponent<Slider>().value;
         if (isWickDown)//증류기누를 경우
         {
-            temperatureSlider.GetComponent<Slider>().value += 0.1f;//누를 때 마다 슬라이더 1씩 증가
+            temperatureSlider.GetComponent<Slider>().value += 0.3f;//누를 때 마다 슬라이더 1씩 증가
 
             if (curTemper >= 91 && curTemper <= 134)
             {
-                HighTemperDuration += 0.01f;
+                //HighTemperDuration += 0.01f;
+                isHigh = true;
+                isMiddle = false;
+                isLow = false;
                 TemperDuration = 0;
                 LowTemperDuration = 0;
                 //Debug.Log("강불로 바뀜");
@@ -141,7 +169,10 @@ public void DistillerOn(ItemProperty item)
                 maxTemperDuration = 0.0f;
                 HighTemperDuration = 0;
                 LowTemperDuration = 0;
-                TemperDuration += 0.01f;
+                isHigh = false;
+                isMiddle = true;
+                isLow = false;
+                //TemperDuration += 0.01f;
                 //Debug.Log("중불로 바뀜");
                 Anim.SetBool("isHigh", false);
                 Anim.SetBool("isNormal", true);
@@ -178,18 +209,21 @@ public void DistillerOn(ItemProperty item)
         }
         else
         {
-            temperatureSlider.GetComponent<Slider>().value -= 0.1f;
+            temperatureSlider.GetComponent<Slider>().value -= 0.3f;
             if (curTemper >= 1 && curTemper <= 45)
             {
                 TemperDuration = 0;
                 HighTemperDuration = 0;
                 LowTemperDuration += 0.01f;
                 //Debug.Log("약불로 바뀜");
+                isHigh = false;
+                isMiddle = false;
+                isLow = true;
                 Anim.SetBool("isHigh", false);
                 Anim.SetBool("isNormal", false);
                 Anim.SetBool("isLow", true);
 
-                if (DistillerStatus == "아무거나")
+                if (DistillerStatus == "약함")
                 {
                     if (LowTemperDuration >= 4f)
                     {
@@ -238,7 +272,8 @@ public void DistillerOn(ItemProperty item)
         temperature = 0;
         distiller.gameObject.GetComponent<Button>().interactable = false;
         distillerWindow.SetActive(false);
-        
+        Receipt.gameObject.SetActive(true);
+
     }
 
     public void DistillerResult()
@@ -285,7 +320,7 @@ public void DistillerOn(ItemProperty item)
             }
         }
 
-        else if (DistillerStatus == "아무거나")
+        else if (DistillerStatus == "약함")
         {
             if (DistillGood == true)
             {

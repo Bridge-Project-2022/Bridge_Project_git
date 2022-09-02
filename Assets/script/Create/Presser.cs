@@ -18,9 +18,10 @@ public class Presser : MonoBehaviour
     public GameObject body;// 압착 부품이 닿는 바닥 부품
     public GameObject handle;// 압착기 움직이는 핸들
     public GameObject button;// 압착기 전원 켜고 끄는 버튼
-    public GameObject PressItem;//압착 재료
+    //public GameObject PressItem;//압착 재료
+    public GameObject NotePattern;
 
-
+    public int PressureScore = 0;
     private bool isBtnOn;
     public static bool isHandleUp = true;
     public int PressCount;
@@ -31,7 +32,7 @@ public class Presser : MonoBehaviour
     public string MiddleItemName; //손님이 요구하는 미들 향료 이름
 
     public GameObject middleInvenSlots;
-
+    public GameObject Receipt;
     public void Start()
     {
         isBtnOn = false;
@@ -41,6 +42,7 @@ public class Presser : MonoBehaviour
     }
     public void PresserOn(ItemProperty item)
     {
+        Receipt.gameObject.SetActive(false);
         this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
         ClickedItem = item;
         if (ClickedItem.name == MiddleItemName)
@@ -66,9 +68,39 @@ public class Presser : MonoBehaviour
     {
         PresserDetail.gameObject.SetActive(true);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
-        PressItem.GetComponent<Image>().sprite = ClickedItem.sprite;
+        if (MiddleItemName == "가족")
+        {
+            //NotePattern.gameObject.SetActive(true);
+            NotePattern.GetComponent<NotePatterns>().StartCoroutine("FamilyPattern");
+            Invoke("PresserEnd", 8f);
+        }
+        if (MiddleItemName == "연인")
+        {
+            //NotePattern.gameObject.SetActive(true);
+            NotePattern.GetComponent<NotePatterns>().StartCoroutine("LoverPattern");
+            Invoke("PresserEnd", 8f);
+        }
+        if (MiddleItemName == "반려동물")
+        {
+            //NotePattern.gameObject.SetActive(true);
+            NotePattern.GetComponent<NotePatterns>().StartCoroutine("PetPattern");
+            Invoke("PresserEnd", 8f);
+        }
+        if (MiddleItemName == "놀이공원")
+        {
+            //NotePattern.gameObject.SetActive(true);
+            NotePattern.GetComponent<NotePatterns>().StartCoroutine("ParkPattern");
+            Invoke("PresserEnd", 8f);
+        }
+        else
+        {
+            //NotePattern.gameObject.SetActive(true);
+            NotePattern.GetComponent<NotePatterns>().StartCoroutine("FamilyPattern");//이거 지금은 가족패턴 적용인데 그냥 기본 패턴 넣으면 될듯.
+        }
+        //PressItem.GetComponent<Image>().sprite = ClickedItem.sprite;
     }
 
+    /*
     public void PresserBtnClick()//버튼 클릭해야 압착기 돌아감. on = 초록 / off = 빨강
     {
         if (isBtnOn == false)//꺼진 상태
@@ -86,15 +118,15 @@ public class Presser : MonoBehaviour
         }
     }
 
-
+    /*
     public void PresserStart()//압착 과정 시작
     {
         if (PressCount == 1 || PressCount == 3 || PressCount == 5 || PressCount == 7 || PressCount == 9 || PressCount == 11)//내려감
         {
             handle.transform.position = new Vector3(985, 600, 0);
-            Color color = PressItem.gameObject.GetComponent<Image>().color;
+            //Color color = PressItem.gameObject.GetComponent<Image>().color;
             color.a = 0;
-            PressItem.gameObject.GetComponent<Image>().color = color;
+            //PressItem.gameObject.GetComponent<Image>().color = color;
             PressCount += 1;
 
         }
@@ -103,77 +135,77 @@ public class Presser : MonoBehaviour
         {
             if (PressCount == 2)
             {
-                PressItem.GetComponent<Image>().color = Color.red;
+                //PressItem.GetComponent<Image>().color = Color.red;
             }
             if (PressCount == 4)
             {
-                PressItem.GetComponent<Image>().color = Color.blue;
+                //PressItem.GetComponent<Image>().color = Color.blue;
             }
             if (PressCount == 6)
             {
-                PressItem.GetComponent<Image>().color = Color.blue;
+                //PressItem.GetComponent<Image>().color = Color.blue;
             }
             if (PressCount == 8)
             {
-                PressItem.GetComponent<Image>().color = Color.blue;
+                //PressItem.GetComponent<Image>().color = Color.blue;
             }
             if (PressCount == 10)
             {
-                PressItem.GetComponent<Image>().color = Color.blue;
+                //PressItem.GetComponent<Image>().color = Color.blue;
             }
             if (PressCount == 12)
             {
-                PressItem.GetComponent<Image>().color = Color.blue;
+                //PressItem.GetComponent<Image>().color = Color.blue;
             }
             handle.transform.position = new Vector3(985, 712, 0);
-            Color color = PressItem.gameObject.GetComponent<Image>().color;
-            color.a = 255;
-            PressItem.gameObject.GetComponent<Image>().color = color;
+            //Color color = PressItem.gameObject.GetComponent<Image>().color;
+            //color.a = 255;
+            //PressItem.gameObject.GetComponent<Image>().color = color;
             PressCount += 1;
         }
         if (ClickedItem.name.Equals("친구"))
         {
             if (PressCount == 1)
-                PressItem.tag = "good";
+                //PressItem.tag = "good";
             else if (PressCount == 3)
-                PressItem.tag = "normal";
+                //PressItem.tag = "normal";
             else if (PressCount == 5)
-                PressItem.tag = "bad";
+                //PressItem.tag = "bad";
         }
 
         else if (ClickedItem.name.Equals("연인"))
         {
             if (PressCount == 2)
-                PressItem.tag = "good";
+                //PressItem.tag = "good";
             else if (PressCount == 4)
-                PressItem.tag = "normal";
+                //PressItem.tag = "normal";
             else if (PressCount == 6)
-                PressItem.tag = "bad";
+                //PressItem.tag = "bad";
         }
         else if (ClickedItem.name.Equals("가족"))
         {
             if (PressCount == 3)
-                PressItem.tag = "good";
+                //PressItem.tag = "good";
             else if (PressCount == 5)
-                PressItem.tag = "normal";
+                //PressItem.tag = "normal";
             else if (PressCount == 7)
-                PressItem.tag = "bad";
+                //PressItem.tag = "bad";
         }
         else if (ClickedItem.name.Equals("반려동물"))
         {
             if (PressCount == 2)
-                PressItem.tag = "good";
+                //PressItem.tag = "good";
             else if (PressCount == 5)
-                PressItem.tag = "normal";
+                //PressItem.tag = "normal";
             else if (PressCount == 8)
-                PressItem.tag = "bad";
+                //PressItem.tag = "bad";
         }
         else if (ClickedItem.name.Equals("장난감"))
         {
             if (PressCount == 1)
-                PressItem.tag = "good";
+                //PressItem.tag = "good";
             else if (PressCount == 4)
-                PressItem.tag = "normal";
+                //PressItem.tag = "normal";
             else if (PressCount == 9)
                 PressItem.tag = "bad";
         }
@@ -248,7 +280,7 @@ public class Presser : MonoBehaviour
         }
 
     }
-
+    */
 
     public void PresserEnd()//압착 과정 종료
     {
@@ -256,6 +288,78 @@ public class Presser : MonoBehaviour
         {
             middleInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
         }*/
+        if (ClickedItem.name == "가족")
+        {
+            if ((PressureScore / 9) >= 3)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressGood = true;
+            }
+
+            if ((PressureScore / 9) < 3 && (PressureScore / 9) >= 2)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressNormal = true;
+            }
+
+            if ((PressureScore / 9) < 2 && (PressureScore / 9) >= 1)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressBad = true;
+            }
+        }
+
+        if (ClickedItem.name == "연인")
+        {
+            if ((PressureScore / 9) >= 3)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressGood = true;
+            }
+
+            if ((PressureScore / 9) < 3 && (PressureScore / 9) >= 2)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressNormal = true;
+            }
+
+            if ((PressureScore / 9) < 2 && (PressureScore / 9) >= 1)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressBad = true;
+            }
+        }
+
+        if (ClickedItem.name == "반려동물")
+        {
+            if ((PressureScore / 9) >= 3)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressGood = true;
+            }
+
+            if ((PressureScore / 9) < 3 && (PressureScore / 9) >= 2)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressNormal = true;
+            }
+
+            if ((PressureScore / 9) < 2 && (PressureScore / 9) >= 1)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressBad = true;
+            }
+        }
+
+        if (ClickedItem.name == "놀이공원")
+        {
+            if ((PressureScore / 9) >= 3)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressGood = true;
+            }
+
+            if ((PressureScore / 9) < 3 && (PressureScore / 9) >= 2)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressNormal = true;
+            }
+
+            if ((PressureScore / 9) < 2 && (PressureScore / 9) >= 1)
+            {
+                TotalScore.FindObjectOfType<TotalScore>().isPressBad = true;
+            }
+        }
+        Receipt.gameObject.SetActive(true);
         TotalScore.FindObjectOfType<TotalScore>().isPressFin = true;
         //TotalScore.isPressFin = true;
         PresserDetail.gameObject.SetActive(false);

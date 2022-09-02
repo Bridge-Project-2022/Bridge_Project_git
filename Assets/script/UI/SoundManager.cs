@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     AudioSource sfxAudioSource;
+    AudioSource bgmAudioSource;
     AudioSource typeAudioSource;
 
     public AudioClip visit;
@@ -15,13 +16,27 @@ public class SoundManager : MonoBehaviour
     public AudioClip typing;
     public AudioClip boiling;
 
+    public AudioClip news;
+    public AudioClip main;
+
+    public GameObject newsPanel;
+
     // Start is called before the first frame update
     void Start()
     {
+        bgmAudioSource = this.transform.GetChild(0).gameObject.GetComponent<AudioSource>();
         sfxAudioSource = this.transform.GetChild(1).gameObject.GetComponent<AudioSource>();
         typeAudioSource = this.transform.GetChild(2).gameObject.GetComponent<AudioSource>();
     }
-
+    public void Update()
+    {
+        //if(newsPanel.activeSelf == true)
+        //{
+            //PlayBGM("news");
+        //}
+        //else
+           // PlayBGM("main");
+    }
     // Update is called once per frame
     public void PlaySFX(string action)
     {
@@ -58,6 +73,21 @@ public class SoundManager : MonoBehaviour
                 break;
         }
         sfxAudioSource.Play();
+    }
+
+    public void PlayBGM(string action)
+    {
+        switch (action)
+        {
+            case "news":
+                bgmAudioSource.clip = news;
+                break;
+
+            case "main":
+                bgmAudioSource.clip = main;
+                break;
+        }
+        bgmAudioSource.Play();
     }
 
     public void playTyping(string action)
