@@ -10,6 +10,7 @@ public class Slot : MonoBehaviour
     public UnityEngine.UI.Image image;
     public TextMeshProUGUI itemPrice;
     public TextMeshProUGUI itemCount;
+    public TextMeshProUGUI itemName;
 
     public ItemProperty ClickedItem;
 
@@ -51,12 +52,13 @@ public class Slot : MonoBehaviour
             image.sprite = item.sprite;
             //Debug.Log("ss");
             itemCount.text = item.itemCount.ToString() + "개 보유";
+            itemName.text = item.name + "향료";
         }
     }
 
     public void ItemClick(Slot ClickedSlot)//슬롯 아이템 클릭 경우
     {
-        GameObject.Find("Inventory").transform.position = new Vector3(998, 540, 0);
+        GameObject.Find("Inventory").transform.position = new Vector3(1038, 3000, 0);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         //클릭한 아이템이 화면에 보여짐.
         Color color = GameObject.Find("ClickedItem").GetComponent<Image>().color;
@@ -105,6 +107,7 @@ public class Slot : MonoBehaviour
             ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 남음";
             if (ClickedSlot.item.InvenItemNum == 0)
             {
+                ClickedSlot.itemName.text = "";
                 ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "";
                 ClickedSlot.item = null;
                 ClickedSlot.image.enabled = false;

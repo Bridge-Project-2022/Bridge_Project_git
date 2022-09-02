@@ -23,6 +23,7 @@ public class DayCheck : MonoBehaviour
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().reactionStart = false;
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().rejectStart = false;
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().orderStart = true;
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().declareStart = false;
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
             GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().FeelCnt = 0;
@@ -43,6 +44,7 @@ public class DayCheck : MonoBehaviour
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().reactionStart = false;
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().rejectStart = false;
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().intensityStart = true;
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().declareStart = false;
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
             GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().FeelCnt = 0;
@@ -67,6 +69,7 @@ public class DayCheck : MonoBehaviour
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().intensityStart = false;
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().reactionStart = false;
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().rejectStart = true;
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().declareStart = false;
 
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
@@ -74,6 +77,10 @@ public class DayCheck : MonoBehaviour
             GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().C_2_Start();
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().FeelCnt = 0;
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().C_2_Start();
+            if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1010)
+            {
+                TestDialogueRandom.FindObjectOfType<TestDialogueRandom>().isLorenaReject = true;
+            }
             if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1003)
             {
                 Debug.Log("범죄자 향수 거절");
@@ -104,10 +111,32 @@ public class DayCheck : MonoBehaviour
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().intensityStart = false;
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().rejectStart = false;
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().reactionStart = true;
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().declareStart = false;
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
             GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().FeelCnt = 0;GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().FeelCnt = 0;
             GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().E_1_Start();
+            //GameObject.Find("Trigger").GetComponent<DialogueRandom>().FeelCnt = 0; GameObject.Find("Trigger").GetComponent<DialogueRandom>().FeelCnt = 0;
+            //GameObject.Find("Trigger").GetComponent<DialogueRandom>().E_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        {
+            //GameObject.Find("Trigger").GetComponent<SecondDialogueRandom>().FeelCnt = 0;
+            GameObject.Find("Trigger").GetComponent<SecondDialogueRandom>().E_1_Start();
+        }
+    }
+
+    public void F2_Check()
+    {
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().orderStart = false;
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().intensityStart = false;
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().rejectStart = false;
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().reactionStart = false;
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().declareStart = true;
+        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+        {
+            GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().FeelCnt = 0; GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().FeelCnt = 0;
+            GameObject.Find("Trigger").GetComponent<TestDialogueRandom>().F_2Start();
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().FeelCnt = 0; GameObject.Find("Trigger").GetComponent<DialogueRandom>().FeelCnt = 0;
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().E_1_Start();
         }

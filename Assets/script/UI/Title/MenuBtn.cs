@@ -16,7 +16,7 @@ public class MenuBtn : MonoBehaviour
 
     public GameObject BGMSlider;
     public GameObject GameQuit;
-
+    public AudioClip main;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +68,8 @@ public class MenuBtn : MonoBehaviour
     {
         StartCoroutine(FadeIn());
         Invoke("CloseNews", 1f);
-
+        GameObject.Find("BGM").GetComponent<AudioSource>().clip = main;
+        GameObject.Find("BGM").GetComponent<AudioSource>().Play();
     }
     IEnumerator FadeIn()
     {

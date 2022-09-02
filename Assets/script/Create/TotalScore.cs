@@ -36,7 +36,6 @@ public class TotalScore : MonoBehaviour
 
     public int RightItem = 0;//요구한 향료 썼는지?
     public int UseItem = 0;//요구한 향료 썼는지?
-
     public int originPrice = 0;// 향수 제작에 사용된 향료 원가
     public int rightPrice = 0;// 맞게 사용한 향료 원가
     public int reputNum = 0;// 평판 카운트 숫자
@@ -188,17 +187,17 @@ public class TotalScore : MonoBehaviour
     }
     public void totalPrice()
     {
-        if ((int)totalTime < 30)//굿 판정
+        if ((int)totalTime < 50)//굿 판정
         {
             totalScore += rightPrice * 5 / 100;
             reputNum += 5;
         }
-        else if ((int)totalTime >= 30 && (int)totalTime < 60)//노멀 판정
+        else if ((int)totalTime >= 50 && (int)totalTime < 70)//노멀 판정
         {
             totalScore += 0;
             reputNum += 0;
         }
-        else if ((int)totalTime >= 60)//배드 판정
+        else if ((int)totalTime >= 70)//배드 판정
         {
             totalScore += - (rightPrice * 5 / 100);
             reputNum -= 5;
@@ -322,12 +321,12 @@ public class TotalScore : MonoBehaviour
         {
             current += offset * Time.deltaTime;
 
-            GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+            //GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
 
             yield return null;
         }
         current = target;
-        GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+        //GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
 
     }
 

@@ -408,6 +408,9 @@ public class Store : MonoBehaviour
         StartCoroutine(Count(imsiMoney, fd.Money));
         //alertText.GetComponent<Text>().text = slot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
         StartCoroutine(FadeTextToZero());
+        ItemDetail.gameObject.SetActive(false);
+        MiddleItemDetail.gameObject.SetActive(false);
+        TopItemDetail.gameObject.SetActive(false);
     }
 
     public void BuyMiddleItem()
@@ -424,6 +427,9 @@ public class Store : MonoBehaviour
         StartCoroutine(Count(imsiMoney, fd.Money));
         //alertText.GetComponent<Text>().text = Middleslot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
         StartCoroutine(FadeTextToZero());
+        ItemDetail.gameObject.SetActive(false);
+        MiddleItemDetail.gameObject.SetActive(false);
+        TopItemDetail.gameObject.SetActive(false);
     }
 
     public void BuyTopItem()
@@ -440,6 +446,9 @@ public class Store : MonoBehaviour
         StartCoroutine(Count(imsiMoney, fd.Money));
         //alertText.GetComponent<Text>().text = Topslot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
         StartCoroutine(FadeTextToZero());
+        ItemDetail.gameObject.SetActive(false);
+        MiddleItemDetail.gameObject.SetActive(false);
+        TopItemDetail.gameObject.SetActive(false);
     }
 
     public void BuyAllItemUI()
@@ -554,6 +563,9 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
+        BaseBuyAll.SetActive(false);
+        MiddleBuyAll.SetActive(false);
+        TopBuyAll.SetActive(false);
     }
     public void MiddleBuyAllItem()
     {
@@ -570,6 +582,9 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
+        BaseBuyAll.SetActive(false);
+        MiddleBuyAll.SetActive(false);
+        TopBuyAll.SetActive(false);
     }
 
     public void TopBuyAllItem()
@@ -587,6 +602,9 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
+        BaseBuyAll.SetActive(false);
+        MiddleBuyAll.SetActive(false);
+        TopBuyAll.SetActive(false);
     }
     public void Close()
     {

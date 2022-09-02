@@ -7,7 +7,6 @@ public class Note : MonoBehaviour
     public GameObject DeletePoint;
     public NoteType noteType;
     float speed = 900.0f;
-
     void Awake()
     {
         DeletePoint = GameObject.Find("DeletePoint").gameObject;
@@ -19,6 +18,7 @@ public class Note : MonoBehaviour
 
         if (transform.position.x < DeletePoint.transform.position.x)
         {
+            Debug.Log("»èÁ¦");
             Destroy(this.gameObject);
         }
     }
