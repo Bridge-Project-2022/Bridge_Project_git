@@ -11,7 +11,7 @@ public class TitleBtns : MonoBehaviour
 
     [SerializeField]
     private GameObject OptionPanel;
-    float btnActiveDuration = 0.6f;
+    float btnActiveDuration = 0.5f;
 
     void Start()
     {
