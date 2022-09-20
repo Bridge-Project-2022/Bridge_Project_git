@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomerFeel : MonoBehaviour
 {
@@ -37,16 +38,21 @@ public class CustomerFeel : MonoBehaviour
     {
         if (CurrentName == "Lorena1")
         {
-            Customer_Feel[0] = "1a";
-            Customer_Feel[1] = "1a";
-            Customer_Feel[2] = "1a";
-            Customer_Feel[3] = "1a";
-            Customer_Feel[4] = "1a";
-            Customer_Feel[5] = "1a";
-
-            for (int i = 6; i < Customer_Feel.Length; i++)
+            //GameObject.Find("Dialogue").transform.GetChild(3).gameObject.GetComponent<Image>().sprite = RandomImage.FindObjectOfType<RandomImage>().Lolena_Image[0];
+            if (orderStart == true)
             {
-                Customer_Feel[i] = "";
+                //GameObject.Find("Dialogue").transform.GetChild(3).gameObject.GetComponent<Image>().sprite = RandomImage.FindObjectOfType<RandomImage>().Lolena_Image[0];
+                Customer_Feel[0] = "1a";
+                Customer_Feel[1] = "1a";
+                Customer_Feel[2] = "1b";
+                Customer_Feel[3] = "1a";
+                Customer_Feel[4] = "1a";
+                Customer_Feel[5] = "1a";
+
+                for (int i = 6; i < Customer_Feel.Length; i++)
+                {
+                    Customer_Feel[i] = "";
+                }
             }
 
             if (intensityStart == true)
@@ -456,9 +462,9 @@ public class CustomerFeel : MonoBehaviour
             if (orderStart == true)
             {
                 Customer_Feel[0] = "basic";
-                Customer_Feel[1] = "basic";
+                Customer_Feel[1] = "sad";
                 Customer_Feel[2] = "basic";
-                Customer_Feel[3] = "basic";
+                Customer_Feel[3] = "sad";
                 Customer_Feel[4] = "basic";
 
                 for (int i = 5; i < Customer_Feel.Length; i++)

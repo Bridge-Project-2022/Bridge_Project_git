@@ -2877,7 +2877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &146509536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9951,7 +9951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &585306718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23024,6 +23024,8 @@ MonoBehaviour:
   Receipt: {fileID: 994908512}
   InvenUI: {fileID: 1538867307}
   Customer: {fileID: 772955856}
+  ClickItem: {fileID: 268650027}
+  Alpa: {fileID: 21300000, guid: ac20d425db0a3b74ea9ebf0e152f3ad9, type: 3}
 --- !u!222 &1459232584
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23990,10 +23992,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6248577078843635384}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 793175676203025400}
+        m_TargetAssemblyTypeName: Distiller, Assembly-CSharp
+        m_MethodName: DistillWindowOpen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -29108,6 +29110,7 @@ MonoBehaviour:
   ReputationNormal: {fileID: 21300000, guid: 8e89029dadee55a4ab7b254dc645189c, type: 3}
   ReputationBad: {fileID: 21300000, guid: dd0a7597f51eaf14c944d748eb4ffa31, type: 3}
   isAllFinished: 0
+  Distiller: {fileID: 6248577078843635384}
 --- !u!4 &1834425814
 Transform:
   m_ObjectHideFlags: 0
@@ -35599,6 +35602,8 @@ MonoBehaviour:
   Receipt: {fileID: 0}
   InvenUI: {fileID: 0}
   Customer: {fileID: 0}
+  ClickItem: {fileID: 0}
+  Alpa: {fileID: 0}
 --- !u!114 &2138220241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35804,7 +35809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distillerTime: 10
-  distillerWindow: {fileID: 6248577078221419701}
+  distillerDetail: {fileID: 6248577078843635384}
   distiller: {fileID: 1534612176}
   clickedItem: {fileID: 268650027}
   ClickedItem:
@@ -35832,6 +35837,7 @@ MonoBehaviour:
   isLow: 0
   isMiddle: 0
   isHigh: 0
+  DistillWindow: {fileID: 6248577078843635384}
 --- !u!114 &1718260865264676578
 MonoBehaviour:
   m_ObjectHideFlags: 0

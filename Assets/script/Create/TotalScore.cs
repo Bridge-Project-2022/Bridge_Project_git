@@ -57,6 +57,8 @@ public class TotalScore : MonoBehaviour
     public Sprite ReputationBad;
 
     public bool isAllFinished = false;
+
+    public GameObject Distiller;
     private void Start()
     {
         totalScore = 0;
@@ -222,9 +224,9 @@ public class TotalScore : MonoBehaviour
         }
         if (isDistillGood == true)
         {
-            if (FindObjectOfType<Distiller>().ClickedItem.name == FindObjectOfType<Distiller>().BaseItemName)
+            if (Distiller.GetComponent<Distiller>().ClickedItem.name == Distiller.GetComponent<Distiller>().BaseItemName)
             { 
-                totalScore += FindObjectOfType<Distiller>().ClickedItem.itemPrice * 10 / 100;
+                totalScore += Distiller.GetComponent<Distiller>().ClickedItem.itemPrice * 10 / 100;
                 reputNum += 10;
             }
                 
@@ -251,7 +253,7 @@ public class TotalScore : MonoBehaviour
         }
         if (isDistillNormal == true)
         {
-            if (FindObjectOfType<Distiller>().ClickedItem.name == FindObjectOfType<Distiller>().BaseItemName)
+            if (Distiller.GetComponent<Distiller>().ClickedItem.name == Distiller.GetComponent<Distiller>().BaseItemName)
             { 
                 totalScore += 0;
                 reputNum += 0;
@@ -272,16 +274,16 @@ public class TotalScore : MonoBehaviour
         {
             if (FindObjectOfType<Presser>().ClickedItem.name == FindObjectOfType<Presser>().MiddleItemName)
             { 
-                totalScore += -1 * (FindObjectOfType<Presser>().ClickedItem.itemPrice * 10 / 100);
+                totalScore += -1 * (Distiller.GetComponent<Distiller>().ClickedItem.itemPrice * 10 / 100);
                 reputNum -= 10;
             }
            
         }
         if (isDistillBad == true)
         {
-            if (FindObjectOfType<Distiller>().ClickedItem.name == FindObjectOfType<Distiller>().BaseItemName)
+            if (Distiller.GetComponent<Distiller>().ClickedItem.name == Distiller.GetComponent<Distiller>().BaseItemName)
             { 
-                totalScore += -1 * (FindObjectOfType<Distiller>().ClickedItem.itemPrice * 10 / 100);
+                totalScore += -1 * (Distiller.GetComponent<Distiller>().ClickedItem.itemPrice * 10 / 100);
                 reputNum -= 10;
             }
                 

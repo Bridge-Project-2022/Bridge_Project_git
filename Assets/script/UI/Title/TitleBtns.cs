@@ -11,16 +11,23 @@ public class TitleBtns : MonoBehaviour
 
     [SerializeField]
     private GameObject OptionPanel;
+
+    public GameObject i1;
+    public GameObject i2;
+    public GameObject i3;
+    public GameObject i4;
+
+
     float btnActiveDuration = 0.5f;
 
     void Start()
     {
-        StartCoroutine(TitleBtnActive());
+        //StartCoroutine(TitleBtnActive());
     }
     public void NewGameBtnClicked()
     {
         SceneManager.LoadScene("TestScene");
-        NewSoundManager.instance.StopBGM();
+        //NewSoundManager.instance.StopBGM();
     }
 
     public void OptionBtnClicked()
@@ -28,6 +35,31 @@ public class TitleBtns : MonoBehaviour
         OptionPanel.SetActive(true);
     }
 
+    public void MouseEnter()
+    {
+        //Debug.Log(this.gameObject.name);
+        if(this.gameObject.name == "GameStart")
+            i1.gameObject.SetActive(true);
+        if (this.gameObject.name == "Load")
+            i2.gameObject.SetActive(true);
+        if (this.gameObject.name == "Option")
+            i3.gameObject.SetActive(true);
+        if (this.gameObject.name == "Exit")
+            i4.gameObject.SetActive(true);
+    }
+
+    public void MouseExit()
+    {
+        if (this.gameObject.name == "GameStart")
+            i1.gameObject.SetActive(false);
+        if (this.gameObject.name == "Load")
+            i2.gameObject.SetActive(false);
+        if (this.gameObject.name == "Option")
+            i3.gameObject.SetActive(false);
+        if (this.gameObject.name == "Exit")
+            i4.gameObject.SetActive(false);
+
+    }
     public void ExitBtnClicked()
     {
 #if UNITY_EDITOR
@@ -42,15 +74,15 @@ public class TitleBtns : MonoBehaviour
         OptionPanel.SetActive(false);
     }
 
-    public void OnMouseEnter()
+    /*public void OnMouseEnter()
     {
         if(this.gameObject.name == "GameStart")
         {
             Debug.Log("s");
         }
-    }
+    }*/
 
-    IEnumerator TitleBtnActive()
+    /*IEnumerator TitleBtnActive()
     {
         foreach (GameObject Btn in TitleBtnList)
         {
@@ -59,7 +91,7 @@ public class TitleBtns : MonoBehaviour
         }
         
         yield return null;
-    }
+    }*/
 
     public void OnMouseExit()
     {

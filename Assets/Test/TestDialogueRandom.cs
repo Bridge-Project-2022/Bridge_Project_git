@@ -160,32 +160,29 @@ public class TestDialogueRandom : MonoBehaviour
 
         if (DS.Customer_ID[0] == 1010)
         {
-            if (AStart == true)
+            Buyer.gameObject.GetComponent<Button>().interactable = true;
+            if (LolenaCnt == 4)
             {
-                Buyer.gameObject.GetComponent<Button>().interactable = true;
-                if (LolenaCnt == 4)
-                {
-                    GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(true);
-                    StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
-                    LolenaCnt++;
-                }
-                else
-                {
-                    GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(false);
-                    StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
-                    LolenaCnt++;
-                }
-
-
-                if (BuyerOrder[ACount] == "")
-                {
-                    isSelectStart = true;
-                    Buyer.gameObject.GetComponent<Button>().interactable = false;
-                    LolenaCnt = 0;
-                    AStart = false;
-                }
-
+                GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(true);
+                StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
+                LolenaCnt++;
             }
+            else
+            {
+                GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(false);
+                StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
+                LolenaCnt++;
+            }
+
+
+            if (BuyerOrder[ACount] == "")
+            {
+                isSelectStart = true;
+                Buyer.gameObject.GetComponent<Button>().interactable = false;
+                LolenaCnt = 0;
+                AStart = false;
+            }
+
             if (D1Start == true)
             {
                 GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(false);
@@ -583,6 +580,7 @@ public class TestDialogueRandom : MonoBehaviour
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
+        CustomerFeel.FindObjectOfType<CustomerFeel>().orderStart = true;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
         Customer.gameObject.SetActive(true);
         Buyer.gameObject.SetActive(true);
@@ -718,6 +716,12 @@ public class TestDialogueRandom : MonoBehaviour
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
             }
+            CustomerFeel.FindObjectOfType<CustomerFeel>().orderStart = false;
+            CustomerFeel.FindObjectOfType<CustomerFeel>().rejectStart = false;
+            CustomerFeel.FindObjectOfType<CustomerFeel>().intensityStart = false;
+            CustomerFeel.FindObjectOfType<CustomerFeel>().reactionStart = false;
+            CustomerFeel.FindObjectOfType<CustomerFeel>().declareStart = false;
+
 
             Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
         }

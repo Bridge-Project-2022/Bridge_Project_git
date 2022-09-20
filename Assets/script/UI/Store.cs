@@ -401,7 +401,7 @@ public class Store : MonoBehaviour
         {
             onStoreSlotClick(slot.item);
         }
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         slot.item.itemCount -= 1 * BuyNum;
         float imsiMoney = fd.Money;
         fd.Money -= slot.item.itemPrice * BuyNum;
@@ -420,7 +420,7 @@ public class Store : MonoBehaviour
         {
             onStoreSlotClick(Middleslot.item);
         }
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         Middleslot.item.itemCount -= 1 * BuyNum;
         float imsiMoney = fd.Money;
         fd.Money -= Middleslot.item.itemPrice * BuyNum;
@@ -439,7 +439,7 @@ public class Store : MonoBehaviour
         {
             onStoreSlotClick(Topslot.item);
         }
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         Topslot.item.itemCount -= 1 * BuyNum;
         float imsiMoney = fd.Money;
         fd.Money -= Topslot.item.itemPrice * BuyNum;
@@ -560,6 +560,7 @@ public class Store : MonoBehaviour
             //BaseItemList[i].InvenItemNum += BuyNum;
             //Debug.Log(BaseItemList[i].InvenItemNum);
         }
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
         fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
@@ -578,7 +579,7 @@ public class Store : MonoBehaviour
             MiddleItemList[i].itemCount -= 1 * BuyNum;
             //MiddleItemList[i].InvenItemNum += BuyNum;
         }
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
         fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
@@ -598,7 +599,7 @@ public class Store : MonoBehaviour
             TopItemList[i].itemCount -= 1 * BuyNum;
             //TopItemList[i].InvenItemNum += BuyNum;
         }
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
         fd.Money -= slotItemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));

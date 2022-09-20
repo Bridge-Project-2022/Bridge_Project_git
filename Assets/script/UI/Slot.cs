@@ -66,6 +66,9 @@ public class Slot : MonoBehaviour
         GameObject.Find("ClickedItem").GetComponent<Image>().color = color;//클릭한 아이템 투명도 0이었다가 보여져야 하니까 255로 변경
         GameObject.Find("ClickedItem").GetComponent<Image>().sprite = this.image.sprite;
 
+        GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
+        GameObject.Find("Presser").GetComponent<Button>().interactable = true;
+        GameObject.Find("Cooler").GetComponent<Button>().interactable = true;
         if (ClickedSlot.item.itemType == "Base")//증류기 실행
         {
             ClickedItem = ClickedSlot.item;

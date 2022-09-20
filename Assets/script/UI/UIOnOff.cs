@@ -13,6 +13,9 @@ public class UIOnOff : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("inven");
         Inven.gameObject.SetActive(true);
         Inven.transform.position = new Vector3(998, 540, 0);
+        GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
 
     }
     public void StoreOpen()

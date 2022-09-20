@@ -7,7 +7,7 @@ public class Distiller : MonoBehaviour
 {
     public float distillerTime = 6.0f;
 
-    public GameObject distillerWindow;
+    public GameObject distillerDetail;
     public GameObject distiller;
     public GameObject clickedItem;
     public ItemProperty ClickedItem;
@@ -42,13 +42,18 @@ public class Distiller : MonoBehaviour
     public bool isHigh = false;
 
     //public GameObject baseInvenSlots;
-
+    public GameObject DistillWindow;
     public void OnEnable()
     {
         // GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boiling");
         Invoke("EndDistiller", distillerTime);
     }
 
+
+    public void DistillWindowOpen()
+    {
+        DistillWindow.gameObject.SetActive(true);
+    }
 public void DistillerOn(ItemProperty item)
     {
         Receipt.gameObject.SetActive(false);
@@ -76,7 +81,7 @@ public void DistillerOn(ItemProperty item)
     public void OnDistillerBtnClick()
     {
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
-        distillerWindow.SetActive(true);
+        distillerDetail.SetActive(true);
 
         if (clickedItem == null)
             return;
@@ -270,8 +275,8 @@ public void DistillerOn(ItemProperty item)
     {
         TotalScore.FindObjectOfType<TotalScore>().isDistillFin = true;
         temperature = 0;
-        distiller.gameObject.GetComponent<Button>().interactable = false;
-        distillerWindow.SetActive(false);
+        //distiller.gameObject.GetComponent<Button>().interactable = false;
+        distillerDetail.SetActive(false);
         Receipt.gameObject.SetActive(true);
 
     }

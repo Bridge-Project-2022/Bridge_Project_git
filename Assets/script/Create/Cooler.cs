@@ -36,6 +36,17 @@ public class Cooler : MonoBehaviour
     {
         this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
         ClickedItem = item;
+        Color color = CoolerOne.gameObject.GetComponent<Image>().color;
+        color.a = 255;
+        CoolerOne.gameObject.GetComponent<Image>().color = color;//아이템 제거
+
+        Color color2 = CoolerTwo.gameObject.GetComponent<Image>().color;
+        color2.a = 255;
+        CoolerTwo.gameObject.GetComponent<Image>().color = color2;//아이템 제거
+
+        Color color3 = CoolerThree.gameObject.GetComponent<Image>().color;
+        color3.a = 255;
+        CoolerThree.gameObject.GetComponent<Image>().color = color3;//아이템 제거
         if (ClickedItem.name == TopItemName)
         {
             Debug.Log("탑 향료 맞음");
@@ -222,6 +233,7 @@ public class Cooler : MonoBehaviour
             CoolTotalScore();
             this.GetComponent<Button>().interactable = false;
             Invoke("CoolerClose", 2);
+            ResultCount = 0;
         }
     }
 

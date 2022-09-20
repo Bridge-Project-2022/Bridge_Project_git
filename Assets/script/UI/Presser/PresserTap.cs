@@ -165,7 +165,6 @@ public class PresserTap : MonoBehaviour
         }
 
         //GameObject.Find("NoteLine").GetComponent<NotePatterns>().DestroyCnt++;
-        Destroy(NextNote);
 
     }
 

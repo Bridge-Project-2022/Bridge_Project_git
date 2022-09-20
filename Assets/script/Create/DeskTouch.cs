@@ -24,6 +24,10 @@ public class DeskTouch : MonoBehaviour
     public GameObject InvenUI;
     GameObject RandomBuyer;
     public GameObject Customer;
+
+    public GameObject ClickItem;
+
+    public Sprite Alpa;
     private void Update()
     {
         RandomBuyer = GameObject.Find("Else").transform.GetChild(0).gameObject;
@@ -87,6 +91,7 @@ public class DeskTouch : MonoBehaviour
         RandomBuyer.gameObject.SetActive(true);
         Buyer.gameObject.SetActive(true);
 
+        ClickItem.GetComponent<Image>().sprite = Alpa;
 
         desk.gameObject.SetActive(true);
         Manufacture.gameObject.SetActive(false);
