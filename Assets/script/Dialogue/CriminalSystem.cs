@@ -13,14 +13,14 @@ public class CriminalSystem : MonoBehaviour
         {
             if (newsTime.GetComponent<NewsTime>().randomNum == 2)
             {
-                Debug.Log(newsTime.GetComponent<NewsTime>().randomResult1 + "¹Ù²î°í"
-                + newsTime.GetComponent<NewsTime>().randomResult2 + "¹Ù²ñ!");
+                Debug.Log(newsTime.GetComponent<NewsTime>().randomResult1 + "ë°”ë€Œê³ "
+                + newsTime.GetComponent<NewsTime>().randomResult2 + "ë°”ë€œ!");
             }
             else
             {
-                Debug.Log(newsTime.GetComponent<NewsTime>().randomResult1 + "¹Ù²î°í"
-                    + newsTime.GetComponent<NewsTime>().randomResult2 + "¹Ù²î°í"
-                    + newsTime.GetComponent<NewsTime>().randomResult3 + "¹Ù²ñ!");
+                Debug.Log(newsTime.GetComponent<NewsTime>().randomResult1 + "ë°”ë€Œê³ "
+                    + newsTime.GetComponent<NewsTime>().randomResult2 + "ë°”ë€Œê³ "
+                    + newsTime.GetComponent<NewsTime>().randomResult3 + "ë°”ë€œ!");
             }
         }
     }

@@ -22,7 +22,7 @@ public class FirstDaySetting : MonoBehaviour
 
         if (Reputation < 0)
         { 
-            //¹èµå ¿£µù ¤¡
+            //ë°°ë“œ ì—”ë”© ã„±
         }
     }
 }

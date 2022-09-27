@@ -32,7 +32,7 @@ public class PresserTap : MonoBehaviour
         {
             GameObject go = child.gameObject;
 
-            // ºÎ¸ğ¸¦ Á¦¿Ü ÀÚ½Ä¸¸ °¡Á®¿È.
+            // ë¶€ëª¨ë¥¼ ì œì™¸ ìì‹ë§Œ ê°€ì ¸ì˜´.
             if (go.name == "Notes")
                 continue;
 
@@ -102,7 +102,7 @@ public class PresserTap : MonoBehaviour
         {
             GameObject go = child.gameObject;
 
-            // ºÎ¸ğ¸¦ Á¦¿Ü ÀÚ½Ä¸¸ °¡Á®¿È.
+            // ë¶€ëª¨ë¥¼ ì œì™¸ ìì‹ë§Œ ê°€ì ¸ì˜´.
             if (go.name == "Notes")
                 continue;
 

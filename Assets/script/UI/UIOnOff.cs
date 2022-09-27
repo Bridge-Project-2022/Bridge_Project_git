@@ -9,7 +9,7 @@ public class UIOnOff : MonoBehaviour
     public GameObject Inven;
     public void InvenOpen()
     {
-        //Debug.Log("ÀÎº¥Åä¸® ¿ÀÇÂ");
+        //Debug.Log("ì¸ë²¤í† ë¦¬ ì˜¤í”ˆ");
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("inven");
         Inven.gameObject.SetActive(true);
         Inven.transform.position = new Vector3(998, 540, 0);
@@ -20,7 +20,7 @@ public class UIOnOff : MonoBehaviour
     }
     public void StoreOpen()
     {
-        //Debug.Log("º¸µû¸® ¿ÀÇÂ");
+        //Debug.Log("ë³´ë”°ë¦¬ ì˜¤í”ˆ");
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         Store.gameObject.SetActive(true);
 
@@ -28,7 +28,7 @@ public class UIOnOff : MonoBehaviour
 
     public void StoreClose()
     {
-        //Debug.Log("º¸µû¸® ´İÀ½");
+        //Debug.Log("ë³´ë”°ë¦¬ ë‹«ìŒ");
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Customer").gameObject.SetActive(false);
 

@@ -7,17 +7,17 @@ public class ThirdDialogueScript : MonoBehaviour
     public GameObject Distiller;
 
     public string Customer_Name = "";
-    public int[] Customer_ID = new int[9];//ÇÑ ³¯Â¥¿¡ ¿À´Â ¼Õ´ÔÀÇ ¾ÆÀÌµğ (¼Õ´Ô ¼ö¸¸Å­ ÇÒ´ç)
-    public string[] Customer_PerfumeOrder = new string[10];//¼Õ´Ô Çâ¼ö ÁÖ¹® ´ë»ç
-    public string[] Customer_IntensityOrder = new string[5];//Çâ¼ö °­µµ ´ë»ç
-    public string[] Customer_Flavoring = new string[3];//¿øÇÏ´Â Çâ·á ¼±ÅÃ(º£, ¹Ì, Å¾)
-    public string[] Customer_RejectReaction = new string[5];//¼Õ´Ô °ÅÀı ¹İÀÀ
-    public string[] Customer_PerfumeReaction = new string[5];//Çâ¼ö ¹ŞÀ» ½Ã ¼Õ´Ô ¹İÀÀ
+    public int[] Customer_ID = new int[9];//í•œ ë‚ ì§œì— ì˜¤ëŠ” ì†ë‹˜ì˜ ì•„ì´ë”” (ì†ë‹˜ ìˆ˜ë§Œí¼ í• ë‹¹)
+    public string[] Customer_PerfumeOrder = new string[10];//ì†ë‹˜ í–¥ìˆ˜ ì£¼ë¬¸ ëŒ€ì‚¬
+    public string[] Customer_IntensityOrder = new string[5];//í–¥ìˆ˜ ê°•ë„ ëŒ€ì‚¬
+    public string[] Customer_Flavoring = new string[3];//ì›í•˜ëŠ” í–¥ë£Œ ì„ íƒ(ë² , ë¯¸, íƒ‘)
+    public string[] Customer_RejectReaction = new string[5];//ì†ë‹˜ ê±°ì ˆ ë°˜ì‘
+    public string[] Customer_PerfumeReaction = new string[5];//í–¥ìˆ˜ ë°›ì„ ì‹œ ì†ë‹˜ ë°˜ì‘
 
     public void Start()
     {
 
-        //¼Õ´Ô ¾ÆÀÌµğ ¹è¿­¿¡ 1-9±îÁö Áß¿¡ ·£´ıÀ¸·Î ³ÖµÇ Áßº¹µÇÁö ¾Êµµ·Ï ¹èÄ¡ÇÔ. 
+        //ì†ë‹˜ ì•„ì´ë”” ë°°ì—´ì— 1-9ê¹Œì§€ ì¤‘ì— ëœë¤ìœ¼ë¡œ ë„£ë˜ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ ë°°ì¹˜í•¨. 
         for (int i = 0; i < Customer_ID.Length; i++)
         {
             Customer_ID[i] = Random.Range(3001, 3010);
@@ -38,13 +38,13 @@ public class ThirdDialogueScript : MonoBehaviour
         {
             Customer_Name = "C";
 
-            Customer_PerfumeOrder[0] = "Àú±â..";
-            Customer_PerfumeOrder[1] = "³ª µµ¿ÍÁÖ°í ½ÍÀº Ä£±¸°¡ ÀÖ¾î..";
-            Customer_PerfumeOrder[2] = "Ä£±¸°¡ ±«·ÓÈû´çÇÏÁö¸¸ ¾Æ¹« °Íµµ ¸ø ÇÏ°í ÀÖ¾î..";
-            Customer_PerfumeOrder[3] = "³»°¡ Á¶±İ¸¸ ´õ ¿ë±â¸¦ ³»¸é ±¦ÂúÀ»±î..?";
-            Customer_PerfumeOrder[4] = "Á¶±İÀÌ¶óµµ ´Ş¶óÁú±î..?";
-            Customer_PerfumeOrder[5] = "±× Ä£±¸¸¸ »ı°¢ÇÏ¸é ³Ê¹« ¹Ì¾ÈÇÏ±¸..";
-            Customer_PerfumeOrder[6] = "³»°¡ ±× Ä£±¸¸¦ µµ¿ÍÁÙ ¼ö ÀÖÀ»±î..?";
+            Customer_PerfumeOrder[0] = "ì €ê¸°..";
+            Customer_PerfumeOrder[1] = "ë‚˜ ë„ì™€ì£¼ê³  ì‹¶ì€ ì¹œêµ¬ê°€ ìˆì–´..";
+            Customer_PerfumeOrder[2] = "ì¹œêµ¬ê°€ ê´´ë¡­í˜ë‹¹í•˜ì§€ë§Œ ì•„ë¬´ ê²ƒë„ ëª» í•˜ê³  ìˆì–´..";
+            Customer_PerfumeOrder[3] = "ë‚´ê°€ ì¡°ê¸ˆë§Œ ë” ìš©ê¸°ë¥¼ ë‚´ë©´ ê´œì°®ì„ê¹Œ..?";
+            Customer_PerfumeOrder[4] = "ì¡°ê¸ˆì´ë¼ë„ ë‹¬ë¼ì§ˆê¹Œ..?";
+            Customer_PerfumeOrder[5] = "ê·¸ ì¹œêµ¬ë§Œ ìƒê°í•˜ë©´ ë„ˆë¬´ ë¯¸ì•ˆí•˜êµ¬..";
+            Customer_PerfumeOrder[6] = "ë‚´ê°€ ê·¸ ì¹œêµ¬ë¥¼ ë„ì™€ì¤„ ìˆ˜ ìˆì„ê¹Œ..?";
 
             for (int i = 7; i < Customer_PerfumeOrder.Length; i++)
             {
@@ -52,32 +52,32 @@ public class ThirdDialogueScript : MonoBehaviour
             }
 
 
-            Customer_IntensityOrder[0] = "³»°¡ Èû³¾ ¼ö ÀÖµµ·Ï ÇâÀº Àû´çÈ÷ Á¶ÀıÇØÁà¡¦  ";
+            Customer_IntensityOrder[0] = "ë‚´ê°€ í˜ë‚¼ ìˆ˜ ìˆë„ë¡ í–¥ì€ ì ë‹¹íˆ ì¡°ì ˆí•´ì¤˜â€¦  ";
 
             for (int i = 1; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "º¸Åë";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ë³´í†µ";
 
-            Customer_Flavoring[0] = "ÀÎ°£";
-            Customer_Flavoring[1] = "Ä£±¸";
-            Customer_Flavoring[2] = "ÁËÃ¥°¨";
+            Customer_Flavoring[0] = "ì¸ê°„";
+            Customer_Flavoring[1] = "ì¹œêµ¬";
+            Customer_Flavoring[2] = "ì£„ì±…ê°";
 
             Customer_RejectReaction[0] = "....";
-            Customer_RejectReaction[1] = "±×·¡ ³»°¡ ¾Ë¾Æ¼­ ÇÒ°Ô..";
+            Customer_RejectReaction[1] = "ê·¸ë˜ ë‚´ê°€ ì•Œì•„ì„œ í• ê²Œ..";
 
             for (int i = 2; i < Customer_RejectReaction.Length; i++)
             {
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "°í¸¶¿ö!";
-                    Customer_PerfumeReaction[1] = "ÀÌÁ¦¾ß Ä£±¸¸¦ µµ¿ï ¼ö ÀÖÀ» °Í °°¾Æ..!";
+                    Customer_PerfumeReaction[0] = "ê³ ë§ˆì›Œ!";
+                    Customer_PerfumeReaction[1] = "ì´ì œì•¼ ì¹œêµ¬ë¥¼ ë„ìš¸ ìˆ˜ ìˆì„ ê²ƒ ê°™ì•„..!";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -87,7 +87,7 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "ÀÌ Á¤µµ¸é ±¦ÂúÀº °Å °°¾Æ..! ";
+                    Customer_PerfumeReaction[0] = "ì´ ì •ë„ë©´ ê´œì°®ì€ ê±° ê°™ì•„..! ";
 
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -97,8 +97,8 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "¿Ö ÀÌ·¸°Ô ¸¸µç °Å¾ß..?";
-                    Customer_PerfumeReaction[1] = "Á¤¸» ½È¾î..";
+                    Customer_PerfumeReaction[0] = "ì™œ ì´ë ‡ê²Œ ë§Œë“  ê±°ì•¼..?";
+                    Customer_PerfumeReaction[1] = "ì •ë§ ì‹«ì–´..";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -106,12 +106,12 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
-                    Customer_PerfumeReaction[0] = "ÀÏºÎ·Î ÀÌ·± °Å¾ß¡¦?";
-                    Customer_PerfumeReaction[1] = "ÀÌ·¯Áö ¾Ê¾Æµµ µÆÀİ¾Æ...";
+                    Customer_PerfumeReaction[0] = "ì¼ë¶€ë¡œ ì´ëŸ° ê±°ì•¼â€¦?";
+                    Customer_PerfumeReaction[1] = "ì´ëŸ¬ì§€ ì•Šì•„ë„ ëì–ì•„...";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -121,8 +121,8 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "´ëÃ¼ ¹» ¸¸µç °Å¾ß..?";
-                    Customer_PerfumeReaction[1] = "ÀÌ°Ç ¿ÏÀü ´Ù¸¥ °ÅÀİ¾Æ!!";
+                    Customer_PerfumeReaction[0] = "ëŒ€ì²´ ë­˜ ë§Œë“  ê±°ì•¼..?";
+                    Customer_PerfumeReaction[1] = "ì´ê±´ ì™„ì „ ë‹¤ë¥¸ ê±°ì–ì•„!!";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -137,10 +137,10 @@ public class ThirdDialogueScript : MonoBehaviour
         {
             Customer_Name = "G";
 
-            Customer_PerfumeOrder[0] = "ÀúÈñ °­¾ÆÁö°¡...¹«Áö°³´Ù¸®¸¦ °Ç³Ô¾î¿ä...";
-            Customer_PerfumeOrder[1] = "¸ÅÀÏ ¾ÆÄ§ ´«À» ¶ß¸é, µÕÀÌ°¡ ¾ø¾î¼­ ¹ÌÄ¥ °Í °°¾Æ¿ä..";
-            Customer_PerfumeOrder[2] = "±×°Ô ¹¹°¡ Èûµé´Ù°í... »êÃ¥µµ ¸ø °¡Áá´Âµ¥..";
-            Customer_PerfumeOrder[3] = "´õ ÀßÇØÁÖÁö ¸øÇØ¼­ ³Ê¹« ¹Ì¾ÈÇÑµ¥¡¦ ";
+            Customer_PerfumeOrder[0] = "ì €í¬ ê°•ì•„ì§€ê°€...ë¬´ì§€ê°œë‹¤ë¦¬ë¥¼ ê±´ë„œì–´ìš”...";
+            Customer_PerfumeOrder[1] = "ë§¤ì¼ ì•„ì¹¨ ëˆˆì„ ëœ¨ë©´, ë‘¥ì´ê°€ ì—†ì–´ì„œ ë¯¸ì¹  ê²ƒ ê°™ì•„ìš”..";
+            Customer_PerfumeOrder[2] = "ê·¸ê²Œ ë­ê°€ í˜ë“¤ë‹¤ê³ ... ì‚°ì±…ë„ ëª» ê°€ì¤¬ëŠ”ë°..";
+            Customer_PerfumeOrder[3] = "ë” ì˜í•´ì£¼ì§€ ëª»í•´ì„œ ë„ˆë¬´ ë¯¸ì•ˆí•œë°â€¦ ";
 
             for (int i = 4; i < Customer_PerfumeOrder.Length; i++)
             {
@@ -148,33 +148,33 @@ public class ThirdDialogueScript : MonoBehaviour
             }
 
 
-            Customer_IntensityOrder[0] = "µÕÀÌ¶û °°ÀÌ µ¤°í ÀÚ´ø ÀÌºÒ¿¡ »Ñ¸± °Å¿¹¿ä...";
-            Customer_IntensityOrder[1] = "±× ÀÌºÒ¿¡¼­¸¸Å­Àº µÕÀÌ¸¦ ´À³¥ ¼ö ÀÖ°Ô..";
-            Customer_IntensityOrder[2] = "ÀÌ·² °Å¸é ÁøÇØ¾ß°ÚÁÒ..?";
+            Customer_IntensityOrder[0] = "ë‘¥ì´ë‘ ê°™ì´ ë®ê³  ìë˜ ì´ë¶ˆì— ë¿Œë¦´ ê±°ì˜ˆìš”...";
+            Customer_IntensityOrder[1] = "ê·¸ ì´ë¶ˆì—ì„œë§Œí¼ì€ ë‘¥ì´ë¥¼ ëŠë‚„ ìˆ˜ ìˆê²Œ..";
+            Customer_IntensityOrder[2] = "ì´ëŸ´ ê±°ë©´ ì§„í•´ì•¼ê² ì£ ..?";
 
             for (int i = 3; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "°­ÇÔ";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ê°•í•¨";
 
-            Customer_Flavoring[0] = "µ¿¹°";
-            Customer_Flavoring[1] = "¹İ·Áµ¿¹°";
-            Customer_Flavoring[2] = "ÁËÃ¥°¨";
+            Customer_Flavoring[0] = "ë™ë¬¼";
+            Customer_Flavoring[1] = "ë°˜ë ¤ë™ë¬¼";
+            Customer_Flavoring[2] = "ì£„ì±…ê°";
 
             Customer_RejectReaction[0] = "...?";
-            Customer_RejectReaction[1] = "±×ÂÊÀº ¹İ·Á°ßÀ» Å°¿ö º» °æÇèÀÌ ¾ø³ªº¸ÁÒ?";
+            Customer_RejectReaction[1] = "ê·¸ìª½ì€ ë°˜ë ¤ê²¬ì„ í‚¤ì›Œ ë³¸ ê²½í—˜ì´ ì—†ë‚˜ë³´ì£ ?";
 
             for (int i = 2; i < Customer_RejectReaction.Length; i++)
             {
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "µÕÀÌ¾ß¡¦ ÀÌ ³¿»õ°¡ ³Ê¹« ³Ê¹« ±×¸®¿ü¾î.. ";
+                    Customer_PerfumeReaction[0] = "ë‘¥ì´ì•¼â€¦ ì´ ëƒ„ìƒˆê°€ ë„ˆë¬´ ë„ˆë¬´ ê·¸ë¦¬ì› ì–´.. ";
 
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -184,7 +184,7 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "ÀÌ ³¿»õ°¡ ±×¸®¿ü¾î.. ";
+                    Customer_PerfumeReaction[0] = "ì´ ëƒ„ìƒˆê°€ ê·¸ë¦¬ì› ì–´.. ";
 
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -194,7 +194,7 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "ÀÌ·¸°Ô ¸ø ¸¸µå´Â °Íµµ ÀçÁÖ´Ù. ÀçÁÖ";
+                    Customer_PerfumeReaction[0] = "ì´ë ‡ê²Œ ëª» ë§Œë“œëŠ” ê²ƒë„ ì¬ì£¼ë‹¤. ì¬ì£¼";
 
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -202,11 +202,11 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
-                    Customer_PerfumeReaction[0] = "ÇâÀÌ ¾ø´Âµ¥ ¹» ¸ÃÀ¸¶õ °Å¾ß? ";
+                    Customer_PerfumeReaction[0] = "í–¥ì´ ì—†ëŠ”ë° ë­˜ ë§¡ìœ¼ë€ ê±°ì•¼? ";
 
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -216,8 +216,8 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "ÀÌ°Ô ¹«½¼ ³¿»õÀÎ°¡¿ä??";
-                    Customer_PerfumeReaction[1] = "µÕÀÌ ³¿»õ°¡ ¾Æ´Ñµ¥?";
+                    Customer_PerfumeReaction[0] = "ì´ê²Œ ë¬´ìŠ¨ ëƒ„ìƒˆì¸ê°€ìš”??";
+                    Customer_PerfumeReaction[1] = "ë‘¥ì´ ëƒ„ìƒˆê°€ ì•„ë‹Œë°?";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -232,12 +232,12 @@ public class ThirdDialogueScript : MonoBehaviour
         {
             Customer_Name = "I";
 
-            Customer_PerfumeOrder[0] = "¾È³çÇÏ½Å°¡..";
-            Customer_PerfumeOrder[1] = "³» Á×Àº Ä£±¸ ³ğÀÌ º¸°í ½Í±¸¸¸..";
-            Customer_PerfumeOrder[2] = "±×¶§ °¡Áö ¸»¶ó°í ¸»·È¾î¾ß Çß´Âµ¥ ¸»ÀÌ¾ß..";
-            Customer_PerfumeOrder[3] = "ºô¾î¸ÔÀ».. ±×³ğÀÌ »ç°í¿¡ ÈÖ¸»·È¾î..";
-            Customer_PerfumeOrder[4] = "Á¦±â¶ö.. ³» Å¿ÀÌÁö ¹¹..";
-            Customer_PerfumeOrder[5] = "È¤½Ã Çâ¼ö ÇÏ³ª¸¸ ¸¸µé¾îÁÙ ¼ö ÀÖ´Â°¡?";
+            Customer_PerfumeOrder[0] = "ì•ˆë…•í•˜ì‹ ê°€..";
+            Customer_PerfumeOrder[1] = "ë‚´ ì£½ì€ ì¹œêµ¬ ë†ˆì´ ë³´ê³  ì‹¶êµ¬ë§Œ..";
+            Customer_PerfumeOrder[2] = "ê·¸ë•Œ ê°€ì§€ ë§ë¼ê³  ë§ë ¸ì–´ì•¼ í–ˆëŠ”ë° ë§ì´ì•¼..";
+            Customer_PerfumeOrder[3] = "ë¹Œì–´ë¨¹ì„.. ê·¸ë†ˆì´ ì‚¬ê³ ì— íœ˜ë§ë ¸ì–´..";
+            Customer_PerfumeOrder[4] = "ì œê¸°ë„.. ë‚´ íƒ“ì´ì§€ ë­..";
+            Customer_PerfumeOrder[5] = "í˜¹ì‹œ í–¥ìˆ˜ í•˜ë‚˜ë§Œ ë§Œë“¤ì–´ì¤„ ìˆ˜ ìˆëŠ”ê°€?";
 
             for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
             {
@@ -245,33 +245,33 @@ public class ThirdDialogueScript : MonoBehaviour
             }
 
 
-            Customer_IntensityOrder[0] = "±× Ä£±¸ ÇâÀÌ ¿µ¿øÈ÷ Áö¼ÓµÆÀ¸¸é ÁÁ°Ú±º¡¦";
-            Customer_IntensityOrder[1] = "³»°¡ °¨È÷ ÀÌ·¡µµ µÇ´Â °É±î..?";
+            Customer_IntensityOrder[0] = "ê·¸ ì¹œêµ¬ í–¥ì´ ì˜ì›íˆ ì§€ì†ëìœ¼ë©´ ì¢‹ê² êµ°â€¦";
+            Customer_IntensityOrder[1] = "ë‚´ê°€ ê°íˆ ì´ë˜ë„ ë˜ëŠ” ê±¸ê¹Œ..?";
 
             for (int i = 2; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "°­ÇÔ";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ê°•í•¨";
 
-            Customer_Flavoring[0] = "ÀÎ°£";
-            Customer_Flavoring[1] = "Ä£±¸";
-            Customer_Flavoring[2] = "ÁËÃ¥°¨";
+            Customer_Flavoring[0] = "ì¸ê°„";
+            Customer_Flavoring[1] = "ì¹œêµ¬";
+            Customer_Flavoring[2] = "ì£„ì±…ê°";
 
-            Customer_RejectReaction[0] = "Á¨Àå.. ³»°¡ ´ç½ÅÇÑÅ× ¹» Àß¸øÇßÁö..?";
-            Customer_RejectReaction[1] = "¿À´Ãµµ °³ °°Àº ÇÏ·ç±¸¸¸..";
+            Customer_RejectReaction[0] = "ì  ì¥.. ë‚´ê°€ ë‹¹ì‹ í•œí…Œ ë­˜ ì˜ëª»í–ˆì§€..?";
+            Customer_RejectReaction[1] = "ì˜¤ëŠ˜ë„ ê°œ ê°™ì€ í•˜ë£¨êµ¬ë§Œ..";
 
             for (int i = 2; i < Customer_RejectReaction.Length; i++)
             {
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "³»°¡...Á¤¸»...";
-                    Customer_PerfumeReaction[1] = "Á¤¸»...";
+                    Customer_PerfumeReaction[0] = "ë‚´ê°€...ì •ë§...";
+                    Customer_PerfumeReaction[1] = "ì •ë§...";
                     Customer_PerfumeReaction[2] = "......";
 
                     for (int i = 3; i < Customer_PerfumeReaction.Length; i++)
@@ -282,7 +282,7 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "°í¸¿±º.. ÀÚ³×..";
+                    Customer_PerfumeReaction[0] = "ê³ ë§™êµ°.. ìë„¤..";
 
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -292,8 +292,8 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "ÀÌ°Ç ´ëÃ¼ ¹»..";
-                    Customer_PerfumeReaction[1] = "ÇüÆí¾ø±¸¸¸ ";
+                    Customer_PerfumeReaction[0] = "ì´ê±´ ëŒ€ì²´ ë­˜..";
+                    Customer_PerfumeReaction[1] = "í˜•í¸ì—†êµ¬ë§Œ ";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -301,12 +301,12 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
-                    Customer_PerfumeReaction[0] = "Áö±İ Àå³­ÇÏ´Â°Ç°¡?";
-                    Customer_PerfumeReaction[1] = "ÇâÀÌ ¾È ´À²¸Áö´Âµ¥ ¹¹ ¾î¶±ÇÏ¶ó´Â °Å¾ß?";
+                    Customer_PerfumeReaction[0] = "ì§€ê¸ˆ ì¥ë‚œí•˜ëŠ”ê±´ê°€?";
+                    Customer_PerfumeReaction[1] = "í–¥ì´ ì•ˆ ëŠê»´ì§€ëŠ”ë° ë­ ì–´ë–¡í•˜ë¼ëŠ” ê±°ì•¼?";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -316,8 +316,8 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "³»°¡ ¿ì½À³ª?";
-                    Customer_PerfumeReaction[1] = "ÀÌ·² °Å¸é ¶§·ÁÄ¡¿ì°Ô ";
+                    Customer_PerfumeReaction[0] = "ë‚´ê°€ ìš°ìŠµë‚˜?";
+                    Customer_PerfumeReaction[1] = "ì´ëŸ´ ê±°ë©´ ë•Œë ¤ì¹˜ìš°ê²Œ ";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -332,11 +332,11 @@ public class ThirdDialogueScript : MonoBehaviour
         {
             Customer_Name = "E";
 
-            Customer_PerfumeOrder[0] = "...Àú±â.. ¿ä?";
-            Customer_PerfumeOrder[1] = "....Á¦¹ß ³» »ç¶ûÀ» ´Ù½Ã ÇÑ¹ø¸¸ÀÌ¶óµµ º¸°í ½Í¾î... ";
-            Customer_PerfumeOrder[2] = "³»°¡ ÀÌ·¸°Ô ÁÁ¾ÆÇÏ´Âµ¥.. ´ëÃ¼ ¾î¶»°Ô Áö³»°í ÀÖ´Â°Å¾ß..?";
-            Customer_PerfumeOrder[3] = "³»°¡ »ç¶ûÇÏ´Â ±×³à°¡ ¹ÌÄ¡µµ·Ï º¸°í ½Í¾î..";
-            Customer_PerfumeOrder[4] = "ÀÌ·± ³ª¸¦ Á» µµ¿ÍÁÖÁö ¾ÊÀ»·¡..?";
+            Customer_PerfumeOrder[0] = "...ì €ê¸°.. ìš”?";
+            Customer_PerfumeOrder[1] = "....ì œë°œ ë‚´ ì‚¬ë‘ì„ ë‹¤ì‹œ í•œë²ˆë§Œì´ë¼ë„ ë³´ê³  ì‹¶ì–´... ";
+            Customer_PerfumeOrder[2] = "ë‚´ê°€ ì´ë ‡ê²Œ ì¢‹ì•„í•˜ëŠ”ë°.. ëŒ€ì²´ ì–´ë–»ê²Œ ì§€ë‚´ê³  ìˆëŠ”ê±°ì•¼..?";
+            Customer_PerfumeOrder[3] = "ë‚´ê°€ ì‚¬ë‘í•˜ëŠ” ê·¸ë…€ê°€ ë¯¸ì¹˜ë„ë¡ ë³´ê³  ì‹¶ì–´..";
+            Customer_PerfumeOrder[4] = "ì´ëŸ° ë‚˜ë¥¼ ì¢€ ë„ì™€ì£¼ì§€ ì•Šì„ë˜..?";
 
             for (int i = 5; i < Customer_PerfumeOrder.Length; i++)
             {
@@ -344,34 +344,34 @@ public class ThirdDialogueScript : MonoBehaviour
             }
 
 
-            Customer_IntensityOrder[0] = "ÇâÀº Àı´ë ºüÁöÁö ¾Êµµ·Ï °­ÇÏ°Ô ÇØÁÖ¼¼¿ä...";
+            Customer_IntensityOrder[0] = "í–¥ì€ ì ˆëŒ€ ë¹ ì§€ì§€ ì•Šë„ë¡ ê°•í•˜ê²Œ í•´ì£¼ì„¸ìš”...";
 
             for (int i = 1; i < Customer_IntensityOrder.Length; i++)
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "°­ÇÔ";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ê°•í•¨";
 
-            Customer_Flavoring[0] = "ÀÎ°£";
-            Customer_Flavoring[1] = "¿¬ÀÎ";
-            Customer_Flavoring[2] = "»ç¶û";
+            Customer_Flavoring[0] = "ì¸ê°„";
+            Customer_Flavoring[1] = "ì—°ì¸";
+            Customer_Flavoring[2] = "ì‚¬ë‘";
 
-            Customer_RejectReaction[0] = "...³ªÇÑÅ× ´ëÃ¼ ¿Ö ±×·¡¿ä?";
-            Customer_RejectReaction[1] = "´ç½Å¸¸Å­Àº ±×·¯¸é ¾È µÇÀİ¾Æ";
-            Customer_RejectReaction[2] = "´Ù¸¥ »ç¶÷µéÇÑÅ×µµ ¸»ÇÒ °Å¾ß";
-            Customer_RejectReaction[3] = "ÈÄÈ¸ÇÏÁö ¸¶ ´ç½ÅÀÌ ÇÑ ¼±ÅÃÀÌÀİ¾Æ?";
+            Customer_RejectReaction[0] = "...ë‚˜í•œí…Œ ëŒ€ì²´ ì™œ ê·¸ë˜ìš”?";
+            Customer_RejectReaction[1] = "ë‹¹ì‹ ë§Œí¼ì€ ê·¸ëŸ¬ë©´ ì•ˆ ë˜ì–ì•„";
+            Customer_RejectReaction[2] = "ë‹¤ë¥¸ ì‚¬ëŒë“¤í•œí…Œë„ ë§í•  ê±°ì•¼";
+            Customer_RejectReaction[3] = "í›„íšŒí•˜ì§€ ë§ˆ ë‹¹ì‹ ì´ í•œ ì„ íƒì´ì–ì•„?";
 
             for (int i = 4; i < Customer_RejectReaction.Length; i++)
             {
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "ÀÌ°ÍÀÌ ¹Ù·Î ±×³àÀÇ Çâ..";
-                    Customer_PerfumeReaction[1] = "Á¤¸» °¨»çÇÕ´Ï´Ù.. Á¤¸»·Î¡¦  ";
+                    Customer_PerfumeReaction[0] = "ì´ê²ƒì´ ë°”ë¡œ ê·¸ë…€ì˜ í–¥..";
+                    Customer_PerfumeReaction[1] = "ì •ë§ ê°ì‚¬í•©ë‹ˆë‹¤.. ì •ë§ë¡œâ€¦  ";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -381,7 +381,7 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "°í¸¶¿ö¿ä¡¦ ";
+                    Customer_PerfumeReaction[0] = "ê³ ë§ˆì›Œìš”â€¦ ";
 
                     for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -391,8 +391,8 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "³Ê¹« ¸ø ¸¸µç°Å ¾Æ´Ñ°¡¿ä..?";
-                    Customer_PerfumeReaction[1] = "´Ù¸¥ »ç¶÷µéµµ ´ç½ÅÀÌ ÀÌ·¸°Ô ¸ø ¸¸µå´Â °Å ¾Ë°í ÀÖ³ª¿ä..?";
+                    Customer_PerfumeReaction[0] = "ë„ˆë¬´ ëª» ë§Œë“ ê±° ì•„ë‹Œê°€ìš”..?";
+                    Customer_PerfumeReaction[1] = "ë‹¤ë¥¸ ì‚¬ëŒë“¤ë„ ë‹¹ì‹ ì´ ì´ë ‡ê²Œ ëª» ë§Œë“œëŠ” ê±° ì•Œê³  ìˆë‚˜ìš”..?";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -400,12 +400,12 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
-                    Customer_PerfumeReaction[0] = "Á¦´ë·Î ¸¸µç °Å ¸Â³ª¿ä..?";
-                    Customer_PerfumeReaction[1] = "¾Æ¹« °Íµµ ´À²¸ÁöÁö ¾Ê¾Æ¿ä..";
+                    Customer_PerfumeReaction[0] = "ì œëŒ€ë¡œ ë§Œë“  ê±° ë§ë‚˜ìš”..?";
+                    Customer_PerfumeReaction[1] = "ì•„ë¬´ ê²ƒë„ ëŠê»´ì§€ì§€ ì•Šì•„ìš”..";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -415,8 +415,8 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "ÀÌ°Ç ³»°¡ ¸Ã°í ½ÍÀº ÇâÀÌ ¾Æ´Ï¿¡¿ä..";
-                    Customer_PerfumeReaction[1] = "Á¤¸» ÃÖ¾ÇÀÌ³×¿ä..";
+                    Customer_PerfumeReaction[0] = "ì´ê±´ ë‚´ê°€ ë§¡ê³  ì‹¶ì€ í–¥ì´ ì•„ë‹ˆì—ìš”..";
+                    Customer_PerfumeReaction[1] = "ì •ë§ ìµœì•…ì´ë„¤ìš”..";
 
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
@@ -451,7 +451,7 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "¾àÇÔ";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ì•½í•¨";
 
             Customer_Flavoring[0] = "";
             Customer_Flavoring[1] = "";
@@ -465,7 +465,7 @@ public class ThirdDialogueScript : MonoBehaviour
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
@@ -498,9 +498,9 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -549,7 +549,7 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "¾àÇÔ";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ì•½í•¨";
 
             Customer_Flavoring[0] = "";
             Customer_Flavoring[1] = "";
@@ -563,7 +563,7 @@ public class ThirdDialogueScript : MonoBehaviour
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
@@ -596,9 +596,9 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -647,7 +647,7 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "¾àÇÔ";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ì•½í•¨";
 
             Customer_Flavoring[0] = "";
             Customer_Flavoring[1] = "";
@@ -661,7 +661,7 @@ public class ThirdDialogueScript : MonoBehaviour
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
@@ -694,9 +694,9 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -745,7 +745,7 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "¾àÇÔ";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ì•½í•¨";
 
             Customer_Flavoring[0] = "";
             Customer_Flavoring[1] = "";
@@ -759,7 +759,7 @@ public class ThirdDialogueScript : MonoBehaviour
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
@@ -792,9 +792,9 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";
@@ -843,7 +843,7 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 Customer_IntensityOrder[i] = "";
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "¾àÇÔ";
+            Distiller.GetComponent<Distiller>().DistillerStatus = "ì•½í•¨";
 
             Customer_Flavoring[0] = "";
             Customer_Flavoring[1] = "";
@@ -857,7 +857,7 @@ public class ThirdDialogueScript : MonoBehaviour
                 Customer_RejectReaction[i] = "";
             }
 
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
@@ -890,9 +890,9 @@ public class ThirdDialogueScript : MonoBehaviour
                     }
                 }
             }
-            else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+            else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
             {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                 {
                     Customer_PerfumeReaction[0] = "";
                     Customer_PerfumeReaction[1] = "";

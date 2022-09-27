@@ -12,7 +12,7 @@ public class DialogueSystem : MonoBehaviour
     public TextMeshProUGUI BuyerDialogue;
     public TextMeshProUGUI SellerDialogue;
 
-    Queue<string> Buyersentences = new Queue<string>();//¹®ÀåÀÌ ¼øÂ÷ÀûÀ¸·Î ³ª¿Í¾ß ÇÏ¹Ç·Î Å¥ »ç¿ë
+    Queue<string> Buyersentences = new Queue<string>();//ë¬¸ì¥ì´ ìˆœì°¨ì ìœ¼ë¡œ ë‚˜ì™€ì•¼ í•˜ë¯€ë¡œ í ì‚¬ìš©
 
     public void Begin(Dialogue info)
     {

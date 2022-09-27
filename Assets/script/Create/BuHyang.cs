@@ -7,7 +7,7 @@ public class BuHyang : MonoBehaviour
     public GameObject SliderCursor;
     public GameObject BarCursor;
 
-    // Á¦Á¶ °á°ú
+    // ì œì¡° ê²°ê³¼
     public GameObject Desk;
     public GameObject TotalScore;
 
@@ -25,7 +25,7 @@ public class BuHyang : MonoBehaviour
     float failDecreaseValue = -6.0f;
     float greatFailDecreaseValue = -10.0f;
     
-    // ¼º°ø ¿µ¿ª
+    // ì„±ê³µ ì˜ì—­
     float bound = 140.0f;
     float successOffset = 90.0f;
     float successLength = 100.0f;
@@ -54,7 +54,7 @@ public class BuHyang : MonoBehaviour
         
         float sliderCursorXpos = SliderCursor.transform.localPosition.x;
 
-        // ¹üÀ§ ¹þ¾î³ª¸é ¹æÇâ ÀüÈ¯
+        // ë²”ìœ„ ë²—ì–´ë‚˜ë©´ ë°©í–¥ ì „í™˜
         if (sliderCursorXpos > bound || sliderCursorXpos < -bound)
         {
             sliderCursorDir *= -1;
@@ -67,30 +67,30 @@ public class BuHyang : MonoBehaviour
             float leftGreatSuccessBound = leftSuccessBound + (successLength / 2.0f) - (greatSuccessLength / 2.0f);
             float rightGreatSuccessBound = leftGreatSuccessBound + greatSuccessLength;
 
-            // °Ë»ç
+            // ê²€ì‚¬
             if (sliderCursorXpos >= leftSuccessBound && sliderCursorXpos <= rightSuccessBound)
             {
-                // ´ë¼º°ø
+                // ëŒ€ì„±ê³µ
                 if(sliderCursorXpos >= leftGreatSuccessBound && sliderCursorXpos <= rightGreatSuccessBound)
                 {
                     AddBuHyangValue(greatSuccessIncreaseValue);
-                    Debug.Log("´ë¼º°ø!");
+                    Debug.Log("ëŒ€ì„±ê³µ!");
                 }
-                // ¼º°ø
+                // ì„±ê³µ
                 else
                 {
                     AddBuHyangValue(successIncreaseValue);
-                    Debug.Log("¼º°ø");
+                    Debug.Log("ì„±ê³µ");
                 }
             }
-            // ½ÇÆÐ
+            // ì‹¤íŒ¨
             else
             {
                 AddBuHyangValue(failDecreaseValue);
-                Debug.Log("½ÇÆÐ");
+                Debug.Log("ì‹¤íŒ¨");
             }
             
-            // ´ë½ÇÆÐ?
+            // ëŒ€ì‹¤íŒ¨?
             buHyangCnt += 1;
             
             if (buHyangMaxCnt == buHyangCnt)

@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     {
         time += Time.deltaTime;
         TotalScore.FindObjectOfType<TotalScore>().totalTime = Mathf.Round(time);
-        //Debug.Log("½Ã°£ : " + Mathf.Round(time));
+        //Debug.Log("ì‹œê°„ : " + Mathf.Round(time));
     }
 
     public void TimerStop()

@@ -31,7 +31,7 @@ public class Slot : MonoBehaviour
             gameObject.name = item.name;
             image.sprite = item.sprite;
             itemPrice.text = item.itemPrice.ToString();
-            //itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "°³ º¸À¯";
+            //itemCount.gameObject.GetComponent<Text>().text = item.itemCount.ToString() + "ê°œ ë³´ìœ ";
         }
     }
 
@@ -51,25 +51,25 @@ public class Slot : MonoBehaviour
             gameObject.name = item.name;
             image.sprite = item.sprite;
             //Debug.Log("ss");
-            itemCount.text = item.itemCount.ToString() + "°³ º¸À¯";
-            itemName.text = item.name + "Çâ·á";
+            itemCount.text = item.itemCount.ToString() + "ê°œ ë³´ìœ ";
+            itemName.text = item.name + "í–¥ë£Œ";
         }
     }
 
-    public void ItemClick(Slot ClickedSlot)//½½·Ô ¾ÆÀÌÅÛ Å¬¸¯ °æ¿ì
+    public void ItemClick(Slot ClickedSlot)//ìŠ¬ë¡¯ ì•„ì´í…œ í´ë¦­ ê²½ìš°
     {
         GameObject.Find("Inventory").transform.position = new Vector3(1038, 3000, 0);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        //Å¬¸¯ÇÑ ¾ÆÀÌÅÛÀÌ È­¸é¿¡ º¸¿©Áü.
+        //í´ë¦­í•œ ì•„ì´í…œì´ í™”ë©´ì— ë³´ì—¬ì§.
         Color color = GameObject.Find("ClickedItem").GetComponent<Image>().color;
         color.a = 255;
-        GameObject.Find("ClickedItem").GetComponent<Image>().color = color;//Å¬¸¯ÇÑ ¾ÆÀÌÅÛ Åõ¸íµµ 0ÀÌ¾ú´Ù°¡ º¸¿©Á®¾ß ÇÏ´Ï±î 255·Î º¯°æ
+        GameObject.Find("ClickedItem").GetComponent<Image>().color = color;//í´ë¦­í•œ ì•„ì´í…œ íˆ¬ëª…ë„ 0ì´ì—ˆë‹¤ê°€ ë³´ì—¬ì ¸ì•¼ í•˜ë‹ˆê¹Œ 255ë¡œ ë³€ê²½
         GameObject.Find("ClickedItem").GetComponent<Image>().sprite = this.image.sprite;
 
         GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
         GameObject.Find("Presser").GetComponent<Button>().interactable = true;
         GameObject.Find("Cooler").GetComponent<Button>().interactable = true;
-        if (ClickedSlot.item.itemType == "Base")//Áõ·ù±â ½ÇÇà
+        if (ClickedSlot.item.itemType == "Base")//ì¦ë¥˜ê¸° ì‹¤í–‰
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
@@ -77,20 +77,20 @@ public class Slot : MonoBehaviour
             GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
             GameObject.Find("Manufacture").transform.GetChild(7).GetComponent<Distiller>().DistillerOn(ClickedItem);
-            Debug.Log("Áõ·ù±â ½ÃÀÛ");
+            Debug.Log("ì¦ë¥˜ê¸° ì‹œì‘");
         }
 
-        else if (item.itemType == "Middle")//¾ĞÂø±â ½ÇÇà
+        else if (item.itemType == "Middle")//ì••ì°©ê¸° ì‹¤í–‰
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
             GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
-            Debug.Log("¾ĞÂø±â ½ÃÀÛ");
+            Debug.Log("ì••ì°©ê¸° ì‹œì‘");
             GameObject.Find("Presser").GetComponent<Presser>().GetComponent<Button>().interactable = true;
             GameObject.Find("Presser").GetComponent<Presser>().PresserOn(ClickedItem);
         }
-        else if (item.itemType == "Top")//³ÃÄ§±â ½ÇÇà
+        else if (item.itemType == "Top")//ëƒ‰ì¹¨ê¸° ì‹¤í–‰
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
@@ -98,16 +98,16 @@ public class Slot : MonoBehaviour
             GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Cooler").GetComponent<Cooler>().GetComponent<Button>().interactable = true;
             GameObject.Find("Cooler").GetComponent<Cooler>().CoolerOn(ClickedItem);
-            Debug.Log("³ÃÄ§±â ½ÃÀÛ");
+            Debug.Log("ëƒ‰ì¹¨ê¸° ì‹œì‘");
         }
         else
-            Debug.Log("¿À·ù");
+            Debug.Log("ì˜¤ë¥˜");
 
-        //Å¬¸¯ ¾ÆÀÌÅÛ ¼ıÀÚ ÇÏ³ª ÁÙ¾îµê. -> 0ÀÏ °æ¿ì¿¡ ½½·Ô »èÁ¦µÇµµ·Ï ¼³Á¤.
+        //í´ë¦­ ì•„ì´í…œ ìˆ«ì í•˜ë‚˜ ì¤„ì–´ë“¦. -> 0ì¼ ê²½ìš°ì— ìŠ¬ë¡¯ ì‚­ì œë˜ë„ë¡ ì„¤ì •.
         if (ClickedSlot.item.InvenItemNum >= 1)
         {
             ClickedSlot.item.InvenItemNum -= 1;
-            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ClickedSlot.item.InvenItemNum.ToString() + "°³ ³²À½";
+            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ClickedSlot.item.InvenItemNum.ToString() + "ê°œ ë‚¨ìŒ";
             if (ClickedSlot.item.InvenItemNum == 0)
             {
                 ClickedSlot.itemName.text = "";
@@ -123,14 +123,14 @@ public class Slot : MonoBehaviour
         if (this.item != null && this.tag != "InvenSlot")
         {
             //Debug.Log("s");
-            itemCount.text = item.itemCount.ToString() + "°³ º¸À¯";
+            itemCount.text = item.itemCount.ToString() + "ê°œ ë³´ìœ ";
             if (item.itemCount <= 0)
             {
                 this.itemPrice.text = "0";
                 this.GetComponent<UnityEngine.UI.Button>().interactable = false;
-                itemCount.text = "ÆÇ¸Å ¿Ï·á";
+                itemCount.text = "íŒë§¤ ì™„ë£Œ";
             }
-            /*if (FindObjectOfType<DeskTouch>().isDeskUp == true)// µ¥½ºÅ©°¡ ¿Ã¶ó¿Â °æ¿ì(¾ÆÀÌÅÛ Á¦Á¶ ½ÃÀÛ °æ¿ì)¿¡¸¸ ÀÎº¥ ¾ÆÀÌÅÛ Å¬¸¯ °¡´É »óÅÂ·Î ¸¸µê.
+            /*if (FindObjectOfType<DeskTouch>().isDeskUp == true)// ë°ìŠ¤í¬ê°€ ì˜¬ë¼ì˜¨ ê²½ìš°(ì•„ì´í…œ ì œì¡° ì‹œì‘ ê²½ìš°)ì—ë§Œ ì¸ë²¤ ì•„ì´í…œ í´ë¦­ ê°€ëŠ¥ ìƒíƒœë¡œ ë§Œë“¦.
             {
                 this.gameObject.GetComponent<Button>().interactable = true;
             }*/

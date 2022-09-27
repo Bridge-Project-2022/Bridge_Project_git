@@ -29,12 +29,12 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public GameObject arrow;
 
-    public int rejectCnt = 0;//°ÅÀı È½¼ö -> ÆòÆÇ ¿µÇâ, ÀÏÂ÷ Áö³¯ ¶§ ¸¶´Ù ¸®¼ÂµÇ¾î¾ß ÇÔ.
+    public int rejectCnt = 0;//ê±°ì ˆ íšŸìˆ˜ -> í‰íŒ ì˜í–¥, ì¼ì°¨ ì§€ë‚  ë•Œ ë§ˆë‹¤ ë¦¬ì…‹ë˜ì–´ì•¼ í•¨.
 
     int C_1_random;
     int C_2_random;
 
-    public string[] SellerSentences = new string[2];// À¯Àú ´ëÈ­ ¹è¿­
+    public string[] SellerSentences = new string[2];// ìœ ì € ëŒ€í™” ë°°ì—´
 
     ThirdDialogueScript DS;
 
@@ -127,7 +127,7 @@ public class ThirdDialogueRandom : MonoBehaviour
 
             if (BuyerOrder[ACount] == "")
             {
-                //Debug.Log("A³¡³²");
+                //Debug.Log("Aëë‚¨");
                 isSelectStart = true;
                 Buyer.gameObject.GetComponent<Button>().interactable = false;
                 ACount = 0;
@@ -142,7 +142,7 @@ public class ThirdDialogueRandom : MonoBehaviour
 
             if (BuyerIntensity[D1Count] == "")
             {
-                //Debug.Log("D1³¡³²");
+                //Debug.Log("D1ëë‚¨");
                 isArrowStart = true;
                 Buyer.gameObject.GetComponent<Button>().interactable = false;
                 D1Count = 0;
@@ -157,7 +157,7 @@ public class ThirdDialogueRandom : MonoBehaviour
 
             if (BuyerRejectReaction[D2Count] == "")
             {
-                //Debug.Log("D2³¡³²");
+                //Debug.Log("D2ëë‚¨");
                 D2Count = 0;
                 D2Start = false;
                 Invoke("End", 2f);
@@ -171,7 +171,7 @@ public class ThirdDialogueRandom : MonoBehaviour
 
             if (BuyerPerfumeReaction[ECount] == "")
             {
-                //Debug.Log("E³¡³²");
+                //Debug.Log("Eëë‚¨");
                 ECount = 0;
                 EStart = false;
                 Invoke("End", 2f);
@@ -179,7 +179,7 @@ public class ThirdDialogueRandom : MonoBehaviour
         }
     }
 
-    public void A_Start()//¼Õ´Ô : ÀÔÀå, Çâ¼ö ±¸¸Å ÀÌÀ¯ Á¦½Ã
+    public void A_Start()//ì†ë‹˜ : ì…ì¥, í–¥ìˆ˜ êµ¬ë§¤ ì´ìœ  ì œì‹œ
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
         Customer.gameObject.SetActive(true);
@@ -190,7 +190,7 @@ public class ThirdDialogueRandom : MonoBehaviour
         NextDialogue();
     }
 
-    public void C_1_Start()// À¯Àú : ½Â³« - Çâ ¼¼±â Áú¹®
+    public void C_1_Start()// ìœ ì € : ìŠ¹ë‚™ - í–¥ ì„¸ê¸° ì§ˆë¬¸
     {
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
@@ -204,7 +204,7 @@ public class ThirdDialogueRandom : MonoBehaviour
         Invoke("D_1_Start", 0.3f);
     }
 
-    public void C_2_Start()//À¯Àú : °ÅºÎ - °ÅºÎ ÀÌÀ¯ Á¦½Ã
+    public void C_2_Start()//ìœ ì € : ê±°ë¶€ - ê±°ë¶€ ì´ìœ  ì œì‹œ
     {
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
@@ -240,7 +240,7 @@ public class ThirdDialogueRandom : MonoBehaviour
         Invoke("D_2_Start", 0.3f);
     }
 
-    public void D_1_Start()//¼Õ´Ô : ½Â³« - Çâ ¼¼±â °áÁ¤
+    public void D_1_Start()//ì†ë‹˜ : ìŠ¹ë‚™ - í–¥ ì„¸ê¸° ê²°ì •
     {
         Buyer.gameObject.SetActive(true);
         //Seller.gameObject.SetActive(false);
@@ -250,7 +250,7 @@ public class ThirdDialogueRandom : MonoBehaviour
         NextDialogue();
     }
 
-    public void D_2_Start()// ¼Õ´Ô : °ÅºÎ - ºÒ¸¸ Ç¥Ãâ
+    public void D_2_Start()// ì†ë‹˜ : ê±°ë¶€ - ë¶ˆë§Œ í‘œì¶œ
     {
         //Seller.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(true);
@@ -261,7 +261,7 @@ public class ThirdDialogueRandom : MonoBehaviour
     }
 
 
-    public void E_1_Start()//¼Õ´Ô : Çâ¼ö ¹Ş°í ¹İÀÀ
+    public void E_1_Start()//ì†ë‹˜ : í–¥ìˆ˜ ë°›ê³  ë°˜ì‘
     {
         isArrowStart = false;
         EStart = true;
@@ -286,25 +286,25 @@ public class ThirdDialogueRandom : MonoBehaviour
 
         if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9)
         {
-            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//¼Õ´Ô 3¸í °¡°í ³ª¼­ Á¡½ÉÀ¸·Î ¹Ù²ñ
+            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//ì†ë‹˜ 3ëª… ê°€ê³  ë‚˜ì„œ ì ì‹¬ìœ¼ë¡œ ë°”ë€œ
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
             }
-            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//¼Õ´Ô 6¸í °¡°í ³ª¼­ Àú³áÀ¸·Î ¹Ù²ñ
+            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//ì†ë‹˜ 6ëª… ê°€ê³  ë‚˜ì„œ ì €ë…ìœ¼ë¡œ ë°”ë€œ
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
             }
 
-            Invoke("A_Start", 5f);//¼Õ´Ô °¡°í 5ÃÊ µÚ¿¡ ´ÙÀ½ ¼Õ´Ô µîÀå. ÀÎ°ÔÀÓ ½Ã°£ º¸°í Ãß°¡ Á¶°Ç¹® ´Ş¾Æ¾ß ÇÔ
+            Invoke("A_Start", 5f);//ì†ë‹˜ ê°€ê³  5ì´ˆ ë’¤ì— ë‹¤ìŒ ì†ë‹˜ ë“±ì¥. ì¸ê²Œì„ ì‹œê°„ ë³´ê³  ì¶”ê°€ ì¡°ê±´ë¬¸ ë‹¬ì•„ì•¼ í•¨
         }
 
 
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9)//¼Õ´Ô 9¸í °¡°í ³ª¼­ ÃÖÁ¾ Ã¢ÀÌ ¶ä.
+        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9)//ì†ë‹˜ 9ëª… ê°€ê³  ë‚˜ì„œ ìµœì¢… ì°½ì´ ëœ¸.
         {
             Invoke("DailyWindowOpen", 3f);
         }
@@ -314,7 +314,7 @@ public class ThirdDialogueRandom : MonoBehaviour
     {
         DailyResult.gameObject.SetActive(true);
     }
-    IEnumerator NormalChat(string narration)// Å¸ÀÌÇÎ È¿°ú -> ¿©±â¼­ ÇâÀÇ ¼¼±â¿¡ µû¸¥ Áõ·ù±â ·ÎÁ÷ °áÁ¤ °¡´É
+    IEnumerator NormalChat(string narration)// íƒ€ì´í•‘ íš¨ê³¼ -> ì—¬ê¸°ì„œ í–¥ì˜ ì„¸ê¸°ì— ë”°ë¥¸ ì¦ë¥˜ê¸° ë¡œì§ ê²°ì • ê°€ëŠ¥
     {
         string writerText = "";
         GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
@@ -338,7 +338,7 @@ public class ThirdDialogueRandom : MonoBehaviour
     IEnumerator Count(float target, float current)
 
     {
-        float duration = 0.5f; // Ä«¿îÆÃ¿¡ °É¸®´Â ½Ã°£ ¼³Á¤. 
+        float duration = 0.5f; // ì¹´ìš´íŒ…ì— ê±¸ë¦¬ëŠ” ì‹œê°„ ì„¤ì •. 
 
         float offset = (target - current) / duration; // 
 

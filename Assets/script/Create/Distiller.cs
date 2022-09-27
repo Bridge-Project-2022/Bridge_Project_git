@@ -22,9 +22,9 @@ public class Distiller : MonoBehaviour
     int temperature = 0;
     int maxTemperature = 135;
 
-    public float HighTemperDuration = 0.0f;//Çâ¼ö Áö¼Ó ½Ã°£
-    public float TemperDuration = 0.0f;//Çâ¼ö Áö¼Ó ½Ã°£
-    public float LowTemperDuration = 0.0f;//Çâ¼ö Áö¼Ó ½Ã°£
+    public float HighTemperDuration = 0.0f;//í–¥ìˆ˜ ì§€ì† ì‹œê°„
+    public float TemperDuration = 0.0f;//í–¥ìˆ˜ ì§€ì† ì‹œê°„
+    public float LowTemperDuration = 0.0f;//í–¥ìˆ˜ ì§€ì† ì‹œê°„
     
     float maxTemperDuration = 0.0f;
     float minTemperDuration = 0.0f;
@@ -33,7 +33,7 @@ public class Distiller : MonoBehaviour
     public bool DistillNormal;
     public bool DistillBad;
 
-    public string BaseItemName = ""; //¼Õ´ÔÀÌ ¿ä±¸ÇÏ´Â º£ÀÌ½º Çâ·á ÀÌ¸§
+    public string BaseItemName = ""; //ì†ë‹˜ì´ ìš”êµ¬í•˜ëŠ” ë² ì´ìŠ¤ í–¥ë£Œ ì´ë¦„
 
     public Animator Anim;
 
@@ -57,12 +57,12 @@ public class Distiller : MonoBehaviour
 public void DistillerOn(ItemProperty item)
     {
         Receipt.gameObject.SetActive(false);
-        //this.gameObject.GetComponent<Button>().interactable = true;//Áõ·ù±â ¹öÆ° Å¬¸¯ °¡´ÉÇØÁü.
+        //this.gameObject.GetComponent<Button>().interactable = true;//ì¦ë¥˜ê¸° ë²„íŠ¼ í´ë¦­ ê°€ëŠ¥í•´ì§.
         ClickedItem = item;
         itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
         if (ClickedItem.name == BaseItemName)
         {
-            Debug.Log("º£ÀÌ½º Çâ·á ¸ÂÀ½");
+            Debug.Log("ë² ì´ìŠ¤ í–¥ë£Œ ë§ìŒ");
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
@@ -112,9 +112,9 @@ public void DistillerOn(ItemProperty item)
         }
 
         float curTemper = temperatureSlider.GetComponent<Slider>().value;
-        if (isWickDown)//Áõ·ù±â´©¸¦ °æ¿ì
+        if (isWickDown)//ì¦ë¥˜ê¸°ëˆ„ë¥¼ ê²½ìš°
         {
-            temperatureSlider.GetComponent<Slider>().value += 0.3f;//´©¸¦ ¶§ ¸¶´Ù ½½¶óÀÌ´õ 1¾¿ Áõ°¡
+            temperatureSlider.GetComponent<Slider>().value += 0.3f;//ëˆ„ë¥¼ ë•Œ ë§ˆë‹¤ ìŠ¬ë¼ì´ë” 1ì”© ì¦ê°€
 
             if (curTemper >= 91 && curTemper <= 134)
             {
@@ -124,11 +124,11 @@ public void DistillerOn(ItemProperty item)
                 isLow = false;
                 TemperDuration = 0;
                 LowTemperDuration = 0;
-                //Debug.Log("°­ºÒ·Î ¹Ù²ñ");
+                //Debug.Log("ê°•ë¶ˆë¡œ ë°”ë€œ");
                 Anim.SetBool("isHigh", true);
                 Anim.SetBool("isNormal", false);
                 Anim.SetBool("isLow", false);
-                if (DistillerStatus == "°­ÇÔ")
+                if (DistillerStatus == "ê°•í•¨")
                 {
                     if (HighTemperDuration >= 4f)
                     {
@@ -156,13 +156,13 @@ public void DistillerOn(ItemProperty item)
                     DistillBad = true;
                 }
             }
-            if (curTemper >= 135)//ÇöÀç ¿Âµµ°¡ 135º¸´Ù Å©¸é
+            if (curTemper >= 135)//í˜„ì¬ ì˜¨ë„ê°€ 135ë³´ë‹¤ í¬ë©´
             {
-                maxTemperDuration *= Time.deltaTime;// ÃÖ´ë Áö¼Ó ½Ã°£ ÃÊ´ç ´Ã¾î³²
+                maxTemperDuration *= Time.deltaTime;// ìµœëŒ€ ì§€ì† ì‹œê°„ ì´ˆë‹¹ ëŠ˜ì–´ë‚¨
 
-                if (maxTemperDuration > 1.5f)// ÃÖ´ë Áö¼Ó ½Ã°£ 1.5º¸´Ù Å©¸é
+                if (maxTemperDuration > 1.5f)// ìµœëŒ€ ì§€ì† ì‹œê°„ 1.5ë³´ë‹¤ í¬ë©´
                 {
-                    Debug.Log("Å¸¹ö¸²");
+                    Debug.Log("íƒ€ë²„ë¦¼");
                     //itemImage.GetComponent<Image>().color = new Color(1, 0, 0); 
                     //clickedItem.GetComponent<Image>().color = new Color(1, 0, 0);
                     EndDistiller();
@@ -178,12 +178,12 @@ public void DistillerOn(ItemProperty item)
                 isMiddle = true;
                 isLow = false;
                 //TemperDuration += 0.01f;
-                //Debug.Log("ÁßºÒ·Î ¹Ù²ñ");
+                //Debug.Log("ì¤‘ë¶ˆë¡œ ë°”ë€œ");
                 Anim.SetBool("isHigh", false);
                 Anim.SetBool("isNormal", true);
                 Anim.SetBool("isLow", false);
 
-                if (DistillerStatus == "º¸Åë")
+                if (DistillerStatus == "ë³´í†µ")
                 {
                     if (TemperDuration >= 4f)
                     {
@@ -220,7 +220,7 @@ public void DistillerOn(ItemProperty item)
                 TemperDuration = 0;
                 HighTemperDuration = 0;
                 LowTemperDuration += 0.01f;
-                //Debug.Log("¾àºÒ·Î ¹Ù²ñ");
+                //Debug.Log("ì•½ë¶ˆë¡œ ë°”ë€œ");
                 isHigh = false;
                 isMiddle = false;
                 isLow = true;
@@ -228,7 +228,7 @@ public void DistillerOn(ItemProperty item)
                 Anim.SetBool("isNormal", false);
                 Anim.SetBool("isLow", true);
 
-                if (DistillerStatus == "¾àÇÔ")
+                if (DistillerStatus == "ì•½í•¨")
                 {
                     if (LowTemperDuration >= 4f)
                     {
@@ -283,70 +283,70 @@ public void DistillerOn(ItemProperty item)
 
     public void DistillerResult()
     {
-        if (DistillerStatus == "°­ÇÔ")
+        if (DistillerStatus == "ê°•í•¨")
         {
             if (DistillGood == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("Áõ·ù ÀßµÊ");
+                Debug.Log("ì¦ë¥˜ ì˜ë¨");
             }
             else if (DistillNormal == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("Áõ·ù º¸Åë");
+                Debug.Log("ì¦ë¥˜ ë³´í†µ");
             }
             else
             {
                 TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("Áõ·ù ¾ÈµÊ");
+                Debug.Log("ì¦ë¥˜ ì•ˆë¨");
             }
         }
 
-        else if (DistillerStatus == "º¸Åë")
+        else if (DistillerStatus == "ë³´í†µ")
         {
             if (DistillGood == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("Áõ·ù ÀßµÊ");
+                Debug.Log("ì¦ë¥˜ ì˜ë¨");
             }
             else if (DistillNormal == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("Áõ·ù º¸Åë");
+                Debug.Log("ì¦ë¥˜ ë³´í†µ");
             }
             else
             {
                 TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("Áõ·ù ¾ÈµÊ");
+                Debug.Log("ì¦ë¥˜ ì•ˆë¨");
             }
         }
 
-        else if (DistillerStatus == "¾àÇÔ")
+        else if (DistillerStatus == "ì•½í•¨")
         {
             if (DistillGood == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("Áõ·ù ÀßµÊ");
+                Debug.Log("ì¦ë¥˜ ì˜ë¨");
             }
             else if (DistillNormal == true)
             {
                 DistillBad = false;
                 TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("Áõ·ù º¸Åë");
+                Debug.Log("ì¦ë¥˜ ë³´í†µ");
             }
             else
             {
                 TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("Áõ·ù ¾ÈµÊ");
+                Debug.Log("ì¦ë¥˜ ì•ˆë¨");
             }
         }
 
-        /*else if (DistillerStatus == "¾Æ¹«°Å³ª")
+        /*else if (DistillerStatus == "ì•„ë¬´ê±°ë‚˜")
         {
             if (DistillGood == true)
             {

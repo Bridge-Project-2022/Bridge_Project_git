@@ -9,9 +9,9 @@ public class Cooler : MonoBehaviour
 
     public ItemProperty ClickedItem;
 
-    public GameObject CoolerOne;//³ÃÄ§ ¾ÆÀÌÅÛ 1
-    public GameObject CoolerTwo;// ³ÃÄ§ ¾ÆÀÌÅÛ 2
-    public GameObject CoolerThree;// ³ÃÄ§ ¾ÆÀÌÅÛ 3
+    public GameObject CoolerOne;//ëƒ‰ì¹¨ ì•„ì´í…œ 1
+    public GameObject CoolerTwo;// ëƒ‰ì¹¨ ì•„ì´í…œ 2
+    public GameObject CoolerThree;// ëƒ‰ì¹¨ ì•„ì´í…œ 3
 
     public GameObject Particle1;
     public GameObject Particle2;
@@ -19,13 +19,13 @@ public class Cooler : MonoBehaviour
 
     public GameObject topInvenSlots;
 
-    public string TopItemName;//¼Õ´ÔÀÌ ¿ä±¸ÇÏ´Â Å¾ Çâ·á ÀÌ¸§
+    public string TopItemName;//ì†ë‹˜ì´ ìš”êµ¬í•˜ëŠ” íƒ‘ í–¥ë£Œ ì´ë¦„
 
     int ResultCount = 0;
     int goodCount;
 
     public Sprite[] ItemSprites = new Sprite[4];
-    public Sprite[] ItemBurnSprites = new Sprite[1];//Åº ¾ÆÀÌÅÛ ÀÌ¹ÌÁö ¹è¿­
+    public Sprite[] ItemBurnSprites = new Sprite[1];//íƒ„ ì•„ì´í…œ ì´ë¯¸ì§€ ë°°ì—´
 
     public GameObject Receipt;
     public void Start()
@@ -34,22 +34,22 @@ public class Cooler : MonoBehaviour
     }
     public void CoolerOn(ItemProperty item)
     {
-        this.gameObject.GetComponent<Button>().interactable = true;//³ÃÄ§±â ¹öÆ° Å¬¸¯ °¡´ÉÇØÁü.
+        this.gameObject.GetComponent<Button>().interactable = true;//ëƒ‰ì¹¨ê¸° ë²„íŠ¼ í´ë¦­ ê°€ëŠ¥í•´ì§.
         ClickedItem = item;
         Color color = CoolerOne.gameObject.GetComponent<Image>().color;
         color.a = 255;
-        CoolerOne.gameObject.GetComponent<Image>().color = color;//¾ÆÀÌÅÛ Á¦°Å
+        CoolerOne.gameObject.GetComponent<Image>().color = color;//ì•„ì´í…œ ì œê±°
 
         Color color2 = CoolerTwo.gameObject.GetComponent<Image>().color;
         color2.a = 255;
-        CoolerTwo.gameObject.GetComponent<Image>().color = color2;//¾ÆÀÌÅÛ Á¦°Å
+        CoolerTwo.gameObject.GetComponent<Image>().color = color2;//ì•„ì´í…œ ì œê±°
 
         Color color3 = CoolerThree.gameObject.GetComponent<Image>().color;
         color3.a = 255;
-        CoolerThree.gameObject.GetComponent<Image>().color = color3;//¾ÆÀÌÅÛ Á¦°Å
+        CoolerThree.gameObject.GetComponent<Image>().color = color3;//ì•„ì´í…œ ì œê±°
         if (ClickedItem.name == TopItemName)
         {
-            Debug.Log("Å¾ Çâ·á ¸ÂÀ½");
+            Debug.Log("íƒ‘ í–¥ë£Œ ë§ìŒ");
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
@@ -66,90 +66,90 @@ public class Cooler : MonoBehaviour
         //Debug.Log(ClickedItem.name);
     }
 
-    public void CoolerStart()//³ÃÄ§±â ÀÚ¼¼È÷ º¸¿©Áö°í ±â´É ½ÃÀÛ. 
+    public void CoolerStart()//ëƒ‰ì¹¨ê¸° ìì„¸íˆ ë³´ì—¬ì§€ê³  ê¸°ëŠ¥ ì‹œì‘. 
     {
         Receipt.gameObject.SetActive(false);
         CoolerDetail.gameObject.SetActive(true);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         //GameObject.Find("Desk").GetComponent<Button>().interactable = false;
 
-        if (ClickedItem.name == "±â»İ")
+        if (ClickedItem.name == "ê¸°ì¨")
         {
             CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[0];
             CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[0];
             CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[0];
         }
-        if (ClickedItem.name == "»ç¶û")
+        if (ClickedItem.name == "ì‚¬ë‘")
         {
             CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[1];
             CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[1];
             CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[1];
         }
-        if (ClickedItem.name == "½½ÇÄ")
+        if (ClickedItem.name == "ìŠ¬í””")
         {
             CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[2];
             CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[2];
             CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[2];
         }
-        if (ClickedItem.name == "Çàº¹")
+        if (ClickedItem.name == "í–‰ë³µ")
         {
             CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
             CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
             CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
         }
-        // ¼±ÅÃÇÑ Å¾ ¾ÆÀÌÅÛ ³ÃÄ§ 123¿¡ ¼¼ÆÃ ¿Ï·á
+        // ì„ íƒí•œ íƒ‘ ì•„ì´í…œ ëƒ‰ì¹¨ 123ì— ì„¸íŒ… ì™„ë£Œ
         Invoke("Cooling", 3.5f);
     }
 
     public void Cooling()
     {
-        if (ClickedItem.name.Equals("Çàº¹"))
+        if (ClickedItem.name.Equals("í–‰ë³µ"))
         {
             Invoke("ParticleShow", 4f);
             Invoke("BurnItem", 6f);
         }
-        else if (ClickedItem.name.Equals("±â»İ"))
+        else if (ClickedItem.name.Equals("ê¸°ì¨"))
         {
             Invoke("ParticleShow", 2f);
             Invoke("BurnItem", 4f);
         }
-        else if (ClickedItem.name.Equals("»ç¶û"))
+        else if (ClickedItem.name.Equals("ì‚¬ë‘"))
         {
             Invoke("ParticleShow", 4f);
             Invoke("BurnItem", 6f);
         }
-        else if (ClickedItem.name.Equals("½½ÇÄ"))
+        else if (ClickedItem.name.Equals("ìŠ¬í””"))
         {
             Invoke("ParticleShow", 1f);
             Invoke("BurnItem", 3f);
         }
-        else if (ClickedItem.name.Equals("¹Ì¿ò"))
+        else if (ClickedItem.name.Equals("ë¯¸ì›€"))
         {
             Invoke("ParticleShow", 8f);
             Invoke("BurnItem", 10f);
         }
-        else if (ClickedItem.name.Equals("ºÎ²ô·¯¿ò"))
+        else if (ClickedItem.name.Equals("ë¶€ë„ëŸ¬ì›€"))
         {
             Invoke("ParticleShow", 6f);
             Invoke("BurnItem", 8f);
         }
-        else if (ClickedItem.name.Equals("ÁËÃ¥°¨"))
+        else if (ClickedItem.name.Equals("ì£„ì±…ê°"))
         {
             Invoke("ParticleShow", 5f);
             Invoke("BurnItem", 7f);
         }
-        else if (ClickedItem.name.Equals("ÀÇ½É"))
+        else if (ClickedItem.name.Equals("ì˜ì‹¬"))
         {
             Invoke("ParticleShow", 4f);
             Invoke("BurnItem", 6f);
         }
-        else if (ClickedItem.name.Equals("³î¶ó¿ò"))
+        else if (ClickedItem.name.Equals("ë†€ë¼ì›€"))
         {
             Invoke("ParticleShow", 3f);
             Invoke("BurnItem", 5f);
         }
     }
-    public void CoolerClose()//³ÃÄ§±â Á¾·á
+    public void CoolerClose()//ëƒ‰ì¹¨ê¸° ì¢…ë£Œ
     {
         Receipt.gameObject.SetActive(true);
         for (int i = 0; i < topInvenSlots.transform.childCount; i++)
@@ -162,7 +162,7 @@ public class Cooler : MonoBehaviour
 
     }
 
-    public void ParticleShow()//°¢ ÃÊ ÈÄ¿¡ ÆÄÆ¼Å¬ »ı±â°í Å¬¸¯ °¡´ÉÇØÁü.
+    public void ParticleShow()//ê° ì´ˆ í›„ì— íŒŒí‹°í´ ìƒê¸°ê³  í´ë¦­ ê°€ëŠ¥í•´ì§.
     {
         Particle1.gameObject.SetActive(true);
         Particle2.gameObject.SetActive(true);
@@ -177,9 +177,9 @@ public class Cooler : MonoBehaviour
         CoolerThree.gameObject.tag = "good";
     }
 
-    public void BurnItem()//ÆÄÆ¼Å¬ »ı¼º ÈÄ 2ÃÊ µÚ¿¡ ¾ÆÀÌÅÛ Åº ÀÌ¹ÌÁö·Î º¯È¯,
+    public void BurnItem()//íŒŒí‹°í´ ìƒì„± í›„ 2ì´ˆ ë’¤ì— ì•„ì´í…œ íƒ„ ì´ë¯¸ì§€ë¡œ ë³€í™˜,
     {
-        //¿©±â¿¡ ¾ÆÀÌÅÛ ÀÌ¸§º°·Î ´Ù¸£°Ô Åº ÀÌ¹ÌÁö º¯°æÇÏµµ·Ï Á¶°Ç¹® Ãß°¡ÇØ¾ßÇÔ.
+        //ì—¬ê¸°ì— ì•„ì´í…œ ì´ë¦„ë³„ë¡œ ë‹¤ë¥´ê²Œ íƒ„ ì´ë¯¸ì§€ ë³€ê²½í•˜ë„ë¡ ì¡°ê±´ë¬¸ ì¶”ê°€í•´ì•¼í•¨.
 
         Particle1.gameObject.SetActive(false);
         Particle2.gameObject.SetActive(false);
@@ -195,7 +195,7 @@ public class Cooler : MonoBehaviour
 
     }
 
-    public void ItemResult(GameObject itemResult)//¾ÆÀÌÅÛ ¼ö°Å
+    public void ItemResult(GameObject itemResult)//ì•„ì´í…œ ìˆ˜ê±°
     {
         if (itemResult.gameObject.tag == "good")
         {
@@ -218,13 +218,13 @@ public class Cooler : MonoBehaviour
         itemResult.gameObject.GetComponent<Image>().sprite = null;
         Color color = itemResult.gameObject.GetComponent<Image>().color;
         color.a = 0;
-        itemResult.gameObject.GetComponent<Image>().color = color;//¾ÆÀÌÅÛ Á¦°Å
+        itemResult.gameObject.GetComponent<Image>().color = color;//ì•„ì´í…œ ì œê±°
 
 
         if (itemResult.gameObject.tag == "bad")
         {
             goodCount += 0;
-        }//±ÂÀÌ¸é 1 Ãß°¡, ¹èµå¸é 0 Ãß°¡
+        }//êµ¿ì´ë©´ 1 ì¶”ê°€, ë°°ë“œë©´ 0 ì¶”ê°€
 
         ResultCount += 1;
 

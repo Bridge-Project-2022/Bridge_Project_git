@@ -85,7 +85,7 @@ public class CustomerFeel : MonoBehaviour
             }
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -118,9 +118,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "1a";
                         Customer_Feel[1] = "1a";
@@ -188,7 +188,7 @@ public class CustomerFeel : MonoBehaviour
             }
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -221,9 +221,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "2a";
                         Customer_Feel[1] = "2b";
@@ -292,7 +292,7 @@ public class CustomerFeel : MonoBehaviour
             }
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -327,9 +327,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "1c";
                         Customer_Feel[1] = "1c";
@@ -397,7 +397,7 @@ public class CustomerFeel : MonoBehaviour
             }
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -432,9 +432,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "2a";
                         Customer_Feel[1] = "2b";
@@ -506,7 +506,7 @@ public class CustomerFeel : MonoBehaviour
 
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -537,9 +537,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "sad";
                         Customer_Feel[1] = "sad";
@@ -603,7 +603,7 @@ public class CustomerFeel : MonoBehaviour
             }
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -634,9 +634,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "bad";
                         Customer_Feel[1] = "bad";
@@ -707,7 +707,7 @@ public class CustomerFeel : MonoBehaviour
             }
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -741,9 +741,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "bad";
                         Customer_Feel[1] = "bad";
@@ -817,7 +817,7 @@ public class CustomerFeel : MonoBehaviour
 
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -849,9 +849,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "bad";
                         for (int i = 1; i < Customer_Feel.Length; i++)
@@ -913,7 +913,7 @@ public class CustomerFeel : MonoBehaviour
             }
             else if (reactionStart == true)
             {
-                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//º£¹ÌÅ¾ ¸ğµÎ ¿Ã¹Ù¸¥ Çâ·á »ç¿ëÇÑ °æ¿ì -> ÆòÆÇ º¸°í ÆÇ´Ü
+                if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//ë² ë¯¸íƒ‘ ëª¨ë‘ ì˜¬ë°”ë¥¸ í–¥ë£Œ ì‚¬ìš©í•œ ê²½ìš° -> í‰íŒ ë³´ê³  íŒë‹¨
                 {
                     if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                     {
@@ -948,9 +948,9 @@ public class CustomerFeel : MonoBehaviour
                         }
                     }
                 }
-                else//Çâ·á¸¦ ÇÏ³ª¶óµµ ´Ù¸£°Ô »ç¿ëÇÑ °æ¿ì
+                else//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë‹¤ë¥´ê²Œ ì‚¬ìš©í•œ ê²½ìš°
                 {
-                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//Çâ·á¸¦ ÇÏ³ª¶óµµ ³ÖÁö ¾Ê°í ¹Ù·Î Çâ¼ö Á¦Á¶ÇÑ °æ¿ì
+                    if (TotalScore.FindObjectOfType<TotalScore>().UseItem < 3)//í–¥ë£Œë¥¼ í•˜ë‚˜ë¼ë„ ë„£ì§€ ì•Šê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡°í•œ ê²½ìš°
                     {
                         Customer_Feel[0] = "bad";
                         Customer_Feel[1] = "bad";

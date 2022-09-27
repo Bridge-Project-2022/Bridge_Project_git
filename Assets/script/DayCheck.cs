@@ -53,7 +53,7 @@ public class DayCheck : MonoBehaviour
             //GameObject.Find("Trigger").GetComponent<DialogueRandom>().C_1_Start();
             if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1003)
             {
-                Debug.Log("¹üÁËÀÚ Çâ¼ö ÆÇ¸Å");
+                Debug.Log("ë²”ì£„ì í–¥ìˆ˜ íŒë§¤");
             }
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
@@ -83,7 +83,7 @@ public class DayCheck : MonoBehaviour
             }
             if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1003)
             {
-                Debug.Log("¹üÁËÀÚ Çâ¼ö °ÅÀı");
+                Debug.Log("ë²”ì£„ì í–¥ìˆ˜ ê±°ì ˆ");
             }
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)

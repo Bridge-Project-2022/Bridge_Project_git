@@ -6,30 +6,30 @@ using UnityEngine.EventSystems;
 
 public class Presser : MonoBehaviour
 {
-    //1. ¾ĞÂø±â´Â ¹Ìµé Çâ·á¸¸ °¡´É, Àü¿ø Å°¸é º¯¼ö trueµÇ°í »¡ -> ÃÊ·Î ¹Ù²î°í ½ÇÇà °¡´É
-    //2. ¼ÕÀâÀÌ À§ ¾Æ·¡·Î ¿òÁ÷ÀÏ ¼ö ÀÖÀ½.
-    //3. ¾ĞÂø Ä«¿îÆ® º¯¼ö »ı¼º, ¼ÕÀâÀÌ À§¿¡¼­ ¾Æ·¡·Î ³»·Á°¡¼­ ¹Ù´Ú¿¡ ´êÀ» ¶§ Àç·á Àá½Ã ¾Èº¸¿´´Ù°¡ ¿Ã¸®¸é Àç·á »¨¾ÆÁø °ÍÀ¸·Î Á¡Á¡ º¯°æ
-    //4. ¾ĞÂøÀº Çâ·á º°·Î È½¼ö°¡ ´Ù¸§.
-    //5. Çâ·á´Â ¾ĞÂø È½¼ö »ó°ü ¾øÀÌ ¾ğÁ¦µç ÇÈ¾÷ÇÒ ¼ö ÀÖÀ½.»óÅÂ¿¡ µû¶ó ±Â ³ë¸Ö ¹èµå ÃøÁ¤. Ä«¿îÆ®µÊ.
+    //1. ì••ì°©ê¸°ëŠ” ë¯¸ë“¤ í–¥ë£Œë§Œ ê°€ëŠ¥, ì „ì› í‚¤ë©´ ë³€ìˆ˜ trueë˜ê³  ë¹¨ -> ì´ˆë¡œ ë°”ë€Œê³  ì‹¤í–‰ ê°€ëŠ¥
+    //2. ì†ì¡ì´ ìœ„ ì•„ë˜ë¡œ ì›€ì§ì¼ ìˆ˜ ìˆìŒ.
+    //3. ì••ì°© ì¹´ìš´íŠ¸ ë³€ìˆ˜ ìƒì„±, ì†ì¡ì´ ìœ„ì—ì„œ ì•„ë˜ë¡œ ë‚´ë ¤ê°€ì„œ ë°”ë‹¥ì— ë‹¿ì„ ë•Œ ì¬ë£Œ ì ì‹œ ì•ˆë³´ì˜€ë‹¤ê°€ ì˜¬ë¦¬ë©´ ì¬ë£Œ ë¹»ì•„ì§„ ê²ƒìœ¼ë¡œ ì ì  ë³€ê²½
+    //4. ì••ì°©ì€ í–¥ë£Œ ë³„ë¡œ íšŸìˆ˜ê°€ ë‹¤ë¦„.
+    //5. í–¥ë£ŒëŠ” ì••ì°© íšŸìˆ˜ ìƒê´€ ì—†ì´ ì–¸ì œë“  í”½ì—…í•  ìˆ˜ ìˆìŒ.ìƒíƒœì— ë”°ë¼ êµ¿ ë…¸ë©€ ë°°ë“œ ì¸¡ì •. ì¹´ìš´íŠ¸ë¨.
 
     public GameObject PresserDetail;
     public ItemProperty ClickedItem;
 
-    public GameObject body;// ¾ĞÂø ºÎÇ°ÀÌ ´ê´Â ¹Ù´Ú ºÎÇ°
-    public GameObject handle;// ¾ĞÂø±â ¿òÁ÷ÀÌ´Â ÇÚµé
-    public GameObject button;// ¾ĞÂø±â Àü¿ø ÄÑ°í ²ô´Â ¹öÆ°
-    //public GameObject PressItem;//¾ĞÂø Àç·á
+    public GameObject body;// ì••ì°© ë¶€í’ˆì´ ë‹¿ëŠ” ë°”ë‹¥ ë¶€í’ˆ
+    public GameObject handle;// ì••ì°©ê¸° ì›€ì§ì´ëŠ” í•¸ë“¤
+    public GameObject button;// ì••ì°©ê¸° ì „ì› ì¼œê³  ë„ëŠ” ë²„íŠ¼
+    //public GameObject PressItem;//ì••ì°© ì¬ë£Œ
     public GameObject NotePattern;
 
     public int PressureScore = 0;
     private bool isBtnOn;
     public static bool isHandleUp = true;
     public int PressCount;
-    public bool isEnd = false;//³¡³ª¼­ ¼ö°ÅÇÏ¸é true
+    public bool isEnd = false;//ëë‚˜ì„œ ìˆ˜ê±°í•˜ë©´ true
 
     //int ResultCount = 0;
 
-    public string MiddleItemName; //¼Õ´ÔÀÌ ¿ä±¸ÇÏ´Â ¹Ìµé Çâ·á ÀÌ¸§
+    public string MiddleItemName; //ì†ë‹˜ì´ ìš”êµ¬í•˜ëŠ” ë¯¸ë“¤ í–¥ë£Œ ì´ë¦„
 
     public GameObject middleInvenSlots;
     public GameObject Receipt;
@@ -43,11 +43,11 @@ public class Presser : MonoBehaviour
     public void PresserOn(ItemProperty item)
     {
         Receipt.gameObject.SetActive(false);
-        this.gameObject.GetComponent<Button>().interactable = true;//³ÃÄ§±â ¹öÆ° Å¬¸¯ °¡´ÉÇØÁü.
+        this.gameObject.GetComponent<Button>().interactable = true;//ëƒ‰ì¹¨ê¸° ë²„íŠ¼ í´ë¦­ ê°€ëŠ¥í•´ì§.
         ClickedItem = item;
         if (ClickedItem.name == MiddleItemName)
         {
-            Debug.Log("¹Ìµé Çâ·á ¸ÂÀ½");
+            Debug.Log("ë¯¸ë“¤ í–¥ë£Œ ë§ìŒ");
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
@@ -64,29 +64,29 @@ public class Presser : MonoBehaviour
         //Debug.Log(ClickedItem.name);
     }
 
-    public void PresserShow()//¾ĞÂø±â È­¸é º¸ÀÓ.
+    public void PresserShow()//ì••ì°©ê¸° í™”ë©´ ë³´ì„.
     {
         PresserDetail.gameObject.SetActive(true);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
-        if (MiddleItemName == "°¡Á·")
+        if (MiddleItemName == "ê°€ì¡±")
         {
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("FamilyPattern");
             Invoke("PresserEnd", 8f);
         }
-        if (MiddleItemName == "¿¬ÀÎ")
+        if (MiddleItemName == "ì—°ì¸")
         {
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("LoverPattern");
             Invoke("PresserEnd", 8f);
         }
-        if (MiddleItemName == "¹İ·Áµ¿¹°")
+        if (MiddleItemName == "ë°˜ë ¤ë™ë¬¼")
         {
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("PetPattern");
             Invoke("PresserEnd", 8f);
         }
-        if (MiddleItemName == "³îÀÌ°ø¿ø")
+        if (MiddleItemName == "ë†€ì´ê³µì›")
         {
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("ParkPattern");
@@ -95,15 +95,15 @@ public class Presser : MonoBehaviour
         else
         {
             //NotePattern.gameObject.SetActive(true);
-            NotePattern.GetComponent<NotePatterns>().StartCoroutine("FamilyPattern");//ÀÌ°Å Áö±İÀº °¡Á·ÆĞÅÏ Àû¿ëÀÎµ¥ ±×³É ±âº» ÆĞÅÏ ³ÖÀ¸¸é µÉµí.
+            NotePattern.GetComponent<NotePatterns>().StartCoroutine("FamilyPattern");//ì´ê±° ì§€ê¸ˆì€ ê°€ì¡±íŒ¨í„´ ì ìš©ì¸ë° ê·¸ëƒ¥ ê¸°ë³¸ íŒ¨í„´ ë„£ìœ¼ë©´ ë ë“¯.
         }
         //PressItem.GetComponent<Image>().sprite = ClickedItem.sprite;
     }
 
     /*
-    public void PresserBtnClick()//¹öÆ° Å¬¸¯ÇØ¾ß ¾ĞÂø±â µ¹¾Æ°¨. on = ÃÊ·Ï / off = »¡°­
+    public void PresserBtnClick()//ë²„íŠ¼ í´ë¦­í•´ì•¼ ì••ì°©ê¸° ëŒì•„ê°. on = ì´ˆë¡ / off = ë¹¨ê°•
     {
-        if (isBtnOn == false)//²¨Áø »óÅÂ
+        if (isBtnOn == false)//êº¼ì§„ ìƒíƒœ
         {
             button.GetComponent<Image>().color = Color.green;
             isBtnOn = true;
@@ -119,9 +119,9 @@ public class Presser : MonoBehaviour
     }
 
     /*
-    public void PresserStart()//¾ĞÂø °úÁ¤ ½ÃÀÛ
+    public void PresserStart()//ì••ì°© ê³¼ì • ì‹œì‘
     {
-        if (PressCount == 1 || PressCount == 3 || PressCount == 5 || PressCount == 7 || PressCount == 9 || PressCount == 11)//³»·Á°¨
+        if (PressCount == 1 || PressCount == 3 || PressCount == 5 || PressCount == 7 || PressCount == 9 || PressCount == 11)//ë‚´ë ¤ê°
         {
             handle.transform.position = new Vector3(985, 600, 0);
             //Color color = PressItem.gameObject.GetComponent<Image>().color;
@@ -131,7 +131,7 @@ public class Presser : MonoBehaviour
 
         }
 
-        else if (PressCount == 0 || PressCount == 2 || PressCount == 4 || PressCount == 6 || PressCount == 8 || PressCount == 10 || PressCount == 12)//¿Ã¶ó°¨
+        else if (PressCount == 0 || PressCount == 2 || PressCount == 4 || PressCount == 6 || PressCount == 8 || PressCount == 10 || PressCount == 12)//ì˜¬ë¼ê°
         {
             if (PressCount == 2)
             {
@@ -163,7 +163,7 @@ public class Presser : MonoBehaviour
             //PressItem.gameObject.GetComponent<Image>().color = color;
             PressCount += 1;
         }
-        if (ClickedItem.name.Equals("Ä£±¸"))
+        if (ClickedItem.name.Equals("ì¹œêµ¬"))
         {
             if (PressCount == 1)
                 //PressItem.tag = "good";
@@ -173,7 +173,7 @@ public class Presser : MonoBehaviour
                 //PressItem.tag = "bad";
         }
 
-        else if (ClickedItem.name.Equals("¿¬ÀÎ"))
+        else if (ClickedItem.name.Equals("ì—°ì¸"))
         {
             if (PressCount == 2)
                 //PressItem.tag = "good";
@@ -182,7 +182,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 6)
                 //PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("°¡Á·"))
+        else if (ClickedItem.name.Equals("ê°€ì¡±"))
         {
             if (PressCount == 3)
                 //PressItem.tag = "good";
@@ -191,7 +191,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 7)
                 //PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("¹İ·Áµ¿¹°"))
+        else if (ClickedItem.name.Equals("ë°˜ë ¤ë™ë¬¼"))
         {
             if (PressCount == 2)
                 //PressItem.tag = "good";
@@ -200,7 +200,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 8)
                 //PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("Àå³­°¨"))
+        else if (ClickedItem.name.Equals("ì¥ë‚œê°"))
         {
             if (PressCount == 1)
                 //PressItem.tag = "good";
@@ -209,7 +209,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 9)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("ÀÎÇü"))
+        else if (ClickedItem.name.Equals("ì¸í˜•"))
         {
             if (PressCount == 2)
                 PressItem.tag = "good";
@@ -218,7 +218,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 4)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("ÇĞ±³"))
+        else if (ClickedItem.name.Equals("í•™êµ"))
         {
             if (PressCount == 5)
                 PressItem.tag = "good";
@@ -227,7 +227,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 10)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("³îÀÌÅÍ"))
+        else if (ClickedItem.name.Equals("ë†€ì´í„°"))
         {
             if (PressCount == 4)
                 PressItem.tag = "good";
@@ -236,7 +236,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 11)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("³îÀÌ°ø¿ø"))
+        else if (ClickedItem.name.Equals("ë†€ì´ê³µì›"))
         {
             if (PressCount == 6)
                 PressItem.tag = "good";
@@ -245,7 +245,7 @@ public class Presser : MonoBehaviour
             else if (PressCount == 13)
                 PressItem.tag = "bad";
         }
-        else if (ClickedItem.name.Equals("¿©ÇàÁö"))
+        else if (ClickedItem.name.Equals("ì—¬í–‰ì§€"))
         {
             if (PressCount == 3)
                 PressItem.tag = "good";
@@ -263,7 +263,7 @@ public class Presser : MonoBehaviour
         PressResult.gameObject.GetComponent<Image>().sprite = null;
         Color color = PressResult.gameObject.GetComponent<Image>().color;
         color.a = 0;
-        PressResult.gameObject.GetComponent<Image>().color = color;//¾ÆÀÌÅÛ Á¦°Å
+        PressResult.gameObject.GetComponent<Image>().color = color;//ì•„ì´í…œ ì œê±°
 
         if (PressResult.gameObject.tag == "good")
         {
@@ -282,13 +282,13 @@ public class Presser : MonoBehaviour
     }
     */
 
-    public void PresserEnd()//¾ĞÂø °úÁ¤ Á¾·á
+    public void PresserEnd()//ì••ì°© ê³¼ì • ì¢…ë£Œ
     {
         /*for (int i = 0; i < middleInvenSlots.transform.childCount; i++)
         {
             middleInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
         }*/
-        if (ClickedItem.name == "°¡Á·")
+        if (ClickedItem.name == "ê°€ì¡±")
         {
             if ((PressureScore / 9) >= 3)
             {
@@ -306,7 +306,7 @@ public class Presser : MonoBehaviour
             }
         }
 
-        if (ClickedItem.name == "¿¬ÀÎ")
+        if (ClickedItem.name == "ì—°ì¸")
         {
             if ((PressureScore / 9) >= 3)
             {
@@ -324,7 +324,7 @@ public class Presser : MonoBehaviour
             }
         }
 
-        if (ClickedItem.name == "¹İ·Áµ¿¹°")
+        if (ClickedItem.name == "ë°˜ë ¤ë™ë¬¼")
         {
             if ((PressureScore / 9) >= 3)
             {
@@ -342,7 +342,7 @@ public class Presser : MonoBehaviour
             }
         }
 
-        if (ClickedItem.name == "³îÀÌ°ø¿ø")
+        if (ClickedItem.name == "ë†€ì´ê³µì›")
         {
             if ((PressureScore / 9) >= 3)
             {

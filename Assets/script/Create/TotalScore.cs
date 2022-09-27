@@ -24,23 +24,23 @@ public class TotalScore : MonoBehaviour
     public bool isPressFin = false;
     public bool isDistillFin = false;
 
-    public int perfumePrice = 0;// ÃÖÁ¾ Çâ¼ö °¡°İ
-    public int totalScore = 0;//ÆÁ °¡°İ
+    public int perfumePrice = 0;// ìµœì¢… í–¥ìˆ˜ ê°€ê²©
+    public int totalScore = 0;//íŒ ê°€ê²©
     public int RightItemPrice = 0;
 
     public GameObject Perfume;
 
-    public bool isStart = false;//¸ğµç °úÁ¤ ³¡³ª¸é trueµÊ.
+    public bool isStart = false;//ëª¨ë“  ê³¼ì • ëë‚˜ë©´ trueë¨.
 
-    public float totalTime = 0;//ÃÖÁ¾ °É¸° ½Ã°£
+    public float totalTime = 0;//ìµœì¢… ê±¸ë¦° ì‹œê°„
 
-    public int RightItem = 0;//¿ä±¸ÇÑ Çâ·á ½è´ÂÁö?
-    public int UseItem = 0;//¿ä±¸ÇÑ Çâ·á ½è´ÂÁö?
-    public int originPrice = 0;// Çâ¼ö Á¦ÀÛ¿¡ »ç¿ëµÈ Çâ·á ¿ø°¡
-    public int rightPrice = 0;// ¸Â°Ô »ç¿ëÇÑ Çâ·á ¿ø°¡
-    public int reputNum = 0;// ÆòÆÇ Ä«¿îÆ® ¼ıÀÚ
+    public int RightItem = 0;//ìš”êµ¬í•œ í–¥ë£Œ ì¼ëŠ”ì§€?
+    public int UseItem = 0;//ìš”êµ¬í•œ í–¥ë£Œ ì¼ëŠ”ì§€?
+    public int originPrice = 0;// í–¥ìˆ˜ ì œì‘ì— ì‚¬ìš©ëœ í–¥ë£Œ ì›ê°€
+    public int rightPrice = 0;// ë§ê²Œ ì‚¬ìš©í•œ í–¥ë£Œ ì›ê°€
+    public int reputNum = 0;// í‰íŒ ì¹´ìš´íŠ¸ ìˆ«ì
 
-    public string reputation;// ÆòÆÇ
+    public string reputation;// í‰íŒ
 
     public FirstDaySetting fd;
 
@@ -66,7 +66,7 @@ public class TotalScore : MonoBehaviour
     }
     private void Update()
     {
-        if (isCoolFin == true && isPressFin == true && isDistillFin == true)//¸ğµç °úÁ¤ ³¡³ª¸é Çâ¼ö °è»ê
+        if (isCoolFin == true && isPressFin == true && isDistillFin == true)//ëª¨ë“  ê³¼ì • ëë‚˜ë©´ í–¥ìˆ˜ ê³„ì‚°
         {
             Perfume.gameObject.SetActive(true);
         }
@@ -89,34 +89,34 @@ public class TotalScore : MonoBehaviour
 
     public void Calculate()
     {
-        Debug.Log("Çâ¼ö °è»êÁß...");
+        Debug.Log("í–¥ìˆ˜ ê³„ì‚°ì¤‘...");
         totalPrice();
-        if (originPrice == 0)//ÇÏ³ªµµ ¾È°í¸£°í ¹Ù·Î Çâ¼ö Á¦Á¶ ¼±ÅÃÇÑ °æ¿ì
+        if (originPrice == 0)//í•˜ë‚˜ë„ ì•ˆê³ ë¥´ê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡° ì„ íƒí•œ ê²½ìš°
         {
             //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
-            Debug.Log("ÇÏ³ªµµ ¾È°í¸£°í ¹Ù·Î Çâ¼ö Á¦Á¶ ¼±ÅÃÇÑ °æ¿ì");
+            Debug.Log("í•˜ë‚˜ë„ ì•ˆê³ ë¥´ê³  ë°”ë¡œ í–¥ìˆ˜ ì œì¡° ì„ íƒí•œ ê²½ìš°");
             perfumePrice = 0;
             float imsiMoney = fd.Money;
             fd.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, fd.Money));
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
-            Debug.Log("ÆòÆÇ “b");
+            Debug.Log("í‰íŒ ë°·");
             float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
             ReputationSlider.GetComponent<Slider>().value -= 0.05f;
             StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
         }
-        else if (RightItem != 3 && originPrice > 0)// ÇÏ³ª¶óµµ °í¸£±ä Çß´Âµ¥ ¸Â´Â Çâ·á°¡ ¾Æ´Ò °æ¿ì
+        else if (RightItem != 3 && originPrice > 0)// í•˜ë‚˜ë¼ë„ ê³ ë¥´ê¸´ í–ˆëŠ”ë° ë§ëŠ” í–¥ë£Œê°€ ì•„ë‹ ê²½ìš°
         {
             //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
-            Debug.Log("ÇÏ³ª¶óµµ °í¸£±ä Çß´Âµ¥ ¸Â´Â Çâ·á°¡ ¾Æ´Ò °æ¿ì");
+            Debug.Log("í•˜ë‚˜ë¼ë„ ê³ ë¥´ê¸´ í–ˆëŠ”ë° ë§ëŠ” í–¥ë£Œê°€ ì•„ë‹ ê²½ìš°");
             perfumePrice = totalScore;
             float imsiMoney = fd.Money;
             fd.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, fd.Money));
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
-            Debug.Log("ÆòÆÇ “b");
+            Debug.Log("í‰íŒ ë°·");
             float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
             ReputationSlider.GetComponent<Slider>().value -= 0.05f;
@@ -124,9 +124,9 @@ public class TotalScore : MonoBehaviour
             reputation = "bad";
         }
 
-        else if ( RightItem == 3 && originPrice > 0)//3°³ Çâ·á ´Ù ¸ÂÀº °æ¿ì
+        else if ( RightItem == 3 && originPrice > 0)//3ê°œ í–¥ë£Œ ë‹¤ ë§ì€ ê²½ìš°
         {
-            Debug.Log("3°³ Çâ·á ´Ù ¸ÂÀº °æ¿ì");
+            Debug.Log("3ê°œ í–¥ë£Œ ë‹¤ ë§ì€ ê²½ìš°");
             float imsiMoney = fd.Money;
             perfumePrice = rightPrice + totalScore;
             fd.Money += perfumePrice;
@@ -137,7 +137,7 @@ public class TotalScore : MonoBehaviour
             {
                 if (reputNum == 35)
                 {
-                    Debug.Log("ÆòÆÇ º£¸®±»");
+                    Debug.Log("í‰íŒ ë² ë¦¬êµ³");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
                     ReputationSlider.GetComponent<Slider>().value += 0.1f;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
@@ -146,7 +146,7 @@ public class TotalScore : MonoBehaviour
                 }
                 else if (reputNum < 35 && reputNum >= 10)
                 {
-                    Debug.Log("ÆòÆÇ ±»");
+                    Debug.Log("í‰íŒ êµ³");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
                     ReputationSlider.GetComponent<Slider>().value += 0.06f;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
@@ -155,7 +155,7 @@ public class TotalScore : MonoBehaviour
                 }
                 else if (reputNum < 10 && reputNum >= 0)
                 {
-                    Debug.Log("ÆòÆÇ ³ë¸Ö");
+                    Debug.Log("í‰íŒ ë…¸ë©€");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
                     ReputationSlider.GetComponent<Slider>().value += 0.01f;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
@@ -164,7 +164,7 @@ public class TotalScore : MonoBehaviour
                 }
                 else if (reputNum < 0 && reputNum >= -10)
                 {
-                    Debug.Log("ÆòÆÇ “b");
+                    Debug.Log("í‰íŒ ë°·");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
                     ReputationSlider.GetComponent<Slider>().value -= 0.05f;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
@@ -173,14 +173,14 @@ public class TotalScore : MonoBehaviour
                 }
                 else if (reputNum < -10 && reputNum >= -35)
                 {
-                    Debug.Log("ÆòÆÇ º£¸®“b");
+                    Debug.Log("í‰íŒ ë² ë¦¬ë°·");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
                     ReputationSlider.GetComponent<Slider>().value -= 0.08f;
                     StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verybad";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
                 }
-                Debug.Log("ÃÖÁ¾ Çâ¼ö °¡°İ : " + totalScore);
+                Debug.Log("ìµœì¢… í–¥ìˆ˜ ê°€ê²© : " + totalScore);
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money += totalScore;
                 GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
                 //Invoke("ResetAll", 2f);
@@ -189,22 +189,22 @@ public class TotalScore : MonoBehaviour
     }
     public void totalPrice()
     {
-        if ((int)totalTime < 50)//±Â ÆÇÁ¤
+        if ((int)totalTime < 50)//êµ¿ íŒì •
         {
             totalScore += rightPrice * 5 / 100;
             reputNum += 5;
         }
-        else if ((int)totalTime >= 50 && (int)totalTime < 70)//³ë¸Ö ÆÇÁ¤
+        else if ((int)totalTime >= 50 && (int)totalTime < 70)//ë…¸ë©€ íŒì •
         {
             totalScore += 0;
             reputNum += 0;
         }
-        else if ((int)totalTime >= 70)//¹èµå ÆÇÁ¤
+        else if ((int)totalTime >= 70)//ë°°ë“œ íŒì •
         {
             totalScore += - (rightPrice * 5 / 100);
             reputNum -= 5;
         }
-        //¿©±â¿¡ totalScore += Çâ·á ¿ø°¡; 
+        //ì—¬ê¸°ì— totalScore += í–¥ë£Œ ì›ê°€; 
         
         if (isCoolGood == true)
         {
@@ -295,7 +295,7 @@ public class TotalScore : MonoBehaviour
     IEnumerator Count(float target, float current)
 
     {
-        float duration = 0.5f; // Ä«¿îÆÃ¿¡ °É¸®´Â ½Ã°£ ¼³Á¤. 
+        float duration = 0.5f; // ì¹´ìš´íŒ…ì— ê±¸ë¦¬ëŠ” ì‹œê°„ ì„¤ì •. 
 
         float offset = (target - current) / duration; // 
 
@@ -315,7 +315,7 @@ public class TotalScore : MonoBehaviour
     IEnumerator Countt(float target, float current)
 
     {
-        float duration = 0.5f; // Ä«¿îÆÃ¿¡ °É¸®´Â ½Ã°£ ¼³Á¤. 
+        float duration = 0.5f; // ì¹´ìš´íŒ…ì— ê±¸ë¦¬ëŠ” ì‹œê°„ ì„¤ì •. 
 
         float offset = (target - current) / duration; // 
 

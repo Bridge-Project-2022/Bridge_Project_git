@@ -20,9 +20,9 @@ public class NewsTime : MonoBehaviour
 
     public void Montage()
     {
-        randomNum = Random.Range(2, 4);//¸Ó¸®, ´«, ¿Ê Áß¿¡ 2°³ ÀÌ»óÀ» °ñ¶ó¾ß ÇÏ¹Ç·Î 2°³ÀÏÁö 3°³ÀÏÁö °í¸§
+        randomNum = Random.Range(2, 4);//ë¨¸ë¦¬, ëˆˆ, ì˜· ì¤‘ì— 2ê°œ ì´ìƒì„ ê³¨ë¼ì•¼ í•˜ë¯€ë¡œ 2ê°œì¼ì§€ 3ê°œì¼ì§€ ê³ ë¦„
 
-        for (int i = 0; i < randomMontage.Length; i++)//Áßº¹ÀÌ µÇÁö ¾Ê°Ô 0,1,2¸¦ ¹è¿­¿¡ ·£´ıÀ¸·Î ÀúÀå
+        for (int i = 0; i < randomMontage.Length; i++)//ì¤‘ë³µì´ ë˜ì§€ ì•Šê²Œ 0,1,2ë¥¼ ë°°ì—´ì— ëœë¤ìœ¼ë¡œ ì €ì¥
         {
             randomMontage[i] = Random.Range(1, 4);
             for (int j = 0; j < i; j++)
@@ -35,7 +35,7 @@ public class NewsTime : MonoBehaviour
             }
         }
 
-        if (randomNum == 2)//2°¡ ³ª¿Ã °æ¿ì ¸Ó¸®, ¿Ê, ´« Áß¿¡ 2°³¸¸ ¹Ù²ñ
+        if (randomNum == 2)//2ê°€ ë‚˜ì˜¬ ê²½ìš° ë¨¸ë¦¬, ì˜·, ëˆˆ ì¤‘ì— 2ê°œë§Œ ë°”ë€œ
         {
             Debug.Log("ss");
             randomN1 = randomMontage[0];
@@ -43,7 +43,7 @@ public class NewsTime : MonoBehaviour
             randomResult3 = "";
         }
 
-        else if (randomNum == 3)//3ÀÌ ³ª¿Ã °æ¿ì ¼Â ´Ù ¹Ù²ñ.
+        else if (randomNum == 3)//3ì´ ë‚˜ì˜¬ ê²½ìš° ì…‹ ë‹¤ ë°”ë€œ.
         {
             Debug.Log("sss");
             randomN1 = 1;
@@ -75,9 +75,9 @@ public class NewsTime : MonoBehaviour
     }
     private void Start()
     {
-        randomNum = Random.Range(2, 4);//¸Ó¸®, ´«, ¿Ê Áß¿¡ 2°³ ÀÌ»óÀ» °ñ¶ó¾ß ÇÏ¹Ç·Î 2°³ÀÏÁö 3°³ÀÏÁö °í¸§
+        randomNum = Random.Range(2, 4);//ë¨¸ë¦¬, ëˆˆ, ì˜· ì¤‘ì— 2ê°œ ì´ìƒì„ ê³¨ë¼ì•¼ í•˜ë¯€ë¡œ 2ê°œì¼ì§€ 3ê°œì¼ì§€ ê³ ë¦„
 
-        for (int i = 0; i < randomMontage.Length; i++)//Áßº¹ÀÌ µÇÁö ¾Ê°Ô 0,1,2¸¦ ¹è¿­¿¡ ·£´ıÀ¸·Î ÀúÀå
+        for (int i = 0; i < randomMontage.Length; i++)//ì¤‘ë³µì´ ë˜ì§€ ì•Šê²Œ 0,1,2ë¥¼ ë°°ì—´ì— ëœë¤ìœ¼ë¡œ ì €ì¥
         {
             randomMontage[i] = Random.Range(0, 3);
             for (int j = 0; j < i; j++)
@@ -90,14 +90,14 @@ public class NewsTime : MonoBehaviour
             }
         }
 
-        if (randomNum == 2)//2°¡ ³ª¿Ã °æ¿ì ¸Ó¸®, ¿Ê, ´« Áß¿¡ 2°³¸¸ ¹Ù²ñ
+        if (randomNum == 2)//2ê°€ ë‚˜ì˜¬ ê²½ìš° ë¨¸ë¦¬, ì˜·, ëˆˆ ì¤‘ì— 2ê°œë§Œ ë°”ë€œ
         {
             randomN1 = randomMontage[0];
             randomN2 = randomMontage[1];
             randomN3 = 3;
         }
 
-        else if (randomNum == 3)//3ÀÌ ³ª¿Ã °æ¿ì ¼Â ´Ù ¹Ù²ñ.
+        else if (randomNum == 3)//3ì´ ë‚˜ì˜¬ ê²½ìš° ì…‹ ë‹¤ ë°”ë€œ.
         {
             randomN1 = 0;
             randomN2 = 1;
@@ -127,9 +127,9 @@ public class NewsTime : MonoBehaviour
 
         if (randomNum == 2)
         {
-            Debug.Log("¸ùÅ¸ÁÖ : " + randomResult1 + " ÇÏ°í " + randomResult2 + "ÀÌ ±âÁ¸°ú ´Ù¸¨´Ï´Ù!");
+            Debug.Log("ëª½íƒ€ì£¼ : " + randomResult1 + " í•˜ê³  " + randomResult2 + "ì´ ê¸°ì¡´ê³¼ ë‹¤ë¦…ë‹ˆë‹¤!");
         }
         else
-            Debug.Log("¸ùÅ¸ÁÖ : " + randomResult1 + " ÇÏ°í " + randomResult2 + " ÇÏ°í " +randomResult3 + "ÀÌ ±âÁ¸°ú ´Ù¸¨´Ï´Ù!");
+            Debug.Log("ëª½íƒ€ì£¼ : " + randomResult1 + " í•˜ê³  " + randomResult2 + " í•˜ê³  " +randomResult3 + "ì´ ê¸°ì¡´ê³¼ ë‹¤ë¦…ë‹ˆë‹¤!");
     }
 }
