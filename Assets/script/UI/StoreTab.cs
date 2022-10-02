@@ -13,7 +13,7 @@ public class StoreTab : MonoBehaviour
         GameObject BaseDetail = GameObject.Find("Store").transform.GetChild(1).GetChild(0).GetChild(5).gameObject;
         GameObject MiddleDetail = GameObject.Find("Store").transform.GetChild(1).GetChild(1).GetChild(5).gameObject;
         GameObject TopDetail = GameObject.Find("Store").transform.GetChild(1).GetChild(2).GetChild(5).gameObject;
-        //ÅÇ ¹öÆ° ´©¸¦ ¶§¿¡ ¸¸¾à ½½·Ô µğÅ×ÀÏ ÄÑÁ®ÀÖÀ¸¸é ´Ù ²ô±â
+        //íƒ­ ë²„íŠ¼ ëˆ„ë¥¼ ë•Œì— ë§Œì•½ ìŠ¬ë¡¯ ë””í…Œì¼ ì¼œì ¸ìˆìœ¼ë©´ ë‹¤ ë„ê¸°
         if (BaseDetail.activeSelf == true || MiddleDetail.activeSelf == true || TopDetail.activeSelf == true)
         {
             BaseDetail.SetActive(false);

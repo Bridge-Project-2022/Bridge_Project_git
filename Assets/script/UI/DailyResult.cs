@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class DailyResult : MonoBehaviour
 {
-    public Text personText;//ÃÑ ¹æ¹®°´ ¼ö
-    public Text rejectPersonText;//°ÅÀı È½¼ö
-    public Text reputationText;//ÆòÆÇ
-    public Text revenueText;// ¼ø¼öÀÍ = ÀüÃ¼ ¼öÀÍ - »ç¿ë Çâ·á ¿ø°¡
-    public Text costText;//»ç¿ëÇÑ Çâ·á ¿ø°¡
-    public Text allRevenueText;//ÀüÃ¼ ¼öÀÍ
+    public Text personText;//ì´ ë°©ë¬¸ê° ìˆ˜
+    public Text rejectPersonText;//ê±°ì ˆ íšŸìˆ˜
+    public Text reputationText;//í‰íŒ
+    public Text revenueText;// ìˆœìˆ˜ìµ = ì „ì²´ ìˆ˜ìµ - ì‚¬ìš© í–¥ë£Œ ì›ê°€
+    public Text costText;//ì‚¬ìš©í•œ í–¥ë£Œ ì›ê°€
+    public Text allRevenueText;//ì „ì²´ ìˆ˜ìµ
 
 
     public int personNum = 0;

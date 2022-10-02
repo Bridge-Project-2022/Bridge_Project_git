@@ -98,8 +98,8 @@ public class Store : MonoBehaviour
 
     public Text alertText;
 
-    public System.Action<ItemProperty> onStoreSlotClick;//µ¨¸®°ÔÀÌÆ® º¯¼ö
-    //public System.Action<ItemProperty> onAllStoreSlotClick;//µ¨¸®°ÔÀÌÆ® º¯¼ö
+    public System.Action<ItemProperty> onStoreSlotClick;//ë¸ë¦¬ê²Œì´íŠ¸ ë³€ìˆ˜
+    //public System.Action<ItemProperty> onAllStoreSlotClick;//ë¸ë¦¬ê²Œì´íŠ¸ ë³€ìˆ˜
 
     public ItemProperty[] BaseItemList = new ItemProperty[4];
     public ItemProperty[] MiddleItemList = new ItemProperty[5];
@@ -158,7 +158,7 @@ public class Store : MonoBehaviour
                     GameObject.Find("Canvas").transform.GetChild(8).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(i).GetChild(5).gameObject.SetActive(true);
                 }
             }
-            else // ¾ÆÀÌÅÛÀÌ ¾ø´Â °æ¿ì Å¬¸¯ ºÒ°¡ÇÏ°Ô ¸¸µê.
+            else // ì•„ì´í…œì´ ì—†ëŠ” ê²½ìš° í´ë¦­ ë¶ˆê°€í•˜ê²Œ ë§Œë“¦.
             {
                 slot.GetComponent<UnityEngine.UI.Button>().interactable = false;
             }
@@ -181,7 +181,7 @@ public class Store : MonoBehaviour
                     GameObject.Find("Canvas").transform.GetChild(8).GetChild(0).GetChild(1).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(j).GetChild(5).gameObject.SetActive(true);
                 }
             }
-            else // ¾ÆÀÌÅÛÀÌ ¾ø´Â °æ¿ì Å¬¸¯ ºÒ°¡ÇÏ°Ô ¸¸µê.
+            else // ì•„ì´í…œì´ ì—†ëŠ” ê²½ìš° í´ë¦­ ë¶ˆê°€í•˜ê²Œ ë§Œë“¦.
             {
                 Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
             }
@@ -202,7 +202,7 @@ public class Store : MonoBehaviour
                     GameObject.Find("Canvas").transform.GetChild(8).GetChild(0).GetChild(2).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(k).GetChild(5).gameObject.SetActive(true);
                 }
             }
-            else // ¾ÆÀÌÅÛÀÌ ¾ø´Â °æ¿ì Å¬¸¯ ºÒ°¡ÇÏ°Ô ¸¸µê.
+            else // ì•„ì´í…œì´ ì—†ëŠ” ê²½ìš° í´ë¦­ ë¶ˆê°€í•˜ê²Œ ë§Œë“¦.
             {
                 Topslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
             }
@@ -406,7 +406,7 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= slot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
-        //alertText.GetComponent<Text>().text = slot.item.name + " Çâ·á " + BuyNum + "°³ ±¸¸Å ¿Ï·áÇß½À´Ï´Ù.";
+        //alertText.GetComponent<Text>().text = slot.item.name + " í–¥ë£Œ " + BuyNum + "ê°œ êµ¬ë§¤ ì™„ë£Œí–ˆìŠµë‹ˆë‹¤.";
         StartCoroutine(FadeTextToZero());
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
@@ -425,7 +425,7 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= Middleslot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
-        //alertText.GetComponent<Text>().text = Middleslot.item.name + " Çâ·á " + BuyNum + "°³ ±¸¸Å ¿Ï·áÇß½À´Ï´Ù.";
+        //alertText.GetComponent<Text>().text = Middleslot.item.name + " í–¥ë£Œ " + BuyNum + "ê°œ êµ¬ë§¤ ì™„ë£Œí–ˆìŠµë‹ˆë‹¤.";
         StartCoroutine(FadeTextToZero());
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
@@ -444,7 +444,7 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= Topslot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
-        //alertText.GetComponent<Text>().text = Topslot.item.name + " Çâ·á " + BuyNum + "°³ ±¸¸Å ¿Ï·áÇß½À´Ï´Ù.";
+        //alertText.GetComponent<Text>().text = Topslot.item.name + " í–¥ë£Œ " + BuyNum + "ê°œ êµ¬ë§¤ ì™„ë£Œí–ˆìŠµë‹ˆë‹¤.";
         StartCoroutine(FadeTextToZero());
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
@@ -631,7 +631,7 @@ public class Store : MonoBehaviour
         //inven.gameObject.SetActive(false);
     }
 
-    public IEnumerator FadeTextToZero()  // ¾ËÆÄ°ª 1¿¡¼­ 0À¸·Î ÀüÈ¯
+    public IEnumerator FadeTextToZero()  // ì•ŒíŒŒê°’ 1ì—ì„œ 0ìœ¼ë¡œ ì „í™˜
     {
         alertText.color = new Color(alertText.color.r, alertText.color.g, alertText.color.b, 1);
         while (alertText.color.a > 0.0f)
@@ -659,7 +659,7 @@ public class Store : MonoBehaviour
 
         if ((BuyNum + 1) * slot.item.itemPrice > fd.Money)
         {
-            Debug.Log("ÀÜµ· ¾øÀ½. ´õÀÌ»ó Ãß°¡ ºÒ°¡");
+            Debug.Log("ì”ëˆ ì—†ìŒ. ë”ì´ìƒ ì¶”ê°€ ë¶ˆê°€");
             BasePlusBtn.gameObject.GetComponent<Button>().interactable = false;
             MiddlePlusBtn.gameObject.GetComponent<Button>().interactable = false;
             TopPlusBtn.gameObject.GetComponent<Button>().interactable = false;
@@ -673,12 +673,12 @@ public class Store : MonoBehaviour
 
         if (fd.Money < slotItemPrice)
         {
-            Debug.Log("ÀÜ¾× ºÎÁ·");
+            Debug.Log("ì”ì•¡ ë¶€ì¡±");
             GameObject.Find("Store").transform.GetChild(1).GetChild(0).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = false;
             GameObject.Find("Store").transform.GetChild(1).GetChild(1).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = false;
             GameObject.Find("Store").transform.GetChild(1).GetChild(2).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = false;
 
-            alertText.GetComponent<Text>().text = "ÀÜ¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù.";
+            alertText.GetComponent<Text>().text = "ì”ì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.";
             StartCoroutine(FadeTextToZero());
         }
         else
@@ -706,7 +706,7 @@ public class Store : MonoBehaviour
      IEnumerator Count(float target, float current)
 
     {
-        float duration = 0.5f; // Ä«¿îÆÃ¿¡ °É¸®´Â ½Ã°£ ¼³Á¤. 
+        float duration = 0.5f; // ì¹´ìš´íŒ…ì— ê±¸ë¦¬ëŠ” ì‹œê°„ ì„¤ì •. 
 
         float offset = (target - current) / duration; // 
 

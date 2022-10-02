@@ -12,45 +12,45 @@ public class PresserDrag : MonoBehaviour, IBeginDragHandler,IDragHandler, IDropH
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("µå·¡±× ½ÃÀÛ");
+        Debug.Log("ë“œë˜ê·¸ ì‹œì‘");
 
-        startPos.y = eventData.position.y;//¸¶¿ì½º yÃà
+        startPos.y = eventData.position.y;//ë§ˆìš°ìŠ¤ yì¶•
 
-        offset.x = transform.position.x;// ÇÚµé yÃà
-        offset.y = transform.position.y;// ÇÚµé yÃà
+        offset.x = transform.position.x;// í•¸ë“¤ yì¶•
+        offset.y = transform.position.y;// í•¸ë“¤ yì¶•
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("µå·¡±× °¡´ÉÇØÁü");
-        Vector2 downDirection = eventData.position - startPos;//Ã³À½ Å¬¸¯ À§Ä¡¿¡¼­ ¿òÁ÷ÀÌ´Â ¸¶¿ì½º À§Ä¡ »çÀÌ °Å¸®
+        Debug.Log("ë“œë˜ê·¸ ê°€ëŠ¥í•´ì§");
+        Vector2 downDirection = eventData.position - startPos;//ì²˜ìŒ í´ë¦­ ìœ„ì¹˜ì—ì„œ ì›€ì§ì´ëŠ” ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ì‚¬ì´ ê±°ë¦¬
         Debug.Log(transform.position);
         downDirection.Normalize();
 
         if (isUP == true && transform.position.y < 715 && transform.position.y > 620)
         {
-            Debug.Log("³»·Á°¨");
+            Debug.Log("ë‚´ë ¤ê°");
             transform.position = new Vector2(offset.x, transform.position.y + downDirection.y * 15);
 
         }
         else if (isUP == true && transform.position.y <= 620 && transform.position.y >= 600)
         {
-            Debug.Log("¸ØÃã");
+            Debug.Log("ë©ˆì¶¤");
             isUP = false;
         }
         else if (isUP == false)
         {
-            Debug.Log("¿Ã¶ó°¨");
+            Debug.Log("ì˜¬ë¼ê°");
             transform.position = new Vector2(offset.x, transform.position.y - downDirection.y * 15);
         }
     }
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("µå·¡±× ³»·ÁµÒ");
+        Debug.Log("ë“œë˜ê·¸ ë‚´ë ¤ë‘ ");
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("µå·¡±× ³¡");
+        Debug.Log("ë“œë˜ê·¸ ë");
     }
 }

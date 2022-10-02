@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
 
     private List<Slot> storeSlots;
 
-    //public bool isNew;//»õ·Î¿î ¾ÆÀÌÅÛÀÌ µé¾î¿Â °æ¿ì true
+    //public bool isNew;//ìƒˆë¡œìš´ ì•„ì´í…œì´ ë“¤ì–´ì˜¨ ê²½ìš° true
     public bool isSame;
     public bool isAllsame;
 
@@ -68,7 +68,7 @@ public class Inventory : MonoBehaviour
 
             storeSlots.Add(Storeslot);
         }
-        store.onStoreSlotClick += BuyItem;//±¸¸ÅÇÏ±â ¹öÆ° ´©¸£¸é ´ÙÀ½ ÇÔ¼ö ½ÇÇà.
+        store.onStoreSlotClick += BuyItem;//êµ¬ë§¤í•˜ê¸° ë²„íŠ¼ ëˆ„ë¥´ë©´ ë‹¤ìŒ í•¨ìˆ˜ ì‹¤í–‰.
         //store.onAllStoreSlotClick += AllBuyItem;
     }
 
@@ -79,42 +79,42 @@ public class Inventory : MonoBehaviour
             var emptySlot = Baseslots.Find(t =>
             {
                 return t.item == null || t.item.name == string.Empty;
-            });//¸ğµç ½½·ÔÁß¿¡ ¾ÆÀÌÅÛÀÌ ºó ½½·ÔÀ» emptyslotÀÌ¶ó´Â º¯¼ö ÇÒ´ç.
+            });//ëª¨ë“  ìŠ¬ë¡¯ì¤‘ì— ì•„ì´í…œì´ ë¹ˆ ìŠ¬ë¡¯ì„ emptyslotì´ë¼ëŠ” ë³€ìˆ˜ í• ë‹¹.
                //var imsiSlot = imsiSlots[0];
 
             for (int i = 0; i < BaseslotRoot.childCount; i++)
             {
-                if (Baseslots[i].item == item)//Áßº¹ÀÎ °æ¿ì
+                if (Baseslots[i].item == item)//ì¤‘ë³µì¸ ê²½ìš°
                 {
-                    Debug.Log(i + "¹øÂ° ½½·Ô ¾ÆÀÌÅÛÀÌ °ãÄ§");
+                    Debug.Log(i + "ë²ˆì§¸ ìŠ¬ë¡¯ ì•„ì´í…œì´ ê²¹ì¹¨");
                     isSame = true;
                     item.InvenItemNum += store.BuyNum;
 
-                    Baseslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "°³ ³²À½";
+                    Baseslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "ê°œ ë‚¨ìŒ";
 
                     break;
                 }
 
-                if (Baseslots[i].item != item)//Áßº¹ÀÌ ¾Æ´Ñ °æ¿ì
+                if (Baseslots[i].item != item)//ì¤‘ë³µì´ ì•„ë‹Œ ê²½ìš°
                 {
-                    if (emptySlot != null)//½½·Ô ²ËÂ÷Áö ¾ÊÀº °æ¿ì
+                    if (emptySlot != null)//ìŠ¬ë¡¯ ê½‰ì°¨ì§€ ì•Šì€ ê²½ìš°
                     {
                         isSame = false;
                     }
                     else
                     {
-                        Debug.Log("½½·Ô ²ËÂü");
+                        Debug.Log("ìŠ¬ë¡¯ ê½‰ì°¸");
                     }
                 }
             }
 
-            if (isSame == false)//Áßº¹ÀÎ ¾ÆÀÌÅÛÀÌ ¾ø´Â °æ¿ì -> ½½·Ô Ãß°¡
+            if (isSame == false)//ì¤‘ë³µì¸ ì•„ì´í…œì´ ì—†ëŠ” ê²½ìš° -> ìŠ¬ë¡¯ ì¶”ê°€
             {
-                //Debug.Log("½ÇÇà");
+                //Debug.Log("ì‹¤í–‰");
                 emptySlot.SetInvenItem(item);
                 item.InvenItemNum += store.BuyNum;
                 //Debug.Log(emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text);
-                emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "°³ ³²À½";
+                emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "ê°œ ë‚¨ìŒ";
             }
         }
 
@@ -123,44 +123,44 @@ public class Inventory : MonoBehaviour
             var emptySlot = Middleslots.Find(t =>
             {
                 return t.item == null || t.item.name == string.Empty;
-            });//¸ğµç ½½·ÔÁß¿¡ ¾ÆÀÌÅÛÀÌ ºó ½½·ÔÀ» emptyslotÀÌ¶ó´Â º¯¼ö ÇÒ´ç.
+            });//ëª¨ë“  ìŠ¬ë¡¯ì¤‘ì— ì•„ì´í…œì´ ë¹ˆ ìŠ¬ë¡¯ì„ emptyslotì´ë¼ëŠ” ë³€ìˆ˜ í• ë‹¹.
                //var imsiSlot = imsiSlots[0];
             for (int i = 0; i < MiddleslotRoot.childCount; i++)
             {
-                if (Middleslots[i].item == item)//Áßº¹ÀÎ °æ¿ì
+                if (Middleslots[i].item == item)//ì¤‘ë³µì¸ ê²½ìš°
                 {
-                    Debug.Log(i + "¹øÂ° ½½·Ô ¾ÆÀÌÅÛÀÌ °ãÄ§");
+                    Debug.Log(i + "ë²ˆì§¸ ìŠ¬ë¡¯ ì•„ì´í…œì´ ê²¹ì¹¨");
                     isSame = true;
                     item.InvenItemNum += store.BuyNum;
-                    Middleslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "°³ ³²À½";
+                    Middleslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "ê°œ ë‚¨ìŒ";
 
                     break;
                 }
 
-                if (Middleslots[i].item != item)//Áßº¹ÀÌ ¾Æ´Ñ °æ¿ì
+                if (Middleslots[i].item != item)//ì¤‘ë³µì´ ì•„ë‹Œ ê²½ìš°
                 {
-                    if (emptySlot != null)//½½·Ô ²ËÂ÷Áö ¾ÊÀº °æ¿ì
+                    if (emptySlot != null)//ìŠ¬ë¡¯ ê½‰ì°¨ì§€ ì•Šì€ ê²½ìš°
                     {
                         isSame = false;
                     }
                     else
                     {
-                        Debug.Log("½½·Ô ²ËÂü");
+                        Debug.Log("ìŠ¬ë¡¯ ê½‰ì°¸");
                     }
                 }
             }
 
-            if (isSame == false)//Áßº¹ÀÎ ¾ÆÀÌÅÛÀÌ ¾ø´Â °æ¿ì -> ½½·Ô Ãß°¡
+            if (isSame == false)//ì¤‘ë³µì¸ ì•„ì´í…œì´ ì—†ëŠ” ê²½ìš° -> ìŠ¬ë¡¯ ì¶”ê°€
             {
-                if (emptySlot != null)//½½·Ô ²ËÂ÷Áö ¾ÊÀº °æ¿ì
+                if (emptySlot != null)//ìŠ¬ë¡¯ ê½‰ì°¨ì§€ ì•Šì€ ê²½ìš°
                 {
                     emptySlot.SetInvenItem(item);
                     item.InvenItemNum += store.BuyNum;
-                    emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "°³ ³²À½";
+                    emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "ê°œ ë‚¨ìŒ";
                 }
                 else
                 {
-                    Debug.Log("½½·Ô ²ËÂü");
+                    Debug.Log("ìŠ¬ë¡¯ ê½‰ì°¸");
                 }
                
             }
@@ -171,66 +171,66 @@ public class Inventory : MonoBehaviour
             var emptySlot = Topslots.Find(t =>
             {
                 return t.item == null || t.item.name == string.Empty;
-            });//¸ğµç ½½·ÔÁß¿¡ ¾ÆÀÌÅÛÀÌ ºó ½½·ÔÀ» emptyslotÀÌ¶ó´Â º¯¼ö ÇÒ´ç.
+            });//ëª¨ë“  ìŠ¬ë¡¯ì¤‘ì— ì•„ì´í…œì´ ë¹ˆ ìŠ¬ë¡¯ì„ emptyslotì´ë¼ëŠ” ë³€ìˆ˜ í• ë‹¹.
                //var imsiSlot = imsiSlots[0];
             for (int i = 0; i < MiddleslotRoot.childCount; i++)
             {
-                if (Topslots[i].item == item)//Áßº¹ÀÎ °æ¿ì
+                if (Topslots[i].item == item)//ì¤‘ë³µì¸ ê²½ìš°
                 {
-                    Debug.Log(i + "¹øÂ° ½½·Ô ¾ÆÀÌÅÛÀÌ °ãÄ§");
+                    Debug.Log(i + "ë²ˆì§¸ ìŠ¬ë¡¯ ì•„ì´í…œì´ ê²¹ì¹¨");
                     isSame = true;
                     item.InvenItemNum += store.BuyNum;
-                    Topslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "°³ ³²À½";
+                    Topslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "ê°œ ë‚¨ìŒ";
 
                     break;
                 }
 
-                if (Topslots[i].item != item)//Áßº¹ÀÌ ¾Æ´Ñ °æ¿ì
+                if (Topslots[i].item != item)//ì¤‘ë³µì´ ì•„ë‹Œ ê²½ìš°
                 {
-                    if (emptySlot != null)//½½·Ô ²ËÂ÷Áö ¾ÊÀº °æ¿ì
+                    if (emptySlot != null)//ìŠ¬ë¡¯ ê½‰ì°¨ì§€ ì•Šì€ ê²½ìš°
                     {
                         isSame = false;
                     }
                     else
                     {
-                        Debug.Log("½½·Ô ²ËÂü");
+                        Debug.Log("ìŠ¬ë¡¯ ê½‰ì°¸");
                     }
                 }
             }
 
-            if (isSame == false)//Áßº¹ÀÎ ¾ÆÀÌÅÛÀÌ ¾ø´Â °æ¿ì -> ½½·Ô Ãß°¡
+            if (isSame == false)//ì¤‘ë³µì¸ ì•„ì´í…œì´ ì—†ëŠ” ê²½ìš° -> ìŠ¬ë¡¯ ì¶”ê°€
             {
-                if (emptySlot != null)//½½·Ô ²ËÂ÷Áö ¾ÊÀº °æ¿ì
+                if (emptySlot != null)//ìŠ¬ë¡¯ ê½‰ì°¨ì§€ ì•Šì€ ê²½ìš°
                 {
                     emptySlot.SetInvenItem(item);
                     item.InvenItemNum += store.BuyNum;
-                    emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "°³ ³²À½";
+                    emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "ê°œ ë‚¨ìŒ";
                 }
                 else
                 {
-                    Debug.Log("½½·Ô ²ËÂü");
+                    Debug.Log("ìŠ¬ë¡¯ ê½‰ì°¸");
                 }
             }
         }
 
     }
 
-    /*public void AllBuyItem()//ÀÏ°ı ±¸¸Å
+    /*public void AllBuyItem()//ì¼ê´„ êµ¬ë§¤
     {
-        Debug.Log("½ÃÀÛ");
+        Debug.Log("ì‹œì‘");
         var emptySlot = slots.Find(t =>
         {
             return t.item == null || t.item.name == string.Empty;
-        });//¸ğµç ½½·ÔÁß¿¡ ¾ÆÀÌÅÛÀÌ ºó ½½·ÔÀ» emptyslotÀÌ¶ó´Â º¯¼ö ÇÒ´ç.
+        });//ëª¨ë“  ìŠ¬ë¡¯ì¤‘ì— ì•„ì´í…œì´ ë¹ˆ ìŠ¬ë¡¯ì„ emptyslotì´ë¼ëŠ” ë³€ìˆ˜ í• ë‹¹.
         for (int i = 0; i < slotRoot.childCount; i++)
         {
             for (int j = 0; j < storeSlotRoot.childCount; j++)
             {
-                if (slots[i].item != storeSlots[i].item)//Áßº¹ÀÌ ¾Æ´Ñ °æ¿ì
+                if (slots[i].item != storeSlots[i].item)//ì¤‘ë³µì´ ì•„ë‹Œ ê²½ìš°
                 {
-                    Debug.Log("Áßº¹¾øÀ½");
+                    Debug.Log("ì¤‘ë³µì—†ìŒ");
                     //Debug.Log(storeSlots[i].item.name);
-                    if (emptySlot != null)//½½·Ô ²ËÂ÷Áö ¾ÊÀº °æ¿ì
+                    if (emptySlot != null)//ìŠ¬ë¡¯ ê½‰ì°¨ì§€ ì•Šì€ ê²½ìš°
                     {
                         Debug.Log(storeSlots[i].item.name);
                         emptySlot.SetInvenItem(storeSlots[i].item);
@@ -239,13 +239,13 @@ public class Inventory : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("½½·Ô ²ËÂü");
+                        Debug.Log("ìŠ¬ë¡¯ ê½‰ì°¸");
                     }
                 }
 
                 if (slots[i].item == storeSlots[i].item)
                 {
-                    Debug.Log("Áßº¹ÀÖÀ½");
+                    Debug.Log("ì¤‘ë³µìˆìŒ");
                     isAllsame = true;
                     slots[i].item.InvenItemNum += store.AllBuyNum;
                     slots[i].transform.GetChild(3).GetComponent<Text>().text = slots[i].item.InvenItemNum.ToString();
@@ -255,7 +255,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        if (isAllsame == false)//Áßº¹ÀÎ ¾ÆÀÌÅÛÀÌ ¾ø´Â °æ¿ì -> ½½·Ô Ãß°¡
+        if (isAllsame == false)//ì¤‘ë³µì¸ ì•„ì´í…œì´ ì—†ëŠ” ê²½ìš° -> ìŠ¬ë¡¯ ì¶”ê°€
         {
             emptySlot.SetInvenItem(allItem);
             //allItem.InvenItemNum = 0;

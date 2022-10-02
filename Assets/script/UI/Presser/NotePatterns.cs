@@ -20,7 +20,7 @@ public class NotePatterns : MonoBehaviour
     }
     private void Update()
     {
-        /*if (Presser.FindObjectOfType<Presser>().GetComponent<Presser>().ClickedItem.name == "°¡Á·")
+        /*if (Presser.FindObjectOfType<Presser>().GetComponent<Presser>().ClickedItem.name == "ê°€ì¡±")
         {
             if (DestroyCnt == 7)
             {
@@ -58,7 +58,7 @@ public class NotePatterns : MonoBehaviour
 
         CreateLeftNote();
         yield return new WaitForSeconds(0.6f);
-        //¿©±â¿¡ ¾çÂÊ ³ëÆ® Ãß°¡ÇØ¾ßÇÔ. ±Ùµ¥ ÀÌ°Å Å×½ºÆ®´Â ¸ğ¹ÙÀÏ¿¡¼­¸¸ °¡´ÉÀÓ
+        //ì—¬ê¸°ì— ì–‘ìª½ ë…¸íŠ¸ ì¶”ê°€í•´ì•¼í•¨. ê·¼ë° ì´ê±° í…ŒìŠ¤íŠ¸ëŠ” ëª¨ë°”ì¼ì—ì„œë§Œ ê°€ëŠ¥ì„
 
         yield return null;
     }
@@ -93,7 +93,7 @@ public class NotePatterns : MonoBehaviour
 
         CreateLeftNote();
         yield return new WaitForSeconds(0.3f);
-        //¿©±â¿¡ ¾çÂÊ ³ëÆ® Ãß°¡ÇØ¾ßÇÔ. ±Ùµ¥ ÀÌ°Å Å×½ºÆ®´Â ¸ğ¹ÙÀÏ¿¡¼­¸¸ °¡´ÉÀÓ
+        //ì—¬ê¸°ì— ì–‘ìª½ ë…¸íŠ¸ ì¶”ê°€í•´ì•¼í•¨. ê·¼ë° ì´ê±° í…ŒìŠ¤íŠ¸ëŠ” ëª¨ë°”ì¼ì—ì„œë§Œ ê°€ëŠ¥ì„
 
         yield return null;
     }
@@ -128,7 +128,7 @@ public class NotePatterns : MonoBehaviour
 
         CreateLeftNote();
         yield return new WaitForSeconds(0.4f);
-        //¿©±â¿¡ ¾çÂÊ ³ëÆ® Ãß°¡ÇØ¾ßÇÔ. ±Ùµ¥ ÀÌ°Å Å×½ºÆ®´Â ¸ğ¹ÙÀÏ¿¡¼­¸¸ °¡´ÉÀÓ
+        //ì—¬ê¸°ì— ì–‘ìª½ ë…¸íŠ¸ ì¶”ê°€í•´ì•¼í•¨. ê·¼ë° ì´ê±° í…ŒìŠ¤íŠ¸ëŠ” ëª¨ë°”ì¼ì—ì„œë§Œ ê°€ëŠ¥ì„
 
         yield return null;
     }
@@ -163,7 +163,7 @@ public class NotePatterns : MonoBehaviour
 
         CreateLeftNote();
         yield return new WaitForSeconds(0.6f);
-        //¿©±â¿¡ ¾çÂÊ ³ëÆ® Ãß°¡ÇØ¾ßÇÔ. ±Ùµ¥ ÀÌ°Å Å×½ºÆ®´Â ¸ğ¹ÙÀÏ¿¡¼­¸¸ °¡´ÉÀÓ
+        //ì—¬ê¸°ì— ì–‘ìª½ ë…¸íŠ¸ ì¶”ê°€í•´ì•¼í•¨. ê·¼ë° ì´ê±° í…ŒìŠ¤íŠ¸ëŠ” ëª¨ë°”ì¼ì—ì„œë§Œ ê°€ëŠ¥ì„
 
         yield return null;
     }

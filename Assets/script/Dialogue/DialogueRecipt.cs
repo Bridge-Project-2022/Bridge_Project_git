@@ -10,8 +10,8 @@ public class DialogueRecipt : MonoBehaviour
     GameObject DialogueScript;
     public GameObject ReceiptText;
 
-    public string[] PerfumeOrder = new string[10];//¼Õ´Ô Çâ¼ö ÁÖ¹® ´ë»ç
-    public string[] IntensityOrder = new string[5];//Çâ¼ö °­µµ ´ë»ç
+    public string[] PerfumeOrder = new string[10];//ì†ë‹˜ í–¥ìˆ˜ ì£¼ë¬¸ ëŒ€ì‚¬
+    public string[] IntensityOrder = new string[5];//í–¥ìˆ˜ ê°•ë„ ëŒ€ì‚¬
 
     void Update()
     {

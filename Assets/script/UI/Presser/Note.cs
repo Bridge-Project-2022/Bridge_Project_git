@@ -18,7 +18,7 @@ public class Note : MonoBehaviour
 
         if (transform.position.x < DeletePoint.transform.position.x)
         {
-            Debug.Log("»èÁ¦");
+            Debug.Log("ì‚­ì œ");
             Destroy(this.gameObject);
         }
     }
