@@ -108,7 +108,7 @@ public class DeskTouch : MonoBehaviour
     }
     public void feelStart()
     {
-        Debug.Log(GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[0]);
+        //Debug.Log(GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[0]);
         GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[0];
     }
 }

@@ -355,12 +355,12 @@ public class DialogueRandom : MonoBehaviour
         {
             current += offset * Time.deltaTime;
 
-            GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+            GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
 
             yield return null;
         }
         current = target;
-        GameObject.Find("reputation_num").GetComponent<Text>().text = ((int)current).ToString();
+        GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
 
     }
 

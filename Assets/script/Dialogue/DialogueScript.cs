@@ -8,8 +8,8 @@ public class DialogueScript : MonoBehaviour
 {
     //GameObject Customer;
     public GameObject Distiller;
-    public GameObject RC;
-    public GameObject DR;
+    //public GameObject RC;
+    //public GameObject DR;
 
     public int CriminalID = 0;
 
@@ -42,20 +42,9 @@ public class DialogueScript : MonoBehaviour
         }
 
         CriminalID = Random.Range(1001, 1010);
-        //Customer = GameObject.Find("Etc").transform.GetChild(5).gameObject;
-        RC = GameObject.Find("RC").gameObject;
     }
     public void Update()
     {
-        //범죄자 랜덤으로 한명 지정해서 현재 나올 손님 아이디랑 일치하면 범죄자 지정, 불값 true 변경. 
-        if (Customer_ID[0] == CriminalID)
-        {
-            CriminalSystem.FindObjectOfType<CriminalSystem>().isCriminalStart = true;
-        }
-        else
-            CriminalSystem.FindObjectOfType<CriminalSystem>().isCriminalStart = false;
-
-
         if (Customer_ID[0] == 1001)//B : 초등학생 여자아이, 당당함
         {
             Customer_Name = "B";
@@ -477,7 +466,7 @@ public class DialogueScript : MonoBehaviour
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
                     Customer_PerfumeReaction[0] = "정말 최악이네요...";
-                    Customer_PerfumeReaction[0] = "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?";
+                    Customer_PerfumeReaction[1] = "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?";
                     for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
                     {
                         Customer_PerfumeReaction[i] = "";

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class RandomImage : MonoBehaviour
 {
-    public Sprite[] Lolena_Image = new Sprite[18];
     public Sprite[] A_Image = new Sprite[12];
     public Sprite[] B_Image = new Sprite[12];
     //public Sprite[] C_Image = new Sprite[12];
@@ -22,7 +21,6 @@ public class RandomImage : MonoBehaviour
     public string CurrentFeel = "basic";
     public string CurrentTime = "morning";
 
-
     public GameObject Customer;
 
     // Start is called before the first frame update
@@ -36,8 +34,7 @@ public class RandomImage : MonoBehaviour
     {
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
-            CurrentName = GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_Name.ToString();
-            //CurrentName = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_Name.ToString();
+           CurrentName = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_Name.ToString();
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {
@@ -52,65 +49,7 @@ public class RandomImage : MonoBehaviour
 
     public void RCFeeling()
     {
-        if (CurrentName == "Lorena1" || CurrentName == "Lorena2" || CurrentName == "Lorena2_1")
-        {
-            if (CurrentFeel == "1a")
-            {
-                if (CurrentTime == "morning")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[0];
-                else if (CurrentTime == "afternoon")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[1];
-                else if (CurrentTime == "night")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[2];
-            }
-            if (CurrentFeel == "1b")
-            {
-                if (CurrentTime == "morning")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[3];
-                else if (CurrentTime == "afternoon")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[4];
-                else if (CurrentTime == "night")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[5];
-            }
-            if (CurrentFeel == "1c")
-            {
-                if (CurrentTime == "morning")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[6];
-                else if (CurrentTime == "afternoon")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[7];
-                else if (CurrentTime == "night")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[8];
-            }
-            if (CurrentFeel == "1d")
-            {
-                if (CurrentTime == "morning")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[9];
-                else if (CurrentTime == "afternoon")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[10];
-                else if (CurrentTime == "night")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[11];
-            }
-            if (CurrentFeel == "2a")
-            {
-                if (CurrentTime == "morning")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[12];
-                else if (CurrentTime == "afternoon")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[13];
-                else if (CurrentTime == "night")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[14];
-            }
-            if (CurrentFeel == "2b")
-            {
-                if (CurrentTime == "morning")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[15];
-                else if (CurrentTime == "afternoon")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[16];
-                else if (CurrentTime == "night")
-                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().Lolena_Image[17];
-            }
-            Customer.GetComponent<Image>().SetNativeSize();
-        }
-        else if (CurrentName == "A")
+        if (CurrentName == "A")
         {
             if (CurrentFeel == "basic")
             {
