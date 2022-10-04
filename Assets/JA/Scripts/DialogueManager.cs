@@ -10,9 +10,10 @@ public enum CustomerState
     RequestComment, // 향 요청 대사
     ResultCommentGood, // 결과 대사/
     ResultCommentNormal, // 결과 대사
-    ResultCommentBad // 결과 대사
+    ResultCommentBad, // 결과 대사
+    NoExist, // 없다
+    NoFlavor // 향료가 없다.
 }
-
 
 public class DialogueManager : Singleton<DialogueManager>
 {

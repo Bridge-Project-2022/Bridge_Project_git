@@ -6,7 +6,8 @@ public class Temp : MonoBehaviour
 {
     void Start()
     {
-        print(DialogueManager.Instance.DialogueToString(1, CustomerState.VisitComment));
+        //print(DialogueManager.Instance.DialogueToString(1, CustomerState.VisitComment));
+        print(DialogueManager.Instance.DialogueToString(0,CustomerState.NoExist));
     }
     
 }
