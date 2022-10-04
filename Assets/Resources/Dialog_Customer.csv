@@ -1,0 +1,15 @@
+Number,CustomerID,State,Content
+0,0,VisitGeneral,향수 좀 만들어주세요.
+1,0,VisitComment,제가 사랑했던 그의 향이 맡고 싶어요...
+2,0,RefusalComment,대체 왜죠? 그럴 거면 가게를 하지 말든가..
+3,0,RequestComment,아주 강렬하게 해주세요..
+4,0,ResultCommentGood,당장이라도 내 눈에 보이는 것만 같아요..
+5,0,ResultCommentNormal,그럭저럭 괜찮네요.
+6,0,ResultCommentBad,이걸 향수라고 부를 수 있나요..?
+7,1,VisitGeneral,안녕하세요.
+8,1,VisitComment,무지개다리를 건넌 강아지가 생각하면 너무 슬퍼요.. / 저에게는 가족만큼 소중했거든요..
+9,1,RefusalComment,정말 별로네요. / 이걸 다른 사람들한테도 알려야겠어요. / 제 말이 무슨 말인진 알죠?
+10,1,RequestComment,은은하게 퍼지도록 해주세요.
+11,1,ResultCommentGood,조금만 더 빨리 올걸… / 감사합니다..
+12,1,ResultCommentNormal,"조금 아쉽지만, 어쩔 수 없겠죠."
+13,1,ResultCommentBad,이건 내가 찾던 향이 아닌데…
