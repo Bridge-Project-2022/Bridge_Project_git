@@ -23,12 +23,12 @@ public class TestDialogueScript : MonoBehaviour
     public bool isRorenaBad = false;
     public void Start()
     {
-        Customer_ID[0] = 1004;//·£´ı
+        Customer_ID[0] = 1004;//·£´ı A
         Customer_ID[1] = 1010;//·Î·¹³ª 1
-        Customer_ID[2] = 1003;//¹üÁËÀÚ
-        Customer_ID[3] = 1008;//·£´ı
+        Customer_ID[2] = 1003;//¹üÁËÀÚ G
+        Customer_ID[3] = 1008;//·£´ı D
         Customer_ID[4] = 1011;//·Î·¹³ª2
-        Customer_ID[5] = 1001;//·£´ı
+        Customer_ID[5] = 1001;//·£´ı B
 
         RC = GameObject.Find("RC").gameObject;
     }

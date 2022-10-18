@@ -148,14 +148,14 @@ public class TestDialogueRandom : MonoBehaviour
 
         for (int i = 0; i < BuyerFeel.Length; i++)
         {
-            BuyerFeel[i] = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[i];
+            BuyerFeel[i] = GameObject.Find("RC").GetComponent<TestCustomerFeel>().Customer_Feel[i];
         }
     }
     public void NextDialogue()
     {
         StopAll();
 
-        RandomImage.FindObjectOfType<RandomImage>().CurrentFeel = BuyerFeel[FeelCnt];
+        TestRandomImage.FindObjectOfType<TestRandomImage>().CurrentFeel = BuyerFeel[FeelCnt];
         FeelCnt++;
 
         if (DS.Customer_ID[0] == 1010)
@@ -580,7 +580,7 @@ public class TestDialogueRandom : MonoBehaviour
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
-        CustomerFeel.FindObjectOfType<CustomerFeel>().orderStart = true;
+        TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().orderStart = true;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
         Customer.gameObject.SetActive(true);
         Buyer.gameObject.SetActive(true);
@@ -688,7 +688,7 @@ public class TestDialogueRandom : MonoBehaviour
 
     public void End()
     {
-        GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
+        GameObject.Find("RC").GetComponent<TestRandomImage>().CurrentFeel = "basic";
         isDialogueStart = false;
         int temp;
         temp = DS.Customer_ID[0];
@@ -705,22 +705,22 @@ public class TestDialogueRandom : MonoBehaviour
         {
             if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 2)//손님 3명 가고 나서 점심으로 바뀜
             {
-                RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
+                TestRandomImage.FindObjectOfType<TestRandomImage>().CurrentTime = "afternoon";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
             }
             else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 4)//손님 6명 가고 나서 저녁으로 바뀜
             {
-                RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
+                TestRandomImage.FindObjectOfType<TestRandomImage>().CurrentTime = "night";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
             }
-            CustomerFeel.FindObjectOfType<CustomerFeel>().orderStart = false;
-            CustomerFeel.FindObjectOfType<CustomerFeel>().rejectStart = false;
-            CustomerFeel.FindObjectOfType<CustomerFeel>().intensityStart = false;
-            CustomerFeel.FindObjectOfType<CustomerFeel>().reactionStart = false;
-            CustomerFeel.FindObjectOfType<CustomerFeel>().declareStart = false;
+            TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().orderStart = false;
+            TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().rejectStart = false;
+            TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().intensityStart = false;
+            TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().reactionStart = false;
+            TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().declareStart = false;
 
 
             Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
