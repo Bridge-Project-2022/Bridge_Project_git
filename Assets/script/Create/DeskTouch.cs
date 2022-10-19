@@ -15,6 +15,7 @@ public class DeskTouch : MonoBehaviour
     public GameObject middleSlot;
     public GameObject topSlot;
     public GameObject TopBar;
+    public GameObject MoneyBar;
     public GameObject Receipt;
 
     GameObject BackGround;
@@ -42,6 +43,8 @@ public class DeskTouch : MonoBehaviour
         Buyer.gameObject.SetActive(false);
 
         TopBar.transform.Translate(new Vector3(200, 200, 0));
+        MoneyBar.transform.Translate(new Vector3(200, 200, 0));
+
         Receipt.gameObject.SetActive(true);
         GameObject.Find("Random_Buyer").gameObject.SetActive(false);
         BackGround.gameObject.SetActive(false);
@@ -80,6 +83,8 @@ public class DeskTouch : MonoBehaviour
         TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
         Customer.gameObject.SetActive(true);
         TopBar.transform.Translate(new Vector3(-200, -200, 0));
+        MoneyBar.transform.Translate(new Vector3(-200, -200, 0));
+
         Receipt.gameObject.SetActive(false);
 
         BackGround.gameObject.SetActive(true);

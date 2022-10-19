@@ -286,6 +286,10 @@ public class TestRandomImage : MonoBehaviour
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[11];
             }
+            else
+            {
+                Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[0];
+            }
             Customer.GetComponent<Image>().SetNativeSize();
         }
 
@@ -345,6 +349,10 @@ public class TestRandomImage : MonoBehaviour
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena2_Image[5];
             }
+            else
+            {
+                Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[0];
+            }
             Customer.GetComponent<Image>().SetNativeSize();
         }
 
@@ -385,6 +393,10 @@ public class TestRandomImage : MonoBehaviour
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[10];
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[11];
+            }
+            else
+            {
+                Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[0];
             }
             Customer.GetComponent<Image>().SetNativeSize();
         }
@@ -444,6 +456,10 @@ public class TestRandomImage : MonoBehaviour
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena2_Image[4];
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena2_Image[5];
+            }
+            else
+            {
+                Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[0];
             }
             Customer.GetComponent<Image>().SetNativeSize();
         }

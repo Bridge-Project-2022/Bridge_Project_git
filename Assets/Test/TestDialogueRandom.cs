@@ -580,6 +580,7 @@ public class TestDialogueRandom : MonoBehaviour
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
+        isDeclare = false;
         TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().orderStart = true;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
         Customer.gameObject.SetActive(true);
@@ -673,6 +674,7 @@ public class TestDialogueRandom : MonoBehaviour
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
         Declaration.gameObject.SetActive(false);
+        TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().GetComponent<TestCustomerFeel>().declareStart = false;
         isDialogueStart = false;
         Buyer.gameObject.SetActive(false);
         F_2Start();
@@ -747,6 +749,7 @@ public class TestDialogueRandom : MonoBehaviour
             isCriminal = true;
             isCriminalFalse = false;
             isDeclare = true;
+            TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().declareStart = true;
         }
         else//잘못 누른 경우
         {
@@ -755,6 +758,7 @@ public class TestDialogueRandom : MonoBehaviour
             isCriminalFalse = true;
             isCriminal = false;
             isDeclare = true;
+            TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().declareStart = true;
         }
         Invoke("DeclareActiveFalse", 3f);
     }

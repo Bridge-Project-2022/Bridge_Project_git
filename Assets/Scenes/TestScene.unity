@@ -2877,7 +2877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &146509536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2929,7 +2929,7 @@ RectTransform:
   m_Children:
   - {fileID: 1491598777}
   m_Father: {fileID: 477533115}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3618,7 +3618,6 @@ RectTransform:
   m_Children:
   - {fileID: 1195423524}
   - {fileID: 871231041}
-  - {fileID: 1913314546}
   - {fileID: 1566617833}
   m_Father: {fileID: 477533115}
   m_RootOrder: 0
@@ -8631,6 +8630,7 @@ GameObject:
   - component: {fileID: 477533112}
   - component: {fileID: 477533117}
   - component: {fileID: 477533116}
+  - component: {fileID: 477533118}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8720,6 +8720,7 @@ RectTransform:
   - {fileID: 955573411}
   - {fileID: 1984785262}
   - {fileID: 2015426898}
+  - {fileID: 1913314546}
   - {fileID: 1532829886}
   - {fileID: 1685090901}
   - {fileID: 1341131580}
@@ -8803,6 +8804,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &477533118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477533111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7252604313b7d6d47bcb3ceb2d3278b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506270700
 GameObject:
   m_ObjectHideFlags: 0
@@ -9951,7 +9964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &585306718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9964,7 +9977,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 477533115}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -19833,7 +19846,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2783584853704b941b0cd2a9d89c4c80, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.18
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -20708,7 +20721,7 @@ RectTransform:
   m_Children:
   - {fileID: 99359196}
   m_Father: {fileID: 477533115}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21209,7 +21222,7 @@ RectTransform:
   - {fileID: 1695917886}
   - {fileID: 2021490416}
   m_Father: {fileID: 477533115}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23021,6 +23034,7 @@ MonoBehaviour:
   middleSlot: {fileID: 665432462}
   topSlot: {fileID: 38108462}
   TopBar: {fileID: 188896850}
+  MoneyBar: {fileID: 1913314545}
   Receipt: {fileID: 994908512}
   InvenUI: {fileID: 1538867307}
   Customer: {fileID: 772955856}
@@ -23792,7 +23806,7 @@ RectTransform:
   m_Children:
   - {fileID: 663914335}
   m_Father: {fileID: 477533115}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23842,19 +23856,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1532829888}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1532829890}
-        m_TargetAssemblyTypeName: NextDay, Assembly-CSharp
-        m_MethodName: NextDayClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1532829888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24710,7 +24712,7 @@ RectTransform:
   - {fileID: 1997990013}
   - {fileID: 1758361151}
   m_Father: {fileID: 188896851}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26712,7 +26714,7 @@ RectTransform:
   - {fileID: 195487552}
   - {fileID: 893151655}
   m_Father: {fileID: 477533115}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27703,7 +27705,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 385449663}
   m_FillRect: {fileID: 533184790}
   m_HandleRect: {fileID: 385449662}
@@ -30327,14 +30329,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913314545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2030640494}
   - {fileID: 1877822975}
-  m_Father: {fileID: 188896851}
-  m_RootOrder: 2
+  m_Father: {fileID: 477533115}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33758,7 +33760,7 @@ RectTransform:
   - {fileID: 1709982878}
   - {fileID: 924972022}
   m_Father: {fileID: 477533115}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -35600,6 +35602,7 @@ MonoBehaviour:
   middleSlot: {fileID: 0}
   topSlot: {fileID: 0}
   TopBar: {fileID: 0}
+  MoneyBar: {fileID: 0}
   Receipt: {fileID: 0}
   InvenUI: {fileID: 0}
   Customer: {fileID: 0}
