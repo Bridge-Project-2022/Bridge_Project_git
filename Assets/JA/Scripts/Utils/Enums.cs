@@ -12,4 +12,10 @@ public class Enums
         NoExist, // 없다
         NoFlavor // 향료가 없다.
     }
+    
+    public enum CustomerFace
+    {
+        sad,
+        happy,
+    }
 }

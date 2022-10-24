@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 // public enum CustomerState
 // {
@@ -21,6 +19,9 @@ public enum CustomerFace
     happy,
 }
 
+/// <summary>
+/// 사용하지 않음
+/// </summary>
 public class DialogueManager : Singleton<DialogueManager>
 {
     protected DialogueManager() { }
