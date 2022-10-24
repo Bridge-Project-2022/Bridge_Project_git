@@ -53,12 +53,12 @@ public class TestDialogueRandom : MonoBehaviour
 
     public int FeelCnt = 0;
 
-    int ACount = 0;
-    int D1Count = 0;
-    int D2Count = 0;
-    int ECount = 0;
-    int F2Count = 0;
-    int LolenaCnt = 0;
+    public int ACount = 0;
+    public int D1Count = 0;
+    public int D2Count = 0;
+    public int ECount = 0;
+    public int F2Count = 0;
+    public int LolenaCnt = 0;
 
 
     public bool isDialogueStart = false;
@@ -77,6 +77,8 @@ public class TestDialogueRandom : MonoBehaviour
     public Sprite Fail;
 
     public GameObject CutScene;
+
+    public bool isEnd = false;
 
     public void Update()
     {
@@ -247,16 +249,16 @@ public class TestDialogueRandom : MonoBehaviour
             if (AStart == true)
             {
                 Buyer.gameObject.GetComponent<Button>().interactable = true;
-                if (ACount == 2)
+                if (LolenaCnt == 2)
                 {
                     CutScene.gameObject.SetActive(true);
-                    ACount++;
+                    LolenaCnt++;
                 }
                 else
                 {
                     CutScene.gameObject.SetActive(false);
-                    StartCoroutine(NormalChat(BuyerOrder[ACount]));
-                    ACount++;
+                    StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
+                    LolenaCnt++;
                 }
 
 
@@ -264,7 +266,7 @@ public class TestDialogueRandom : MonoBehaviour
                 {
                     isSelectStart = true;
                     Buyer.gameObject.GetComponent<Button>().interactable = false;
-                    ACount = 0;
+                    LolenaCnt = 0;
                     AStart = false;
                 }
             }
@@ -423,19 +425,22 @@ public class TestDialogueRandom : MonoBehaviour
         }
         if (DS.Customer_ID[0] == 1013)
         {
+            Debug.Log("S");
             if (AStart == true)
             {
+                Debug.Log("SS");
                 Buyer.gameObject.GetComponent<Button>().interactable = true;
-                if (ACount == 2)
+                if (LolenaCnt == 2)
                 {
+                    Debug.Log("SSS");
                     CutScene.gameObject.SetActive(true);
-                    ACount++;
+                    LolenaCnt++;
                 }
                 else
                 {
                     CutScene.gameObject.SetActive(false);
-                    StartCoroutine(NormalChat(BuyerOrder[ACount]));
-                    ACount++;
+                    StartCoroutine(NormalChat(BuyerOrder[LolenaCnt]));
+                    LolenaCnt++;
                 }
 
 
@@ -443,7 +448,7 @@ public class TestDialogueRandom : MonoBehaviour
                 {
                     isSelectStart = true;
                     Buyer.gameObject.GetComponent<Button>().interactable = false;
-                    ACount = 0;
+                    LolenaCnt = 0;
                     AStart = false;
                 }
             }
@@ -580,6 +585,7 @@ public class TestDialogueRandom : MonoBehaviour
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
+        isEnd = false;
         isDeclare = false;
         TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().orderStart = true;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
@@ -724,15 +730,16 @@ public class TestDialogueRandom : MonoBehaviour
             TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().reactionStart = false;
             TestCustomerFeel.FindObjectOfType<TestCustomerFeel>().declareStart = false;
 
-
+            isEnd = true;
             Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
         }
 
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 9명 가고 나서 최종 창이 뜸.
+        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6 && isEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
         {
             Invoke("DailyWindowOpen", 3f);
         }
         FeelCnt = 0;
+        LolenaCnt = 0;
     }
 
     public void DailyWindowOpen()
@@ -742,6 +749,7 @@ public class TestDialogueRandom : MonoBehaviour
 
     public void PressDeclaration()//신고버튼 클릭 시
     {
+        FeelCnt = 0;
         if (GameObject.Find("DialogueScript1").GetComponent<TestDialogueScript>().Customer_ID[0] == 1003)//범죄자 등장
         {
             Debug.Log("범죄자 신고 성공");

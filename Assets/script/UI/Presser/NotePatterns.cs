@@ -65,6 +65,7 @@ public class NotePatterns : MonoBehaviour
 
     IEnumerator LoverPattern()
     {
+        Debug.Log("연인");
         yield return new WaitForSeconds(1.0f);
 
         CreateLeftNote();

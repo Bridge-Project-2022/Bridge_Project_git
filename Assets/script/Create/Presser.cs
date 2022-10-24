@@ -76,6 +76,7 @@ public class Presser : MonoBehaviour
         }
         if (MiddleItemName == "연인")
         {
+            Debug.Log("연연연");
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("LoverPattern");
             Invoke("PresserEnd", 8f);
@@ -288,6 +289,7 @@ public class Presser : MonoBehaviour
         {
             middleInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
         }*/
+        Debug.Log("압착 끝");
         if (ClickedItem.name == "가족")
         {
             if ((PressureScore / 9) >= 3)

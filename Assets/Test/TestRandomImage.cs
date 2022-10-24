@@ -286,7 +286,7 @@ public class TestRandomImage : MonoBehaviour
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[11];
             }
-            else
+            if (CurrentFeel == "basic" || CurrentFeel == "good" || CurrentFeel == "sad" || CurrentFeel == "bad")
             {
                 Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[0];
             }
@@ -349,10 +349,10 @@ public class TestRandomImage : MonoBehaviour
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena2_Image[5];
             }
-            else
-            {
+           if(CurrentFeel == "basic" || CurrentFeel == "good" || CurrentFeel == "sad" || CurrentFeel == "bad")
+           {
                 Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[0];
-            }
+           }
             Customer.GetComponent<Image>().SetNativeSize();
         }
 
@@ -394,7 +394,7 @@ public class TestRandomImage : MonoBehaviour
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[11];
             }
-            else
+            if (CurrentFeel == "basic" || CurrentFeel == "good" || CurrentFeel == "sad" || CurrentFeel == "bad")
             {
                 Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[0];
             }
@@ -457,7 +457,7 @@ public class TestRandomImage : MonoBehaviour
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena2_Image[5];
             }
-            else
+            if (CurrentFeel == "basic" || CurrentFeel == "good" || CurrentFeel == "sad" || CurrentFeel == "bad")
             {
                 Customer.GetComponent<Image>().sprite = this.GetComponent<TestRandomImage>().Lorena1_Image[0];
             }

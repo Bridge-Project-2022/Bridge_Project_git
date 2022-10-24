@@ -34,7 +34,10 @@ public class Cooler : MonoBehaviour
     }
     public void CoolerOn(ItemProperty item)
     {
-        this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
+        if (item.itemType == "Top")
+        {
+            this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
+        }
         ClickedItem = item;
         Color color = CoolerOne.gameObject.GetComponent<Image>().color;
         color.a = 255;
@@ -164,17 +167,26 @@ public class Cooler : MonoBehaviour
 
     public void ParticleShow()//각 초 후에 파티클 생기고 클릭 가능해짐.
     {
-        Particle1.gameObject.SetActive(true);
-        Particle2.gameObject.SetActive(true);
-        Particle3.gameObject.SetActive(true);
+        if(CoolerOne.gameObject.GetComponent<Image>().sprite != null)
+        {
+            Particle1.gameObject.SetActive(true);
+            CoolerOne.GetComponent<Button>().interactable = true;
+            CoolerOne.gameObject.tag = "good";
+        }
 
-        CoolerOne.GetComponent<Button>().interactable = true;
-        CoolerTwo.GetComponent<Button>().interactable = true;
-        CoolerThree.GetComponent<Button>().interactable = true;
+        if (CoolerTwo.gameObject.GetComponent<Image>().sprite != null)
+        {
+            Particle2.gameObject.SetActive(true);
+            CoolerTwo.GetComponent<Button>().interactable = true;
+            CoolerTwo.gameObject.tag = "good";
+        }
 
-        CoolerOne.gameObject.tag = "good";
-        CoolerTwo.gameObject.tag = "good";
-        CoolerThree.gameObject.tag = "good";
+        if (CoolerThree.gameObject.GetComponent<Image>().sprite != null)
+        {
+            Particle3.gameObject.SetActive(true);
+            CoolerThree.GetComponent<Button>().interactable = true;
+            CoolerThree.gameObject.tag = "good";
+        }
     }
 
     public void BurnItem()//파티클 생성 후 2초 뒤에 아이템 탄 이미지로 변환,

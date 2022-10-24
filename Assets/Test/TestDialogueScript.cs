@@ -26,9 +26,9 @@ public class TestDialogueScript : MonoBehaviour
         Customer_ID[0] = 1004;//랜덤 A
         Customer_ID[1] = 1010;//로레나 1
         Customer_ID[2] = 1003;//범죄자 G
-        Customer_ID[3] = 1008;//랜덤 D
-        Customer_ID[4] = 1011;//로레나2
-        Customer_ID[5] = 1001;//랜덤 B
+        Customer_ID[3] = 1011;//
+        Customer_ID[4] = 1008;//
+        Customer_ID[5] = 1001;//
 
         RC = GameObject.Find("RC").gameObject;
     }
@@ -50,6 +50,7 @@ public class TestDialogueScript : MonoBehaviour
         }
         if (Customer_ID[0] == 1001)//B : 초등학생 여자아이, 당당함
         {
+            Debug.Log("b시작");
             Customer_Name = "B";
             Customer_PerfumeOrder[0] = "안녕?";
             Customer_PerfumeOrder[1] = "어릴 때 아빠 손잡고 갔던 놀이공원에 다시 가고 싶어!";
@@ -466,7 +467,7 @@ public class TestDialogueScript : MonoBehaviour
             Customer_Name = "Lorena2_2";
             Customer_PerfumeOrder[0] = "남자친구..가...";
             Customer_PerfumeOrder[1] = "너무..그리워..";
-            Customer_PerfumeOrder[2] = "";
+            Customer_PerfumeOrder[2] = "..";
             Customer_PerfumeOrder[3] = "그 때의 향이 필요해...";
 
             for (int i = 4; i < Customer_PerfumeOrder.Length; i++)
