@@ -2,17 +2,23 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CustomerState
+// public enum CustomerState
+// {
+//     VisitGeneral, // 일반적인 방문 인사
+//     VisitComment, // 캐릭터 방문 인사
+//     RefusalComment, // 캐릭터 거절 대사
+//     RequestComment, // 향 요청 대사
+//     ResultCommentGood, // 결과 대사/
+//     ResultCommentNormal, // 결과 대사
+//     ResultCommentBad, // 결과 대사
+//     NoExist, // 없다
+//     NoFlavor // 향료가 없다.
+// }
+
+public enum CustomerFace
 {
-    VisitGeneral, // 일반적인 방문 인사
-    VisitComment, // 캐릭터 방문 인사
-    RefusalComment, // 캐릭터 거절 대사
-    RequestComment, // 향 요청 대사
-    ResultCommentGood, // 결과 대사/
-    ResultCommentNormal, // 결과 대사
-    ResultCommentBad, // 결과 대사
-    NoExist, // 없다
-    NoFlavor // 향료가 없다.
+    sad,
+    happy,
 }
 
 public class DialogueManager : Singleton<DialogueManager>
@@ -20,6 +26,10 @@ public class DialogueManager : Singleton<DialogueManager>
     protected DialogueManager() { }
 
     private List<Dictionary<string, object>> data_DialogCustomer = null;
+
+    //private Dictionary<CustomerState, Dictionary<CustomerFace, string>> data_DialogCustomer = null; real
+    
+    
     //private List<Dictionary<string, object>> data_DialogOwner = null;
     
     private enum Type 
@@ -42,30 +52,31 @@ public class DialogueManager : Singleton<DialogueManager>
     /// <param name="customerID">찾고자 하는 ID</param>
     /// <param name="state">현재 상태</param>
     /// <returns></returns>
-    public string DialogueToString(int customerID, CustomerState state)
-    {
-        string temp = null;
-        int id;
-
-        id = SearchCustomerID(customerID);
-        if (id == -1)
-        {
-            Debug.LogError("Customer id that does not exist");
-        }
-        
-        for (int i = id; i <  data_DialogCustomer.Count; i++)
-        {
-            if (data_DialogCustomer[i][Type.State.ToString()].Equals((string)state.ToString()))
-            {
-                id = i;
-                break;
-            }
-        }
-
-        temp = (string)data_DialogCustomer[id][Type.Content.ToString()];
-
-        return temp;
-    }
+    // public string DialogueToString(int customerID, CustomerState state)
+    // {
+    //     string temp = null;
+    //     int id;
+    //
+    //     id = SearchCustomerID(customerID);
+    //     if (id == -1)
+    //     {
+    //         Debug.LogError("Customer id that does not exist");
+    //         return null;
+    //     }
+    //     
+    //     for (int i = id; i <  data_DialogCustomer.Count; i++)
+    //     {
+    //         if (data_DialogCustomer[i][Type.State.ToString()].Equals((string)state.ToString()))
+    //         {
+    //             id = i;
+    //             break;
+    //         }
+    //     }
+    //
+    //     temp = (string)data_DialogCustomer[id][Type.Content.ToString()];
+    //
+    //     return temp;
+    // }
 
     /// <summary>
     /// 파싱된 csv파일을 순회하며 해당 id를 찾습니다.
@@ -86,5 +97,6 @@ public class DialogueManager : Singleton<DialogueManager>
     }
 }
 
+/// TryGetValue 방식을 고민해 볼 것
 
 
