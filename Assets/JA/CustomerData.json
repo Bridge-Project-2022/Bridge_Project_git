@@ -1,0 +1,1329 @@
+{
+    "items": [
+        {
+            "customer": [
+                {
+                    "name": "재이",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "MiddleNotes": "애인",
+                        "TopNotes": "슬픔"
+                    },
+                    "dialogue": {
+                        "VisitComment": ["안녕하세요.."],
+                        "visitFace": ["Common"],
+                        "RefusalComment": ["제발 저 좀 살려주세요.."],
+                        "RefusalFace": ["Sad"],
+                        "RequestComment": ["잔잔하고 은은한 향으로 부탁해요."],
+                        "RequestFace": ["Common"],
+                        "ResultGoodComment": ["정말 감사합니다..","행복해요..!"],
+                        "ResultGoodFace": ["Happy"],
+                        "ResultNormalComment": ["좋아요.."],
+                        "ResultNormalFace": ["Common"],
+                        "ResultBadComment": ["이건 향수가 아니에요.."],
+                        "ResultBadFace": ["Sad"],
+                        "NoExistComment": ["향수가 없다니.."],
+                        "NoExistFace": ["Sad"],
+                        "NoFlavorComment": ["향료가 없는 것 같아요"],
+                        "NoFlavorFace": ["Sad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "MiddleNotes": "",
+                        "TopNotes": ""
+                    },
+                    "dialogue": {
+                        "VisitComment": [],
+                        "visitFace": [],
+                        "RefusalComment": [],
+                        "RefusalFace": [],
+                        "RequestComment": [],
+                        "RequestFace": [],
+                        "ResultGoodComment": [],
+                        "ResultGoodFace": [],
+                        "ResultNormalComment": [],
+                        "ResultNormalFace": [],
+                        "ResultBadComment": [],
+                        "ResultBadFace": [],
+                        "NoExistComment": [],
+                        "NoExistFace": [],
+                        "NoFlavorComment": [],
+                        "NoFlavorFace": []
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                }
+            ]
+        }
+    ]
+}
