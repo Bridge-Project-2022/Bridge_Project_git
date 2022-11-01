@@ -69,6 +69,7 @@ public class MenuBtn : MonoBehaviour
         StartCoroutine(FadeIn());
         Invoke("CloseNews", 1f);
         GameObject.Find("BGM").GetComponent<AudioSource>().clip = main;
+        GameObject.Find("BGM").GetComponent<AudioSource>().volume = 0.15f;
         GameObject.Find("BGM").GetComponent<AudioSource>().Play();
     }
     IEnumerator FadeIn()

@@ -68,26 +68,25 @@ public class Presser : MonoBehaviour
     {
         PresserDetail.gameObject.SetActive(true);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
-        if (MiddleItemName == "가족")
+        if (ClickedItem.name == "가족")
         {
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("FamilyPattern");
             Invoke("PresserEnd", 8f);
         }
-        if (MiddleItemName == "연인")
+        if (ClickedItem.name == "연인")
         {
-            Debug.Log("연연연");
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("LoverPattern");
             Invoke("PresserEnd", 8f);
         }
-        if (MiddleItemName == "반려동물")
+        if (ClickedItem.name == "반려동물")
         {
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("PetPattern");
             Invoke("PresserEnd", 8f);
         }
-        if (MiddleItemName == "놀이공원")
+        if (ClickedItem.name == "놀이공원")
         {
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("ParkPattern");
@@ -95,8 +94,10 @@ public class Presser : MonoBehaviour
         }
         else
         {
+            Debug.Log("else");
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("FamilyPattern");//이거 지금은 가족패턴 적용인데 그냥 기본 패턴 넣으면 될듯.
+            Invoke("PresserEnd", 8f);
         }
         //PressItem.GetComponent<Image>().sprite = ClickedItem.sprite;
     }

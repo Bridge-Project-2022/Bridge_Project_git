@@ -14,7 +14,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip fireon;
     public AudioClip click;
     public AudioClip typing;
-    public AudioClip boiling;
+    public AudioClip boilHigh;
+    public AudioClip boilMiddle;
+    public AudioClip boilLow;
 
     public AudioClip news;
     public AudioClip main;
@@ -67,8 +69,18 @@ public class SoundManager : MonoBehaviour
                 sfxAudioSource.loop = false;
                 break;
 
-            case "boiling":
-                sfxAudioSource.clip = boiling;
+            case "boilHigh":
+                sfxAudioSource.clip = boilHigh;
+                sfxAudioSource.loop = true;
+                break;
+
+            case "boilMiddle":
+                sfxAudioSource.clip = boilMiddle;
+                sfxAudioSource.loop = true;
+                break;
+
+            case "boilLow":
+                sfxAudioSource.clip = boilLow;
                 sfxAudioSource.loop = true;
                 break;
         }

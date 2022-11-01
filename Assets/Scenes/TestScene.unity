@@ -21350,7 +21350,7 @@ MonoBehaviour:
   RepHandle: {fileID: 385449661}
   BGMSlider: {fileID: 2062675583}
   GameQuit: {fileID: 99359195}
-  main: {fileID: 8300000, guid: 3d7be5e8ac0f90c4a9ca369a3deea5d4, type: 3}
+  main: {fileID: 8300000, guid: 98413e5241129164cb5fc65629fde95a, type: 3}
 --- !u!1001 &1353205045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26436,10 +26436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677e30db9bfd4d3418d4e2e71db07902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Seller: {fileID: 1065875904}
-  Buyer: {fileID: 0}
-  BuyerDialogue: {fileID: 78113239}
-  SellerDialogue: {fileID: 2103647770}
 --- !u!4 &1659885517
 Transform:
   m_ObjectHideFlags: 0
@@ -27054,12 +27050,14 @@ MonoBehaviour:
   visit: {fileID: 8300000, guid: 446d65a614e30464c81b00aa44dbb38c, type: 3}
   inven: {fileID: 8300000, guid: 95fba46d2cb96314693ce884b7959b24, type: 3}
   money: {fileID: 8300000, guid: eaa9553813ab5ef42960943a37ebff59, type: 3}
-  fireon: {fileID: 8300000, guid: 359074ddeacecff43949622d366a2e5a, type: 3}
+  fireon: {fileID: 8300000, guid: 94c4a88460bf33047bf049d8618d67d8, type: 3}
   click: {fileID: 8300000, guid: b003929952841d9429a74ef979f205db, type: 3}
-  typing: {fileID: 8300000, guid: 44cc80f96a3ed3c4c83caeac2000f07c, type: 3}
-  boiling: {fileID: 8300000, guid: 9e01701465d8db9478a3263785958064, type: 3}
+  typing: {fileID: 8300000, guid: e953b4ce16cc092469089db3b6d6f1c9, type: 3}
+  boilHigh: {fileID: 8300000, guid: eaaedeb5bdc941b48b223b57b7d08fa0, type: 3}
+  boilMiddle: {fileID: 8300000, guid: 0706aeba8ae5f1e4782c2ea5547c1a42, type: 3}
+  boilLow: {fileID: 8300000, guid: 83b741714adffa7428a177734807de16, type: 3}
   news: {fileID: 8300000, guid: 2783584853704b941b0cd2a9d89c4c80, type: 3}
-  main: {fileID: 8300000, guid: 3d7be5e8ac0f90c4a9ca369a3deea5d4, type: 3}
+  main: {fileID: 8300000, guid: 98413e5241129164cb5fc65629fde95a, type: 3}
   newsPanel: {fileID: 585306717}
 --- !u!1 &1709982877
 GameObject:
@@ -32014,16 +32012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e3ddce78805a3468ffe12cf9060d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info:
-    BuyerSentences:
-    - id: 0
-      dialogue: "\uC548\uB155\uD558\uC138\uC694"
-    - id: 1
-      dialogue: "\uC81C\uAC00 \uC0AC\uB791\uD588\uB358 \uADF8\uC758 \uD5A5\uC744
-        \uB9E1\uACE0\uC2F6\uC5B4\uC694."
-    - id: 2
-      dialogue: "\uAC10\uC0AC\uD569\uB2C8\uB2E4."
-    SellerSentences: []
 --- !u!114 &1991984849
 MonoBehaviour:
   m_ObjectHideFlags: 0

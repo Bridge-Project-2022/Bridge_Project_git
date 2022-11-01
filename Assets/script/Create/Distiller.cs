@@ -53,6 +53,7 @@ public class Distiller : MonoBehaviour
     public void DistillWindowOpen()
     {
         DistillWindow.gameObject.SetActive(true);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
     }
 public void DistillerOn(ItemProperty item)
     {
@@ -118,6 +119,8 @@ public void DistillerOn(ItemProperty item)
 
             if (curTemper >= 91 && curTemper <= 134)
             {
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boilHigh");
+                GameObject.Find("SFX").GetComponent<AudioSource>().loop = true;
                 //HighTemperDuration += 0.01f;
                 isHigh = true;
                 isMiddle = false;
@@ -171,6 +174,8 @@ public void DistillerOn(ItemProperty item)
             }
             else if (curTemper >= 46 && curTemper <= 90)
             {
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boilMiddle");
+                GameObject.Find("SFX").GetComponent<AudioSource>().loop = true;
                 maxTemperDuration = 0.0f;
                 HighTemperDuration = 0;
                 LowTemperDuration = 0;
@@ -217,6 +222,8 @@ public void DistillerOn(ItemProperty item)
             temperatureSlider.GetComponent<Slider>().value -= 0.3f;
             if (curTemper >= 1 && curTemper <= 45)
             {
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boilLow");
+                GameObject.Find("SFX").GetComponent<AudioSource>().loop = true;
                 TemperDuration = 0;
                 HighTemperDuration = 0;
                 LowTemperDuration += 0.01f;
@@ -261,6 +268,7 @@ public void DistillerOn(ItemProperty item)
 
     public void EndDistiller()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().loop = false;
         DistillerResult();
         temperatureSlider.GetComponent<Slider>().value = 1;
         HighTemperDuration = 0;

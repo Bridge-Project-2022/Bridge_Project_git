@@ -425,14 +425,11 @@ public class TestDialogueRandom : MonoBehaviour
         }
         if (DS.Customer_ID[0] == 1013)
         {
-            Debug.Log("S");
             if (AStart == true)
             {
-                Debug.Log("SS");
                 Buyer.gameObject.GetComponent<Button>().interactable = true;
                 if (LolenaCnt == 2)
                 {
-                    Debug.Log("SSS");
                     CutScene.gameObject.SetActive(true);
                     LolenaCnt++;
                 }
