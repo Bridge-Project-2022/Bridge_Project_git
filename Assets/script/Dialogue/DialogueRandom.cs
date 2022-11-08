@@ -27,6 +27,7 @@ public class DialogueRandom : MonoBehaviour
     //public bool makeStart = false;
 
     public GameObject arrow;
+    public GameObject Declaration;
 
     public int rejectCnt = 0;//거절 횟수 -> 평판 영향, 일차 지날 때 마다 리셋되어야 함.
 
@@ -49,6 +50,7 @@ public class DialogueRandom : MonoBehaviour
     public bool D1Start = false;
     public bool D2Start = false;
     public bool EStart = false;
+    public bool F2Start = false;
 
     int ACount = 0;
     int D1Count = 0;
@@ -60,6 +62,14 @@ public class DialogueRandom : MonoBehaviour
 
     bool isSelectStart = false;
     bool isArrowStart = false;
+
+    public bool isCriminal = false;
+    public bool isCriminalFalse = false;
+    public bool isDeclare = false;
+
+    public GameObject Criminal;
+    public Sprite Success;
+    public Sprite Fail;
 
     public void Update()
     {
@@ -189,6 +199,12 @@ public class DialogueRandom : MonoBehaviour
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
+        if (isDeclare == true)
+        {
+            Declaration.gameObject.SetActive(false);
+        }
+        else
+            Declaration.gameObject.SetActive(true);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
         Customer.gameObject.SetActive(true);
         Buyer.gameObject.SetActive(true);
@@ -277,6 +293,25 @@ public class DialogueRandom : MonoBehaviour
         NextDialogue();
     }
 
+    public void F_1Start()
+    {
+        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        Select.SetActive(false);
+        Declaration.gameObject.SetActive(false);
+        CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().declareStart = false;
+        isDialogueStart = false;
+        Buyer.gameObject.SetActive(false);
+        F_2Start();
+    }
+    public void F_2Start()
+    {
+        Buyer.gameObject.SetActive(true);
+        Select.SetActive(false);
+        F2Start = true;
+        isDialogueStart = true;
+        NextDialogue();
+    }
+
     public void End()
     {
         //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
@@ -323,6 +358,36 @@ public class DialogueRandom : MonoBehaviour
     {
         DailyResult.gameObject.SetActive(true);
     }
+
+    public void PressDeclaration()//신고버튼 클릭 시
+    {
+        FeelCnt = 0;
+        if (GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_ID[0] == 1003)//범죄자 등장
+        {
+            Debug.Log("범죄자 신고 성공");
+            Criminal.GetComponent<Image>().sprite = Success;
+            isCriminal = true;
+            isCriminalFalse = false;
+            isDeclare = true;
+            CustomerFeel.FindObjectOfType<CustomerFeel>().declareStart = true;
+        }
+        else//잘못 누른 경우
+        {
+            Debug.Log("잘못 신고함");
+            Criminal.GetComponent<Image>().sprite = Fail;
+            isCriminalFalse = true;
+            isCriminal = false;
+            isDeclare = true;
+            CustomerFeel.FindObjectOfType<CustomerFeel>().declareStart = true;
+        }
+        Invoke("DeclareActiveFalse", 3f);
+    }
+
+    public void DeclareActiveFalse()
+    {
+        Declaration.gameObject.SetActive(false);
+    }
+
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";
@@ -355,12 +420,12 @@ public class DialogueRandom : MonoBehaviour
         {
             current += offset * Time.deltaTime;
 
-            GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
+            //GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
 
             yield return null;
         }
         current = target;
-        GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
+        //GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
 
     }
 

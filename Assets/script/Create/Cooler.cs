@@ -71,6 +71,7 @@ public class Cooler : MonoBehaviour
 
     public void CoolerStart()//냉침기 자세히 보여지고 기능 시작. 
     {
+        GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
         Receipt.gameObject.SetActive(false);
         CoolerDetail.gameObject.SetActive(true);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;

@@ -52,6 +52,7 @@ public class Distiller : MonoBehaviour
 
     public void DistillWindowOpen()
     {
+        GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
         DistillWindow.gameObject.SetActive(true);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
     }

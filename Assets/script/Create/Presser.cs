@@ -66,6 +66,7 @@ public class Presser : MonoBehaviour
 
     public void PresserShow()//압착기 화면 보임.
     {
+        GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
         PresserDetail.gameObject.SetActive(true);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         if (ClickedItem.name == "가족")
