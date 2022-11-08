@@ -1,32 +1,855 @@
 {
-    "items": [
+    "day": [
         {
             "customer": [
                 {
-                    "name": "재이",
+                    "name": "B",
                     "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "놀이공원",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕?", "어릴 때 아빠 손잡고 갔던 놀이공원에 다시 가고 싶어!", "그때 진짜 행복했거든!!", "향수로 만들어줄 수 있을까"],
+                        "visitFace": ["Common", "Common", "Happy", "Common"],
+                        "refusalComment": ["아직 못 만드는거야..? 그러면 다음에 올게.."],
+                        "refusalFace": ["Sad"],
+                        "requestComment": ["향은 정말 진하게 해줘!!!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["정말 좋아!! 고마워요!!! "],
+                        "resultGoodFace": ["Happy"],
+                        "resultNormalComment": ["오! 이만하면 괜찮은 거 같아!"],
+                        "resultNormalFace": ["Happy"],
+                        "resultBadComment": ["원래 향수가 이렇나요..?", "완전 별론데..?", "실력이 영.."],
+                        "resultBadFace": ["Bad", "Bad", "Bad"],
+                        "noExistComment": ["제가 말한 거랑 다른 거 같은데요?", "이럴 리가 없는데.."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["뭐 하나 빠트리신 거 아니에요?", "이게 아닌 거 같은데..", "완전 꽝이야!"],
+                        "noFlavorFace": ["Bad", "Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "J",
+                    "id": 1,
+                    "currentPerfume": {
+                        "bassNotes": "물건",
+                        "middleNotes": "인형",
+                        "topNotes": ["기쁨"],
+                        "perfumeForce": ["중간"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기요?", "우리 애가 아직도 어릴 때 가지고 놀던 인형을 못 잊어요.", "그렇게 기뻐하면서 가지고 놀던 거라 이해는 한다만.. ", "이미 버린 지가 오래인데 왜 아직도 못 잊었는지 참.. ", "혹시 향수 가능할까요?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["아니 돈을 준다는데도요?", "불쾌하네요", "이걸 다른 사람들한테도 알려야겠어요."],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["고마워요, 향은 적당히..? 해주세요. ", "애가 너무 향에 빠질까도 걱정이네요"],
+                        "requestFace": ["Common", "Common"],
+                        "resultGoodComment": ["감사합니다. 이거면 우리 애 조금이라도 달랠 수 있겠죠?"],
+                        "resultGoodFace": ["Happy"],
+                        "resultNormalComment": ["음 괜찮네요."],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이건 향수가 아닌데요?", "이렇게까지 못 만들 줄이야.. ", "다른 사람들도 알아야 할 거 같네요."],
+                        "resultBadFace": ["Bad", "Bad", "Bad"],
+                        "noExistComment": ["음, 이거 제가 말한 거랑 다른데요?", "이게 맞나요?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["완성도 안된 걸 이렇게 팔아도 되나요?", "주변 사람들한테 다 말할 거예요"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "G",
+                    "id": 2,
                     "currentPerfume": {
                         "bassNotes": "사람",
-                        "MiddleNotes": "애인",
-                        "TopNotes": "슬픔"
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
                     },
                     "dialogue": {
-                        "VisitComment": ["안녕하세요.."],
-                        "visitFace": ["Common"],
-                        "RefusalComment": ["제발 저 좀 살려주세요.."],
-                        "RefusalFace": ["Sad"],
-                        "RequestComment": ["잔잔하고 은은한 향으로 부탁해요."],
-                        "RequestFace": ["Common"],
-                        "ResultGoodComment": ["정말 감사합니다..","행복해요..!"],
-                        "ResultGoodFace": ["Happy"],
-                        "ResultNormalComment": ["좋아요.."],
-                        "ResultNormalFace": ["Common"],
-                        "ResultBadComment": ["이건 향수가 아니에요.."],
-                        "ResultBadFace": ["Sad"],
-                        "NoExistComment": ["향수가 없다니.."],
-                        "NoExistFace": ["Sad"],
-                        "NoFlavorComment": ["향료가 없는 것 같아요"],
-                        "NoFlavorFace": ["Sad"]
+                        "visitComment": ["안녕하세요!", "내일 저의 여자친구에게 청혼을 하려고 합니다.", " 하하! 쑥스럽네요. ", "저의 사랑하는 마음을 향수로 함께 선물하고 싶은데.. ", "준비 가능할까요?"],
+                        "visitFace": ["Common", "Common", "Happy", "Common", "Common"],
+                        "refusalComment": ["안된다고요?", " 이렇게 무작정 거절해도 되는겁니까?", "에잇! 내 기분 다 망쳤네."],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["아! 향은 아주 강하게 부탁드립니다."],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["와! 제가 딱 원했던 향수네요. 이거면 청혼도 성공할 수 있겠어요."],
+                        "resultGoodFace": ["Happy"],
+                        "resultNormalComment": ["감사합니다. 썩 마음에 드네요."],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이 향수는..", "받는 제 여자친구도 기분 나쁘겠어요.", "됐습니다."],
+                        "resultBadFace": ["Bad", "Bad", "Bad"],
+                        "noExistComment": ["흠.. 제가 부탁드린 향수가 아닌 거 같군요..", "가보겠습니다."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["킁킁..", "여기서 아무 향도 나질 않는 걸요?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "A",
+                    "id": 3,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "가족",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함", "중간", "약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요?", "저도 형 가지고 싶어요!", "형이 있으면 좋겠다!", "그럼 맨날 같이 놀고 행복할 텐데!!", "형 냄새라도 맡을 수 있을까요?!!"],
+                        "visitFace": ["Common", "Common", "Common", "Happy", "Common"],
+                        "refusalComment": ["안돼요??", "왜 안돼요??", "진짜로요??", "알겠어요…."],
+                        "refusalFace": ["Sad", "Sad", "Sad", "Sad"],
+                        "requestComment": ["향의 세기는 아무거나 상관없어요!!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["와!! 고맙습니다!!", "이거면 나도 형이 생긴 건가??!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["오오.. 고맙습니다!!"],
+                        "resultNormalFace": ["Happy"],
+                        "resultBadComment": ["이건… 고맙습니다...!"],
+                        "resultBadFace": ["Common"],
+                        "noExistComment": ["이건… 형 냄새가 아닌데요..?"],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["냄새가 안 느껴지는데… 아저씨 제대로 만든 거 맞아요..?"],
+                        "noFlavorFace": ["Sad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "E",
+                    "id": 4,
+                    "currentPerfume": {
+                        "bassNotes": "동물",
+                        "middleNotes": "반려동물",
+                        "topNotes": ["슬픔"],
+                        "perfumeForce": ["중간"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕..?", "저기.. 부탁할 게 있는데..", "우리 집 고양이 나비를 한 번만이라도 다시 만나고 싶어…", "힘없이 네 발로 비틀 거리면서 일어서려고 노력하는 게 엊그제 같은데...", "축 처져서 아무것도 안 하더니... ", "이젠 더 이상 볼 수 없어…", "그 조그만 아이가 얼마나 아팠는지 생각하면..", "생각조차 힘들어서 눈물이 나…", "제발 나비를 한 번만이라도 만날 수 있게 해줘…."],
+                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad"],
+                        "refusalComment": ["… 나한테 대체 왜 그래요?", "단 한 번만 나비를 만나는 것도 안되는 거야?", "내가 이렇게까지 했는데…", "다른 사람들한테도 말할 거야.", "후회하지 마 당신이 한 선택이잖아."],
+                        "refusalFace": ["Bad", "Bad", "Bad", "Bad", "Bad"],
+                        "requestComment": ["향은 너무 진하지도… 너무 은은하지도 않게 해줘… "],
+                        "requestFace": ["Sad"],
+                        "resultGoodComment": ["나비야… 나비야… ", "차라리 내가 대신 아팠어야 했는데…"],
+                        "resultGoodFace": ["Sad", "Sad"],
+                        "resultNormalComment": ["고마워요…", "이렇게라도 나비를 볼 수 있어서.."],
+                        "resultNormalFace": ["Happy", "Happy"],
+                        "resultBadComment": ["정말 최악이네요…", "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?"],
+                        "resultBadFace": ["Bad"],
+                        "noExistComment": ["이 향이 아닌데요..?", "뭘 만든 거죠..?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["제대로 만든 거 맞나요..?", "느껴지는 게 없는데..?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "I",
+                    "id": 5,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "여행지",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["자네 리프 섬에 가봤나?", "리프 섬을 모르는 모양이군..?", "젊은 사람이 말이야…", "내가 좀 얘기해 주지!", "리프 섬은 에메랄드 빛의 바다로 둘러싸인 아름다운 섬이라네!", "그늘에서 눈부시도록 반짝이는 바다를 바라보면 어찌나 황홀한지…", "꼭 다시 한번 가고 싶은 곳이야…!", "그때만 생각하면 너무나 행복하군!", "푸른 바닷가에 노을빛이 내려앉은 광경은 내 평생 잊지 못할 걸세!"],
+                        "visitFace": ["Common", "Common", "Common", "Happy", "Happy", "Happy", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["흠… 알겠네..", "실망이 크구만…"],
+                        "refusalFace": ["Sad", "Sad"],
+                        "requestComment": ["향은 아주 진하게 부탁하네!"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["상쾌한 바다 내음…", "바로 이거지!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["고맙구만 자네!"],
+                        "resultNormalFace": ["Happy"],
+                        "resultBadComment": ["이게 뭔가..?", "정신 차리게 젊은이.."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["이건 리프 섬 냄새가 아니군 그래.. "],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["아무 향이 안 나는데…", "이런 걸 팔아도 되는 건가..?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "C",
+                    "id": 6,
+                    "currentPerfume": {
+                        "bassNotes": "동물",
+                        "middleNotes": "반려동물",
+                        "topNotes": ["기쁨"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요, 아저씨", "오늘 아빠가 귀여운 새끼 강아지를 데리고 왔어요.", "하얀 털이 복슬복슬한 동물이 우리 집에 같이 산다니.. ", "이제 우리 가족이 된 강아지와의 첫 만남을 평생 기억하고 싶어요", "도와주세요..!"],
+                        "visitFace": ["Common", "Happy", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["예?", "아.. 뭐.. 어쩔 수 없죠.."],
+                        "refusalFace": ["Sad", "Sad"],
+                        "requestComment": ["향은 집에서 늘 은은하게 풍기면 좋겠어요."],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["와아!", "감사합니다, 아저씨!", "우리 집 강아지는 복슬 강아지~"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["감사합니다..", "이 향수 잘 간직할게요."],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["여기서 이상한 냄새가 나요..", "일단 감사합니다."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["아저씨, 이건 제가 말한 게 아니잖아요.", "제가 부탁드린 향수가 맞나요?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["뭐지..?", "내 코가 막힌 건가.."],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "D",
+                    "id": 7,
+                    "currentPerfume": {
+                        "bassNotes": "동물",
+                        "middleNotes": "반려동물",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요?", "우리 집에 귀여운 강아지 쪼꼬가 있거든요?", "볼 때마다 얼마나 사랑스러운 모르겠어요?!", "이걸 다른 애들한테도 알려주고 싶은데..!", "향수를 선물하면 되지 않을까요?"],
+                        "visitFace": ["Happy", "Happy", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["응?", "흠… 왜요??", "향수 팔면 좋은 거 아닌가??"],
+                        "refusalFace": ["Common", "Common", "Common"],
+                        "requestComment": ["향을 완전 진하게? 해주세요!!!"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["오! 진짜 쪼꼬 냄새다!", "고마워요!!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["오 쪼꼬 냄새난다!", "좋아요!"],
+                        "resultNormalFace": ["Happy", "Happy"],
+                        "resultBadComment": ["으… 이상한 냄새!!!", "쪼꼬는 꼬소한 냄새가 난다구요!!!"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["음..? 무슨 냄새지..?", "완전히 다른 냄새인데요?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이건 무슨 냄새지..?", "아무 냄새도 안 나는데요?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "H",
+                    "id": 8,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["슬픔"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기요..?", "헤어진 지 몇 년이나 지났는데, 아직도 생각나는 건 왜일까요..?", "사랑할 땐 슬프기만 해서 헤어지면 후련할 줄 알았는데..", "전 아직 제대로 잊지 못했나 봐요.", "이럴 줄 알았으면 시작하지 말았어야 했는데...", "참 바보 같죠?", "바보 같다는 건 알지만, 이제는 놓아주고 싶어요..", "저를 도와줄 수 있나요..?"],
+                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad"],
+                        "refusalComment": ["…...", "….... ", "알겠어요.."],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["향은 약하게 해주세요..", "향이 강하면 미련이 계속 남을 수도 있잖아요..?"],
+                        "requestFace": ["Sad", "Sad"],
+                        "resultGoodComment": ["생각하면 할수록 그 사람 참 나빴는데..", "이제는 잊을 수 있을 것 같아요..", "고마워요.. 언젠간 좋은 사람이 오겠죠..?"],
+                        "resultGoodFace": ["Sad", "Sad", "Sad"],
+                        "resultNormalComment": ["고마워요…", "이제는 나아질 수 있겠죠..?"],
+                        "resultNormalFace": ["Happy", "Happy"],
+                        "resultBadComment": ["어떻게 이럴 수가 있죠..?", "최악이에요.."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["이게… 뭐죠…?", "전혀 다른 냄새가 나는데요..?", "이상한 걸 넣으면 어떡해요!!"],
+                        "noExistFace": ["Bad", "Bad", "Bad"],
+                        "noFlavorComment": ["음… 전혀 느낄 수가 없는데요..?", "제대로 한 게 맞나요..?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "J",
+                    "id": 9,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["놀라움"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기요..?", "오늘은.. 저의 옛 결혼기념일이랍니다..", "그가 처음으로 저에게 반지를 건넸을 때는", "정말 깜짝 놀라서 믿지를 못했어요..", "그때의 감정이 새록새록 떠오르네요..", "물론 더이상 그를 볼 일이 없겠지만 말이죠. ", "이런 저의 옛 추억도 담아줄 수 있나요?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Sad", "Sad"],
+                        "refusalComment": ["그다지 어려운 부탁을 하진 않았던 거 같은데..", "다시는 이런 일이 없으면 좋겠네요."],
+                        "refusalFace": ["Bad", "Bad"],
+                        "requestComment": ["더 이상 과거에 집착하고 싶지 않아요..", "향은 그냥 은은하게 해주세요!"],
+                        "requestFace": ["Common", "Common"],
+                        "resultGoodComment": ["고마워요, 덕분에 좋은 기억만을 가져가네요.."],
+                        "resultGoodFace": ["Happy"],
+                        "resultNormalComment": ["음.. 만족스럽네요."],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이걸 나보고 어떻게 쓰라는 거예요?", "이건 악취잖아요 악취!"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["대체 무슨 향수를 만든 거죠?", "정말 형편없네요."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이게 다 만든 건가요..?", "받을 가치도 없네요."],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "K",
+                    "id": 10,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["반갑네, 주인 양반!", "내가 이 가게는 처음이지만 마음이 벌써 따뜻해지는군..", "우리 할멈도 이런 곳에 오면 좋을 텐데.. ", "할멈과 단둘이 데이트하던 그때 모습도 볼 수 있는 건가?", "허허! 그렇다면 우리 할멈의 꽃다운 시절, 행복했던 미소를 다시 보고 싶구만..", "어디 만들어 줄 수 있는가?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["흠.. 알겠네…", "괜히 찾아왔구만... "],
+                        "refusalFace": ["Sad", "Sad"],
+                        "requestComment": ["그때 우리 할멈이 그렇게 예뻤어..", "향을 아주 진~하게 해주게나!"],
+                        "requestFace": ["Common", "Happy"],
+                        "resultGoodComment": ["고맙구만, 우리 할멈의 미소를 보니 나도 행복해지는 것만 같네!"],
+                        "resultGoodFace": ["Happy"],
+                        "resultNormalComment": ["오호, 아주 좋은 향수구만."],
+                        "resultNormalFace": ["Happy"],
+                        "resultBadComment": ["이걸 향수라고 만든 건가…?", "할멈이 보고 싶구만…"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["내가 찾던 향수는 이게 아닌 것 같은데.."],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["향수라고 하기엔.. 아무 냄새가 나질 않는구만!"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "A",
+                    "id": 11,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "가족",
+                        "topNotes": ["기쁨"],
+                        "perfumeForce": ["중간", "약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요?", "저도 동생을 가지고 싶어요!!", "친구들이 동생이랑만 아주 신나게 소꿉놀이를 하더라구요!", "나도 진짜 잘 놀아줄 자신 있는데..", "저도 동생 냄새라도 맡아보고 싶어요..!"],
+                        "visitFace": ["Common", "Happy", "Happy", "Common", "Happy"],
+                        "refusalComment": ["안돼요??", "왜 안돼요??", "진짜로요??", "알겠어요…."],
+                        "refusalFace": ["Sad", "Sad", "Sad", "Sad"],
+                        "requestComment": ["혹시 동생이 다칠 수 있으니까 향은 너무 세지않게 해주세요!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["우와! 나도 이런 동생을 낳아달라고 할래요!"],
+                        "resultGoodFace": ["Happy"],
+                        "resultNormalComment": ["감사합니다, 아저씨!"],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["으…. 별로야… "],
+                        "resultBadFace": ["Bad"],
+                        "noExistComment": ["저는.. 이런 향수를… 사러 온 게 아니에요.."],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["냄새가 안 느껴지는데… 아저씨 제대로 만든 거 맞아요..?"],
+                        "noFlavorFace": ["Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "F",
+                    "id": 12,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "여행지",
+                        "topNotes": ["놀라움"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기 너 말이야!", "루트 대륙 끝에 작은 산맥이 있는 거 알아?", "그 작은 산맥을 가로지르는 길이 하나 있는데", "거기서 주위를 둘러보면 그렇게 좋을 수가 없다...?", "그 풍경에 놀라서 아직도 입이 다 물어지지 않아!", "그때 생각나게 해줄 거지?"],
+                        "visitFace": ["Common", "Common", "Common", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["뭐..?", " 손님을 그렇게 대해도 되는거야?", "실망이야"],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["좋아! 내가 언제나 다시 여행할 수 있도록 향은 은은하게 해줘!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["너무 짜릿해! 너 덕분에 그 풍경을 다시 즐길 수 있었어.", "정말 고마워!"],
+                        "resultGoodFace": ["Happy"],
+                        "resultNormalComment": ["오.. 만족스러운걸?!", "정말 고마워!"],
+                        "resultNormalFace": ["Common", "Happy"],
+                        "resultBadComment": ["으으…..", "최악이야.. "],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["이게 대체 무슨 냄새야?!", "내가 원하는 게 아니잖아!!"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이거 맞아?", "정말로 다 한 거 맞아?!"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "B",
+                    "id": 13,
+                    "currentPerfume": {
+                        "bassNotes": "물건",
+                        "middleNotes": "인형",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["아저씨…", "내 애착 인형이 너무 그리워..", "그 인형을 껴안으면 진짜 행복했는데..", "엄마가 내 인형이 터졌다고 버려버린 거 있지..?", "내가 수술해 주기로 꼬옥 약속했는데…"],
+                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad"],
+                        "refusalComment": ["지금 안 만들어 주실 거예요?", "아저씨 미워! / 진짜 미워!"],
+                        "refusalFace": ["Sad", "Bad"],
+                        "requestComment": ["향은 엄청 많이! 진하게! 해줘요!!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["와! 인형이다!!", "그래그래, 너를 다시 만나니까 너무 좋아!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["와아.. 정말 감사합니다!"],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이 냄새 아니야!!", "내 인형 냄새가 아니야!!"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["그러니까.. .이게.. 내 인형이야.?", "이럴 리가 없는데.."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["뭐 하나 빠트리신 거 아니에요?", "이게 아닌 거 같은데..", "완전 꽝이야!"],
+                        "noFlavorFace": ["Common", "Common", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "D",
+                    "id": 14,
+                    "currentPerfume": {
+                        "bassNotes": "물건",
+                        "middleNotes": "장난감",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["아저씨..?", "엄마가 어릴 때 사준 자동차가 왜 아직도 생각나는 걸까?", "그때 가지고 놀기만 해도 행복해서 그랬나?", "나도 잘 모르겠는데 장난감 자동차가 자꾸 생각나", "나 좀 도와주지 않을래?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["뭐??", "칫 기분 나빠졌어", "여긴 다시 안 올 거야"],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["음… 향은 은은하게 부탁할게!"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["오 진짜같아!!", "자동차 타고 날아다닐 수 있을 거 같아!!!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["음 좀 비슷하네요?!", "내가 찾던 자동차랑 닮은 거 같아!"],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["어…. 너무 별론데?"],
+                        "resultBadFace": ["Bad"],
+                        "noExistComment": ["내가 찾던 자동차가 아니잖아??", "이런 쓰레기를 왜 만들었어?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이건 대체 무슨 냄새야?", "아무 냄새 안나잖아.", "뭘 만든거야 대체?"],
+                        "noFlavorFace": ["Bad", "Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "E",
+                    "id": 15,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["……여...", "….. 여자… 친.. 구….", "…. 보… 고… 싶어…", ".… 괜찮.. 을.... 까….?"],
+                        "visitFace": ["Common", "Common", "Common", "Common"],
+                        "refusalComment": ["……", "…......", "…......."],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["향은.. …진… 하게…"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["….익숙한 향.."],
+                        "resultGoodFace": ["Sad"],
+                        "resultNormalComment": ["….고마워..."],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["….별로야.."],
+                        "resultBadFace": ["Bad"],
+                        "noExistComment": ["이게...아닌..데…..?"],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["……..", "…......"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "H",
+                    "id": 16,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "학교",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["중간"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요~", "축하해줘야 하는 일이 하나 있어요.", " 바로바로..", "제가 그토록 원하던 로스쿨에 드디어 합격했다고요!", "이 기분 좋은 날을 평생 기억하고 싶어요~", "향수 하나만 부탁드릴게요!"],
+                        "visitFace": ["Common", "Happy", "Common", "Happy", "Happy", " Happy"],
+                        "refusalComment": ["네!?", "참.. 어이가 없네요.", "여기는 괜히 왔던 것 같아요."],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["향은 적당히만 해도 충분할 거 같아요!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["이 추억을 소중하게 잘 간직해서 멋진 변호사가 될게요.", "정말 감사합니다!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["오.. 좋아요!", "만족합니다!"],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["악.. 이게 뭔가요..?", "이건 문제가 있다고 생각하는 걸요.. "],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["제가..찾는 향은 아니겠죠?", "실수는 용납할 수 없어요."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["무슨 향이 난다는 건지..", "그게 완성품인가요?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "C",
+                    "id": 17,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "친구",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기요, 아저씨..", "아니.. 그게..", "혹시 아저씨도 짝사랑을 해본 적이 있나요..?", "요즘 같은 반 짝꿍과 눈만 마주치면 제 심장이 두근거려요.", "예쁜 그 갈색 눈동자..", "이런 제 마음이 어디 새어나가지 않도록 보관할 방법이 없을까요?"],
+                        "visitFace": ["Common", "Common", "Common", "Happy", "Happy", "Common"],
+                        "refusalComment": ["에휴.. 이러다 진짜 들키는 거 아니야..?", "돌겠다.."],
+                        "refusalFace": ["Bad", "Bad"],
+                        "requestComment": ["향은 저만 느껴질 정도로 은은하게 부탁해요."],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["와! 아저씨..", "제 마음에 쏙 들어요."],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["감사합니다, 아저씨", "다음에 또 오도록 할게요."],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["제 마음을 들킬 일은 없겠네요.", "뭐.. 감사합니다."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["아저씨, 이건..음...", "제가 찾던 향수가 아니에요. "],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["뭐지..?", "내 코가 이상한건가..?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "C",
+                    "id": 18,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "친구",
+                        "topNotes": ["죄책감"],
+                        "perfumeForce": ["중간"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기..", "나 도와주고 싶은 친구가 있어..", "친구가 괴롭힘당하지만 아무 것도 못 하고 있어..", "내가 조금만 더 용기를 내면 괜찮을까..?", "조금이라도 달라질까..?", "그 친구만 생각하면 너무 미안하구..", "내가 그 친구를 도와줄 수 있을까..?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["…..", "그래 내가 알아서 할게.."],
+                        "refusalFace": ["Common", "Common"],
+                        "requestComment": ["내가 힘낼 수 있도록 향은 적당히 조절해줘…"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["고마워!", "이제야 친구를 도울 수 있을 것 같아..!"],
+                        "resultGoodFace": ["Common", "Common"],
+                        "resultNormalComment": ["이 정도면 괜찮은 거 같아..!"],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["왜 이렇게 만든 거야..?", "정말 싫어.."],
+                        "resultBadFace": ["Common", "Common"],
+                        "noExistComment": ["대체 뭘 만든 거야..?", "이건 완전 다른 거잖아!!"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["일부로 이런 거야…?", "이러지 않아도 됐잖아…"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "G",
+                    "id": 19,
+                    "currentPerfume": {
+                        "bassNotes": "동물",
+                        "middleNotes": "반려동물",
+                        "topNotes": ["죄책감"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저희 강아지가… 무지개다리를 건넜어요…", "매일 아침 눈을 뜨면, 둥이가 없어서 미칠 것 같아요..", "그게 뭐가 힘들다고... 산책도 못 가줬는데..", "더 잘해주지 못해서 너무 미안한데…"],
+                        "visitFace": ["Common", "Common", "Common", "Common"],
+                        "refusalComment": ["….?", "그쪽은 반려견을 키워본 경험이 없나보죠?"],
+                        "refusalFace": ["Common", "Common"],
+                        "requestComment": ["둥이랑 같이 덮고 자던 이불에 뿌릴 거예요...", "그 이불에서만큼은 둥이를 느낄 수 있게..", "이럴 거면 진해야겠죠..?"],
+                        "requestFace": ["Common", "Common", "Common"],
+                        "resultGoodComment": ["둥이야… 이 냄새가 너무 너무 그리웠어.."],
+                        "resultGoodFace": ["Common"],
+                        "resultNormalComment": ["이 냄새가 그리웠어.."],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이렇게 못 만드는 것도 재주다. 재주"],
+                        "resultBadFace": ["Common"],
+                        "noExistComment": ["이게 무슨 냄새인가요??", "둥이 냄새가 아닌데?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["향이 없는데 뭘 맡으란 거야?"],
+                        "noFlavorFace": ["Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "I",
+                    "id": 20,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "친구",
+                        "topNotes": ["죄책감"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하신가..", "내 죽은 친구 놈이 보고 싶구만,,", "그때 가지 말라고 말렸어야 했는데 말이야..", "빌어먹을.. 그놈이 사고에 휘말렸어..", "제기랄.. 내 탓이지 뭐..", "혹시 향수 하나만 만들어줄 수 있는가?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["젠장.. 내가 당신한테 뭘 잘못했지..?", "오늘도 개 같은 하루구만.."],
+                        "refusalFace": ["Common", "Common"],
+                        "requestComment": ["그 친구 향이 영원히 지속됐으면 좋겠군…", "내가 감히 이래도 되는 걸까..?"],
+                        "requestFace": ["Common", "Common"],
+                        "resultGoodComment": ["내가… 정말…", "정말...", "…...."],
+                        "resultGoodFace": ["Common", "Common", "Common"],
+                        "resultNormalComment": ["고맙군.. 자네.."],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이건 대체 뭘..", "형편없구만"],
+                        "resultBadFace": ["Common", "Common"],
+                        "noExistComment": ["내가 우습나?", "이럴 거면 때려치우게"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["지금 장난하는건가?", "향이 안 느껴지는데 뭐 어떡하라는 거야?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "E",
+                    "id": 21,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["… 저기.. 요?", "…. 제발 내 사랑을 다시 한번만이라도 보고 싶어…", "내가 이렇게 좋아하는데.. 대체 어떻게 지내고 있는거야.. ?", "내가 사랑하는 그녀가 미치도록 보고 싶어 ..", "이런 나를 좀 도와주지 않을래..?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["… 나한테 대체 왜 그래요? ", "당신만큼은 그러면 안 되잖아", "다른 사람들한테도 말할 거야", "후회하지 마 당신이 한 선택이잖아?"],
+                        "refusalFace": ["Common", "Common", "Common", "Common"],
+                        "requestComment": ["향은 절대 빠지지 않도록 강하게 해주세요…"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["이것이 바로 그녀의 향..", "정말 감사합니다.. 정말로…"],
+                        "resultGoodFace": ["Common", "Common"],
+                        "resultNormalComment": ["고마워요… "],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["너무 못 만든거 아닌가요..?", "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?"],
+                        "resultBadFace": ["Common", "Common"],
+                        "noExistComment": ["이건 내가 맡고 싶은 향이 아니에요..", "정말 최악이네요.."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["제대로 만든 거 맞나요..?", "아무 것도 느껴지지 않아요.."],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "F",
+                    "id": 22,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "친구",
+                        "topNotes": ["기쁨"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["반가워요, 아저씨!", "내 친구가 드디어 자기만의 신발을 만들었어요!!", "진짜 고생 많이 했는데...", "너무 잘됐어 진짜!!", "친구한테 뭐라도 해주고 싶어!!", "친구에게 줄 향수를 만들어주세요!"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["네?", "지금 손님한테 이렇게 대하셔도 되는 건가요?", "하!"],
+                        "refusalFace": ["Common", "Common", "Common"],
+                        "requestComment": ["앞으로 더 잘 되라고 강하게 해주세요!!"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["이거이거..", "친구가 정말 감동받겠어요!", "감사해요!"],
+                        "resultGoodFace": ["Happy", "Happy", "Happy"],
+                        "resultNormalComment": ["오.. 나쁘지 않네요.", "고마워요!"],
+                        "resultNormalFace": ["Common", "Happy"],
+                        "resultBadComment": ["으악..", "이 향수.. 진짜 별론데요?"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["이건..", "제가 찾던 게 아니잖아요"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이거 맞아?", "정말로 다 한 거 맞아?!"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "B",
+                    "id": 23,
+                    "currentPerfume": {
+                        "bassNotes": "물건",
+                        "middleNotes": "장난감",
+                        "topNotes": ["놀라움"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["아저씨, 안녕하세요!", "오늘 유치원에서 엄청 신기한 장난감을 보았어요!", "장난감이 알아서 움직인다니까요??", "그렇게 재밌는 건 처음봤다니까요!", "다시 가지고 놀고 싶은데…", "안되나요..?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["꼭 다시 가지고 놀고 싶었는데…", "나 이제 여기 안 올거야!"],
+                        "refusalFace": ["Common", "Common"],
+                        "requestComment": ["야호!", "향은... 엄청! 약하게 해주세요!"],
+                        "requestFace": ["Common", "Common"],
+                        "resultGoodComment": ["와아! 제가 찾던 그 장난감이에요-!", "완전 신나!!", "감사합니다 아저씨!"],
+                        "resultGoodFace": ["Happy", "Happy", "Happy"],
+                        "resultNormalComment": ["어.. 그래도 다시 가지고 놀 수 있으니까..", "완전 좋아요!!"],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["아저씨!!", "제가 바라던 장난감이 아니잖아요!!"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["음....", "제가 찾는 장난감 모양이 아니에요…"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["뭐 하나 빠트리신 거 아니에요?", "이게 아닌 거 같은데..", "완전 꽝이야!"],
+                        "noFlavorFace": ["Common", "Common", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "L",
+                    "id": 24,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "여행지",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["중간"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["으음…", "젊은 날 갔었던 곳인데 기억이 나질 않네", "음….", "분명 에메랄드 빛으로 물든 곳이었는데 말이야…", "햇살이 밝게 빛났던 것 같은데..", "그땐 정말 행복했다니까..?", "다른 건 몰라도 이게 아직도 기억나니까 말이야..", "그때로 돌아갈 수 있을까..?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["안된다고?", "흐음..", "알겠네.."],
+                        "refusalFace": ["Common", "Common", "Common"],
+                        "requestComment": ["향은 적당하기만 하면 될 것 같네"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["아 드디어 생각났네!", "그때 어떤 사람을 봤는데 얼마나 멋있었는지...", "엄청 호쾌했던 사람이었다네!", "지금도 잘 지내고 있나 몰라?", "이젠 나처럼 나이도 많이 먹었겠지..?"],
+                        "resultGoodFace": ["Happy", "Happy", "Happy", "Happy", "Happy"],
+                        "resultNormalComment": ["고맙네, 덕분에 좋은 걸 얻었어!"],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["잘못 만든 것 같은데..", "일단 받아 가겠네.."],
+                        "resultBadFace": ["Common", "Common"],
+                        "noExistComment": ["음 이건 아니었던 거 같은데.."],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["이상하네...", "향이 잘 안 나는데...?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "D",
+                    "id": 25,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "친구",
+                        "topNotes": ["미움"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["….", "아저씨…", "나 어떡해요..?", "친구가 절 모르는 척하는 게 너무 싫어요..", "왜 그랬을까요..?", "친하다고 생각했는데…", "진짜 친한 줄 알았는데…", "처음에는 그냥 장난인 줄 알았는데…", "계속 반복되니까 진짜인거 같아서 너무 싫어요…", "그냥 처음으로 돌아갈 수 있을까요..?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["안된다고요..?", "저는요..?", "전 이제 어떡해요..?", "이럴 줄 알았으면… ", "오지 않는 건데…"],
+                        "refusalFace": ["Common", "Common", "Common", "Common", "Common"],
+                        "requestComment": ["향은 약하게.. 해주세요.."],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["….", "친구에게 전하고 싶은 말이 생겼어요…", "고마워요…"],
+                        "resultGoodFace": ["Happy", "Happy", "Happy"],
+                        "resultNormalComment": ["고마워요….", "대체 왜 이렇게 된 걸까요…?"],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["으....... ", "제대로 하신 거 맞아…?"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["이거 맞아요…?", "아닌 거 같은데…"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["뭐 빠트린 건 아니시죠…?", "향이 안 나는데요..?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "로레나",
+                    "id": 26,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑", "슬픔"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["…", "…...", "…...........", "…....향수..좀..줘..", "( 무슨 향수..? )", "…....", "남자친구…"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["...", "그래요.."],
+                        "refusalFace": ["Sad", "Sad"],
+                        "requestComment": ["향은.. 약해도...돼…"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["와아..", "감사합니다…."],
+                        "resultGoodFace": ["Common", "Common"],
+                        "resultNormalComment": ["..음..", "괜찮네요..."],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["하...", "이게 아니라..."],
+                        "resultBadFace": ["Common", "Common"],
+                        "noExistComment": ["…", "이건 대체…."],
+                        "noExistFace": ["Common", "Common"],
+                        "noFlavorComment": ["이건.. ", "무슨.. 향..이죠...?"],
+                        "noFlavorFace": ["Common", "Common"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "",
+                    "id": 0,
+                    "currentPerfume": {
+                        "bassNotes": "",
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
+                    },
+                    "dialogue": {
+                        "visitComment": [],
+                        "visitFace": [],
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -36,26 +859,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -65,26 +889,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -94,26 +919,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -123,26 +949,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -152,26 +979,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -181,26 +1009,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -210,26 +1039,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -239,26 +1069,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -272,26 +1103,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -301,26 +1133,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -330,26 +1163,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -359,26 +1193,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -388,26 +1223,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -417,26 +1253,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -446,26 +1283,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -475,26 +1313,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
@@ -504,821 +1343,27 @@
                     "id": 0,
                     "currentPerfume": {
                         "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
+                        "middleNotes": "",
+                        "topNotes": [],
+                        "perfumeForce": []
                     },
                     "dialogue": {
-                        "VisitComment": [],
+                        "visitComment": [],
                         "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                }
-            ]
-        },
-        {
-            "customer": [
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                }
-            ]
-        },
-        {
-            "customer": [
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                }
-            ]
-        },
-        {
-            "customer": [
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "MiddleNotes": "",
-                        "TopNotes": ""
-                    },
-                    "dialogue": {
-                        "VisitComment": [],
-                        "visitFace": [],
-                        "RefusalComment": [],
-                        "RefusalFace": [],
-                        "RequestComment": [],
-                        "RequestFace": [],
-                        "ResultGoodComment": [],
-                        "ResultGoodFace": [],
-                        "ResultNormalComment": [],
-                        "ResultNormalFace": [],
-                        "ResultBadComment": [],
-                        "ResultBadFace": [],
-                        "NoExistComment": [],
-                        "NoExistFace": [],
-                        "NoFlavorComment": [],
-                        "NoFlavorFace": []
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false

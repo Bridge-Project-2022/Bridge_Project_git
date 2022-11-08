@@ -7,8 +7,8 @@ public class CustomerManager : Singleton<CustomerManager>
     protected CustomerManager() { }
 
     private string fileName = "CustomerData.json";
-    
-    public Day[] days;
+
+    public Days days;
     private int dayNum = 5;
     private int oneDayCustomer = 9;
     
@@ -28,7 +28,7 @@ public class CustomerManager : Singleton<CustomerManager>
     private void CustomerJsonLoad()
     {
         string fromjson = File.ReadAllText(Application.dataPath + "/JA/" + fileName);
-        days = JsonHelper.FromJson<Day>(fromjson);
+        days = JsonUtility.FromJson<Days>(fromjson);
     }
 
     /// <summary>
@@ -37,22 +37,24 @@ public class CustomerManager : Singleton<CustomerManager>
     /// </summary>
     private void MakeJsonFile()
     {
-        string toJson = JsonHelper.ToJson(days, prettyPrint: true);
+        string toJson = JsonUtility.ToJson(days, prettyPrint: true);
         File.WriteAllText(Application.dataPath + "/JA/" + fileName, toJson);
     }
 
     private void Init()
     {
-        days = new Day[dayNum];
-        for (int i = 0; i < days.Length; i++)
+        days = new Days();
+        days.day = new Day[dayNum];
+        for (int i = 0; i < days.day.Length; i++)
         {
-            days[i] = new Day();
-            days[i].customer = new Customer[oneDayCustomer];
-            for (int j = 0; j < days[i].customer.Length; j++)
+            days.day[i] = new Day();
+            days.day[i].customer = new Customer[oneDayCustomer];
+            
+            for (int j = 0; j < days.day[i].customer.Length; j++)
             {
-                days[i].customer[j] = new Customer();
-                days[i].customer[j].dialogue = new Dialogue();
-                days[i].customer[j].currentPerfume = new Perfume();
+                days.day[i].customer[j] = new Customer();
+                days.day[i].customer[j].dialogue = new Dialogue();
+                days.day[i].customer[j].currentPerfume = new Perfume();
             }
         }
     }

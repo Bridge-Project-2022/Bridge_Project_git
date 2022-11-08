@@ -4,6 +4,7 @@ using System;
 public class Perfume
 {
     public string bassNotes;
-    public string MiddleNotes;
-    public string TopNotes;
+    public string middleNotes;
+    public string[] topNotes;
+    public string[] perfumeForce;
 }

@@ -3,20 +3,20 @@ using System;
 [Serializable]
 public class Dialogue
 {
-    public string[] VisitComment;
+    public string[] visitComment;
     public string[] visitFace;
-    public string[] RefusalComment;
-    public string[] RefusalFace;
-    public string[] RequestComment;
-    public string[] RequestFace;
-    public string[] ResultGoodComment;
-    public string[] ResultGoodFace;
-    public string[] ResultNormalComment;
-    public string[] ResultNormalFace;
-    public string[] ResultBadComment;
-    public string[] ResultBadFace;
-    public string[] NoExistComment;
-    public string[] NoExistFace;
-    public string[] NoFlavorComment;
-    public string[] NoFlavorFace;
+    public string[] refusalComment;
+    public string[] refusalFace;
+    public string[] requestComment;
+    public string[] requestFace;
+    public string[] resultGoodComment;
+    public string[] resultGoodFace;
+    public string[] resultNormalComment;
+    public string[] resultNormalFace;
+    public string[] resultBadComment;
+    public string[] resultBadFace;
+    public string[] noExistComment;
+    public string[] noExistFace;
+    public string[] noFlavorComment;
+    public string[] noFlavorFace;
 }
