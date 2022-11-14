@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class NextDay : MonoBehaviour
 {
@@ -9,6 +12,8 @@ public class NextDay : MonoBehaviour
     public GameObject RandomBuyer;
     public GameObject buyer;
     public GameObject Customer;
+    public TextMeshProUGUI Today;
+
 
     public void NextDayClick()
     {
@@ -36,6 +41,7 @@ public class NextDay : MonoBehaviour
 
     public void SecondDayStart()
     {
+        Today.text = "02";
         RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<DialogueRandom>().enabled = false;
@@ -45,6 +51,7 @@ public class NextDay : MonoBehaviour
 
     public void ThirdDayStart()
     {
+        Today.text = "03";
         RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = false;
@@ -54,6 +61,7 @@ public class NextDay : MonoBehaviour
 
     public void FourthDayStart()
     {
+        Today.text = "04";
         RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;

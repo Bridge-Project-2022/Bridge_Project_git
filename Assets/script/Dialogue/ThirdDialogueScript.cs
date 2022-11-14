@@ -14,13 +14,23 @@ public class ThirdDialogueScript : MonoBehaviour
     public string[] Customer_RejectReaction = new string[5];//손님 거절 반응
     public string[] Customer_PerfumeReaction = new string[5];//향수 받을 시 손님 반응
 
+    public string[] OrderFace = new string[5];
+    public string[] IntensityFace = new string[5];
+    public string[] RejectFace = new string[5];
+    public string[] ReactFace = new string[5];
+
+    public bool isCriminal = false;
+    public bool isUnique = false;
+
+    public int CriminalID = 10;
+    public int UniqueID = 10;
+
     public void Start()
     {
-
         //손님 아이디 배열에 1-9까지 중에 랜덤으로 넣되 중복되지 않도록 배치함. 
         for (int i = 0; i < Customer_ID.Length; i++)
         {
-            Customer_ID[i] = Random.Range(3001, 3010);
+            Customer_ID[i] = Random.Range(18, 27);
             for (int j = 0; j < i; j++)
             {
                 if (Customer_ID[i] == Customer_ID[j])
@@ -31,78 +41,110 @@ public class ThirdDialogueScript : MonoBehaviour
             }
         }
     }
-
     public void Update()
     {
-        if (Customer_ID[0] == 3001)
+        Customer C = CustomerManager.Instance.days.day[2].customer[0];
+        Customer G = CustomerManager.Instance.days.day[2].customer[1];
+        Customer I = CustomerManager.Instance.days.day[2].customer[2];
+        Customer E = CustomerManager.Instance.days.day[2].customer[3];
+        Customer F = CustomerManager.Instance.days.day[2].customer[4];
+        Customer B = CustomerManager.Instance.days.day[2].customer[5];
+        Customer L = CustomerManager.Instance.days.day[2].customer[6];
+        Customer D = CustomerManager.Instance.days.day[2].customer[7];
+        Customer Lorena = CustomerManager.Instance.days.day[2].customer[8];
+
+
+        if (Customer_ID[0] == B.id)
         {
-            Customer_Name = "C";
+            Customer_Name = B.name;
 
-            Customer_PerfumeOrder[0] = "저기..";
-            Customer_PerfumeOrder[1] = "나 도와주고 싶은 친구가 있어..";
-            Customer_PerfumeOrder[2] = "친구가 괴롭힘당하지만 아무 것도 못 하고 있어..";
-            Customer_PerfumeOrder[3] = "내가 조금만 더 용기를 내면 괜찮을까..?";
-            Customer_PerfumeOrder[4] = "조금이라도 달라질까..?";
-            Customer_PerfumeOrder[5] = "그 친구만 생각하면 너무 미안하구..";
-            Customer_PerfumeOrder[6] = "내가 그 친구를 도와줄 수 있을까..?";
-
-            for (int i = 7; i < Customer_PerfumeOrder.Length; i++)
+            if (B.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = B.id;
             }
 
-
-            Customer_IntensityOrder[0] = "내가 힘낼 수 있도록 향은 적당히 조절해줘…  ";
-
-            for (int i = 1; i < Customer_IntensityOrder.Length; i++)
+            if (B.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = B.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "보통";
 
-            Customer_Flavoring[0] = "인간";
-            Customer_Flavoring[1] = "친구";
-            Customer_Flavoring[2] = "죄책감";
-
-            Customer_RejectReaction[0] = "....";
-            Customer_RejectReaction[1] = "그래 내가 알아서 할게..";
-
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in B.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = B.dialogue.visitComment;
             }
+
+            foreach (string str in B.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = B.dialogue.requestComment;
+            }
+
+            foreach (string str in B.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = B.dialogue.refusalComment;
+            }
+
+            foreach (string str in B.dialogue.visitFace)
+            {
+                OrderFace = B.dialogue.visitFace;
+            }
+
+            foreach (string str in B.dialogue.requestFace)
+            {
+                IntensityFace = B.dialogue.requestFace;
+            }
+
+            foreach (string str in B.dialogue.refusalFace)
+            {
+                RejectFace = B.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = B.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = B.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = B.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = B.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "고마워!";
-                    Customer_PerfumeReaction[1] = "이제야 친구를 도울 수 있을 것 같아..!";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in B.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = B.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in B.dialogue.resultGoodFace)
+                    {
+                        ReactFace = B.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "이 정도면 괜찮은 거 같아..! ";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in B.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = B.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in B.dialogue.resultNormalFace)
+                    {
+                        ReactFace = B.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "왜 이렇게 만든 거야..?";
-                    Customer_PerfumeReaction[1] = "정말 싫어..";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in B.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = B.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in B.dialogue.resultBadFace)
+                    {
+                        ReactFace = B.dialogue.resultBadFace;
                     }
                 }
             }
@@ -110,95 +152,124 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "일부로 이런 거야…?";
-                    Customer_PerfumeReaction[1] = "이러지 않아도 됐잖아...";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in B.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = B.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in B.dialogue.noFlavorFace)
+                    {
+                        ReactFace = B.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "대체 뭘 만든 거야..?";
-                    Customer_PerfumeReaction[1] = "이건 완전 다른 거잖아!!";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in B.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = B.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in B.dialogue.noExistFace)
+                    {
+                        ReactFace = B.dialogue.noExistFace;
                     }
                 }
             }
 
         }
 
-        if (Customer_ID[0] == 3002)
+        if (Customer_ID[0] == F.id)
         {
-            Customer_Name = "G";
+            Customer_Name = F.name;
 
-            Customer_PerfumeOrder[0] = "저희 강아지가...무지개다리를 건넜어요...";
-            Customer_PerfumeOrder[1] = "매일 아침 눈을 뜨면, 둥이가 없어서 미칠 것 같아요..";
-            Customer_PerfumeOrder[2] = "그게 뭐가 힘들다고... 산책도 못 가줬는데..";
-            Customer_PerfumeOrder[3] = "더 잘해주지 못해서 너무 미안한데… ";
-
-            for (int i = 4; i < Customer_PerfumeOrder.Length; i++)
+            if (F.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = F.id;
             }
 
-
-            Customer_IntensityOrder[0] = "둥이랑 같이 덮고 자던 이불에 뿌릴 거예요...";
-            Customer_IntensityOrder[1] = "그 이불에서만큼은 둥이를 느낄 수 있게..";
-            Customer_IntensityOrder[2] = "이럴 거면 진해야겠죠..?";
-
-            for (int i = 3; i < Customer_IntensityOrder.Length; i++)
+            if (F.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = F.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
 
-            Customer_Flavoring[0] = "동물";
-            Customer_Flavoring[1] = "반려동물";
-            Customer_Flavoring[2] = "죄책감";
-
-            Customer_RejectReaction[0] = "...?";
-            Customer_RejectReaction[1] = "그쪽은 반려견을 키워 본 경험이 없나보죠?";
-
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in F.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = F.dialogue.visitComment;
             }
+
+            foreach (string str in F.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = F.dialogue.requestComment;
+            }
+
+            foreach (string str in F.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = F.dialogue.refusalComment;
+            }
+
+            foreach (string str in F.dialogue.visitFace)
+            {
+                OrderFace = F.dialogue.visitFace;
+            }
+
+            foreach (string str in F.dialogue.requestFace)
+            {
+                IntensityFace = F.dialogue.requestFace;
+            }
+
+            foreach (string str in F.dialogue.refusalFace)
+            {
+                RejectFace = F.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = F.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = F.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = F.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = F.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "둥이야… 이 냄새가 너무 너무 그리웠어.. ";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in F.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = F.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in F.dialogue.resultGoodFace)
+                    {
+                        ReactFace = F.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "이 냄새가 그리웠어.. ";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in F.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = F.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in F.dialogue.resultNormalFace)
+                    {
+                        ReactFace = F.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "이렇게 못 만드는 것도 재주다. 재주";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in F.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = F.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in F.dialogue.resultBadFace)
+                    {
+                        ReactFace = F.dialogue.resultBadFace;
                     }
                 }
             }
@@ -206,98 +277,124 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "향이 없는데 뭘 맡으란 거야? ";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in F.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = F.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in F.dialogue.noFlavorFace)
+                    {
+                        ReactFace = F.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "이게 무슨 냄새인가요??";
-                    Customer_PerfumeReaction[1] = "둥이 냄새가 아닌데?";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in F.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = F.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in F.dialogue.noExistFace)
+                    {
+                        ReactFace = F.dialogue.noExistFace;
                     }
                 }
             }
 
         }
 
-        if (Customer_ID[0] == 3003)
+        if (Customer_ID[0] == E.id)
         {
-            Customer_Name = "I";
+            Customer_Name = E.name;
 
-            Customer_PerfumeOrder[0] = "안녕하신가..";
-            Customer_PerfumeOrder[1] = "내 죽은 친구 놈이 보고 싶구만..";
-            Customer_PerfumeOrder[2] = "그때 가지 말라고 말렸어야 했는데 말이야..";
-            Customer_PerfumeOrder[3] = "빌어먹을.. 그놈이 사고에 휘말렸어..";
-            Customer_PerfumeOrder[4] = "제기랄.. 내 탓이지 뭐..";
-            Customer_PerfumeOrder[5] = "혹시 향수 하나만 만들어줄 수 있는가?";
-
-            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
+            if (E.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = E.id;
             }
 
-
-            Customer_IntensityOrder[0] = "그 친구 향이 영원히 지속됐으면 좋겠군…";
-            Customer_IntensityOrder[1] = "내가 감히 이래도 되는 걸까..?";
-
-            for (int i = 2; i < Customer_IntensityOrder.Length; i++)
+            if (E.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = E.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
 
-            Customer_Flavoring[0] = "인간";
-            Customer_Flavoring[1] = "친구";
-            Customer_Flavoring[2] = "죄책감";
-
-            Customer_RejectReaction[0] = "젠장.. 내가 당신한테 뭘 잘못했지..?";
-            Customer_RejectReaction[1] = "오늘도 개 같은 하루구만..";
-
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in E.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = E.dialogue.visitComment;
             }
+
+            foreach (string str in E.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = E.dialogue.requestComment;
+            }
+
+            foreach (string str in E.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = E.dialogue.refusalComment;
+            }
+
+            foreach (string str in E.dialogue.visitFace)
+            {
+                OrderFace = E.dialogue.visitFace;
+            }
+
+            foreach (string str in E.dialogue.requestFace)
+            {
+                IntensityFace = E.dialogue.requestFace;
+            }
+
+            foreach (string str in E.dialogue.refusalFace)
+            {
+                RejectFace = E.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = E.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = E.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = E.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = E.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "내가...정말...";
-                    Customer_PerfumeReaction[1] = "정말...";
-                    Customer_PerfumeReaction[2] = "......";
-
-                    for (int i = 3; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in E.dialogue.resultGoodFace)
+                    {
+                        ReactFace = E.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "고맙군.. 자네..";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in E.dialogue.resultNormalFace)
+                    {
+                        ReactFace = E.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "이건 대체 뭘..";
-                    Customer_PerfumeReaction[1] = "형편없구만 ";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in E.dialogue.resultBadFace)
+                    {
+                        ReactFace = E.dialogue.resultBadFace;
                     }
                 }
             }
@@ -305,98 +402,124 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "지금 장난하는건가?";
-                    Customer_PerfumeReaction[1] = "향이 안 느껴지는데 뭐 어떡하라는 거야?";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in E.dialogue.noFlavorFace)
+                    {
+                        ReactFace = E.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "내가 우습나?";
-                    Customer_PerfumeReaction[1] = "이럴 거면 때려치우게 ";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in E.dialogue.noExistFace)
+                    {
+                        ReactFace = E.dialogue.noExistFace;
                     }
                 }
             }
 
         }
 
-        if (Customer_ID[0] == 3004)
+        if (Customer_ID[0] == C.id)
         {
-            Customer_Name = "E";
+            Customer_Name = C.name;
 
-            Customer_PerfumeOrder[0] = "...저기.. 요?";
-            Customer_PerfumeOrder[1] = "....제발 내 사랑을 다시 한번만이라도 보고 싶어... ";
-            Customer_PerfumeOrder[2] = "내가 이렇게 좋아하는데.. 대체 어떻게 지내고 있는거야..?";
-            Customer_PerfumeOrder[3] = "내가 사랑하는 그녀가 미치도록 보고 싶어..";
-            Customer_PerfumeOrder[4] = "이런 나를 좀 도와주지 않을래..?";
-
-            for (int i = 5; i < Customer_PerfumeOrder.Length; i++)
+            if (C.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = C.id;
             }
 
-
-            Customer_IntensityOrder[0] = "향은 절대 빠지지 않도록 강하게 해주세요...";
-
-            for (int i = 1; i < Customer_IntensityOrder.Length; i++)
+            if (C.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = C.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "강함";
 
-            Customer_Flavoring[0] = "인간";
-            Customer_Flavoring[1] = "연인";
-            Customer_Flavoring[2] = "사랑";
-
-            Customer_RejectReaction[0] = "...나한테 대체 왜 그래요?";
-            Customer_RejectReaction[1] = "당신만큼은 그러면 안 되잖아";
-            Customer_RejectReaction[2] = "다른 사람들한테도 말할 거야";
-            Customer_RejectReaction[3] = "후회하지 마 당신이 한 선택이잖아?";
-
-            for (int i = 4; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in C.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = C.dialogue.visitComment;
             }
+
+            foreach (string str in C.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = C.dialogue.requestComment;
+            }
+
+            foreach (string str in C.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = C.dialogue.refusalComment;
+            }
+
+            foreach (string str in C.dialogue.visitFace)
+            {
+                OrderFace = C.dialogue.visitFace;
+            }
+
+            foreach (string str in C.dialogue.requestFace)
+            {
+                IntensityFace = C.dialogue.requestFace;
+            }
+
+            foreach (string str in C.dialogue.refusalFace)
+            {
+                RejectFace = C.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = C.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = C.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = C.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = C.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "이것이 바로 그녀의 향..";
-                    Customer_PerfumeReaction[1] = "정말 감사합니다.. 정말로…  ";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in C.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = C.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in C.dialogue.resultGoodFace)
+                    {
+                        ReactFace = C.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "고마워요… ";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in C.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = C.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in C.dialogue.resultNormalFace)
+                    {
+                        ReactFace = C.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "너무 못 만든거 아닌가요..?";
-                    Customer_PerfumeReaction[1] = "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in C.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = C.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in C.dialogue.resultBadFace)
+                    {
+                        ReactFace = C.dialogue.resultBadFace;
                     }
                 }
             }
@@ -404,97 +527,124 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "제대로 만든 거 맞나요..?";
-                    Customer_PerfumeReaction[1] = "아무 것도 느껴지지 않아요..";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in C.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = C.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in C.dialogue.noFlavorFace)
+                    {
+                        ReactFace = C.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "이건 내가 맡고 싶은 향이 아니에요..";
-                    Customer_PerfumeReaction[1] = "정말 최악이네요..";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in C.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = C.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in C.dialogue.noExistFace)
+                    {
+                        ReactFace = C.dialogue.noExistFace;
                     }
                 }
             }
 
         }
 
-        if (Customer_ID[0] == 3005)
+        if (Customer_ID[0] == D.id)
         {
-            Customer_Name = "";
+            Customer_Name = D.name;
 
-            Customer_PerfumeOrder[0] = "";
-            Customer_PerfumeOrder[1] = "";
-            Customer_PerfumeOrder[2] = "";
-            Customer_PerfumeOrder[3] = "";
-            Customer_PerfumeOrder[4] = "";
-            Customer_PerfumeOrder[5] = "";
-
-            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
+            if (D.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = D.id;
             }
 
-
-            Customer_IntensityOrder[0] = "";
-            Customer_IntensityOrder[1] = "";
-
-            for (int i = 2; i < Customer_IntensityOrder.Length; i++)
+            if (D.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = D.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "";
-            Customer_Flavoring[1] = "";
-            Customer_Flavoring[2] = "";
-
-            Customer_RejectReaction[0] = "";
-            Customer_RejectReaction[1] = "";
-
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in D.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = D.dialogue.visitComment;
             }
+
+            foreach (string str in D.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = D.dialogue.requestComment;
+            }
+
+            foreach (string str in D.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = D.dialogue.refusalComment;
+            }
+
+            foreach (string str in D.dialogue.visitFace)
+            {
+                OrderFace = D.dialogue.visitFace;
+            }
+
+            foreach (string str in D.dialogue.requestFace)
+            {
+                IntensityFace = D.dialogue.requestFace;
+            }
+
+            foreach (string str in D.dialogue.refusalFace)
+            {
+                RejectFace = D.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = D.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = D.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = D.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = D.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in D.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = D.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in D.dialogue.resultGoodFace)
+                    {
+                        ReactFace = D.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in D.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = D.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in D.dialogue.resultNormalFace)
+                    {
+                        ReactFace = D.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in D.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = D.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in D.dialogue.resultBadFace)
+                    {
+                        ReactFace = D.dialogue.resultBadFace;
                     }
                 }
             }
@@ -502,97 +652,124 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in D.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = D.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in D.dialogue.noFlavorFace)
+                    {
+                        ReactFace = D.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in D.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = D.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in D.dialogue.noExistFace)
+                    {
+                        ReactFace = D.dialogue.noExistFace;
                     }
                 }
             }
 
         }
 
-        if (Customer_ID[0] == 3006)
+        if (Customer_ID[0] == G.id)
         {
-            Customer_Name = "";
+            Customer_Name = G.name;
 
-            Customer_PerfumeOrder[0] = "";
-            Customer_PerfumeOrder[1] = "";
-            Customer_PerfumeOrder[2] = "";
-            Customer_PerfumeOrder[3] = "";
-            Customer_PerfumeOrder[4] = "";
-            Customer_PerfumeOrder[5] = "";
-
-            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
+            if (G.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = G.id;
             }
 
-
-            Customer_IntensityOrder[0] = "";
-            Customer_IntensityOrder[1] = "";
-
-            for (int i = 2; i < Customer_IntensityOrder.Length; i++)
+            if (G.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = G.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "";
-            Customer_Flavoring[1] = "";
-            Customer_Flavoring[2] = "";
-
-            Customer_RejectReaction[0] = "";
-            Customer_RejectReaction[1] = "";
-
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in G.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = G.dialogue.visitComment;
             }
+
+            foreach (string str in G.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = G.dialogue.requestComment;
+            }
+
+            foreach (string str in G.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = G.dialogue.refusalComment;
+            }
+
+            foreach (string str in G.dialogue.visitFace)
+            {
+                OrderFace = G.dialogue.visitFace;
+            }
+
+            foreach (string str in G.dialogue.requestFace)
+            {
+                IntensityFace = G.dialogue.requestFace;
+            }
+
+            foreach (string str in G.dialogue.refusalFace)
+            {
+                RejectFace = G.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = G.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = G.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = G.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = G.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in G.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = G.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in G.dialogue.resultGoodFace)
+                    {
+                        ReactFace = G.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in G.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = G.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in G.dialogue.resultNormalFace)
+                    {
+                        ReactFace = G.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in G.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = G.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in G.dialogue.resultBadFace)
+                    {
+                        ReactFace = G.dialogue.resultBadFace;
                     }
                 }
             }
@@ -600,97 +777,124 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in G.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = G.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in G.dialogue.noFlavorFace)
+                    {
+                        ReactFace = G.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in G.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = G.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in G.dialogue.noExistFace)
+                    {
+                        ReactFace = G.dialogue.noExistFace;
                     }
                 }
             }
 
         }
 
-        if (Customer_ID[0] == 3007)
+        if (Customer_ID[0] == E.id)
         {
-            Customer_Name = "";
+            Customer_Name = E.name;
 
-            Customer_PerfumeOrder[0] = "";
-            Customer_PerfumeOrder[1] = "";
-            Customer_PerfumeOrder[2] = "";
-            Customer_PerfumeOrder[3] = "";
-            Customer_PerfumeOrder[4] = "";
-            Customer_PerfumeOrder[5] = "";
-
-            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
+            if (E.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = E.id;
             }
 
-
-            Customer_IntensityOrder[0] = "";
-            Customer_IntensityOrder[1] = "";
-
-            for (int i = 2; i < Customer_IntensityOrder.Length; i++)
+            if (E.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = E.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "";
-            Customer_Flavoring[1] = "";
-            Customer_Flavoring[2] = "";
-
-            Customer_RejectReaction[0] = "";
-            Customer_RejectReaction[1] = "";
-
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in E.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = E.dialogue.visitComment;
             }
+
+            foreach (string str in E.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = E.dialogue.requestComment;
+            }
+
+            foreach (string str in E.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = E.dialogue.refusalComment;
+            }
+
+            foreach (string str in E.dialogue.visitFace)
+            {
+                OrderFace = E.dialogue.visitFace;
+            }
+
+            foreach (string str in E.dialogue.requestFace)
+            {
+                IntensityFace = E.dialogue.requestFace;
+            }
+
+            foreach (string str in E.dialogue.refusalFace)
+            {
+                RejectFace = E.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = E.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = E.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = E.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = E.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in E.dialogue.resultGoodFace)
+                    {
+                        ReactFace = E.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in E.dialogue.resultNormalFace)
+                    {
+                        ReactFace = E.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in E.dialogue.resultBadFace)
+                    {
+                        ReactFace = E.dialogue.resultBadFace;
                     }
                 }
             }
@@ -698,97 +902,124 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in E.dialogue.noFlavorFace)
+                    {
+                        ReactFace = E.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in E.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = E.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in E.dialogue.noExistFace)
+                    {
+                        ReactFace = E.dialogue.noExistFace;
                     }
                 }
             }
 
         }
 
-        if (Customer_ID[0] == 3008)
+        if (Customer_ID[0] == I.id)
         {
-            Customer_Name = "";
+            Customer_Name = I.name;
 
-            Customer_PerfumeOrder[0] = "";
-            Customer_PerfumeOrder[1] = "";
-            Customer_PerfumeOrder[2] = "";
-            Customer_PerfumeOrder[3] = "";
-            Customer_PerfumeOrder[4] = "";
-            Customer_PerfumeOrder[5] = "";
-
-            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
+            if (I.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = I.id;
             }
 
-
-            Customer_IntensityOrder[0] = "";
-            Customer_IntensityOrder[1] = "";
-
-            for (int i = 2; i < Customer_IntensityOrder.Length; i++)
+            if (I.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = I.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "";
-            Customer_Flavoring[1] = "";
-            Customer_Flavoring[2] = "";
-
-            Customer_RejectReaction[0] = "";
-            Customer_RejectReaction[1] = "";
-
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in I.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = I.dialogue.visitComment;
             }
+
+            foreach (string str in I.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = I.dialogue.requestComment;
+            }
+
+            foreach (string str in I.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = I.dialogue.refusalComment;
+            }
+
+            foreach (string str in I.dialogue.visitFace)
+            {
+                OrderFace = I.dialogue.visitFace;
+            }
+
+            foreach (string str in I.dialogue.requestFace)
+            {
+                IntensityFace = I.dialogue.requestFace;
+            }
+
+            foreach (string str in I.dialogue.refusalFace)
+            {
+                RejectFace = I.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = I.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = I.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = I.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = I.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in I.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = I.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in I.dialogue.resultGoodFace)
+                    {
+                        ReactFace = I.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in I.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = I.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in I.dialogue.resultNormalFace)
+                    {
+                        ReactFace = I.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in I.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = I.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in I.dialogue.resultBadFace)
+                    {
+                        ReactFace = I.dialogue.resultBadFace;
                     }
                 }
             }
@@ -796,97 +1027,124 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in I.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = I.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in I.dialogue.noFlavorFace)
+                    {
+                        ReactFace = I.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in I.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = I.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in I.dialogue.noExistFace)
+                    {
+                        ReactFace = I.dialogue.noExistFace;
                     }
                 }
             }
 
         }
 
-        if (Customer_ID[0] == 3009)
+        if (Customer_ID[0] == Lorena.id)
         {
-            Customer_Name = "";
+            Customer_Name = Lorena.name;
 
-            Customer_PerfumeOrder[0] = "";
-            Customer_PerfumeOrder[1] = "";
-            Customer_PerfumeOrder[2] = "";
-            Customer_PerfumeOrder[3] = "";
-            Customer_PerfumeOrder[4] = "";
-            Customer_PerfumeOrder[5] = "";
-
-            for (int i = 6; i < Customer_PerfumeOrder.Length; i++)
+            if (Lorena.uniqueGuest == true)
             {
-                Customer_PerfumeOrder[i] = "";
+                isUnique = true;
+                UniqueID = Lorena.id;
             }
 
-
-            Customer_IntensityOrder[0] = "";
-            Customer_IntensityOrder[1] = "";
-
-            for (int i = 2; i < Customer_IntensityOrder.Length; i++)
+            if (Lorena.criminalGuest == true)
             {
-                Customer_IntensityOrder[i] = "";
+                isCriminal = true;
+                CriminalID = Lorena.id;
             }
-            Distiller.GetComponent<Distiller>().DistillerStatus = "약함";
 
-            Customer_Flavoring[0] = "";
-            Customer_Flavoring[1] = "";
-            Customer_Flavoring[2] = "";
-
-            Customer_RejectReaction[0] = "";
-            Customer_RejectReaction[1] = "";
-
-            for (int i = 2; i < Customer_RejectReaction.Length; i++)
+            foreach (string str in Lorena.dialogue.visitComment)
             {
-                Customer_RejectReaction[i] = "";
+                Customer_PerfumeOrder = Lorena.dialogue.visitComment;
             }
+
+            foreach (string str in Lorena.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = Lorena.dialogue.requestComment;
+            }
+
+            foreach (string str in Lorena.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = Lorena.dialogue.refusalComment;
+            }
+
+            foreach (string str in Lorena.dialogue.visitFace)
+            {
+                OrderFace = Lorena.dialogue.visitFace;
+            }
+
+            foreach (string str in Lorena.dialogue.requestFace)
+            {
+                IntensityFace = Lorena.dialogue.requestFace;
+            }
+
+            foreach (string str in Lorena.dialogue.refusalFace)
+            {
+                RejectFace = Lorena.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = Lorena.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = Lorena.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = Lorena.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = Lorena.currentPerfume.topNotes[0];
+
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = Lorena.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in Lorena.dialogue.resultGoodFace)
+                    {
+                        ReactFace = Lorena.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    Customer_PerfumeReaction[0] = "";
-
-                    for (int i = 1; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in Lorena.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = Lorena.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in Lorena.dialogue.resultNormalFace)
+                    {
+                        ReactFace = Lorena.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in Lorena.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = Lorena.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in Lorena.dialogue.resultBadFace)
+                    {
+                        ReactFace = Lorena.dialogue.resultBadFace;
                     }
                 }
             }
@@ -894,26 +1152,35 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = Lorena.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in Lorena.dialogue.noFlavorFace)
+                    {
+                        ReactFace = Lorena.dialogue.noFlavorFace;
                     }
                 }
 
-                else if(TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    Customer_PerfumeReaction[0] = "";
-                    Customer_PerfumeReaction[1] = "";
-
-                    for (int i = 2; i < Customer_PerfumeReaction.Length; i++)
+                    foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction[i] = "";
+                        Customer_PerfumeReaction = Lorena.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in Lorena.dialogue.noExistFace)
+                    {
+                        ReactFace = Lorena.dialogue.noExistFace;
                     }
                 }
             }
+
         }
+
+        TotalScore.FindObjectOfType<TotalScore>().baseItem.name = Customer_Flavoring[0];
+        TotalScore.FindObjectOfType<TotalScore>().middleItem.name = Customer_Flavoring[1];
+        TotalScore.FindObjectOfType<TotalScore>().topItem.name = Customer_Flavoring[2];
     }
 }

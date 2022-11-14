@@ -818,6 +818,34 @@ MonoBehaviour:
   - 
   - 
   - 
+  OrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  IntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  RejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  ReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  isCriminal: 0
+  isUnique: 0
+  CriminalID: 10
+  UniqueID: 10
 --- !u!1 &35942068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,7 +5178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -332, y: 75}
+  m_AnchoredPosition: {x: -1205, y: 75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268650029
@@ -11764,14 +11792,34 @@ MonoBehaviour:
   - 
   - 
   - 
-  Dialogue_C_1:
+  OrderFace:
   - 
   - 
   - 
-  Dialogue_C_2:
+  - 
+  - 
+  IntensityFace:
   - 
   - 
   - 
+  - 
+  - 
+  RejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  ReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  isCriminal: 0
+  isUnique: 0
+  CriminalID: 10
+  UniqueID: 10
 --- !u!1 &675055137
 GameObject:
   m_ObjectHideFlags: 0
@@ -13997,6 +14045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4734686b736f4d547bc34db698a0476a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RC: {fileID: 1965479738}
   Buyer: {fileID: 2130944401}
   Select: {fileID: 1170537487}
   Customer: {fileID: 772955856}
@@ -14007,6 +14056,7 @@ MonoBehaviour:
   BuyerDialogue: {fileID: 78113239}
   isDialogueEnd: 0
   arrow: {fileID: 832237960}
+  Declaration: {fileID: 893151654}
   rejectCnt: 0
   SellerSentences:
   - 
@@ -14040,6 +14090,41 @@ MonoBehaviour:
   - 
   - 
   - 
+  BuyerOrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerFeel:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   BG_Sprite:
   - {fileID: 21300000, guid: 215facdda8328cd4489ac1390865b67d, type: 3}
   - {fileID: 21300000, guid: b4c20fa6e32b61b4998555547e4a9bd3, type: 3}
@@ -14047,11 +14132,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
-  AStart: 0
-  D1Start: 0
-  D2Start: 0
-  EStart: 0
+  FeelCnt: 0
   isDialogueStart: 0
+  isCriminal: 0
+  isCriminalFalse: 0
+  isDeclare: 0
+  Criminal: {fileID: 1362849358}
+  Success: {fileID: 21300000, guid: 9d705893fbd2deb479632efd7bdb2998, type: 3}
+  Fail: {fileID: 21300000, guid: 90a4e59311550354ebdaa7e34d5027b6, type: 3}
 --- !u!114 &806175968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14064,6 +14152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c79cf3b4202ce04389e2bc4b01f27da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RC: {fileID: 1965479738}
   Buyer: {fileID: 2130944401}
   Select: {fileID: 1170537487}
   Customer: {fileID: 772955856}
@@ -14074,6 +14163,7 @@ MonoBehaviour:
   BuyerDialogue: {fileID: 78113239}
   isDialogueEnd: 0
   arrow: {fileID: 832237960}
+  Declaration: {fileID: 893151654}
   rejectCnt: 0
   SellerSentences:
   - 
@@ -14107,6 +14197,41 @@ MonoBehaviour:
   - 
   - 
   - 
+  BuyerOrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerFeel:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   BG_Sprite:
   - {fileID: 21300000, guid: 215facdda8328cd4489ac1390865b67d, type: 3}
   - {fileID: 21300000, guid: b4c20fa6e32b61b4998555547e4a9bd3, type: 3}
@@ -14114,11 +14239,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
-  AStart: 0
-  D1Start: 0
-  D2Start: 0
-  EStart: 0
+  FeelCnt: 0
   isDialogueStart: 0
+  isCriminal: 0
+  isCriminalFalse: 0
+  isDeclare: 0
+  Criminal: {fileID: 1362849358}
+  Success: {fileID: 21300000, guid: 9d705893fbd2deb479632efd7bdb2998, type: 3}
+  Fail: {fileID: 21300000, guid: 90a4e59311550354ebdaa7e34d5027b6, type: 3}
 --- !u!114 &806175969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20230,7 +20358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1235025729
 AudioSource:
   m_ObjectHideFlags: 0
@@ -26011,6 +26139,7 @@ MonoBehaviour:
   RandomBuyer: {fileID: 772955856}
   buyer: {fileID: 2130944401}
   Customer: {fileID: 1106566495}
+  Today: {fileID: 1492878915}
 --- !u!1 &1534612176
 GameObject:
   m_ObjectHideFlags: 0
@@ -29237,14 +29366,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visit: {fileID: 8300000, guid: 446d65a614e30464c81b00aa44dbb38c, type: 3}
-  inven: {fileID: 8300000, guid: 95fba46d2cb96314693ce884b7959b24, type: 3}
+  inven: {fileID: 8300000, guid: 14b78016c1755ea47b69fa05585855aa, type: 3}
   money: {fileID: 8300000, guid: eaa9553813ab5ef42960943a37ebff59, type: 3}
   fireon: {fileID: 8300000, guid: 359074ddeacecff43949622d366a2e5a, type: 3}
   click: {fileID: 8300000, guid: b003929952841d9429a74ef979f205db, type: 3}
   typing: {fileID: 8300000, guid: 61523e7e498853d4292b6fb400f09e4b, type: 3}
-  boilHigh: {fileID: 8300000, guid: eaaedeb5bdc941b48b223b57b7d08fa0, type: 3}
-  boilMiddle: {fileID: 8300000, guid: 0706aeba8ae5f1e4782c2ea5547c1a42, type: 3}
-  boilLow: {fileID: 8300000, guid: 83b741714adffa7428a177734807de16, type: 3}
+  boilHigh: {fileID: 8300000, guid: 84c7f15d56865a24e8003de03fbcc4f6, type: 3}
+  boilMiddle: {fileID: 8300000, guid: e19b496478997fa4caaae6796f7f792c, type: 3}
+  boilLow: {fileID: 8300000, guid: 145846590804dac43990343dc453eb97, type: 3}
   news: {fileID: 8300000, guid: 2783584853704b941b0cd2a9d89c4c80, type: 3}
   main: {fileID: 8300000, guid: 11f3de9522c691e4e95917c6a3f17503, type: 3}
   newsPanel: {fileID: 585306717}
@@ -33440,6 +33569,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b326f603e290ea7479d0d9c3eff3a448, type: 3}
   - {fileID: 21300000, guid: b97922be27db7874bbb547d1f928e5ef, type: 3}
   - {fileID: 21300000, guid: 40e3f8e8a04e15d4eb33053b8cb02873, type: 3}
+  Lorena_Image:
+  - {fileID: 21300000, guid: 92a2e4af2fdd040409ee76a5fc6ff479, type: 3}
+  - {fileID: 21300000, guid: d5d935d916e1f2644bfad4dc7dd424b5, type: 3}
+  - {fileID: 21300000, guid: 51f23b87c92fd3b4b8784301e03f980b, type: 3}
+  - {fileID: 21300000, guid: d7d2edf99a371aa4cbbe6862d56912a9, type: 3}
+  - {fileID: 21300000, guid: b1ab597f1f30f284fb27abe46a145e9b, type: 3}
+  - {fileID: 21300000, guid: dba50d4ec5e99ee439e1652f5d17f752, type: 3}
+  - {fileID: 21300000, guid: 572e5f2c3b01cee4fac369dcdcc3d80c, type: 3}
+  - {fileID: 21300000, guid: a6b5d6982bd1bf148bcbbd9a539dbe8a, type: 3}
+  - {fileID: 21300000, guid: 9a08875cd8c0fa74a918fb27f22b50a5, type: 3}
+  - {fileID: 21300000, guid: 9ebc51621548be441a493d9d4a88f3c2, type: 3}
+  - {fileID: 21300000, guid: f23a9767200f1fa4f9a81746504e654f, type: 3}
+  - {fileID: 21300000, guid: 60ad59ef7657d7a4681c4d1ce4bb6be2, type: 3}
   CurrentName: 
   CurrentFeel: basic
   CurrentTime: morning
@@ -38028,6 +38170,9 @@ MonoBehaviour:
   isLow: 0
   isMiddle: 0
   isHigh: 0
+  LowSFX: {fileID: 8300000, guid: 145846590804dac43990343dc453eb97, type: 3}
+  MiddleSFX: {fileID: 8300000, guid: e19b496478997fa4caaae6796f7f792c, type: 3}
+  HighSFX: {fileID: 8300000, guid: 84c7f15d56865a24e8003de03fbcc4f6, type: 3}
   DistillWindow: {fileID: 6248577078843635384}
 --- !u!114 &1718260865264676578
 MonoBehaviour:
@@ -39628,6 +39773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6248577078843635387}
   - component: {fileID: 793175676203025400}
+  - component: {fileID: 6248577078843635385}
   m_Layer: 5
   m_Name: DistillerDetail
   m_TagString: Untagged
@@ -39635,6 +39781,102 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!82 &6248577078843635385
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248577078843635384}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 145846590804dac43990343dc453eb97, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!224 &6248577078843635387
 RectTransform:
   m_ObjectHideFlags: 0

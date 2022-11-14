@@ -41,6 +41,11 @@ public class Distiller : MonoBehaviour
     public bool isMiddle = false;
     public bool isHigh = false;
 
+    public AudioClip LowSFX;
+    public AudioClip MiddleSFX;
+    public AudioClip HighSFX;
+
+
     //public GameObject baseInvenSlots;
     public GameObject DistillWindow;
     public void OnEnable()
@@ -120,8 +125,6 @@ public void DistillerOn(ItemProperty item)
 
             if (curTemper >= 91 && curTemper <= 134)
             {
-                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boilHigh");
-                GameObject.Find("SFX").GetComponent<AudioSource>().loop = true;
                 //HighTemperDuration += 0.01f;
                 isHigh = true;
                 isMiddle = false;
@@ -132,6 +135,10 @@ public void DistillerOn(ItemProperty item)
                 Anim.SetBool("isHigh", true);
                 Anim.SetBool("isNormal", false);
                 Anim.SetBool("isLow", false);
+
+                this.GetComponent<AudioSource>().clip = HighSFX;
+                this.GetComponent<AudioSource>().Play();
+
                 if (DistillerStatus == "강함")
                 {
                     if (HighTemperDuration >= 4f)
@@ -175,8 +182,6 @@ public void DistillerOn(ItemProperty item)
             }
             else if (curTemper >= 46 && curTemper <= 90)
             {
-                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boilMiddle");
-                GameObject.Find("SFX").GetComponent<AudioSource>().loop = true;
                 maxTemperDuration = 0.0f;
                 HighTemperDuration = 0;
                 LowTemperDuration = 0;
@@ -188,6 +193,9 @@ public void DistillerOn(ItemProperty item)
                 Anim.SetBool("isHigh", false);
                 Anim.SetBool("isNormal", true);
                 Anim.SetBool("isLow", false);
+
+                this.GetComponent<AudioSource>().clip = MiddleSFX;
+                this.GetComponent<AudioSource>().Play();
 
                 if (DistillerStatus == "보통")
                 {
@@ -223,8 +231,6 @@ public void DistillerOn(ItemProperty item)
             temperatureSlider.GetComponent<Slider>().value -= 0.3f;
             if (curTemper >= 1 && curTemper <= 45)
             {
-                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boilLow");
-                GameObject.Find("SFX").GetComponent<AudioSource>().loop = true;
                 TemperDuration = 0;
                 HighTemperDuration = 0;
                 LowTemperDuration += 0.01f;
@@ -235,6 +241,9 @@ public void DistillerOn(ItemProperty item)
                 Anim.SetBool("isHigh", false);
                 Anim.SetBool("isNormal", false);
                 Anim.SetBool("isLow", true);
+
+                this.GetComponent<AudioSource>().clip = LowSFX;
+                this.GetComponent<AudioSource>().Play();
 
                 if (DistillerStatus == "약함")
                 {
@@ -275,7 +284,7 @@ public void DistillerOn(ItemProperty item)
         HighTemperDuration = 0;
         TemperDuration = 0;
         LowTemperDuration = 0;
-        // GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
         InvenUI.GetComponent<Button>().interactable = true;
         Invoke("CloseWindow", 0.5f);
     }

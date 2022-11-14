@@ -408,7 +408,7 @@
                     "dialogue": {
                         "visitComment": ["아저씨…", "내 애착 인형이 너무 그리워..", "그 인형을 껴안으면 진짜 행복했는데..", "엄마가 내 인형이 터졌다고 버려버린 거 있지..?", "내가 수술해 주기로 꼬옥 약속했는데…"],
                         "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad"],
-                        "refusalComment": ["지금 안 만들어 주실 거예요?", "아저씨 미워! / 진짜 미워!"],
+                        "refusalComment": ["지금 안 만들어 주실 거예요?", "아저씨 미워!", "진짜 미워!"],
                         "refusalFace": ["Sad", "Bad"],
                         "requestComment": ["향은 엄청 많이! 진하게! 해줘요!!"],
                         "requestFace": ["Happy"],
