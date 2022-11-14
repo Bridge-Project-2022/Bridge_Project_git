@@ -80,7 +80,7 @@ public class DeskTouch : MonoBehaviour
 
     public void TouchPerfume()
     {
-        Invoke("feelStart", 0.4f);
+        //Invoke("feelStart", 0.4f);
         TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
         Customer.gameObject.SetActive(true);
         TopBar.transform.Translate(new Vector3(-200, -200, 0));
@@ -109,14 +109,10 @@ public class DeskTouch : MonoBehaviour
     public void PerfumeDialogue()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
-        //TestDayCheck.FindObjectOfType<TestDayCheck>().E1_Check();
         DayCheck.FindObjectOfType<DayCheck>().E1_Check();
-        //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[0];
     }
     public void feelStart()
     {
-        //Debug.Log(GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[0]);
-        //GameObject.Find("RC").GetComponent<TestRandomImage>().CurrentFeel = GameObject.Find("RC").GetComponent<TestCustomerFeel>().Customer_Feel[0];
-        GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[0];
+        //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[0];
     }
 }

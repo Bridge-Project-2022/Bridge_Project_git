@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 public class DialogueRandom : MonoBehaviour
 {
-    //public GameObject Seller;
+    public GameObject RC;
     public GameObject Buyer;
     public GameObject Select;
 
@@ -31,9 +31,6 @@ public class DialogueRandom : MonoBehaviour
 
     public int rejectCnt = 0;//거절 횟수 -> 평판 영향, 일차 지날 때 마다 리셋되어야 함.
 
-    int C_1_random;
-    int C_2_random;
-
     public string[] SellerSentences = new string[2];// 유저 대화 배열
 
     DialogueScript DS;
@@ -42,15 +39,20 @@ public class DialogueRandom : MonoBehaviour
     public string[] BuyerIntensity = new string[5];
     public string[] BuyerRejectReaction = new string[5];
     public string[] BuyerPerfumeReaction = new string[5];
-    public string[] BuyerFeel = new string[10];
 
+    public string[] BuyerOrderFace = new string[5];
+    public string[] BuyerIntensityFace = new string[5];
+    public string[] BuyerRejectFace = new string[5];
+    public string[] BuyerReactFace = new string[5];
+
+    public string[] BuyerFeel = new string[10];
     public Sprite[] BG_Sprite = new Sprite[5];
 
-    public bool AStart = false;
-    public bool D1Start = false;
-    public bool D2Start = false;
-    public bool EStart = false;
-    public bool F2Start = false;
+    bool AStart = false;
+    bool D1Start = false;
+    bool D2Start = false;
+    bool EStart = false;
+    bool F2Start = false;
 
     int ACount = 0;
     int D1Count = 0;
@@ -79,29 +81,50 @@ public class DialogueRandom : MonoBehaviour
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
         WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
 
-        for (int i = 0; i < BuyerOrder.Length; i++)
+        foreach (string str in DS.Customer_PerfumeOrder)
         {
-            BuyerOrder[i] = DS.Customer_PerfumeOrder[i];
+            BuyerOrder = DS.Customer_PerfumeOrder;
         }
 
-        for (int i = 0; i < BuyerIntensity.Length; i++)
+        foreach (string str in DS.Customer_IntensityOrder)
         {
-            BuyerIntensity[i] = DS.Customer_IntensityOrder[i];
+            BuyerIntensity = DS.Customer_IntensityOrder;
         }
 
-        for (int i = 0; i < BuyerRejectReaction.Length; i++)
+        foreach (string str in DS.Customer_RejectReaction)
         {
-            BuyerRejectReaction[i] = DS.Customer_RejectReaction[i];
+            BuyerRejectReaction = DS.Customer_RejectReaction;
         }
 
-        for (int i = 0; i < BuyerPerfumeReaction.Length; i++)
+        foreach (string str in DS.Customer_PerfumeReaction)
         {
-            BuyerPerfumeReaction[i] = DS.Customer_PerfumeReaction[i];
+            BuyerPerfumeReaction = DS.Customer_PerfumeReaction;
         }
-        for (int i = 0; i < BuyerFeel.Length; i++)
+
+        foreach (string str in DS.OrderFace)
+        {
+            BuyerOrderFace = DS.OrderFace;
+        }
+
+        foreach (string str in DS.IntensityFace)
+        {
+            BuyerIntensityFace = DS.IntensityFace;
+        }
+
+        foreach (string str in DS.RejectFace)
+        {
+            BuyerRejectFace = DS.RejectFace;
+        }
+
+        foreach (string str in DS.ReactFace)
+        {
+            BuyerReactFace = DS.ReactFace;
+        }
+
+        /*for (int i = 0; i < BuyerFeel.Length; i++)
         {
             BuyerFeel[i] = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[i];
-        }
+        }*/
 
         Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
         Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
@@ -133,18 +156,36 @@ public class DialogueRandom : MonoBehaviour
     public void NextDialogue()
     {
         StopAll();
-        RandomImage.FindObjectOfType<RandomImage>().CurrentFeel = BuyerFeel[FeelCnt];
-        FeelCnt++;
+        //RandomImage.FindObjectOfType<RandomImage>().CurrentFeel = BuyerFeel[FeelCnt];
+        //FeelCnt++;
 
         if (AStart == true)
         {
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(BuyerOrder[ACount]));
-            ACount++;
-
-            if (BuyerOrder[ACount] == "")
+            if (ACount == 0)
             {
-                //Debug.Log("A끝남");
+                RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[0];
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerOrder[0]));
+                ACount++;
+            }
+            else
+            {
+                if (isDialogueEnd == false)
+                {
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[ACount-1];
+                    BuyerDialogue.text = BuyerOrder[ACount-1];
+                    isDialogueEnd = true;
+                }
+                else if (isDialogueEnd == true)
+                {
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[ACount];
+                    Buyer.gameObject.GetComponent<Button>().interactable = true;
+                    StartCoroutine(NormalChat(BuyerOrder[ACount]));
+                    ACount++;
+                }
+            }
+            if (ACount == BuyerOrder.Length)
+            {
                 isSelectStart = true;
                 Buyer.gameObject.GetComponent<Button>().interactable = false;
                 ACount = 0;
@@ -153,13 +194,31 @@ public class DialogueRandom : MonoBehaviour
         }
         if (D1Start == true)
         {
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
-            D1Count++;
-
-            if (BuyerIntensity[D1Count] == "")
+            if (D1Count == 0)
             {
-                //Debug.Log("D1끝남");
+                RC.GetComponent<RandomImage>().CurrentFeel = BuyerIntensityFace[0];
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerIntensity[0]));
+                D1Count++;
+            }
+            else
+            {
+                if (isDialogueEnd == false)
+                {
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerIntensityFace[D1Count - 1];
+                    BuyerDialogue.text = BuyerIntensity[D1Count - 1];
+                    isDialogueEnd = true;
+                }
+                else if (isDialogueEnd == true)
+                {
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerIntensityFace[D1Count];
+                    Buyer.gameObject.GetComponent<Button>().interactable = true;
+                    StartCoroutine(NormalChat(BuyerIntensity[D1Count]));
+                    D1Count++;
+                }
+            }
+            if (D1Count == BuyerIntensity.Length)
+            {
                 isArrowStart = true;
                 Buyer.gameObject.GetComponent<Button>().interactable = false;
                 D1Count = 0;
@@ -168,13 +227,33 @@ public class DialogueRandom : MonoBehaviour
         }
         if (D2Start == true)
         {
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
-            D2Count++;
 
-            if (BuyerRejectReaction[D2Count] == "")
+            if (D2Count == 0)
             {
-                //Debug.Log("D2끝남");
+                RC.GetComponent<RandomImage>().CurrentFeel = BuyerRejectFace[0];
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerRejectReaction[0]));
+                D2Count++;
+            }
+            else
+            {
+                if (isDialogueEnd == false)
+                {
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerRejectFace[D2Count - 1];
+                    BuyerDialogue.text = BuyerRejectReaction[D2Count - 1];
+                    isDialogueEnd = true;
+                }
+                else if (isDialogueEnd == true)
+                {
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerRejectFace[D2Count];
+                    Buyer.gameObject.GetComponent<Button>().interactable = true;
+                    StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
+                    D2Count++;
+                }
+            }
+            if (D2Count == BuyerRejectReaction.Length)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = false;
                 D2Count = 0;
                 D2Start = false;
                 Invoke("End", 2f);
@@ -182,13 +261,32 @@ public class DialogueRandom : MonoBehaviour
         }
         if (EStart == true)
         {
-            Buyer.gameObject.GetComponent<Button>().interactable = true;
-            StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
-            ECount++;
-
-            if (BuyerPerfumeReaction[ECount] == "")
+            if (ECount == 0)
             {
-                //Debug.Log("E끝남");
+                RC.GetComponent<RandomImage>().CurrentFeel = BuyerReactFace[0];
+                Buyer.gameObject.GetComponent<Button>().interactable = true;
+                StartCoroutine(NormalChat(BuyerPerfumeReaction[0]));
+                ECount++;
+            }
+            else
+            {
+                if (isDialogueEnd == false)
+                {
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerReactFace[ECount - 1];
+                    BuyerDialogue.text = BuyerPerfumeReaction[ECount - 1];
+                    isDialogueEnd = true;
+                }
+                else if (isDialogueEnd == true)
+                {
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerReactFace[ECount];
+                    Buyer.gameObject.GetComponent<Button>().interactable = true;
+                    StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
+                    ECount++;
+                }
+            }
+            if (ECount == BuyerPerfumeReaction.Length)
+            {
+                Buyer.gameObject.GetComponent<Button>().interactable = false;
                 ECount = 0;
                 EStart = false;
                 Invoke("End", 2f);
@@ -221,10 +319,7 @@ public class DialogueRandom : MonoBehaviour
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
         Select.SetActive(false);
         isDialogueStart = false;
-        //RandomDialogue();
         Buyer.gameObject.SetActive(false);
-        //Seller.gameObject.SetActive(true);
-        //StartCoroutine(NormalChat(SellerSentences[0]));
         Invoke("D_1_Start", 0.3f);
     }
 
@@ -241,8 +336,6 @@ public class DialogueRandom : MonoBehaviour
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
             StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
-            
-
         else if (rejectCnt == 2)
         {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 10;
@@ -257,18 +350,13 @@ public class DialogueRandom : MonoBehaviour
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
         isDialogueStart = false;
-        //RandomDialogue();
         Buyer.gameObject.SetActive(false);
-        //Seller.gameObject.SetActive(true);
-        //StartCoroutine(NormalChat(SellerSentences[1]));
         Invoke("D_2_Start", 0.3f);
     }
 
     public void D_1_Start()//손님 : 승낙 - 향 세기 결정
     {
         Buyer.gameObject.SetActive(true);
-        //Seller.gameObject.SetActive(false);
-        //makeStart = true;
         D1Start = true;
         isDialogueStart = true;
         NextDialogue();
@@ -276,9 +364,7 @@ public class DialogueRandom : MonoBehaviour
 
     public void D_2_Start()// 손님 : 거부 - 불만 표출
     {
-        //Seller.gameObject.SetActive(false);
         Buyer.gameObject.SetActive(true);
-
         D2Start = true;
         isDialogueStart = true;
         NextDialogue();
@@ -314,7 +400,6 @@ public class DialogueRandom : MonoBehaviour
 
     public void End()
     {
-        //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
         isDialogueStart = false;
         int temp;
         temp = DS.Customer_ID[0];
@@ -401,7 +486,6 @@ public class DialogueRandom : MonoBehaviour
             else
                 isDialogueEnd = false;
             BuyerDialogue.text = writerText;
-            //SellerDialogue.text = writerText;
             yield return new WaitForSeconds(0.08f);
             yield return null;
 
@@ -419,14 +503,9 @@ public class DialogueRandom : MonoBehaviour
         while (current < target)
         {
             current += offset * Time.deltaTime;
-
-            //GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
-
             yield return null;
         }
         current = target;
-        //GameObject.Find("reputation_num").GetComponent<TextMeshProUGUI>().text = ((int)current).ToString();
-
     }
 
     public void StopAll()

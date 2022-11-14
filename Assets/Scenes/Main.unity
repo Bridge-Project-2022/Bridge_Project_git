@@ -13583,7 +13583,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distiller: {fileID: 6248577078843635384}
-  CriminalID: 0
   Customer_Name: 
   Customer_ID: 000000000000000000000000000000000000000000000000000000000000000000000000
   Customer_PerfumeOrder:
@@ -13619,6 +13618,34 @@ MonoBehaviour:
   - 
   - 
   - 
+  OrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  IntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  RejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  ReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  isCriminal: 0
+  isUnique: 0
+  CriminalID: 0
+  UniqueID: 10
 --- !u!1 &780704762
 GameObject:
   m_ObjectHideFlags: 0
@@ -14104,6 +14131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9061dbb0c523f34ca2a89070c419ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RC: {fileID: 1965479738}
   Buyer: {fileID: 2130944401}
   Select: {fileID: 1170537487}
   Customer: {fileID: 772955856}
@@ -14148,6 +14176,30 @@ MonoBehaviour:
   - 
   - 
   - 
+  BuyerOrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
   BuyerFeel:
   - 
   - 
@@ -14166,11 +14218,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
-  AStart: 0
-  D1Start: 0
-  D2Start: 0
-  EStart: 0
-  F2Start: 0
   FeelCnt: 0
   isDialogueStart: 0
   isCriminal: 0
@@ -20183,7 +20230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1235025729
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23668,6 +23715,1696 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486455091}
   m_CullTransparentMesh: 1
+--- !u!1 &1489490268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1489490269}
+  - component: {fileID: 1489490270}
+  m_Layer: 0
+  m_Name: CustomerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1489490269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489490268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 948.09326, y: 526.2116, z: -42.222847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1489490270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489490268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa17d30d593f034aa03a3e34ac7a567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  days:
+    day:
+    - customer:
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+    - customer:
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+    - customer:
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+    - customer:
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+    - customer:
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+    - customer:
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+    - customer:
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
+      - name: 
+        id: 0
+        currentPerfume:
+          bassNotes: 
+          middleNotes: 
+          topNotes: []
+          perfumeForce: []
+        dialogue:
+          visitComment: []
+          visitFace: []
+          refusalComment: []
+          refusalFace: []
+          requestComment: []
+          requestFace: []
+          resultGoodComment: []
+          resultGoodFace: []
+          resultNormalComment: []
+          resultNormalFace: []
+          resultBadComment: []
+          resultBadFace: []
+          noExistComment: []
+          noExistFace: []
+          noFlavorComment: []
+          noFlavorFace: []
+        uniqueGuest: 0
+        criminalGuest: 0
 --- !u!1 &1491598776
 GameObject:
   m_ObjectHideFlags: 0
@@ -27504,7 +29241,7 @@ MonoBehaviour:
   money: {fileID: 8300000, guid: eaa9553813ab5ef42960943a37ebff59, type: 3}
   fireon: {fileID: 8300000, guid: 359074ddeacecff43949622d366a2e5a, type: 3}
   click: {fileID: 8300000, guid: b003929952841d9429a74ef979f205db, type: 3}
-  typing: {fileID: 8300000, guid: fbf25778e46340c47b75450e26a1d3c4, type: 3}
+  typing: {fileID: 8300000, guid: 61523e7e498853d4292b6fb400f09e4b, type: 3}
   boilHigh: {fileID: 8300000, guid: eaaedeb5bdc941b48b223b57b7d08fa0, type: 3}
   boilMiddle: {fileID: 8300000, guid: 0706aeba8ae5f1e4782c2ea5547c1a42, type: 3}
   boilLow: {fileID: 8300000, guid: 83b741714adffa7428a177734807de16, type: 3}
@@ -31567,7 +33304,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1965479740}
   - component: {fileID: 1965479739}
-  - component: {fileID: 1965479741}
   m_Layer: 0
   m_Name: RC
   m_TagString: Untagged
@@ -31613,6 +33349,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fcd71f6f8192a73409ad9f0f46dd0a98, type: 3}
   - {fileID: 21300000, guid: 103e41a73ca70134ea93b39a6db7e931, type: 3}
   - {fileID: 21300000, guid: 888f67f42cc0400488db6f77e04dfa8a, type: 3}
+  C_Image:
+  - {fileID: 21300000, guid: ca33401444b00914daad3bac238e96b3, type: 3}
+  - {fileID: 21300000, guid: 920b07cda79476e4b88df53bd4812e8c, type: 3}
+  - {fileID: 21300000, guid: 85f54cd996aad914880ea6469ea4ec75, type: 3}
+  - {fileID: 21300000, guid: 29a7ce5861908824cb4ec93296e8c62b, type: 3}
+  - {fileID: 21300000, guid: ac5a9e0897892554898a12af3e676866, type: 3}
+  - {fileID: 21300000, guid: 2c84185b69944b84e95212e5ba4c2db4, type: 3}
+  - {fileID: 21300000, guid: ba2db340af2a4f94d9ed8267ed73a105, type: 3}
+  - {fileID: 21300000, guid: e35124ab6be2c5446b50d2ecc58513b1, type: 3}
+  - {fileID: 21300000, guid: 6ecdac0657dc8f642aff4fa74f249cd1, type: 3}
+  - {fileID: 21300000, guid: 5f7798c17ba68b340978671cdd3a6979, type: 3}
+  - {fileID: 21300000, guid: 6d623b9595a085d4a847acddf483af51, type: 3}
+  - {fileID: 21300000, guid: 3f1a50f2b93407241b84c294432d9e3d, type: 3}
   D_Image:
   - {fileID: 21300000, guid: 08e18636e55e5cc498667f3fc3442102, type: 3}
   - {fileID: 21300000, guid: 096d6d26214de164eb318a3c2241b99b, type: 3}
@@ -31627,18 +33376,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d7479ff019597a24d9cb30ab5ca40dc5, type: 3}
   - {fileID: 21300000, guid: 533a7f62ce714664889f6ee62087ca30, type: 3}
   G_Image:
-  - {fileID: 21300000, guid: 1203d4b0a6161e3498c59908141a1b10, type: 3}
-  - {fileID: 21300000, guid: 578075a4f98520c4d88c883b2b851eb7, type: 3}
-  - {fileID: 21300000, guid: d7ba1b988619e8b4a9892b89c533a529, type: 3}
-  - {fileID: 21300000, guid: 949dd210a08049e4abec06f92c3b3947, type: 3}
-  - {fileID: 21300000, guid: a1fa617f3aa8c2343b81e88819ba60de, type: 3}
-  - {fileID: 21300000, guid: a749a57ffe7e39c478dddc477dfee261, type: 3}
-  - {fileID: 21300000, guid: 495d2877b26ff5d47b1a1a353d344646, type: 3}
-  - {fileID: 21300000, guid: 283c97b8bc2c1c940925fd8fa29fc923, type: 3}
-  - {fileID: 21300000, guid: 84c34fba9fde19e46b9f5fcd319cbf1b, type: 3}
-  - {fileID: 21300000, guid: 799e17216f96448478352253e227362e, type: 3}
-  - {fileID: 21300000, guid: 6e84bdc286366924cb04dbecb3ac62bd, type: 3}
-  - {fileID: 21300000, guid: b5a1f50f3f3c0d444ac8687ce4df58d6, type: 3}
+  - {fileID: 21300000, guid: 94a794a4c346e4843a2af972e79806cd, type: 3}
+  - {fileID: 21300000, guid: 2b75e310322fa5d42b974957ba26b187, type: 3}
+  - {fileID: 21300000, guid: 8a3ae261953c0284a937e38479c15091, type: 3}
+  - {fileID: 21300000, guid: 912895632ef2ae143b37e32e35ab0464, type: 3}
+  - {fileID: 21300000, guid: e9f9c995dfdfbc74598ef282c08d5c98, type: 3}
+  - {fileID: 21300000, guid: 0e090233846183e4c811d93639c050fb, type: 3}
+  - {fileID: 21300000, guid: 046a4fb36efb7fa499bb68a492c33c49, type: 3}
+  - {fileID: 21300000, guid: 06a61a2eaed08484d9f4f9d7357ab86e, type: 3}
+  - {fileID: 21300000, guid: 19d6565c931258c4596e7b9bc6a1a1a6, type: 3}
+  - {fileID: 21300000, guid: d85f84cd2b7012040917029962c816ae, type: 3}
+  - {fileID: 21300000, guid: 5e040fc420e5dcd47b045110a78afd64, type: 3}
+  - {fileID: 21300000, guid: 831b0b85d2e08b04f984fc00f51f4274, type: 3}
   H_Image:
   - {fileID: 21300000, guid: 12056f1c9518e1b4186f03b82ca05c2b, type: 3}
   - {fileID: 21300000, guid: 6b46fb3ee96f23d4284c75b6a80b3b85, type: 3}
@@ -31652,6 +33401,45 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 245bffd5958f2394f8a39286c9af9ba5, type: 3}
   - {fileID: 21300000, guid: 9a97daebfeaf4e644a8d27b1be2f6097, type: 3}
   - {fileID: 21300000, guid: f59ee6f8a75aa2a40b107bce12e02aab, type: 3}
+  J_Image:
+  - {fileID: 21300000, guid: a59b949d600018848985e8f1452c12cf, type: 3}
+  - {fileID: 21300000, guid: 91f61b6ea02803b4f8cd23cc27915885, type: 3}
+  - {fileID: 21300000, guid: 98ddf0aaaae5b6c429b0b9e28b9fbf57, type: 3}
+  - {fileID: 21300000, guid: 40eec9f18fbdc6448bed5582ad0e6e02, type: 3}
+  - {fileID: 21300000, guid: b71a5392afb53474391daba387247b1d, type: 3}
+  - {fileID: 21300000, guid: 56893af0ed9563849ad6c363045e7d51, type: 3}
+  - {fileID: 21300000, guid: 031c1eaef9b99f14388f3eabc0eafaed, type: 3}
+  - {fileID: 21300000, guid: 14beb1c47d8792e458822bcb951942bd, type: 3}
+  - {fileID: 21300000, guid: f3994c91980a5ef428eb90453a19ff3a, type: 3}
+  - {fileID: 21300000, guid: 01458dedc0632c64a961f19693b8b700, type: 3}
+  - {fileID: 21300000, guid: e565d66937f06ba47b8b7bb01ea13e35, type: 3}
+  - {fileID: 21300000, guid: 450a7a46b311f844cabecc1909ea360a, type: 3}
+  K_Image:
+  - {fileID: 21300000, guid: a1b0b71933047ad458d46309cac27108, type: 3}
+  - {fileID: 21300000, guid: e4eb7c973c342f2449a8dda9aed0a12f, type: 3}
+  - {fileID: 21300000, guid: cc5fda1bc97d44044b3915e8af40e75a, type: 3}
+  - {fileID: 21300000, guid: 60e8ee6eab85fdb4ea7dc2164f0b9436, type: 3}
+  - {fileID: 21300000, guid: 826d0781369ce77498e07252d3f9bcc0, type: 3}
+  - {fileID: 21300000, guid: 76ea727b4fb06ed40a6b94c0cef594d1, type: 3}
+  - {fileID: 21300000, guid: 81b0f86f67b3de840ab491f1cc0a7a95, type: 3}
+  - {fileID: 21300000, guid: ee95d535fc876a849ab5fb5e1b126e96, type: 3}
+  - {fileID: 21300000, guid: f51c33673b4010649be47bf6ecd94c06, type: 3}
+  - {fileID: 21300000, guid: 1f21690d6b2ac844b8307dba34e814ee, type: 3}
+  - {fileID: 21300000, guid: 1087cf2afe2f04743bf88f889750cdfb, type: 3}
+  - {fileID: 21300000, guid: 864bb43a0bc0c3e47b50606f6892b1f9, type: 3}
+  L_Image:
+  - {fileID: 21300000, guid: 3bac815f427da3145964136510db9429, type: 3}
+  - {fileID: 21300000, guid: 0830829320d2be84faad4a4664fd16da, type: 3}
+  - {fileID: 21300000, guid: 105fac2b27695f8438b6cef1422377df, type: 3}
+  - {fileID: 21300000, guid: fb23cf657db7e3c4d8067f8869312c57, type: 3}
+  - {fileID: 21300000, guid: 59458694edc989f41b4f2583ed62dce7, type: 3}
+  - {fileID: 21300000, guid: 959c84b9115bddb4c83f5927f29d56a6, type: 3}
+  - {fileID: 21300000, guid: cd063ace96ae52142bc81a82e1826b53, type: 3}
+  - {fileID: 21300000, guid: 4a500bb44d9996d42b76d3f4b06cb06b, type: 3}
+  - {fileID: 21300000, guid: b2527b518151da74082809f0dd462dcd, type: 3}
+  - {fileID: 21300000, guid: b326f603e290ea7479d0d9c3eff3a448, type: 3}
+  - {fileID: 21300000, guid: b97922be27db7874bbb547d1f928e5ef, type: 3}
+  - {fileID: 21300000, guid: 40e3f8e8a04e15d4eb33053b8cb02873, type: 3}
   CurrentName: 
   CurrentFeel: basic
   CurrentTime: morning
@@ -31670,35 +33458,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1965479741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965479738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16b0116ad4a1e6d4da88b0c8f6c28a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentName: 
-  orderStart: 0
-  intensityStart: 0
-  rejectStart: 0
-  reactionStart: 0
-  declareStart: 0
-  Customer_Feel:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
 --- !u!224 &1965891964 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6850277485892553516, guid: c207e0c8f9725a94fba23fb41ad73250, type: 3}
