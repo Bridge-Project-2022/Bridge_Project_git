@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
-public class DialogueRandom : MonoBehaviour
+using TMPro;
+
+public class ThirdDialogueRandom : MonoBehaviour
 {
     public GameObject RC;
     public GameObject Buyer;
@@ -24,16 +25,14 @@ public class DialogueRandom : MonoBehaviour
 
     public bool isDialogueEnd = false;
 
-    //public bool makeStart = false;
-
     public GameObject arrow;
     public GameObject Declaration;
 
-    public int rejectCnt = 0;//°ÅÀı È½¼ö -> ÆòÆÇ ¿µÇâ, ÀÏÂ÷ Áö³¯ ¶§ ¸¶´Ù ¸®¼ÂµÇ¾î¾ß ÇÔ.
+    public int rejectCnt = 0;//ê±°ì ˆ íšŸìˆ˜ -> í‰íŒ ì˜í–¥, ì¼ì°¨ ì§€ë‚  ë•Œ ë§ˆë‹¤ ë¦¬ì…‹ë˜ì–´ì•¼ í•¨.
 
-    public string[] SellerSentences = new string[2];// À¯Àú ´ëÈ­ ¹è¿­
+    public string[] SellerSentences = new string[2];// ìœ ì € ëŒ€í™” ë°°ì—´
 
-    DialogueScript DS;
+    ThirdDialogueScript DS;
 
     public string[] BuyerOrder = new string[10];
     public string[] BuyerIntensity = new string[5];
@@ -54,7 +53,7 @@ public class DialogueRandom : MonoBehaviour
     bool EStart = false;
     bool F2Start = false;
 
-    int ACount = 0;
+    public int ACount = 0;
     int D1Count = 0;
     int D2Count = 0;
     int ECount = 0;
@@ -75,8 +74,8 @@ public class DialogueRandom : MonoBehaviour
 
     public void Update()
     {
-        
-        DS = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>();
+
+        DS = GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>();
 
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
         WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
@@ -121,11 +120,6 @@ public class DialogueRandom : MonoBehaviour
             BuyerReactFace = DS.ReactFace;
         }
 
-        /*for (int i = 0; i < BuyerFeel.Length; i++)
-        {
-            BuyerFeel[i] = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[i];
-        }*/
-
         Distiller.GetComponent<Distiller>().BaseItemName = DS.Customer_Flavoring[0];
         Presser.GetComponent<Presser>().MiddleItemName = DS.Customer_Flavoring[1];
         Cooler.GetComponent<Cooler>().TopItemName = DS.Customer_Flavoring[2];
@@ -156,8 +150,6 @@ public class DialogueRandom : MonoBehaviour
     public void NextDialogue()
     {
         StopAll();
-        //RandomImage.FindObjectOfType<RandomImage>().CurrentFeel = BuyerFeel[FeelCnt];
-        //FeelCnt++;
 
         if (AStart == true)
         {
@@ -170,10 +162,22 @@ public class DialogueRandom : MonoBehaviour
             }
             else
             {
+                //ë¡œë ˆë‚˜ ì²« ë“±ì¥
+                /*if (GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().isUnique == true)
+                {
+                    if (ACount == 4)
+                    {
+                        GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(true);
+                        GameObject.Find("Dialogue").transform.GetChild(2).gameObject.SetActive(true);
+                    }
+                    else
+                        GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(false);
+                        GameObject.Find("Dialogue").transform.GetChild(2).gameObject.SetActive(true);
+                }*/
                 if (isDialogueEnd == false)
                 {
-                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[ACount-1];
-                    BuyerDialogue.text = BuyerOrder[ACount-1];
+                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[ACount - 1];
+                    BuyerDialogue.text = BuyerOrder[ACount - 1];
                     isDialogueEnd = true;
                 }
                 else if (isDialogueEnd == true)
@@ -293,9 +297,9 @@ public class DialogueRandom : MonoBehaviour
             }
         }
     }
-   
 
-    public void A_Start()//¼Õ´Ô : ÀÔÀå, Çâ¼ö ±¸¸Å ÀÌÀ¯ Á¦½Ã
+
+    public void A_Start()//ì†ë‹˜ : ì…ì¥, í–¥ìˆ˜ êµ¬ë§¤ ì´ìœ  ì œì‹œ
     {
         if (isDeclare == true)
         {
@@ -312,7 +316,7 @@ public class DialogueRandom : MonoBehaviour
         NextDialogue();
     }
 
-    public void C_1_Start()// À¯Àú : ½Â³« - Çâ ¼¼±â Áú¹®
+    public void C_1_Start()// ìœ ì € : ìŠ¹ë‚™ - í–¥ ì„¸ê¸° ì§ˆë¬¸
     {
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
@@ -323,7 +327,7 @@ public class DialogueRandom : MonoBehaviour
         Invoke("D_1_Start", 0.3f);
     }
 
-    public void C_2_Start()//À¯Àú : °ÅºÎ - °ÅºÎ ÀÌÀ¯ Á¦½Ã
+    public void C_2_Start()//ìœ ì € : ê±°ë¶€ - ê±°ë¶€ ì´ìœ  ì œì‹œ
     {
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
@@ -354,7 +358,7 @@ public class DialogueRandom : MonoBehaviour
         Invoke("D_2_Start", 0.3f);
     }
 
-    public void D_1_Start()//¼Õ´Ô : ½Â³« - Çâ ¼¼±â °áÁ¤
+    public void D_1_Start()//ì†ë‹˜ : ìŠ¹ë‚™ - í–¥ ì„¸ê¸° ê²°ì •
     {
         Buyer.gameObject.SetActive(true);
         D1Start = true;
@@ -362,7 +366,7 @@ public class DialogueRandom : MonoBehaviour
         NextDialogue();
     }
 
-    public void D_2_Start()// ¼Õ´Ô : °ÅºÎ - ºÒ¸¸ Ç¥Ãâ
+    public void D_2_Start()// ì†ë‹˜ : ê±°ë¶€ - ë¶ˆë§Œ í‘œì¶œ
     {
         Buyer.gameObject.SetActive(true);
         D2Start = true;
@@ -371,7 +375,7 @@ public class DialogueRandom : MonoBehaviour
     }
 
 
-    public void E_1_Start()//¼Õ´Ô : Çâ¼ö ¹Ş°í ¹İÀÀ
+    public void E_1_Start()//ì†ë‹˜ : í–¥ìˆ˜ ë°›ê³  ë°˜ì‘
     {
         isArrowStart = false;
         EStart = true;
@@ -415,25 +419,25 @@ public class DialogueRandom : MonoBehaviour
 
         if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9)
         {
-            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//¼Õ´Ô 3¸í °¡°í ³ª¼­ Á¡½ÉÀ¸·Î ¹Ù²ñ
+            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//ì†ë‹˜ 3ëª… ê°€ê³  ë‚˜ì„œ ì ì‹¬ìœ¼ë¡œ ë°”ë€œ
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
             }
-            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//¼Õ´Ô 6¸í °¡°í ³ª¼­ Àú³áÀ¸·Î ¹Ù²ñ
+            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//ì†ë‹˜ 6ëª… ê°€ê³  ë‚˜ì„œ ì €ë…ìœ¼ë¡œ ë°”ë€œ
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
             }
 
-            Invoke("A_Start", 5f);//¼Õ´Ô °¡°í 5ÃÊ µÚ¿¡ ´ÙÀ½ ¼Õ´Ô µîÀå. ÀÎ°ÔÀÓ ½Ã°£ º¸°í Ãß°¡ Á¶°Ç¹® ´Ş¾Æ¾ß ÇÔ
+            Invoke("A_Start", 5f);//ì†ë‹˜ ê°€ê³  5ì´ˆ ë’¤ì— ë‹¤ìŒ ì†ë‹˜ ë“±ì¥. ì¸ê²Œì„ ì‹œê°„ ë³´ê³  ì¶”ê°€ ì¡°ê±´ë¬¸ ë‹¬ì•„ì•¼ í•¨
         }
-        
 
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9)//¼Õ´Ô 9¸í °¡°í ³ª¼­ ÃÖÁ¾ Ã¢ÀÌ ¶ä.
+
+        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9)//ì†ë‹˜ 9ëª… ê°€ê³  ë‚˜ì„œ ìµœì¢… ì°½ì´ ëœ¸.
         {
             Invoke("DailyWindowOpen", 3f);
         }
@@ -444,28 +448,26 @@ public class DialogueRandom : MonoBehaviour
         DailyResult.gameObject.SetActive(true);
     }
 
-    public void PressDeclaration()//½Å°í¹öÆ° Å¬¸¯ ½Ã
+    public void PressDeclaration()//ì‹ ê³ ë²„íŠ¼ í´ë¦­ ì‹œ
     {
-        FeelCnt = 0;
-        if (GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_ID[0] == 1003)//¹üÁËÀÚ µîÀå
+        /*if (GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_ID[0] == 1003)//ë²”ì£„ì ë“±ì¥
         {
-            Debug.Log("¹üÁËÀÚ ½Å°í ¼º°ø");
+            Debug.Log("ë²”ì£„ì ì‹ ê³  ì„±ê³µ");
             Criminal.GetComponent<Image>().sprite = Success;
             isCriminal = true;
             isCriminalFalse = false;
             isDeclare = true;
-            CustomerFeel.FindObjectOfType<CustomerFeel>().declareStart = true;
         }
-        else//Àß¸ø ´©¸¥ °æ¿ì
+        else//ì˜ëª» ëˆ„ë¥¸ ê²½ìš°
         {
-            Debug.Log("Àß¸ø ½Å°íÇÔ");
+            Debug.Log("ì˜ëª» ì‹ ê³ í•¨");
             Criminal.GetComponent<Image>().sprite = Fail;
             isCriminalFalse = true;
             isCriminal = false;
             isDeclare = true;
-            CustomerFeel.FindObjectOfType<CustomerFeel>().declareStart = true;
         }
         Invoke("DeclareActiveFalse", 3f);
+        */
     }
 
     public void DeclareActiveFalse()
@@ -473,7 +475,7 @@ public class DialogueRandom : MonoBehaviour
         Declaration.gameObject.SetActive(false);
     }
 
-    IEnumerator NormalChat(string narration)// Å¸ÀÌÇÎ È¿°ú -> ¿©±â¼­ ÇâÀÇ ¼¼±â¿¡ µû¸¥ Áõ·ù±â ·ÎÁ÷ °áÁ¤ °¡´É
+    IEnumerator NormalChat(string narration)// íƒ€ì´í•‘ íš¨ê³¼ -> ì—¬ê¸°ì„œ í–¥ì˜ ì„¸ê¸°ì— ë”°ë¥¸ ì¦ë¥˜ê¸° ë¡œì§ ê²°ì • ê°€ëŠ¥
     {
         string writerText = "";
         GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
@@ -496,7 +498,7 @@ public class DialogueRandom : MonoBehaviour
     IEnumerator Count(float target, float current)
 
     {
-        float duration = 0.5f; // Ä«¿îÆÃ¿¡ °É¸®´Â ½Ã°£ ¼³Á¤. 
+        float duration = 0.5f; // ì¹´ìš´íŒ…ì— ê±¸ë¦¬ëŠ” ì‹œê°„ ì„¤ì •. 
 
         float offset = (target - current) / duration; // 
 
@@ -513,6 +515,4 @@ public class DialogueRandom : MonoBehaviour
         StopAllCoroutines();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
     }
-
 }
-

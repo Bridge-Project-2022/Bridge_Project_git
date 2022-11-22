@@ -135,6 +135,12 @@ public class Store : MonoBehaviour
             MiddleitemBuffer = IB.transform.GetChild(2).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
             TopitemBuffer = IB.transform.GetChild(2).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            itemBuffer = IB.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
+            MiddleitemBuffer = IB.transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
+            TopitemBuffer = IB.transform.GetChild(3).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+        }
 
         slots = new List<Slot>();
         Middleslots = new List<Slot>();

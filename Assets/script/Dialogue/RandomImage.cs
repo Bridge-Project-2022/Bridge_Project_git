@@ -9,11 +9,11 @@ public class RandomImage : MonoBehaviour
     public Sprite[] B_Image = new Sprite[12];
     public Sprite[] C_Image = new Sprite[12];
     public Sprite[] D_Image = new Sprite[12];
-    //public Sprite[] E_Image = new Sprite[12];
-    //public Sprite[] F_Image = new Sprite[12];
+    public Sprite[] E_Image = new Sprite[12];
+    public Sprite[] F_Image = new Sprite[12];
     public Sprite[] G_Image = new Sprite[12];
     public Sprite[] H_Image = new Sprite[12];
-    //public Sprite[] I_Image = new Sprite[12];
+    public Sprite[] I_Image = new Sprite[12];
     public Sprite[] J_Image = new Sprite[12];
     public Sprite[] K_Image = new Sprite[12];
     public Sprite[] L_Image = new Sprite[12];
@@ -214,6 +214,88 @@ public class RandomImage : MonoBehaviour
             Customer.GetComponent<Image>().SetNativeSize();
         }
 
+        else if (CurrentName == "E")
+        {
+            if (CurrentFeel == "Common")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[0];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[1];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[2];
+            }
+            if (CurrentFeel == "Happy")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[3];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[4];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[5];
+            }
+            if (CurrentFeel == "Sad")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[6];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[7];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[8];
+            }
+            if (CurrentFeel == "Bad")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[9];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[10];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().E_Image[11];
+            }
+            Customer.GetComponent<Image>().SetNativeSize();
+        }
+
+        else if (CurrentName == "F")
+        {
+            if (CurrentFeel == "Common")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[0];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[1];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[2];
+            }
+            if (CurrentFeel == "Happy")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[3];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[4];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[5];
+            }
+            if (CurrentFeel == "Sad")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[6];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[7];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[8];
+            }
+            if (CurrentFeel == "Bad")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[9];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[10];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().F_Image[11];
+            }
+            Customer.GetComponent<Image>().SetNativeSize();
+        }
+
         else if (CurrentName == "G")
         {
             if (CurrentFeel == "Common")
@@ -292,6 +374,47 @@ public class RandomImage : MonoBehaviour
                     Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().H_Image[10];
                 else if (CurrentTime == "night")
                     Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().H_Image[11];
+            }
+            Customer.GetComponent<Image>().SetNativeSize();
+        }
+
+        else if (CurrentName == "I")
+        {
+            if (CurrentFeel == "Common")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[0];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[1];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[2];
+            }
+            if (CurrentFeel == "Happy")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[3];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[4];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[5];
+            }
+            if (CurrentFeel == "Sad")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[6];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[7];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[8];
+            }
+            if (CurrentFeel == "Bad")
+            {
+                if (CurrentTime == "morning")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[9];
+                else if (CurrentTime == "afternoon")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[10];
+                else if (CurrentTime == "night")
+                    Customer.GetComponent<Image>().sprite = this.GetComponent<RandomImage>().I_Image[11];
             }
             Customer.GetComponent<Image>().SetNativeSize();
         }

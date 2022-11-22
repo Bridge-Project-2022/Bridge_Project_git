@@ -13,10 +13,25 @@ public class NextDay : MonoBehaviour
     public GameObject buyer;
     public GameObject Customer;
     public TextMeshProUGUI Today;
+    public GameObject DayPanel;
+    public GameObject DayPanelDay1;
+    public GameObject DayPanelDay2;
+
+    string[] CustomerTxt = new string[2];
 
 
     public void NextDayClick()
     {
+        Customer.gameObject.SetActive(false);
+        CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
+        CustomerTxt[1] = "더 필요한 물건이 있나?";
+
+        DayPanel.gameObject.SetActive(true);
+        GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
+        DayPanelDay1.GetComponent<TextMeshProUGUI>().text = (day + 1).ToString();
+        DayPanelDay2.GetComponent<TextMeshProUGUI>().text = (day + 1).ToString();
+        Invoke("DayStartPanel", 6f);
+
         DailyResult.GetComponent<DailyResult>().personNum = 0;
         DailyResult.GetComponent<DailyResult>().rejectNum = 0;
         DailyResult.GetComponent<DailyResult>().todayReputation = 0;
@@ -26,17 +41,58 @@ public class NextDay : MonoBehaviour
 
         RandomBuyer.SetActive(false);
         buyer.SetActive(false);
-        Customer.SetActive(true);
+        GameObject.Find("Declaration").gameObject.SetActive(false);
 
         day++;
         if (day == 2)
         {
-            SecondDayStart();
+            Invoke("SecondDayStart", 3f);
         }
         if (day == 3)
         {
-            ThirdDayStart();
+            Invoke("ThirdDayStart", 3f);
         }
+        if (day == 4)
+        {
+            Invoke("FourthDayStart", 3f);
+        }
+    }
+
+    public void DayStartPanel()
+    {
+        DayPanel.gameObject.SetActive(false);
+        GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(true);
+        Invoke("SellerStart", 2f);
+
+    }
+
+    public void SellerStart()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
+        Customer.gameObject.SetActive(true);
+        StartCoroutine(NormalChat(CustomerTxt[0]));
+    }
+    public void SellerEnd()
+    {
+        Customer.gameObject.SetActive(true);
+        StartCoroutine(NormalChat(CustomerTxt[1]));
+    }
+
+    IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
+    {
+        string writerText = "";
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
+
+        for (int a = 0; a < narration.Length; a++)
+        {
+            writerText += narration[a];
+
+            Customer.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = writerText;
+            yield return new WaitForSeconds(0.08f);
+            yield return null;
+
+        }
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
     }
 
     public void SecondDayStart()
@@ -65,8 +121,7 @@ public class NextDay : MonoBehaviour
         RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
-        //Trigger.GetComponent<FourthDialogueRandom>().enabled = true;
-        CriminalSystem.FindObjectOfType<CriminalSystem>().isCriminalStart = true;
+        Trigger.GetComponent<FourthDialogueRandom>().enabled = true;
         TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
 }

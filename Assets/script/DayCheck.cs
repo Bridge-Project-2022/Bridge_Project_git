@@ -18,6 +18,10 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<ThirdDialogueRandom>().A_Start();
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().A_Start();
+        }
     }
 
     public void C1_Check()
@@ -33,6 +37,10 @@ public class DayCheck : MonoBehaviour
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
             GameObject.Find("Trigger").GetComponent<ThirdDialogueRandom>().C_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().C_1_Start();
         }
     }
 
@@ -51,6 +59,10 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<ThirdDialogueRandom>().C_2_Start();
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().C_2_Start();
+        }
     }
 
     public void ND_Check()
@@ -67,6 +79,10 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<ThirdDialogueRandom>().NextDialogue();
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().NextDialogue();
+        }
     }
     public void E1_Check()
     {
@@ -81,6 +97,10 @@ public class DayCheck : MonoBehaviour
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
             GameObject.Find("Trigger").GetComponent<ThirdDialogueRandom>().E_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().E_1_Start();
         }
     }
 
@@ -97,6 +117,10 @@ public class DayCheck : MonoBehaviour
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
             GameObject.Find("Trigger").GetComponent<ThirdDialogueRandom>().E_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().E_1_Start();
         }
     }
 }

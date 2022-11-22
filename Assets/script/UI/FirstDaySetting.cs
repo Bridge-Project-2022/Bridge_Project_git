@@ -13,8 +13,21 @@ public class FirstDaySetting : MonoBehaviour
 
     public TextMeshProUGUI GameMoney;
     public GameObject GameReputation;
+    public GameObject Customer;
 
+    string[] CustomerTxt = new string[2];
 
+    public void Start()
+    {
+        CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
+        CustomerTxt[1] = "더 필요한 물건이 있나?";
+
+        if (Day == 1)
+        {
+            GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
+            Invoke("FirstDayStart", 6f);
+        }
+    }
     private void Update()
     {
         GameMoney.text = Money.ToString();
@@ -25,4 +38,41 @@ public class FirstDaySetting : MonoBehaviour
             //배드 엔딩 ㄱ
         }
     }
+
+    public void FirstDayStart()
+    {
+        GameObject.Find("FirstDayPanel").gameObject.SetActive(false);
+        GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(true);
+        Invoke("SellerStart", 2f);
+    }
+
+    public void SellerStart()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
+        Customer.gameObject.SetActive(true);
+        StartCoroutine(NormalChat(CustomerTxt[0]));
+    }
+    public void SellerEnd()
+    {
+        Customer.gameObject.SetActive(true);
+        StartCoroutine(NormalChat(CustomerTxt[1]));
+    }
+
+    IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
+    {
+        string writerText = "";
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
+
+        for (int a = 0; a < narration.Length; a++)
+        {
+            writerText += narration[a];
+
+            Customer.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = writerText;
+            yield return new WaitForSeconds(0.08f);
+            yield return null;
+
+        }
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+    }
+
 }
