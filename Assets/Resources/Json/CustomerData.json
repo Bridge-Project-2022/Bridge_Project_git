@@ -825,16 +825,16 @@
         {
             "customer": [
                 {
-                    "name": "",
-                    "id": 0,
+                    "name": "D",
+                    "id": 27,
                     "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
+                        "bassNotes": "장소",
+                        "middleNotes": "놀이공원",
+                        "topNotes": ["놀라움"],
+                        "perfumeForce": ["강함"]
                     },
                     "dialogue": {
-                        "visitComment": [],
+                        "visitComment": ["아저씨! 안녕하세요?", "우리 마을의 비밀 정원이 있는 엄청 큰 놀이공원을 알고 계시나요?", "숲속을 지나 놀이공원에 도착하면..", "슈우웅!", "바로 눈앞에서 큰 바이킹이 하늘을 향해 날아가고 있어요!", "다시 생각해도 두근거리네요..", "이것도 향수로 만들어줄 수 있나요?"],
                         "visitFace": [],
                         "refusalComment": [],
                         "refusalFace": [],

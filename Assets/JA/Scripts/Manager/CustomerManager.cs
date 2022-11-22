@@ -6,7 +6,7 @@ public class CustomerManager : Singleton<CustomerManager>
 {
     protected CustomerManager() { }
 
-    private string fileName = "CustomerData.json";
+    private string fileName = "CustomerData";
 
     public Days days;
     private int dayNum = 5;
@@ -27,8 +27,9 @@ public class CustomerManager : Singleton<CustomerManager>
     /// </summary>
     private void CustomerJsonLoad()
     {
-        string fromjson = File.ReadAllText(Application.dataPath + "/JA/" + fileName);
-        days = JsonUtility.FromJson<Days>(fromjson);
+        //string fromjson = File.ReadAllText(Application.dataPath + "/JA/" + fileName);
+        var fromjson = Resources.Load<TextAsset>("Json/" + fileName);
+        days = JsonUtility.FromJson<Days>(fromjson.ToString());
     }
 
     /// <summary>
