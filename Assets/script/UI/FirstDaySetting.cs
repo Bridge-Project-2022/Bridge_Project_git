@@ -43,12 +43,17 @@ public class FirstDaySetting : MonoBehaviour
     {
         GameObject.Find("FirstDayPanel").gameObject.SetActive(false);
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(true);
-        Invoke("SellerStart", 2f);
+        Invoke("SellerStart", 1f);
     }
 
     public void SellerStart()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
+        Invoke("SellerSpeak", 1f);
+    }
+
+    public void SellerSpeak()
+    {
         Customer.gameObject.SetActive(true);
         StartCoroutine(NormalChat(CustomerTxt[0]));
     }
@@ -61,11 +66,18 @@ public class FirstDaySetting : MonoBehaviour
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
 
         for (int a = 0; a < narration.Length; a++)
         {
             writerText += narration[a];
+
+            if (narration[a] == ' ')
+            {
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+            }
+            else
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
 
             Customer.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = writerText;
             yield return new WaitForSeconds(0.08f);

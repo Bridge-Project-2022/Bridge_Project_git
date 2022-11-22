@@ -478,7 +478,6 @@ public class ThirdDialogueRandom : MonoBehaviour
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
         for (int a = 0; a < narration.Length; a++)
         {
             writerText += narration[a];
@@ -487,6 +486,13 @@ public class ThirdDialogueRandom : MonoBehaviour
                 isDialogueEnd = true;
             else
                 isDialogueEnd = false;
+
+            if (narration[a] == ' ')
+            {
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+            }
+            else
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
             BuyerDialogue.text = writerText;
             yield return new WaitForSeconds(0.08f);
             yield return null;
