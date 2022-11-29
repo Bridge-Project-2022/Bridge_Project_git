@@ -128,18 +128,34 @@ public class Store : MonoBehaviour
             itemBuffer = IB.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
             MiddleitemBuffer = IB.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
             TopitemBuffer = IB.transform.GetChild(1).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+
+            for (int i = 6; i <= 8; i++)
+            {
+                MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            TopslotRoot.transform.GetChild(4).gameObject.SetActive(true);
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
             itemBuffer = IB.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
             MiddleitemBuffer = IB.transform.GetChild(2).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
             TopitemBuffer = IB.transform.GetChild(2).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+
+            for (int i = 5; i <= 6; i++)
+            {
+                TopslotRoot.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 4)
         {
             itemBuffer = IB.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
             MiddleitemBuffer = IB.transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
             TopitemBuffer = IB.transform.GetChild(3).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+
+            for (int i = 7; i <= 8; i++)
+            {
+                TopslotRoot.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
 
         slots = new List<Slot>();
@@ -161,7 +177,7 @@ public class Store : MonoBehaviour
                 slot.GetComponent<UnityEngine.UI.Button>().interactable = true;
                 if (itemBuffer.items[i].isNew == true)
                 {
-                    GameObject.Find("Canvas").transform.GetChild(8).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(i).GetChild(5).gameObject.SetActive(true);
+                    slotRoot.GetChild(i).GetChild(5).gameObject.SetActive(true);
                 }
             }
             else // 아이템이 없는 경우 클릭 불가하게 만듦.
@@ -184,7 +200,7 @@ public class Store : MonoBehaviour
 
                 if (MiddleitemBuffer.items[j].isNew == true)
                 {
-                    GameObject.Find("Canvas").transform.GetChild(8).GetChild(0).GetChild(1).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(j).GetChild(5).gameObject.SetActive(true);
+                    MiddleslotRoot.GetChild(j).GetChild(5).gameObject.SetActive(true);
                 }
             }
             else // 아이템이 없는 경우 클릭 불가하게 만듦.
@@ -205,7 +221,7 @@ public class Store : MonoBehaviour
 
                 if (TopitemBuffer.items[k].isNew == true)
                 {
-                    GameObject.Find("Canvas").transform.GetChild(8).GetChild(0).GetChild(2).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(k).GetChild(5).gameObject.SetActive(true);
+                    TopslotRoot.GetChild(k).GetChild(5).gameObject.SetActive(true);
                 }
             }
             else // 아이템이 없는 경우 클릭 불가하게 만듦.
