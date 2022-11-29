@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DayCheck : MonoBehaviour
 {
+    public GameObject DeclareBtn;
     public void A_Start_Check()
     {
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
@@ -22,8 +23,12 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().A_Start();
         }
+        Invoke("DeclareBtnShow", 0.1f);
     }
-
+    public void DeclareBtnShow()
+    {
+        DeclareBtn.gameObject.SetActive(true);
+    }
     public void C1_Check()
     {
         if (NextDay.FindObjectOfType<NextDay>().day == 1)

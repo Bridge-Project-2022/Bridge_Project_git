@@ -25,6 +25,8 @@ public class ThirdDialogueScript : MonoBehaviour
     public int CriminalID = 10;
     public int UniqueID = 10;
 
+    public GameObject RC;
+
     public void Start()
     {
         //손님 아이디 배열에 1-9까지 중에 랜덤으로 넣되 중복되지 않도록 배치함. 
@@ -1060,8 +1062,8 @@ public class ThirdDialogueScript : MonoBehaviour
 
             if (Lorena.uniqueGuest == true)
             {
-                isUnique = true;
-                UniqueID = Lorena.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = true;
+                RC.GetComponent<StoryCustomerImage>().UniqueID = Lorena.id;
             }
 
             if (Lorena.criminalGuest == true)

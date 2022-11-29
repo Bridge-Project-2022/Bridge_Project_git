@@ -41,7 +41,6 @@ public class NextDay : MonoBehaviour
 
         RandomBuyer.SetActive(false);
         buyer.SetActive(false);
-        GameObject.Find("Declaration").gameObject.SetActive(false);
 
         day++;
         if (day == 2)

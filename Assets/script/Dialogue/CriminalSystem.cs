@@ -1,27 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CriminalSystem : MonoBehaviour
 {
-    public bool isCriminalStart = false;
-    public GameObject newsTime;
-    
-    public void Update()
+    public int[] CriminalNum = new int[5];
+    public GameObject DailyResult;
+    public GameObject Declaration;
+
+    public Sprite Success;
+    public Sprite Fail;
+
+    public void Start()
     {
-        if (isCriminalStart == true)
+        for (int i = 0; i < CriminalNum.Length; i++)
         {
-            if (newsTime.GetComponent<NewsTime>().randomNum == 2)
+            CriminalNum[i] = Random.Range(1, 6);
+            for (int j = 0; j < i; j++)
             {
-                Debug.Log(newsTime.GetComponent<NewsTime>().randomResult1 + "ë°”ë€Œê³ "
-                + newsTime.GetComponent<NewsTime>().randomResult2 + "ë°”ë€œ!");
-            }
-            else
-            {
-                Debug.Log(newsTime.GetComponent<NewsTime>().randomResult1 + "ë°”ë€Œê³ "
-                    + newsTime.GetComponent<NewsTime>().randomResult2 + "ë°”ë€Œê³ "
-                    + newsTime.GetComponent<NewsTime>().randomResult3 + "ë°”ë€œ!");
+                if (CriminalNum[i] == CriminalNum[j])
+                {
+                    i--;
+                    break;
+                }
             }
         }
+    }
+    public void DeclarationClick()
+    {
+        if (GameObject.Find("RC").GetComponent<CriminalImage>().isCriminal == true)
+        {
+            Debug.Log("°Ë°Å ¼º°ø");
+            DailyResult.transform.GetChild(8).GetComponent<Image>().sprite = Success;
+        }
+        else if (GameObject.Find("RC").GetComponent<CriminalImage>().isCriminal == false)
+        {
+            Debug.Log("°Ë°Å ½ÇÆÐ");
+            DailyResult.transform.GetChild(8).GetComponent<Image>().sprite = Fail;
+        }
+        Declaration.SetActive(false);
     }
 }

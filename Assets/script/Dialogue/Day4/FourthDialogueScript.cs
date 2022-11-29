@@ -19,11 +19,11 @@ public class FourthDialogueScript : MonoBehaviour
     public string[] RejectFace = new string[5];
     public string[] ReactFace = new string[5];
 
-    public bool isCriminal = false;
     public bool isUnique = false;
 
-    public int CriminalID = 10;
-    public int UniqueID = 10;
+    public int UniqueID = 1000;
+
+    public GameObject RC;
 
     public void Start()
     {
@@ -66,8 +66,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (B.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = B.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = B.id;
             }
 
             foreach (string str in B.dialogue.visitComment)
@@ -191,8 +191,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (J.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = J.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = J.id;
             }
 
             foreach (string str in J.dialogue.visitComment)
@@ -316,8 +316,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (F.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = F.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = F.id;
             }
 
             foreach (string str in F.dialogue.visitComment)
@@ -441,8 +441,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (E.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = E.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = E.id;
             }
 
             foreach (string str in E.dialogue.visitComment)
@@ -566,8 +566,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (C.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = C.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = C.id;
             }
 
             foreach (string str in C.dialogue.visitComment)
@@ -691,8 +691,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (D.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = D.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = D.id;
             }
 
             foreach (string str in D.dialogue.visitComment)
@@ -816,8 +816,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (H.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = H.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = H.id;
             }
 
             foreach (string str in H.dialogue.visitComment)
@@ -941,8 +941,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (I.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = I.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = I.id;
             }
 
             foreach (string str in I.dialogue.visitComment)
@@ -1066,8 +1066,8 @@ public class FourthDialogueScript : MonoBehaviour
 
             if (G.criminalGuest == true)
             {
-                isCriminal = true;
-                CriminalID = G.id;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = G.id;
             }
 
             foreach (string str in G.dialogue.visitComment)

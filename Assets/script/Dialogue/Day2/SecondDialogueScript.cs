@@ -23,8 +23,8 @@ public class SecondDialogueScript : MonoBehaviour
     public bool isCriminal = false;
     public bool isUnique = false;
 
-    public int CriminalID = 10;
-    public int UniqueID = 10;
+    public int CriminalID = 1000;
+    public int UniqueID = 1000;
 
     public void Start()
     {

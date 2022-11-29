@@ -846,6 +846,7 @@ MonoBehaviour:
   isUnique: 0
   CriminalID: 10
   UniqueID: 10
+  RC: {fileID: 1965479738}
 --- !u!1 &35942068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4173,6 +4174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15933a3e765b1b446935a35de1e07ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeclareBtn: {fileID: 893151654}
 --- !u!1 &191755013
 GameObject:
   m_ObjectHideFlags: 0
@@ -9528,10 +9530,9 @@ MonoBehaviour:
   - 
   - 
   - 
-  isCriminal: 0
   isUnique: 0
-  CriminalID: 10
   UniqueID: 10
+  RC: {fileID: 1965479738}
 --- !u!1 &506270700
 GameObject:
   m_ObjectHideFlags: 0
@@ -14950,7 +14951,6 @@ MonoBehaviour:
   BuyerDialogue: {fileID: 78113239}
   isDialogueEnd: 0
   arrow: {fileID: 832237960}
-  Declaration: {fileID: 893151654}
   rejectCnt: 0
   SellerSentences:
   - 
@@ -15027,14 +15027,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
   ACount: 0
-  FeelCnt: 0
   isDialogueStart: 0
-  isCriminal: 0
-  isCriminalFalse: 0
-  isDeclare: 0
-  Criminal: {fileID: 1362849358}
-  Success: {fileID: 21300000, guid: 9d705893fbd2deb479632efd7bdb2998, type: 3}
-  Fail: {fileID: 21300000, guid: 90a4e59311550354ebdaa7e34d5027b6, type: 3}
+  Anim: {fileID: 524284269}
 --- !u!114 &806175968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15058,7 +15052,6 @@ MonoBehaviour:
   BuyerDialogue: {fileID: 78113239}
   isDialogueEnd: 0
   arrow: {fileID: 832237960}
-  Declaration: {fileID: 893151654}
   rejectCnt: 0
   SellerSentences:
   - 
@@ -15134,14 +15127,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
-  FeelCnt: 0
   isDialogueStart: 0
-  isCriminal: 0
-  isCriminalFalse: 0
-  isDeclare: 0
-  Criminal: {fileID: 1362849358}
-  Success: {fileID: 21300000, guid: 9d705893fbd2deb479632efd7bdb2998, type: 3}
-  Fail: {fileID: 21300000, guid: 90a4e59311550354ebdaa7e34d5027b6, type: 3}
 --- !u!114 &806175969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15165,7 +15151,6 @@ MonoBehaviour:
   BuyerDialogue: {fileID: 78113239}
   isDialogueEnd: 0
   arrow: {fileID: 832237960}
-  Declaration: {fileID: 893151654}
   rejectCnt: 0
   SellerSentences:
   - 
@@ -15241,14 +15226,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
-  FeelCnt: 0
   isDialogueStart: 0
-  isCriminal: 0
-  isCriminalFalse: 0
-  isDeclare: 0
-  Criminal: {fileID: 1362849358}
-  Success: {fileID: 21300000, guid: 9d705893fbd2deb479632efd7bdb2998, type: 3}
-  Fail: {fileID: 21300000, guid: 90a4e59311550354ebdaa7e34d5027b6, type: 3}
 --- !u!222 &806175970
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15280,7 +15258,6 @@ MonoBehaviour:
   BuyerDialogue: {fileID: 78113239}
   isDialogueEnd: 0
   arrow: {fileID: 832237960}
-  Declaration: {fileID: 893151654}
   rejectCnt: 0
   SellerSentences:
   - 
@@ -15356,14 +15333,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
-  FeelCnt: 0
   isDialogueStart: 0
-  isCriminal: 0
-  isCriminalFalse: 0
-  isDeclare: 0
-  Criminal: {fileID: 1362849358}
-  Success: {fileID: 21300000, guid: 9d705893fbd2deb479632efd7bdb2998, type: 3}
-  Fail: {fileID: 21300000, guid: 90a4e59311550354ebdaa7e34d5027b6, type: 3}
+  CriminalSystem: {fileID: 1532033522}
 --- !u!1 &818586588
 GameObject:
   m_ObjectHideFlags: 0
@@ -17258,21 +17229,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806175969}
-        m_TargetAssemblyTypeName: DialogueRandom, Assembly-CSharp
-        m_MethodName: PressDeclaration
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 806175969}
-        m_TargetAssemblyTypeName: DialogueRandom, Assembly-CSharp
-        m_MethodName: F_1Start
+      - m_Target: {fileID: 1532033524}
+        m_TargetAssemblyTypeName: CriminalSystem, Assembly-CSharp
+        m_MethodName: DeclarationClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28742,6 +28701,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519044586}
   m_CullTransparentMesh: 1
+--- !u!1 &1532033522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1532033523}
+  - component: {fileID: 1532033524}
+  m_Layer: 0
+  m_Name: CriminalSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1532033523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532033522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 985.57587, y: 455.97775, z: -369.5834}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1532033524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532033522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87fd13dd4ef082044a8aa6dcd4b2fab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CriminalNum: 0000000000000000000000000000000000000000
+  DailyResult: {fileID: 2015426897}
+  Declaration: {fileID: 893151654}
+  Success: {fileID: 21300000, guid: 9d705893fbd2deb479632efd7bdb2998, type: 3}
+  Fail: {fileID: 21300000, guid: 90a4e59311550354ebdaa7e34d5027b6, type: 3}
 --- !u!1 &1532829885
 GameObject:
   m_ObjectHideFlags: 0
@@ -31611,7 +31618,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1659885517}
-  - component: {fileID: 1659885516}
   m_Layer: 0
   m_Name: DialogueSystem
   m_TagString: Untagged
@@ -31619,18 +31625,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1659885516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659885515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 677e30db9bfd4d3418d4e2e71db07902, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1659885517
 Transform:
   m_ObjectHideFlags: 0
@@ -36441,6 +36435,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1965479740}
   - component: {fileID: 1965479739}
+  - component: {fileID: 1965479741}
+  - component: {fileID: 1965479742}
   m_Layer: 0
   m_Name: RC
   m_TagString: Untagged
@@ -36630,7 +36626,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f23a9767200f1fa4f9a81746504e654f, type: 3}
   - {fileID: 21300000, guid: 60ad59ef7657d7a4681c4d1ce4bb6be2, type: 3}
   CurrentName: 
-  CurrentFeel: basic
+  CurrentFeel: Common
   CurrentTime: morning
   Customer: {fileID: 772955856}
 --- !u!4 &1965479740
@@ -36647,6 +36643,210 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1965479741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965479738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c661ba76f30e65f488b4c415eeee91da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  G1_Criminal_Image:
+  - {fileID: 21300000, guid: 43f99e9fae795e64a8b06506199f94b0, type: 3}
+  - {fileID: 21300000, guid: 66e901047bd51f644aa263cf189996f1, type: 3}
+  - {fileID: 21300000, guid: db30473c1e1c0424587099c11dd521e3, type: 3}
+  - {fileID: 21300000, guid: 9fa4ad789db22344982d430dc76118f6, type: 3}
+  - {fileID: 21300000, guid: 5b1fac1e4f2a2a741b78cf14d846fd48, type: 3}
+  - {fileID: 21300000, guid: 1af3b28edc51d20469c5309e64df829c, type: 3}
+  - {fileID: 21300000, guid: 1ca4cfb60fe3ad5418f40ee8308be06b, type: 3}
+  - {fileID: 21300000, guid: b4723af6f05a9ad448de159c12c82e48, type: 3}
+  - {fileID: 21300000, guid: a8dfde2ad5215ce4fb19db655452b574, type: 3}
+  - {fileID: 21300000, guid: e96ffdfe82629904580441627e37db96, type: 3}
+  - {fileID: 21300000, guid: dbb97094d5fd5a247b118a3e4671ef88, type: 3}
+  - {fileID: 21300000, guid: 6e3352263a3eac6479d6bd8e1a90c368, type: 3}
+  G2_Criminal_Image:
+  - {fileID: 21300000, guid: b1f90ec6298ee82439cb35fb4ad8da03, type: 3}
+  - {fileID: 21300000, guid: 64b33554dc72c3741b1f2c9e94e2a03f, type: 3}
+  - {fileID: 21300000, guid: 196dbe7682ae5b34795695e7b8d636e7, type: 3}
+  - {fileID: 21300000, guid: 3d5d89bdb36fa914190745a05a631836, type: 3}
+  - {fileID: 21300000, guid: 32f1a4a65f7fec34285becc67f67d567, type: 3}
+  - {fileID: 21300000, guid: 8086e7aa9f4db8649b97787705c1ec1f, type: 3}
+  - {fileID: 21300000, guid: 2a542fdd02972894392f728ac76cd100, type: 3}
+  - {fileID: 21300000, guid: 3c12242733410044bbe70db4222e9e83, type: 3}
+  - {fileID: 21300000, guid: 2f34e220af88a1e4f9586f9b3b5fb7e0, type: 3}
+  - {fileID: 21300000, guid: e8d99adea734e0e4bbae3b98b3383d7b, type: 3}
+  - {fileID: 21300000, guid: b6602b83de8819343a616f7757a1e188, type: 3}
+  - {fileID: 21300000, guid: 0636557dbd2b6ed4fad83d854f35842f, type: 3}
+  G3_Criminal_Image:
+  - {fileID: 21300000, guid: 37ecf255c69531641a14a56dc158db61, type: 3}
+  - {fileID: 21300000, guid: 638b84cedcd67aa40bf752468b476a18, type: 3}
+  - {fileID: 21300000, guid: c36d065ba6b95e249b91371bc25310ad, type: 3}
+  - {fileID: 21300000, guid: 7873667acd8004a4bb6c7cc3587a5e0f, type: 3}
+  - {fileID: 21300000, guid: b1336f70e3c5f2341beb0a3e8453e2f5, type: 3}
+  - {fileID: 21300000, guid: 10b5747ebface8c4fb17c3916b024080, type: 3}
+  - {fileID: 21300000, guid: 206e004de19b84a4a8c3d4cfca7067b3, type: 3}
+  - {fileID: 21300000, guid: 84ec3396fef23a94480c844bfcc76f44, type: 3}
+  - {fileID: 21300000, guid: c9726fc33704ff74ba2394c1e76418de, type: 3}
+  - {fileID: 21300000, guid: 472d98c3ea69add49bf12ac90f7ea84b, type: 3}
+  - {fileID: 21300000, guid: bd536925cafb25a49949b9e609a69e0f, type: 3}
+  - {fileID: 21300000, guid: 950aad9e1e5ff374494cb411b22f46e3, type: 3}
+  G4_Criminal_Image:
+  - {fileID: 21300000, guid: 5ad2ff51e8a071645a1930f7fbe945f8, type: 3}
+  - {fileID: 21300000, guid: 551809586a249564bb4ee51b3cb3ffdc, type: 3}
+  - {fileID: 21300000, guid: 2444c25bd73c37e4db48b1f610f12c3a, type: 3}
+  - {fileID: 21300000, guid: 47493c0fe900f7c4d8eb911cfaf0022c, type: 3}
+  - {fileID: 21300000, guid: 31d3d6ea7ea406c45aa77f02be17acfd, type: 3}
+  - {fileID: 21300000, guid: eba227c024629c148af25dffe8c9c09a, type: 3}
+  - {fileID: 21300000, guid: 571815d78d7efd444a9e1a973d361ab6, type: 3}
+  - {fileID: 21300000, guid: ea86ad83f98fd7e418a407970686da98, type: 3}
+  - {fileID: 21300000, guid: 697510cac4f6f2442a207c477486c8a7, type: 3}
+  - {fileID: 21300000, guid: b9d065d7d84aaca48ac6fefa1a9bdb67, type: 3}
+  - {fileID: 21300000, guid: a39f1fbbc4a06174d885898e41e4047e, type: 3}
+  - {fileID: 21300000, guid: 9be3468b35540fb46b296ac848d05ad8, type: 3}
+  G5_Criminal_Image:
+  - {fileID: 21300000, guid: acba0bbfd9acbb542a395afa31f3d086, type: 3}
+  - {fileID: 21300000, guid: 7922d5060d53bda44a0bb3ea187a8c9e, type: 3}
+  - {fileID: 21300000, guid: a93010581f4267a46b47721607a12433, type: 3}
+  - {fileID: 21300000, guid: 85876bd00fd64ee4eb3f7f4b70015fb9, type: 3}
+  - {fileID: 21300000, guid: 4c144167965b97c4e8de186a09946c98, type: 3}
+  - {fileID: 21300000, guid: bf3c24ff6dcbb9841b435b3d58cc4426, type: 3}
+  - {fileID: 21300000, guid: a5079cefcabda3049be3e39d7b65db37, type: 3}
+  - {fileID: 21300000, guid: 152e50104b940d24fa62edc920881bb9, type: 3}
+  - {fileID: 21300000, guid: 08ad4897b52422048bd90e2a64a3f649, type: 3}
+  - {fileID: 21300000, guid: 407171ae4300d6c4cb1f28af6a9af8eb, type: 3}
+  - {fileID: 21300000, guid: 8085d3428daa83844a7b0ac564dacfd2, type: 3}
+  - {fileID: 21300000, guid: da4111e93f55bc940b85c743e0b54632, type: 3}
+  H1_Criminal_Image:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  H2_Criminal_Image:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  H3_Criminal_Image:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  H4_Criminal_Image:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  CurrentName: 
+  CurrentFeel: Common
+  CurrentTime: morning
+  isCriminal: 0
+  CriminaID: 1000
+  Customer: {fileID: 772955856}
+  CriminalSystem: {fileID: 1532033522}
+--- !u!114 &1965479742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965479738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f987cbb7765a6684fa93eeaf06f02c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  L01_Image:
+  - {fileID: 21300000, guid: 92a2e4af2fdd040409ee76a5fc6ff479, type: 3}
+  - {fileID: 21300000, guid: d5d935d916e1f2644bfad4dc7dd424b5, type: 3}
+  - {fileID: 21300000, guid: 51f23b87c92fd3b4b8784301e03f980b, type: 3}
+  - {fileID: 21300000, guid: d7d2edf99a371aa4cbbe6862d56912a9, type: 3}
+  - {fileID: 21300000, guid: b1ab597f1f30f284fb27abe46a145e9b, type: 3}
+  - {fileID: 21300000, guid: dba50d4ec5e99ee439e1652f5d17f752, type: 3}
+  - {fileID: 21300000, guid: 572e5f2c3b01cee4fac369dcdcc3d80c, type: 3}
+  - {fileID: 21300000, guid: a6b5d6982bd1bf148bcbbd9a539dbe8a, type: 3}
+  - {fileID: 21300000, guid: 9a08875cd8c0fa74a918fb27f22b50a5, type: 3}
+  - {fileID: 21300000, guid: 9ebc51621548be441a493d9d4a88f3c2, type: 3}
+  - {fileID: 21300000, guid: f23a9767200f1fa4f9a81746504e654f, type: 3}
+  - {fileID: 21300000, guid: 60ad59ef7657d7a4681c4d1ce4bb6be2, type: 3}
+  L02_Image:
+  - {fileID: 21300000, guid: 8db2cfd2527ec464e8a321a541086838, type: 3}
+  - {fileID: 21300000, guid: bebf8ea0702670e45b51572007a6db1c, type: 3}
+  - {fileID: 21300000, guid: a7245afea4606ae498d0caf41fa33c74, type: 3}
+  - {fileID: 21300000, guid: a5c9e06a46d476249960c854b8345a02, type: 3}
+  - {fileID: 21300000, guid: 78d59ce654a538847a109c7542a290cf, type: 3}
+  - {fileID: 21300000, guid: ff98f35598040714389ab108fe223175, type: 3}
+  L03_Image:
+  - {fileID: 21300000, guid: abdb3616cf0780747b744ff938cf3e93, type: 3}
+  - {fileID: 21300000, guid: ad2444399495227418ff2e104b503af3, type: 3}
+  - {fileID: 21300000, guid: 694007df4ceee4141b672c143d52e584, type: 3}
+  - {fileID: 21300000, guid: ccf39b7f4ea6bf44282cc20e3eab2bf8, type: 3}
+  - {fileID: 21300000, guid: 5363a5571d527fe43a8bd313e9d6858e, type: 3}
+  - {fileID: 21300000, guid: c8f547f6e8bf18e408af93148fc9ed4b, type: 3}
+  - {fileID: 21300000, guid: 49b203ac992837945af683af9fe75f8f, type: 3}
+  - {fileID: 21300000, guid: c1df58f395415df459c10d6384e4376c, type: 3}
+  - {fileID: 21300000, guid: 621a9463652417d4ea9c187c5b312f39, type: 3}
+  - {fileID: 21300000, guid: aaa3c587fcb9e0d44a5775c08b172bea, type: 3}
+  - {fileID: 21300000, guid: 18c1cccaf3177334cab45b132b8ef174, type: 3}
+  - {fileID: 21300000, guid: f51f1f94e4e9ae649813a44fce075e18, type: 3}
+  L04_Image:
+  - {fileID: 21300000, guid: 605f62099797a714e96227574d590966, type: 3}
+  - {fileID: 21300000, guid: 96c1b400c5fd7d3439db59d6f6252f1a, type: 3}
+  - {fileID: 21300000, guid: 225baf3dbc878d3419f7d696a640577e, type: 3}
+  - {fileID: 21300000, guid: f56930e086906134da00ec5a1963bb0e, type: 3}
+  - {fileID: 21300000, guid: e2106a9fd31f6cf43988c0ad1ff2e56c, type: 3}
+  - {fileID: 21300000, guid: 60481e99b0c8cf544aaf0c3d113f384b, type: 3}
+  - {fileID: 21300000, guid: 008b32d883dcdb54fad29f6a16d96a38, type: 3}
+  - {fileID: 21300000, guid: 123dad10f00cd5b4ea05b96dd32d1f9e, type: 3}
+  - {fileID: 21300000, guid: b6393a05b6d57fa4e95ba3bbdc80435e, type: 3}
+  L05_Image:
+  - {fileID: 21300000, guid: 1dfe0f6110b505d4eb0d638ec621b0c0, type: 3}
+  - {fileID: 21300000, guid: 2fbbba02ac96bee4bbd37d9257a86468, type: 3}
+  - {fileID: 21300000, guid: bbe9f91b45a020d48a2b92faeaf2213d, type: 3}
+  - {fileID: 21300000, guid: 7ca26885a8cc51b40b6a5e63f1fe24cf, type: 3}
+  - {fileID: 21300000, guid: 4bc762d881d5455409181aa4280d4c2d, type: 3}
+  - {fileID: 21300000, guid: 4f354b7cdf40c884895f38637a954fe3, type: 3}
+  CurrentName: 
+  CurrentFeel: 
+  CurrentTime: morning
+  isUnique: 0
+  UniqueID: 1000
+  Customer: {fileID: 772955856}
 --- !u!224 &1965891964 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6850277485892553516, guid: c207e0c8f9725a94fba23fb41ad73250, type: 3}
@@ -37352,7 +37552,6 @@ GameObject:
   - component: {fileID: 1991984851}
   - component: {fileID: 1991984850}
   - component: {fileID: 1991984849}
-  - component: {fileID: 1991984848}
   m_Layer: 5
   m_Name: 'Trigger_queue '
   m_TagString: Untagged
@@ -37380,18 +37579,6 @@ RectTransform:
   m_AnchoredPosition: {x: 688, y: 382}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1991984848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991984846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e3ddce78805a3468ffe12cf9060d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1991984849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37436,7 +37623,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1991984848}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
         m_MethodName: Trigger
         m_Mode: 1
