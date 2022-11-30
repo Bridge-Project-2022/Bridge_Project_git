@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class NextDay : MonoBehaviour
@@ -49,7 +50,9 @@ public class NextDay : MonoBehaviour
         }
         if (day == 3)
         {
-            Invoke("ThirdDayStart", 3f);
+            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
+            Invoke("GoToTitle", 3f);
+            //Invoke("ThirdDayStart", 3f);
         }
         if (day == 4)
         {
@@ -57,6 +60,10 @@ public class NextDay : MonoBehaviour
         }
     }
 
+    public void GoToTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
     public void DayStartPanel()
     {
         DayPanel.gameObject.SetActive(false);
