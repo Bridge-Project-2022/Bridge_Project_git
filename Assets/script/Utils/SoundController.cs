@@ -17,8 +17,8 @@ public class SoundController : MonoBehaviour
     public GameObject BGMSlider;
     public GameObject SFXSlider;
 
-    bool isBGMOn = false;
-    bool isSFXOn = false;
+    public bool isBGMOn = true;
+    public bool isSFXOn = true;
 
     public void SetBGMVolume(float volume)
     {
@@ -41,7 +41,7 @@ public class SoundController : MonoBehaviour
         {
             GameObject.Find("BgmVolume").gameObject.GetComponent<Image>().sprite = BGMOffImg;
 
-            BGMSlider.gameObject.SetActive(false);
+            //BGMSlider.gameObject.SetActive(false);
             BGMSource.gameObject.SetActive(false);
 
             isBGMOn = true;
@@ -51,7 +51,7 @@ public class SoundController : MonoBehaviour
         {
             GameObject.Find("BgmVolume").gameObject.GetComponent<Image>().sprite = BGMOnImg;
 
-            BGMSlider.gameObject.SetActive(true);
+            //BGMSlider.gameObject.SetActive(true);
             BGMSource.gameObject.SetActive(true);
 
             isBGMOn = false;
@@ -63,7 +63,7 @@ public class SoundController : MonoBehaviour
         {
             GameObject.Find("SfxVolume").gameObject.GetComponent<Image>().sprite = SFXOffImg;
 
-            SFXSlider.gameObject.SetActive(false);
+            //SFXSlider.gameObject.SetActive(false);
             SFXSource.gameObject.SetActive(false);
             TypingSource.gameObject.SetActive(false);
 
@@ -77,7 +77,7 @@ public class SoundController : MonoBehaviour
         {
             GameObject.Find("SfxVolume").gameObject.GetComponent<Image>().sprite = SFXOnImg;
 
-            SFXSlider.gameObject.SetActive(true);
+            //SFXSlider.gameObject.SetActive(true);
             SFXSource.gameObject.SetActive(true);
             TypingSource.gameObject.SetActive(true);
 

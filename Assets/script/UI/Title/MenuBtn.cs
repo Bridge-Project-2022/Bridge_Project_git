@@ -14,7 +14,6 @@ public class MenuBtn : MonoBehaviour
 
     public GameObject RepHandle;
 
-    public GameObject BGMSlider;
     public GameObject GameQuit;
     public AudioClip main;
     // Start is called before the first frame update
@@ -34,9 +33,27 @@ public class MenuBtn : MonoBehaviour
             Menu.GetComponent<Image>().sprite = open;
             Menu.transform.GetChild(0).gameObject.SetActive(true);
             Menu.transform.GetChild(1).gameObject.SetActive(true);
-            Menu.transform.GetChild(2).gameObject.SetActive(true);
             Menu.transform.GetChild(3).gameObject.SetActive(true);
-            BGMSlider.gameObject.SetActive(true);
+            Menu.transform.GetChild(5).gameObject.SetActive(true);
+            /*if (GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn == true)
+            {
+                Menu.transform.GetChild(2).gameObject.SetActive(true);
+            }
+
+            else if (GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn == false)
+            {
+                Menu.transform.GetChild(2).gameObject.SetActive(false);
+            }
+
+            if (GameObject.Find("SoundManager").GetComponent<SoundController>().isSFXOn == true)
+            {
+                Menu.transform.GetChild(4).gameObject.SetActive(true);
+            }
+
+            else if (GameObject.Find("SoundManager").GetComponent<SoundController>().isSFXOn == false)
+            {
+                Menu.transform.GetChild(4).gameObject.SetActive(false);
+            }*/
         }
 
         else if (Menu.GetComponent<Image>().sprite == open)
@@ -44,9 +61,8 @@ public class MenuBtn : MonoBehaviour
             Menu.GetComponent<Image>().sprite = close;
             Menu.transform.GetChild(0).gameObject.SetActive(false);
             Menu.transform.GetChild(1).gameObject.SetActive(false);
-            Menu.transform.GetChild(2).gameObject.SetActive(false);
             Menu.transform.GetChild(3).gameObject.SetActive(false);
-            BGMSlider.gameObject.SetActive(false);
+            Menu.transform.GetChild(5).gameObject.SetActive(false);
         }
     }
 

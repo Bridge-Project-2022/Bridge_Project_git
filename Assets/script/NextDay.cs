@@ -17,12 +17,14 @@ public class NextDay : MonoBehaviour
     public GameObject DayPanel;
     public GameObject DayPanelDay1;
     public GameObject DayPanelDay2;
+    public GameObject Declaration;
 
     string[] CustomerTxt = new string[2];
 
 
     public void NextDayClick()
     {
+        Declaration.gameObject.SetActive(false);
         Customer.gameObject.SetActive(false);
         CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
         CustomerTxt[1] = "더 필요한 물건이 있나?";

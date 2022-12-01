@@ -24,7 +24,7 @@ public class Cooler : MonoBehaviour
     int ResultCount = 0;
     int goodCount;
 
-    public Sprite[] ItemSprites = new Sprite[4];
+    public Sprite[] ItemSprites = new Sprite[5];
     public Sprite[] ItemBurnSprites = new Sprite[1];//탄 아이템 이미지 배열
 
     public GameObject Receipt;
@@ -100,6 +100,12 @@ public class Cooler : MonoBehaviour
             CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
             CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
             CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[3];
+        }
+        if (ClickedItem.name == "놀라움")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[4];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[4];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[4];
         }
         // 선택한 탑 아이템 냉침 123에 세팅 완료
         Invoke("Cooling", 3.5f);

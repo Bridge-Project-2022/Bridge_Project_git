@@ -6,7 +6,6 @@ using TMPro;
 
 public class FirstDaySetting : MonoBehaviour
 {
-    public int Day = 1;
     public int Time = 8;
     public int Money = 50000;
     public int Reputation = 60;
@@ -22,7 +21,7 @@ public class FirstDaySetting : MonoBehaviour
         CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
         CustomerTxt[1] = "더 필요한 물건이 있나?";
 
-        if (Day == 1)
+        if (GameObject.Find("NextDay").GetComponent<NextDay>().day == 1)
         {
             GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
             Invoke("FirstDayStart", 6f);

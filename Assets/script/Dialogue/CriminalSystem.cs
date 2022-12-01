@@ -13,6 +13,8 @@ public class CriminalSystem : MonoBehaviour
     public Sprite Success;
     public Sprite Fail;
 
+    public bool isDeclareClick = false;
+
     public void Start()
     {
         for (int i = 0; i < CriminalNum.Length; i++)
@@ -40,6 +42,7 @@ public class CriminalSystem : MonoBehaviour
             Debug.Log("검거 실패");
             DailyResult.transform.GetChild(8).GetComponent<Image>().sprite = Fail;
         }
+        isDeclareClick = true;
         Declaration.SetActive(false);
     }
 }
