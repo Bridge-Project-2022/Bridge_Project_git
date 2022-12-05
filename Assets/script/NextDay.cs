@@ -19,9 +19,19 @@ public class NextDay : MonoBehaviour
     public GameObject DayPanelDay2;
     public GameObject Declaration;
 
+    public Sprite BG_Sprite;
+    public Sprite WD_Sprite;
+
+    GameObject BackGround;
+    GameObject WindowBG;
+
     string[] CustomerTxt = new string[2];
 
-
+    public void Start()
+    {
+        BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
+        WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
+    }
     public void NextDayClick()
     {
         Declaration.gameObject.SetActive(false);
@@ -114,6 +124,9 @@ public class NextDay : MonoBehaviour
     {
         Today.text = "02";
         RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
+        BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
+        WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
+
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<DialogueRandom>().enabled = false;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = true;
@@ -124,6 +137,9 @@ public class NextDay : MonoBehaviour
     {
         Today.text = "03";
         RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
+        BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
+        WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
+
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = false;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = true;
@@ -134,6 +150,9 @@ public class NextDay : MonoBehaviour
     {
         Today.text = "04";
         RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
+        BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
+        WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
+
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = true;

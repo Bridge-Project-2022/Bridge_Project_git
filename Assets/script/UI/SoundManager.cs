@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip boilHigh;
     public AudioClip boilMiddle;
     public AudioClip boilLow;
+    public AudioClip pressDown;
 
     public AudioClip news;
     public AudioClip main;
@@ -82,6 +83,11 @@ public class SoundManager : MonoBehaviour
             case "boilLow":
                 sfxAudioSource.clip = boilLow;
                 sfxAudioSource.loop = true;
+                break;
+
+            case "pressDown":
+                sfxAudioSource.clip = pressDown;
+                sfxAudioSource.loop = false;
                 break;
         }
         sfxAudioSource.Play();

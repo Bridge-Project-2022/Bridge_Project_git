@@ -56,7 +56,7 @@ public class DialogueScript : MonoBehaviour
         Customer H = CustomerManager.Instance.days.day[0].customer[8];
 
 
-        if (Customer_ID[0] == B.id)
+         if (Customer_ID[0] == B.id)
          {
              Customer_Name = B.name;
 

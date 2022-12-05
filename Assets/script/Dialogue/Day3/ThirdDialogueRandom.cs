@@ -25,13 +25,15 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public bool isDialogueEnd = false;
 
+    //public bool makeStart = false;
+
     public GameObject arrow;
 
     public int rejectCnt = 0;//거절 횟수 -> 평판 영향, 일차 지날 때 마다 리셋되어야 함.
 
     public string[] SellerSentences = new string[2];// 유저 대화 배열
 
-    ThirdDialogueScript DS;
+    DialogueScript DS;
 
     public string[] BuyerOrder = new string[10];
     public string[] BuyerIntensity = new string[5];
@@ -52,22 +54,26 @@ public class ThirdDialogueRandom : MonoBehaviour
     bool EStart = false;
     bool F2Start = false;
 
-    public int ACount = 0;
+    int ACount = 0;
     int D1Count = 0;
-    int D2Count = 0;
-    int ECount = 0;
+    public int D2Count = 0;
+    public int ECount = 0;
 
     public bool isDialogueStart = false;
 
     bool isSelectStart = false;
     bool isArrowStart = false;
 
-    public Animator Anim;
-
+    bool CustomerEnd = false;
+    bool CustomerStart = false;
+    public void Start()
+    {
+        CustomerStart = true;
+    }
     public void Update()
     {
 
-        DS = GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>();
+        DS = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>();
 
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
         WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
@@ -139,11 +145,6 @@ public class ThirdDialogueRandom : MonoBehaviour
             }
         }
     }
-
-    public void CutSceneClose()
-    {
-        GameObject.Find("Dialogue").transform.GetChild(2).gameObject.SetActive(false);
-    }
     public void NextDialogue()
     {
         StopAll();
@@ -162,22 +163,6 @@ public class ThirdDialogueRandom : MonoBehaviour
             }
             else
             {
-                //로레나 첫 등장
-                if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == true)
-                {
-                    if (ACount == 4)
-                    {
-                        GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(true);
-                        GameObject.Find("Dialogue").transform.GetChild(2).gameObject.SetActive(true);
-                    }
-                    if (ACount == 5)
-                    {
-                        Anim.SetBool("isFadeOut", true);
-                        GameObject.Find("Dialogue").transform.GetChild(7).gameObject.SetActive(false);
-                        Invoke("CutSceneClose", 0.2f);
-                    }
-                }
-
                 if (isDialogueEnd == false)
                 {
                     RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[ACount - 1];
@@ -274,21 +259,35 @@ public class ThirdDialogueRandom : MonoBehaviour
                 }
                 else if (isDialogueEnd == true)
                 {
-                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerRejectFace[D2Count];
-                    RC.GetComponent<CriminalImage>().CurrentFeel = BuyerRejectFace[D2Count];
-                    RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerRejectFace[D2Count];
+                    if (BuyerRejectReaction.Length == 1)
+                    {
+                        RC.GetComponent<RandomImage>().CurrentFeel = BuyerRejectFace[D2Count - 1];
+                        RC.GetComponent<CriminalImage>().CurrentFeel = BuyerRejectFace[D2Count - 1];
+                        RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerRejectFace[D2Count - 1];
 
-                    Buyer.gameObject.GetComponent<Button>().interactable = true;
-                    StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
-                    D2Count++;
+                        Buyer.gameObject.GetComponent<Button>().interactable = false;
+                        D2Count = 0;
+                        D2Start = false;
+                        Invoke("End", 1f);
+                    }
+                    else if (D2Count == BuyerRejectReaction.Length)
+                    {
+                        Buyer.gameObject.GetComponent<Button>().interactable = false;
+                        D2Count = 0;
+                        D2Start = false;
+                        Invoke("End", 1f);
+                    }
+                    else
+                    {
+                        RC.GetComponent<RandomImage>().CurrentFeel = BuyerRejectFace[D2Count];
+                        RC.GetComponent<CriminalImage>().CurrentFeel = BuyerRejectFace[D2Count];
+                        RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerRejectFace[D2Count];
+
+                        Buyer.gameObject.GetComponent<Button>().interactable = true;
+                        StartCoroutine(NormalChat(BuyerRejectReaction[D2Count]));
+                        D2Count++;
+                    }
                 }
-            }
-            if (D2Count == BuyerRejectReaction.Length)
-            {
-                Buyer.gameObject.GetComponent<Button>().interactable = false;
-                D2Count = 0;
-                D2Start = false;
-                Invoke("End", 2f);
             }
         }
         if (EStart == true)
@@ -315,21 +314,37 @@ public class ThirdDialogueRandom : MonoBehaviour
                 }
                 else if (isDialogueEnd == true)
                 {
-                    RC.GetComponent<RandomImage>().CurrentFeel = BuyerReactFace[ECount];
-                    RC.GetComponent<CriminalImage>().CurrentFeel = BuyerReactFace[ECount];
-                    RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerReactFace[ECount];
+                    if (BuyerPerfumeReaction.Length == 1)
+                    {
+                        RC.GetComponent<RandomImage>().CurrentFeel = BuyerReactFace[ECount - 1];
+                        RC.GetComponent<CriminalImage>().CurrentFeel = BuyerReactFace[ECount - 1];
+                        RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerReactFace[ECount - 1];
 
-                    Buyer.gameObject.GetComponent<Button>().interactable = true;
-                    StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
-                    ECount++;
+                        Buyer.gameObject.GetComponent<Button>().interactable = false;
+                        ECount = 0;
+                        EStart = false;
+                        Invoke("End", 1f);
+                    }
+
+                    else if (ECount == BuyerPerfumeReaction.Length)
+                    {
+                        Buyer.gameObject.GetComponent<Button>().interactable = false;
+                        ECount = 0;
+                        EStart = false;
+                        Invoke("End", 1f);
+                    }
+
+                    else
+                    {
+                        RC.GetComponent<RandomImage>().CurrentFeel = BuyerReactFace[ECount];
+                        RC.GetComponent<CriminalImage>().CurrentFeel = BuyerReactFace[ECount];
+                        RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerReactFace[ECount];
+
+                        Buyer.gameObject.GetComponent<Button>().interactable = true;
+                        StartCoroutine(NormalChat(BuyerPerfumeReaction[ECount]));
+                        ECount++;
+                    }
                 }
-            }
-            if (ECount == BuyerPerfumeReaction.Length)
-            {
-                Buyer.gameObject.GetComponent<Button>().interactable = false;
-                ECount = 0;
-                EStart = false;
-                Invoke("End", 2f);
             }
         }
     }
@@ -337,20 +352,24 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
-        Customer.gameObject.SetActive(true);
-        Buyer.gameObject.SetActive(true);
-        if (GameObject.Find("CriminalSystem").GetComponent<CriminalSystem>().isDeclareClick == false)
+        if (CustomerStart == true)
         {
-            GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
+            CustomerEnd = false;
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
+            Customer.gameObject.SetActive(true);
+            Buyer.gameObject.SetActive(true);
+            if (GameObject.Find("CriminalSystem").GetComponent<CriminalSystem>().isDeclareClick == false)
+            {
+                GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
+            }
+            if (DailyResult.GetComponent<DailyResult>().personNum == 0)
+            {
+                GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
+            }
+            AStart = true;
+            isDialogueStart = true;
+            NextDialogue();
         }
-        if (DailyResult.GetComponent<DailyResult>().personNum == 0)
-        {
-            GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
-        }
-        AStart = true;
-        isDialogueStart = true;
-        NextDialogue();
     }
 
     public void C_1_Start()// 유저 : 승낙 - 향 세기 질문
@@ -375,17 +394,20 @@ public class ThirdDialogueRandom : MonoBehaviour
         if (rejectCnt == 1)
         {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
-            StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
+            GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.08f;
+            //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
         else if (rejectCnt == 2)
         {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 10;
-            StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
+            GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.1f;
+            //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
         if (rejectCnt >= 3)
         {
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 15;
-            StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
+            GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.15f;
+            //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
 
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
@@ -440,26 +462,14 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public void End()
     {
-        isDialogueStart = false;
-        int temp;
-        temp = DS.Customer_ID[0];
-
-        for (int i = 0; i < DS.Customer_ID.Length - 1; i++)
-        {
-            DS.Customer_ID[i] = DS.Customer_ID[i + 1];
-        }
-        DS.Customer_ID[DS.Customer_ID.Length - 1] = temp;
-
-        Customer.gameObject.SetActive(false);
-        Buyer.gameObject.SetActive(false);
-
-        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9)
+        CustomerEnd = true;
+        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9 && isDialogueEnd == true)
         {
             if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
-                CriminalImage.FindObjectOfType<CriminalImage>().CurrentTime = "afternoon";
-                StoryCustomerImage.FindObjectOfType<StoryCustomerImage>().CurrentTime = "afternoon";
+                //CriminalImage.FindObjectOfType<CriminalImage>().CurrentTime = "afternoon";
+                //StoryCustomerImage.FindObjectOfType<StoryCustomerImage>().CurrentTime = "afternoon";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[1];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
@@ -467,24 +477,37 @@ public class ThirdDialogueRandom : MonoBehaviour
             else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
-                CriminalImage.FindObjectOfType<CriminalImage>().CurrentTime = "night";
-                StoryCustomerImage.FindObjectOfType<StoryCustomerImage>().CurrentTime = "night"; ;
-
+                //CriminalImage.FindObjectOfType<CriminalImage>().CurrentTime = "night";
+                //StoryCustomerImage.FindObjectOfType<StoryCustomerImage>().CurrentTime = "night";
                 BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite[2];
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[5];
             }
-            if (isDialogueEnd == true)
+
+            GameObject.Find("TotalScoreBuffer").GetComponent<TotalScore>().ResetAll();
+            isDialogueStart = false;
+            int temp;
+            temp = DS.Customer_ID[0];
+
+            for (int i = 0; i < DS.Customer_ID.Length - 1; i++)
             {
-                Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장. 인게임 시간 보고 추가 조건문 달아야 함
+                DS.Customer_ID[i] = DS.Customer_ID[i + 1];
             }
+            DS.Customer_ID[DS.Customer_ID.Length - 1] = temp;
+
+            CustomerStart = true;
+            Customer.gameObject.SetActive(false);
+            Buyer.gameObject.SetActive(false);
+            GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
+            Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장.
         }
 
 
-        else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9)//손님 9명 가고 나서 최종 창이 뜸.
+        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
         {
+            CustomerStart = false;
+            GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
             Invoke("DailyWindowOpen", 3f);
         }
-        GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
     }
 
     public void DailyWindowOpen()

@@ -102,8 +102,8 @@ public class Store : MonoBehaviour
     //public System.Action<ItemProperty> onAllStoreSlotClick;//델리게이트 변수
 
     public ItemProperty[] BaseItemList = new ItemProperty[4];
-    public ItemProperty[] MiddleItemList = new ItemProperty[5];
-    public ItemProperty[] TopItemList = new ItemProperty[4];
+    public ItemProperty[] MiddleItemList = new ItemProperty[10];
+    public ItemProperty[] TopItemList = new ItemProperty[10];
 
     int BaseAllPrice = 0;
     int MiddleAllPrice = 0;
@@ -116,24 +116,25 @@ public class Store : MonoBehaviour
 
     public void StoreOpen()
     {
-        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+       /* if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
             itemBuffer = IB.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
             MiddleitemBuffer = IB.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
             TopitemBuffer = IB.transform.GetChild(0).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
         }
-
-        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
+       */
+        if (NextDay.FindObjectOfType<NextDay>().day == 1 || NextDay.FindObjectOfType<NextDay>().day == 2)
         {
             itemBuffer = IB.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
             MiddleitemBuffer = IB.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
             TopitemBuffer = IB.transform.GetChild(1).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
 
-            for (int i = 6; i <= 8; i++)
+            /*for (int i = 6; i <= 8; i++)
             {
                 MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
             }
             TopslotRoot.transform.GetChild(4).gameObject.SetActive(true);
+            */
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
@@ -418,6 +419,7 @@ public class Store : MonoBehaviour
 
     public void BuyItem()
     {
+        Debug.Log("sss");
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         if (onStoreSlotClick != null)
         {
@@ -584,7 +586,7 @@ public class Store : MonoBehaviour
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice * BuyNum;
+        fd.Money -= slotItemPrice;
         StartCoroutine(Count(imsiMoney, fd.Money));
         BaseBuyAll.SetActive(false);
         MiddleBuyAll.SetActive(false);
@@ -595,7 +597,9 @@ public class Store : MonoBehaviour
         for (int i = 0; i < MiddleItemList.Length; i++)
         {
             if (MiddleItemList[i] == null)
+            {
                 break;
+            }
 
             inven.GetComponent<Inventory>().BuyItem(MiddleItemList[i]);
             MiddleItemList[i].itemCount -= 1 * BuyNum;
@@ -603,7 +607,7 @@ public class Store : MonoBehaviour
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice * BuyNum;
+        fd.Money -= slotItemPrice;
         StartCoroutine(Count(imsiMoney, fd.Money));
         BaseBuyAll.SetActive(false);
         MiddleBuyAll.SetActive(false);
@@ -623,7 +627,7 @@ public class Store : MonoBehaviour
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice * BuyNum;
+        fd.Money -= slotItemPrice;
         StartCoroutine(Count(imsiMoney, fd.Money));
         BaseBuyAll.SetActive(false);
         MiddleBuyAll.SetActive(false);

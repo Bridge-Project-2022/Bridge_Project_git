@@ -141,13 +141,13 @@ public void DistillerOn(ItemProperty item)
 
                 if (DistillerStatus == "강함")
                 {
-                    if (HighTemperDuration >= 4f)
+                    if (HighTemperDuration >= 3f)
                     {
                         DistillGood = true;
                         DistillNormal = false;
                         DistillBad = false;
                     }
-                    if (HighTemperDuration >= 2f && HighTemperDuration < 4f)
+                    if (HighTemperDuration >= 2f && HighTemperDuration < 3f)
                     {
                         DistillGood = false;
                         DistillNormal = true;
@@ -199,13 +199,13 @@ public void DistillerOn(ItemProperty item)
 
                 if (DistillerStatus == "보통")
                 {
-                    if (TemperDuration >= 4f)
+                    if (TemperDuration >= 3f)
                     {
                         DistillGood = true;
                         DistillNormal = false;
                         DistillBad = false;
                     }
-                    if (TemperDuration >= 2f && TemperDuration < 4f)
+                    if (TemperDuration >= 2f && TemperDuration < 3f)
                     {
                         DistillGood = false;
                         DistillNormal = true;
@@ -247,13 +247,13 @@ public void DistillerOn(ItemProperty item)
 
                 if (DistillerStatus == "약함")
                 {
-                    if (LowTemperDuration >= 4f)
+                    if (LowTemperDuration >= 3f)
                     {
                         DistillGood = true;
                         DistillNormal = false;
                         DistillBad = false;
                     }
-                    if (LowTemperDuration >= 2f && LowTemperDuration < 4f)
+                    if (LowTemperDuration >= 2f && LowTemperDuration < 3f)
                     {
                         DistillGood = false;
                         DistillNormal = true;

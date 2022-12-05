@@ -12,7 +12,7 @@ public class UIOnOff : MonoBehaviour
         //Debug.Log("인벤토리 오픈");
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("inven");
         Inven.gameObject.SetActive(true);
-        Inven.transform.position = new Vector3(998, 540, 0);
+        Inven.transform.position = new Vector3(960, 540, 0);
         GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
         GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
         GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
@@ -21,9 +21,10 @@ public class UIOnOff : MonoBehaviour
     public void StoreOpen()
     {
         //Debug.Log("보따리 오픈");
+        FirstDaySetting.FindObjectOfType<FirstDaySetting>().StopAllCoroutines();
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         Store.gameObject.SetActive(true);
-
     }
 
     public void StoreClose()

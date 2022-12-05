@@ -167,7 +167,7 @@ public class PresserTap : MonoBehaviour
             Destroy(NextNote);
             Debug.Log("Perfect!");
         }
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("pressDown");
         //GameObject.Find("NoteLine").GetComponent<NotePatterns>().DestroyCnt++;
 
     }

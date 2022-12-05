@@ -45,7 +45,7 @@ public class DeskTouch : MonoBehaviour
         TopBar.transform.Translate(new Vector3(200, 200, 0));
         MoneyBar.transform.Translate(new Vector3(200, 200, 0));
 
-        GameObject.Find("Declaration").gameObject.SetActive(false);
+        //GameObject.Find("Declaration").gameObject.SetActive(false);
         Receipt.gameObject.SetActive(true);
         GameObject.Find("Random_Buyer").gameObject.SetActive(false);
         BackGround.gameObject.SetActive(false);
@@ -81,6 +81,7 @@ public class DeskTouch : MonoBehaviour
     public void TouchPerfume()
     {
         //Invoke("feelStart", 0.4f);
+        
         TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
         Customer.gameObject.SetActive(true);
         TopBar.transform.Translate(new Vector3(-200, -200, 0));
@@ -97,7 +98,7 @@ public class DeskTouch : MonoBehaviour
         RandomBuyer.gameObject.SetActive(true);
         Buyer.gameObject.SetActive(true);
 
-        ClickItem.GetComponent<Image>().sprite = Alpa;
+        ClickItem.SetActive(false);
 
         desk.gameObject.SetActive(true);
         Manufacture.gameObject.SetActive(false);

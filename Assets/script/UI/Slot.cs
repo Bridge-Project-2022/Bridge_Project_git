@@ -67,19 +67,16 @@ public class Slot : MonoBehaviour
         GameObject.Find("ClickedItem").GetComponent<Image>().color = color;//클릭한 아이템 투명도 0이었다가 보여져야 하니까 255로 변경
         GameObject.Find("ClickedItem").GetComponent<Image>().sprite = this.image.sprite;
 
-        GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
-        GameObject.Find("Presser").GetComponent<Button>().interactable = true;
-        GameObject.Find("Cooler").GetComponent<Button>().interactable = true;
         if (ClickedSlot.item.itemType == "Base")//증류기 실행
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
+            GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
             GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
-            GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
             GameObject.Find("Manufacture").transform.GetChild(7).GetComponent<Distiller>().DistillerOn(ClickedItem);
             Debug.Log("증류기 시작");
         }
@@ -89,12 +86,12 @@ public class Slot : MonoBehaviour
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
+            GameObject.Find("Presser").GetComponent<Button>().interactable = true;
             GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
             Debug.Log("압착기 시작");
-            GameObject.Find("Presser").GetComponent<Presser>().GetComponent<Button>().interactable = true;
             GameObject.Find("Presser").GetComponent<Presser>().PresserOn(ClickedItem);
         }
         else if (item.itemType == "Top")//냉침기 실행
@@ -102,11 +99,11 @@ public class Slot : MonoBehaviour
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
+            GameObject.Find("Cooler").GetComponent<Button>().interactable = true;
             GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
-            GameObject.Find("Cooler").GetComponent<Cooler>().GetComponent<Button>().interactable = true;
             GameObject.Find("Cooler").GetComponent<Cooler>().CoolerOn(ClickedItem);
             Debug.Log("냉침기 시작");
         }

@@ -29,6 +29,8 @@ public class CriminalImage : MonoBehaviour
 
     void Update()
     {
+        CurrentTime = this.GetComponent<RandomImage>().CurrentTime;
+
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
             CurrentName = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_Name.ToString();

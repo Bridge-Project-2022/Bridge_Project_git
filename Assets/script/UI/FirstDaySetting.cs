@@ -58,6 +58,7 @@ public class FirstDaySetting : MonoBehaviour
     }
     public void SellerEnd()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
         Customer.gameObject.SetActive(true);
         StartCoroutine(NormalChat(CustomerTxt[1]));
     }

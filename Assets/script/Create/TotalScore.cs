@@ -104,7 +104,7 @@ public class TotalScore : MonoBehaviour
             float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
             ReputationSlider.GetComponent<Slider>().value -= 0.05f;
-            StartCoroutine(Countt(imsiReputation, fd.Reputation));
+            //StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
         }
         else if (RightItem != 3 && originPrice > 0)// 하나라도 고르긴 했는데 맞는 향료가 아닐 경우
@@ -120,7 +120,7 @@ public class TotalScore : MonoBehaviour
             float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
             ReputationSlider.GetComponent<Slider>().value -= 0.05f;
-            StartCoroutine(Countt(imsiReputation, fd.Reputation));
+            //StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
         }
 
@@ -140,7 +140,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 베리굳");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
                     ReputationSlider.GetComponent<Slider>().value += 0.1f;
-                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
+                    //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verygood";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "good";
                 }
@@ -149,7 +149,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 굳");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
                     ReputationSlider.GetComponent<Slider>().value += 0.06f;
-                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
+                    //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "good";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "good";
                 }
@@ -158,7 +158,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 노멀");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
                     ReputationSlider.GetComponent<Slider>().value += 0.01f;
-                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
+                    //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "normal";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
                 }
@@ -167,7 +167,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 밷");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
                     ReputationSlider.GetComponent<Slider>().value -= 0.05f;
-                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
+                    //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "bad";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
                 }
@@ -176,7 +176,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 베리밷");
                     FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
                     ReputationSlider.GetComponent<Slider>().value -= 0.08f;
-                    StartCoroutine(Countt(imsiReputation, fd.Reputation));
+                    //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verybad";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
                 }
