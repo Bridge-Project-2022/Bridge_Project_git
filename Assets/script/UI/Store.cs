@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 public class Store : MonoBehaviour
 {
     public Transform slotRoot;
     public Transform MiddleslotRoot;
     public Transform TopslotRoot;
 
-    public GameObject IB;
-    ItemBuffer itemBuffer;
-    ItemBuffer MiddleitemBuffer;
-    ItemBuffer TopitemBuffer;
+    public ItemBuffer BaseitemBuffer;
+    public ItemBuffer MiddleitemBuffer;
+    public ItemBuffer TopitemBuffer;
 
     private List<Slot> slots;
     private List<Slot> Middleslots;
@@ -43,12 +43,6 @@ public class Store : MonoBehaviour
     public TextMeshProUGUI TopDetailItemNum;
     public TextMeshProUGUI TopDetailItemExplanation;
 
-    /*public Slider BaseSlider;
-    public Slider MiddleSlider;
-    public Slider TopSlider;
-
-    public Slider AllBuyslider;*/
-
     public Button BaseMinusBtn;
     public Button BasePlusBtn;
     public Button MiddleMinusBtn;
@@ -70,7 +64,8 @@ public class Store : MonoBehaviour
     public Button TopAllBuyPlusBtn;
 
     public int BuyNum = 1;
-    //public int AllBuyNum = 1;
+    public int AllBuyNum = 1;
+
     int slotItemPrice = 0;
     int MiddleslotItemPrice = 0;
     int TopslotItemPrice = 0;
@@ -96,14 +91,12 @@ public class Store : MonoBehaviour
     public GameObject MiddleBuyBtn;
     public GameObject TopBuyBtn;
 
-    public Text alertText;
-
     public System.Action<ItemProperty> onStoreSlotClick;//델리게이트 변수
-    //public System.Action<ItemProperty> onAllStoreSlotClick;//델리게이트 변수
 
     public ItemProperty[] BaseItemList = new ItemProperty[4];
     public ItemProperty[] MiddleItemList = new ItemProperty[10];
     public ItemProperty[] TopItemList = new ItemProperty[10];
+
 
     int BaseAllPrice = 0;
     int MiddleAllPrice = 0;
@@ -112,53 +105,19 @@ public class Store : MonoBehaviour
     int ItemCurPrice = 0;
 
     public int maxItemNum = 0;
+    public int openCnt = 0; //날 바뀌고 처음 상점 열었을 때 파악 용도
 
+    bool isBaseAllOpen = false;
+    bool isMiddleAllOpen = false;
+    bool isTopAllOpen = false;
 
     public void StoreOpen()
     {
-       /* if (NextDay.FindObjectOfType<NextDay>().day == 1)
-        {
-            itemBuffer = IB.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
-            MiddleitemBuffer = IB.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
-            TopitemBuffer = IB.transform.GetChild(0).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
-        }
-       */
-        if (NextDay.FindObjectOfType<NextDay>().day == 1 || NextDay.FindObjectOfType<NextDay>().day == 2)
-        {
-            itemBuffer = IB.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
-            MiddleitemBuffer = IB.transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
-            TopitemBuffer = IB.transform.GetChild(1).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
+        this.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+        this.transform.GetChild(1).GetChild(1).gameObject.SetActive(false);
+        this.transform.GetChild(1).GetChild(2).gameObject.SetActive(false);
 
-            /*for (int i = 6; i <= 8; i++)
-            {
-                MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
-            }
-            TopslotRoot.transform.GetChild(4).gameObject.SetActive(true);
-            */
-        }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
-        {
-            itemBuffer = IB.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
-            MiddleitemBuffer = IB.transform.GetChild(2).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
-            TopitemBuffer = IB.transform.GetChild(2).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
-
-            for (int i = 5; i <= 6; i++)
-            {
-                TopslotRoot.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
-        {
-            itemBuffer = IB.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<ItemBuffer>();
-            MiddleitemBuffer = IB.transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<ItemBuffer>();
-            TopitemBuffer = IB.transform.GetChild(3).transform.GetChild(2).gameObject.GetComponent<ItemBuffer>();
-
-            for (int i = 7; i <= 8; i++)
-            {
-                TopslotRoot.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
-
+        openCnt++;
         slots = new List<Slot>();
         Middleslots = new List<Slot>();
         Topslots = new List<Slot>();
@@ -168,68 +127,343 @@ public class Store : MonoBehaviour
         int TopslotCount = TopslotRoot.childCount;
 
 
-        for (int i = 0; i < slotCount; i++)
+        if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
-            slot = slotRoot.GetChild(i).GetComponent<Slot>();
-
-            if (i < itemBuffer.items.Count)
+            for (int i = 0; i <= 3; i++)
             {
-                slot.SetItem(itemBuffer.items[i]);
-                slot.GetComponent<UnityEngine.UI.Button>().interactable = true;
-                if (itemBuffer.items[i].isNew == true)
+                slot = slotRoot.GetChild(i).GetComponent<Slot>();
+
+                if (i < BaseitemBuffer.items.Count)
                 {
-                    slotRoot.GetChild(i).GetChild(5).gameObject.SetActive(true);
+                    slot.SetItem(BaseitemBuffer.items[i]);
+                    slot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                    if (BaseitemBuffer.items[i].isNew == true)
+                    {
+                        slotRoot.GetChild(i).GetChild(5).gameObject.SetActive(true);
+                    }
                 }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    slot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+                slots.Add(slot);
             }
-            else // 아이템이 없는 경우 클릭 불가하게 만듦.
+
+            for (int j = 0; j <= 5; j++)
             {
-                slot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                Middleslot = MiddleslotRoot.GetChild(j).GetComponent<Slot>();
+                Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                if (j < MiddleitemBuffer.items.Count)
+                {
+                    Middleslot.SetItem(MiddleitemBuffer.items[j]);
+
+                    if (MiddleitemBuffer.items[j].isNew == true)
+                    {
+                        MiddleslotRoot.GetChild(j).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+
+                Middleslots.Add(Middleslot);
             }
 
+            for (int k = 0; k <= 3; k++)
+            {
+                Topslot = TopslotRoot.GetChild(k).GetComponent<Slot>();
+                Topslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                if (k < TopitemBuffer.items.Count)
+                {
+                    Topslot.SetItem(TopitemBuffer.items[k]);
 
-
-            slots.Add(slot);
+                    if (TopitemBuffer.items[k].isNew == true)
+                    {
+                        TopslotRoot.GetChild(k).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    Topslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+                Topslots.Add(Topslot);
+            }
         }
-
-        for (int j = 0; j < MiddleslotCount; j++)
+       
+        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {
-            Middleslot = MiddleslotRoot.GetChild(j).GetComponent<Slot>();
-            Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
-            if (j < MiddleitemBuffer.items.Count)
+            for (int i = 0; i <= 3; i++)
             {
-                Middleslot.SetItem(MiddleitemBuffer.items[j]);
+                slot = slotRoot.GetChild(i).GetComponent<Slot>();
 
-                if (MiddleitemBuffer.items[j].isNew == true)
+                if (i < BaseitemBuffer.items.Count)
                 {
-                    MiddleslotRoot.GetChild(j).GetChild(5).gameObject.SetActive(true);
+                    slot.SetItem(BaseitemBuffer.items[i]);
+                    slot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                    if (BaseitemBuffer.items[i].isNew == true)
+                    {
+                        slotRoot.GetChild(i).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    slot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+                slots.Add(slot);
+            }
+
+            for (int j = 0; j <= 8; j++)
+            {
+                Middleslot = MiddleslotRoot.GetChild(j).GetComponent<Slot>();
+                Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                if (j < MiddleitemBuffer.items.Count)
+                {
+                    Middleslot.SetItem(MiddleitemBuffer.items[j]);
+
+                    if (MiddleitemBuffer.items[j].isNew == true)
+                    {
+                        MiddleslotRoot.GetChild(j).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+
+                Middleslots.Add(Middleslot);
+            }
+
+            for (int k = 0; k <= 4; k++)
+            {
+                Topslot = TopslotRoot.GetChild(k).GetComponent<Slot>();
+                Topslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                if (k < TopitemBuffer.items.Count)
+                {
+                    Topslot.SetItem(TopitemBuffer.items[k]);
+
+                    if (TopitemBuffer.items[k].isNew == true)
+                    {
+                        TopslotRoot.GetChild(k).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    Topslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+                Topslots.Add(Topslot);
+            }
+
+            for (int i = 6; i <= 8; i++)
+            {
+                MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            TopslotRoot.transform.GetChild(4).gameObject.SetActive(true);
+
+            if (openCnt == 1)//처음 열었을 때
+            {
+                for (int i = 0; i <= 3; i++)
+                {
+                    BaseitemBuffer.items[i].itemCount = 5;
+                }
+                for (int i = 0; i <= 5; i++)
+                {
+                    MiddleitemBuffer.items[i].itemCount = 3;
+                }
+                for (int i = 0; i <= 3; i++)
+                {
+                    TopitemBuffer.items[i].itemCount = 3;
                 }
             }
-            else // 아이템이 없는 경우 클릭 불가하게 만듦.
-            {
-                Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
-            }
 
-            Middleslots.Add(Middleslot);
         }
-
-        for (int k = 0; k < TopslotCount; k++)
+        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
-            Topslot = TopslotRoot.GetChild(k).GetComponent<Slot>();
-            Topslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
-            if (k < TopitemBuffer.items.Count)
+            for (int i = 0; i <= 3; i++)
             {
-                Topslot.SetItem(TopitemBuffer.items[k]);
+                slot = slotRoot.GetChild(i).GetComponent<Slot>();
 
-                if (TopitemBuffer.items[k].isNew == true)
+                if (i < BaseitemBuffer.items.Count)
                 {
-                    TopslotRoot.GetChild(k).GetChild(5).gameObject.SetActive(true);
+                    slot.SetItem(BaseitemBuffer.items[i]);
+                    slot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                    if (BaseitemBuffer.items[i].isNew == true)
+                    {
+                        slotRoot.GetChild(i).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    slot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+                slots.Add(slot);
+            }
+
+            for (int j = 0; j <= 8; j++)
+            {
+                Middleslot = MiddleslotRoot.GetChild(j).GetComponent<Slot>();
+                Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                if (j < MiddleitemBuffer.items.Count)
+                {
+                    Middleslot.SetItem(MiddleitemBuffer.items[j]);
+
+                    if (MiddleitemBuffer.items[j].isNew == true)
+                    {
+                        MiddleslotRoot.GetChild(j).GetChild(5).gameObject.SetActive(false);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+
+                Middleslots.Add(Middleslot);
+            }
+
+            for (int k = 0; k <= 6; k++)
+            {
+                Topslot = TopslotRoot.GetChild(k).GetComponent<Slot>();
+                Topslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                if (k < TopitemBuffer.items.Count)
+                {
+                    Topslot.SetItem(TopitemBuffer.items[k]);
+
+                    if (TopitemBuffer.items[k].isNew == true)
+                    {
+                        TopslotRoot.GetChild(k).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    Topslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+                Topslots.Add(Topslot);
+            }
+
+            for (int i = 6; i <= 8; i++)
+            {
+                MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            for (int i = 4; i <= 6; i++)
+            {
+                TopslotRoot.transform.GetChild(i).gameObject.SetActive(true);
+            }
+
+            if (TopitemBuffer.items[4].isNew == true)
+            {
+                TopslotRoot.GetChild(4).GetChild(5).gameObject.SetActive(false);
+            }
+            if (openCnt == 1)//처음 열었을 때
+            {
+                for (int i = 0; i <= 3; i++)
+                {
+                    BaseitemBuffer.items[i].itemCount = 5;
+                }
+                for (int i = 0; i <= 8; i++)
+                {
+                    MiddleitemBuffer.items[i].itemCount = 3;
+                }
+                for (int i = 0; i <= 4; i++)
+                {
+                    TopitemBuffer.items[i].itemCount = 3;
                 }
             }
-            else // 아이템이 없는 경우 클릭 불가하게 만듦.
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            for (int i = 0; i <= 3; i++)
             {
-                Topslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                slot = slotRoot.GetChild(i).GetComponent<Slot>();
+
+                if (i < BaseitemBuffer.items.Count)
+                {
+                    slot.SetItem(BaseitemBuffer.items[i]);
+                    slot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                    if (BaseitemBuffer.items[i].isNew == true)
+                    {
+                        slotRoot.GetChild(i).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    slot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+                slots.Add(slot);
             }
-            Topslots.Add(Topslot);
+
+            for (int j = 0; j <= 8; j++)
+            {
+                Middleslot = MiddleslotRoot.GetChild(j).GetComponent<Slot>();
+                Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                if (j < MiddleitemBuffer.items.Count)
+                {
+                    Middleslot.SetItem(MiddleitemBuffer.items[j]);
+
+                    if (MiddleitemBuffer.items[j].isNew == true)
+                    {
+                        MiddleslotRoot.GetChild(j).GetChild(5).gameObject.SetActive(false);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+
+                Middleslots.Add(Middleslot);
+            }
+
+            for (int k = 0; k <= 8; k++)
+            {
+                Topslot = TopslotRoot.GetChild(k).GetComponent<Slot>();
+                Topslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                if (k < TopitemBuffer.items.Count)
+                {
+                    Topslot.SetItem(TopitemBuffer.items[k]);
+
+                    if (TopitemBuffer.items[k].isNew == true)
+                    {
+                        TopslotRoot.GetChild(k).GetChild(5).gameObject.SetActive(true);
+                    }
+                }
+                else // 아이템이 없는 경우 클릭 불가하게 만듦.
+                {
+                    Topslot.GetComponent<UnityEngine.UI.Button>().interactable = false;
+                }
+                Topslots.Add(Topslot);
+            }
+
+            for (int i = 6; i <= 8; i++)
+            {
+                MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            for (int i = 4; i <= 8; i++)
+            {
+                TopslotRoot.transform.GetChild(i).gameObject.SetActive(true);
+            }
+
+            for (int i = 0; i <= 6; i++)
+            {
+                if (TopitemBuffer.items[i].isNew == true)
+                {
+                    TopslotRoot.GetChild(i).GetChild(5).gameObject.SetActive(false);
+                }
+            }
+
+            if (openCnt == 1)//처음 열었을 때
+            {
+                for (int i = 0; i <= 3; i++)
+                {
+                    BaseitemBuffer.items[i].itemCount = 5;
+                }
+                for (int i = 0; i <= 8; i++)
+                {
+                    MiddleitemBuffer.items[i].itemCount = 3;
+                }
+                for (int i = 0; i <= 6; i++)
+                {
+                    TopitemBuffer.items[i].itemCount = 3;
+                }
+            }
         }
     }
     public void OnClickSlot(Slot clickedSlot)
@@ -246,7 +480,6 @@ public class Store : MonoBehaviour
         ItemCurPrice = clickedSlot.item.itemPrice;
         maxItemNum = clickedSlot.item.itemCount;
         slot = clickedSlot;
-        //BaseSlider.maxValue = clickedSlot.item.itemCount;
       
     }
 
@@ -264,7 +497,6 @@ public class Store : MonoBehaviour
         ItemCurPrice = clickedSlot.item.itemPrice;
         maxItemNum = clickedSlot.item.itemCount;
         Middleslot = clickedSlot;
-        //MiddleSlider.maxValue = clickedSlot.item.itemCount;
 
     }
 
@@ -282,7 +514,6 @@ public class Store : MonoBehaviour
         ItemCurPrice = clickedSlot.item.itemPrice;
         maxItemNum = clickedSlot.item.itemCount;
         Topslot = clickedSlot;
-        //TopSlider.maxValue = clickedSlot.item.itemCount;
 
     }
 
@@ -293,7 +524,6 @@ public class Store : MonoBehaviour
        
         DetailItemNum.text = BuyNum.ToString();
         DetailPrice.text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
-        //BaseSlider.value += 1;
 
     }
     public void MinusItem()
@@ -303,7 +533,6 @@ public class Store : MonoBehaviour
         
         DetailItemNum.text = BuyNum.ToString();
         DetailPrice.text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
-        //BaseSlider.value -= 1;
     }
 
     public void PlusMiddleItem()
@@ -313,7 +542,6 @@ public class Store : MonoBehaviour
 
         MiddleDetailItemNum.text = BuyNum.ToString();
         MiddleDetailPrice.text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
-        //MiddleSlider.value += 1;
     }
     public void MinusMiddleItem()
     {
@@ -322,8 +550,6 @@ public class Store : MonoBehaviour
 
         MiddleDetailItemNum.text = BuyNum.ToString();
         MiddleDetailPrice.text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
-
-        //MiddleSlider.value -= 1;
     }
 
     public void PlusTopItem()
@@ -333,7 +559,6 @@ public class Store : MonoBehaviour
 
         TopDetailItemNum.text = BuyNum.ToString();
         TopDetailPrice.text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
-        //TopSlider.value += 1;
     }
     public void MinusTopItem()
     {
@@ -342,84 +567,75 @@ public class Store : MonoBehaviour
 
         TopDetailItemNum.text = BuyNum.ToString();
         TopDetailPrice.text = " / " + (BuyNum * ItemCurPrice).ToString() + "$";
-        //TopSlider.value -= 1;
     }
 
     public void PlusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        BuyNum += 1;
-        slotItemPrice = BaseAllPrice * BuyNum;
+        AllBuyNum += 1;
+        slotItemPrice = BaseAllPrice * AllBuyNum;
 
-        BaseBuyAllNum.text = BuyNum.ToString();
+        BaseBuyAllNum.text = AllBuyNum.ToString();
         BaseBuyAllPrice.text = " / " +  slotItemPrice.ToString() + "$";
-
-        //AllBuyslider.value += 1;
     }
 
     public void MiddlePlusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        BuyNum += 1;
+        AllBuyNum += 1;
 
-        MiddleslotItemPrice = MiddleAllPrice * BuyNum;
+        MiddleslotItemPrice = MiddleAllPrice * AllBuyNum;
 
-        MiddleBuyAllNum.text = BuyNum.ToString();
+        MiddleBuyAllNum.text = AllBuyNum.ToString();
         MiddleBuyAllPrice.text = " / " + MiddleslotItemPrice.ToString() + "$";
-        //AllBuyslider.value += 1;
     }
 
     public void TopPlusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        BuyNum += 1;
+        AllBuyNum += 1;
 
-        TopslotItemPrice = TopAllPrice * BuyNum;
+        TopslotItemPrice = TopAllPrice * AllBuyNum;
 
-        TopBuyAllNum.text = BuyNum.ToString();
+        TopBuyAllNum.text = AllBuyNum.ToString();
         TopBuyAllPrice.text = " / " + TopslotItemPrice.ToString() + "$";
-        //AllBuyslider.value += 1;
     }
     public void MinusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        BuyNum -= 1;
+        AllBuyNum -= 1;
 
-        slotItemPrice = BaseAllPrice * BuyNum;
+        slotItemPrice = BaseAllPrice * AllBuyNum;
 
 
-        BaseBuyAllNum.text = BuyNum.ToString();
+        BaseBuyAllNum.text = AllBuyNum.ToString();
         BaseBuyAllPrice.text = " / " + slotItemPrice.ToString() + "$";
-        //AllBuyslider.value -= 1;
     }
 
     public void MiddleMinusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        BuyNum -= 1;
+        AllBuyNum -= 1;
 
-        MiddleslotItemPrice = MiddleAllPrice * BuyNum;
+        MiddleslotItemPrice = MiddleAllPrice * AllBuyNum;
 
-        MiddleBuyAllNum.text = BuyNum.ToString();
+        MiddleBuyAllNum.text = AllBuyNum.ToString();
         MiddleBuyAllPrice.text = " / " + MiddleslotItemPrice.ToString() + "$";
-        //AllBuyslider.value -= 1;
     }
 
     public void TopMinusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        BuyNum -= 1;
+        AllBuyNum -= 1;
 
-        TopslotItemPrice = TopAllPrice * BuyNum;
+        TopslotItemPrice = TopAllPrice * AllBuyNum;
 
-        TopBuyAllNum.text = BuyNum.ToString();
+        TopBuyAllNum.text = AllBuyNum.ToString();
         TopBuyAllPrice.text = " / " + TopslotItemPrice.ToString() + "$";
-        //AllBuyslider.value -= 1;
     }
 
     public void BuyItem()
     {
-        Debug.Log("sss");
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         if (onStoreSlotClick != null)
         {
@@ -430,8 +646,6 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= slot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
-        //alertText.GetComponent<Text>().text = slot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
-        StartCoroutine(FadeTextToZero());
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
         TopItemDetail.gameObject.SetActive(false);
@@ -449,8 +663,6 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= Middleslot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
-        //alertText.GetComponent<Text>().text = Middleslot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
-        StartCoroutine(FadeTextToZero());
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
         TopItemDetail.gameObject.SetActive(false);
@@ -468,8 +680,6 @@ public class Store : MonoBehaviour
         float imsiMoney = fd.Money;
         fd.Money -= Topslot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
-        //alertText.GetComponent<Text>().text = Topslot.item.name + " 향료 " + BuyNum + "개 구매 완료했습니다.";
-        StartCoroutine(FadeTextToZero());
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
         TopItemDetail.gameObject.SetActive(false);
@@ -477,10 +687,10 @@ public class Store : MonoBehaviour
 
     public void BuyAllItemUI()
     {
+        isBaseAllOpen = true;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         for (int i = 0; i < BaseItemList.Length; i++)
         {
-            //Debug.Log(slots[i].item.itemCount);
             if (slots[i].item.itemCount == 0)
             {
                 continue;
@@ -488,13 +698,10 @@ public class Store : MonoBehaviour
 
             BaseItemList[i] = slots[i].item;
         }
-        BuyNum = 1;
-        BaseBuyAllNum.text = BuyNum.ToString();
+        AllBuyNum = 1;
+        BaseBuyAllNum.text = AllBuyNum.ToString();
         slotItemPrice = 0;
         BaseBuyAll.gameObject.SetActive(true);
-        //inven.gameObject.SetActive(true);
-        //inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-        //inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
         for (int i = 0; i < slots.Count; i++)
         {
             if (slots[i].item.itemCount == 0)
@@ -510,10 +717,22 @@ public class Store : MonoBehaviour
 
     public void MiddleBuyAllItemUI()
     {
+        isMiddleAllOpen = true;
+        if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        {
+            Array.Resize(ref MiddleItemList, 9);
+        }
+        if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        {
+            Array.Resize(ref MiddleItemList, 9);
+        }
+        if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        {
+            Array.Resize(ref MiddleItemList, 9);
+        }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         for (int i = 0; i < MiddleItemList.Length; i++)
         {
-            //Debug.Log(Middleslots[i].itemCount);
             if (Middleslots[i].item.itemCount == 0)
             {
                 continue;
@@ -521,8 +740,8 @@ public class Store : MonoBehaviour
 
             MiddleItemList[i] = Middleslots[i].item;
         }
-        BuyNum = 1;
-        MiddleBuyAllNum.text = BuyNum.ToString();
+        AllBuyNum = 1;
+        MiddleBuyAllNum.text = AllBuyNum.ToString();
         MiddleslotItemPrice = 0;
         MiddleBuyAll.gameObject.SetActive(true);
 
@@ -541,6 +760,19 @@ public class Store : MonoBehaviour
 
     public void TopBuyAllItemUI()
     {
+        isTopAllOpen = true;
+        if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        {
+            Array.Resize(ref TopItemList, 5);
+        }
+        if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        {
+            Array.Resize(ref TopItemList, 7);
+        }
+        if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            Array.Resize(ref TopItemList, 9);
+        }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         for (int i = 0; i < TopItemList.Length; i++)
         {
@@ -551,13 +783,10 @@ public class Store : MonoBehaviour
 
             TopItemList[i] = Topslots[i].item;
         }
-        BuyNum = 1;
-        TopBuyAllNum.text = BuyNum.ToString();
+        AllBuyNum = 1;
+        TopBuyAllNum.text = AllBuyNum.ToString();
         TopslotItemPrice = 0;
         TopBuyAll.gameObject.SetActive(true);
-        //inven.gameObject.SetActive(true);
-        //inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-        //inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(true);
         for (int i = 0; i < Topslots.Count; i++)
         {
             if (Topslots[i].item.itemCount == 0)
@@ -575,14 +804,12 @@ public class Store : MonoBehaviour
     {
         for (int i = 0; i < BaseItemList.Length; i++)
         {
+
             if (BaseItemList[i] == null)
                 continue;
 
             inven.GetComponent<Inventory>().BuyItem(BaseItemList[i]);
-
-            BaseItemList[i].itemCount -= BuyNum;
-            //BaseItemList[i].InvenItemNum += BuyNum;
-            //Debug.Log(BaseItemList[i].InvenItemNum);
+            BaseItemList[i].itemCount -= AllBuyNum;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
@@ -602,8 +829,7 @@ public class Store : MonoBehaviour
             }
 
             inven.GetComponent<Inventory>().BuyItem(MiddleItemList[i]);
-            MiddleItemList[i].itemCount -= 1 * BuyNum;
-            //MiddleItemList[i].InvenItemNum += BuyNum;
+            MiddleItemList[i].itemCount -= 1 * AllBuyNum;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
@@ -622,8 +848,7 @@ public class Store : MonoBehaviour
                 break;
 
             inven.GetComponent<Inventory>().BuyItem(TopItemList[i]);
-            TopItemList[i].itemCount -= 1 * BuyNum;
-            //TopItemList[i].InvenItemNum += BuyNum;
+            TopItemList[i].itemCount -= 1 * AllBuyNum;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
@@ -648,28 +873,18 @@ public class Store : MonoBehaviour
     }
     public void CloseBuyAll()
     {
+        isBaseAllOpen = false;
+        isMiddleAllOpen = false;
+        isTopAllOpen = false;
+
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         BaseBuyAll.gameObject.SetActive(false);
         MiddleBuyAll.gameObject.SetActive(false);
         TopBuyAll.gameObject.SetActive(false);
-        //inven.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-        //inven.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
-        //inven.gameObject.SetActive(false);
-    }
-
-    public IEnumerator FadeTextToZero()  // 알파값 1에서 0으로 전환
-    {
-        alertText.color = new Color(alertText.color.r, alertText.color.g, alertText.color.b, 1);
-        while (alertText.color.a > 0.0f)
-        {
-            alertText.color = new Color(alertText.color.r, alertText.color.g, alertText.color.b, alertText.color.a - (Time.deltaTime / 2.0f));
-            yield return null;
-        }
     }
 
     public void Update()
     {
-
         if (BuyNum <= 1)
         {
             BaseMinusBtn.gameObject.GetComponent<Button>().interactable = false;
@@ -681,6 +896,19 @@ public class Store : MonoBehaviour
             BaseMinusBtn.gameObject.GetComponent<Button>().interactable = true;
             MiddleMinusBtn.gameObject.GetComponent<Button>().interactable = true;
             TopMinusBtn.gameObject.GetComponent<Button>().interactable = true;
+        }
+
+        if (AllBuyNum <= 1)
+        {
+            BaseAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = false;
+            MiddleAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = false;
+            TopAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            BaseAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = true;
+            MiddleAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = true;
+            TopAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
         if ((BuyNum + 1) * slot.item.itemPrice > fd.Money)
@@ -697,21 +925,19 @@ public class Store : MonoBehaviour
             TopPlusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
-        if (fd.Money < slotItemPrice)
+        if (fd.Money <= slotItemPrice)
         {
             Debug.Log("잔액 부족");
-            GameObject.Find("Store").transform.GetChild(1).GetChild(0).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = false;
-            GameObject.Find("Store").transform.GetChild(1).GetChild(1).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = false;
-            GameObject.Find("Store").transform.GetChild(1).GetChild(2).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = false;
+            BaseAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
+            MiddleAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
+            TopAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
 
-            alertText.GetComponent<Text>().text = "잔액이 부족합니다.";
-            StartCoroutine(FadeTextToZero());
         }
         else
         {
-            GameObject.Find("Store").transform.GetChild(1).GetChild(0).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = true;
-            GameObject.Find("Store").transform.GetChild(1).GetChild(1).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = true;
-            GameObject.Find("Store").transform.GetChild(1).GetChild(2).GetChild(6).GetChild(2).gameObject.GetComponent<Button>().interactable = true;
+            BaseAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            MiddleAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            TopAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
         if (BuyNum.ToString() == maxItemNum.ToString())
@@ -725,6 +951,81 @@ public class Store : MonoBehaviour
             BasePlusBtn.gameObject.GetComponent<Button>().interactable = true;
             MiddlePlusBtn.gameObject.GetComponent<Button>().interactable = true;
             TopPlusBtn.gameObject.GetComponent<Button>().interactable = true;
+        }
+
+        if (isBaseAllOpen == true)
+        {
+            int Bmin = BaseItemList[0].itemCount;
+            int Bmax = BaseItemList[0].itemCount;
+
+            for (int i = 0; i < BaseItemList.Length; i++)
+            {
+                if (Bmin > BaseItemList[i].itemCount)
+                    Bmin = BaseItemList[i].itemCount;
+
+                else if (Bmax < BaseItemList[i].itemCount)
+                    Bmax = BaseItemList[i].itemCount;
+            }
+
+            if (this.transform.GetChild(1).GetChild(0).gameObject.activeSelf == true)
+            {
+                if (AllBuyNum == Bmin)
+                {
+                    BaseAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
+                }
+                else
+                    BaseAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            }
+        }
+
+        if (isMiddleAllOpen == true)
+        {
+            int Mmin = MiddleItemList[0].itemCount;
+            int Mmax = MiddleItemList[0].itemCount;
+
+            for (int i = 0; i < MiddleItemList.Length; i++)
+            {
+                if (Mmin > MiddleItemList[i].itemCount)
+                    Mmin = MiddleItemList[i].itemCount;
+
+                else if (Mmax < MiddleItemList[i].itemCount)
+                    Mmax = MiddleItemList[i].itemCount;
+            }
+
+            if (this.transform.GetChild(1).GetChild(1).gameObject.activeSelf == true)
+            {
+                if (AllBuyNum == Mmin)
+                {
+                    MiddleAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
+                }
+                else
+                    MiddleAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            }
+        }
+
+        if (isTopAllOpen == true)
+        {
+            int Tmin = TopItemList[0].itemCount;
+            int Tmax = TopItemList[0].itemCount;
+
+            for (int i = 0; i < TopItemList.Length; i++)
+            {
+                if (Tmin > TopItemList[i].itemCount)
+                    Tmin = TopItemList[i].itemCount;
+
+                else if (Tmax < TopItemList[i].itemCount)
+                    Tmax = TopItemList[i].itemCount;
+            }
+
+            if (this.transform.GetChild(1).GetChild(2).gameObject.activeSelf == true)
+            {
+                if (AllBuyNum == Tmin)
+                {
+                    TopAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
+                }
+                else
+                    TopAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = true;
+            }
         }
     }
 

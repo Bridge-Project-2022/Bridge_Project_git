@@ -13,6 +13,7 @@ public class FourthDialogueRandom : MonoBehaviour
     public GameObject Customer;
 
     public GameObject Distiller;
+    public GameObject DistillerUI;
     public GameObject Presser;
     public GameObject Cooler;
 
@@ -25,15 +26,13 @@ public class FourthDialogueRandom : MonoBehaviour
 
     public bool isDialogueEnd = false;
 
-    //public bool makeStart = false;
-
     public GameObject arrow;
 
     public int rejectCnt = 0;//거절 횟수 -> 평판 영향, 일차 지날 때 마다 리셋되어야 함.
 
     public string[] SellerSentences = new string[2];// 유저 대화 배열
 
-    DialogueScript DS;
+    FourthDialogueScript DS;
 
     public string[] BuyerOrder = new string[10];
     public string[] BuyerIntensity = new string[5];
@@ -73,7 +72,7 @@ public class FourthDialogueRandom : MonoBehaviour
     public void Update()
     {
 
-        DS = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>();
+        DS = GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>();
 
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
         WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
@@ -358,6 +357,7 @@ public class FourthDialogueRandom : MonoBehaviour
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
             Customer.gameObject.SetActive(true);
             Buyer.gameObject.SetActive(true);
+
             if (GameObject.Find("CriminalSystem").GetComponent<CriminalSystem>().isDeclareClick == false)
             {
                 GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);

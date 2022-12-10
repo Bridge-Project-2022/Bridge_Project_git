@@ -12,6 +12,7 @@ public class SecondDialogueRandom : MonoBehaviour
     public GameObject Customer;
 
     public GameObject Distiller;
+    public GameObject DistillerUI;
     public GameObject Presser;
     public GameObject Cooler;
 
@@ -357,14 +358,7 @@ public class SecondDialogueRandom : MonoBehaviour
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
             Customer.gameObject.SetActive(true);
             Buyer.gameObject.SetActive(true);
-            /*if (GameObject.Find("CriminalSystem").GetComponent<CriminalSystem>().isDeclareClick == false)
-            {
-                GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
-            }
-            if (DailyResult.GetComponent<DailyResult>().personNum == 0)
-            {
-                GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
-            }*/
+
             AStart = true;
             isDialogueStart = true;
             NextDialogue();

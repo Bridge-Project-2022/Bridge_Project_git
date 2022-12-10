@@ -67,7 +67,7 @@ public class Slot : MonoBehaviour
         GameObject.Find("ClickedItem").GetComponent<Image>().color = color;//클릭한 아이템 투명도 0이었다가 보여져야 하니까 255로 변경
         GameObject.Find("ClickedItem").GetComponent<Image>().sprite = this.image.sprite;
 
-        if (ClickedSlot.item.itemType == "Base")//증류기 실행
+        if (ClickedSlot.item.itemType == "Base" && GameObject.Find("TotalScoreBuffer").GetComponent<TotalScore>().DistillCnt == 0)//증류기 실행
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
@@ -81,7 +81,7 @@ public class Slot : MonoBehaviour
             Debug.Log("증류기 시작");
         }
 
-        else if (item.itemType == "Middle")//압착기 실행
+        else if (item.itemType == "Middle" && GameObject.Find("TotalScoreBuffer").GetComponent<TotalScore>().PressCnt == 0)//압착기 실행
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
@@ -94,7 +94,7 @@ public class Slot : MonoBehaviour
             Debug.Log("압착기 시작");
             GameObject.Find("Presser").GetComponent<Presser>().PresserOn(ClickedItem);
         }
-        else if (item.itemType == "Top")//냉침기 실행
+        else if (item.itemType == "Top" && GameObject.Find("TotalScoreBuffer").GetComponent<TotalScore>().CoolCnt == 0)//냉침기 실행
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
@@ -137,10 +137,6 @@ public class Slot : MonoBehaviour
                 this.GetComponent<UnityEngine.UI.Button>().interactable = false;
                 itemCount.text = "판매 완료";
             }
-            /*if (FindObjectOfType<DeskTouch>().isDeskUp == true)// 데스크가 올라온 경우(아이템 제조 시작 경우)에만 인벤 아이템 클릭 가능 상태로 만듦.
-            {
-                this.gameObject.GetComponent<Button>().interactable = true;
-            }*/
         }
     }
 }

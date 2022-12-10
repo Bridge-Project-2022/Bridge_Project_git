@@ -42,7 +42,7 @@ public class SoundController : MonoBehaviour
             GameObject.Find("BgmVolume").gameObject.GetComponent<Image>().sprite = BGMOffImg;
 
             //BGMSlider.gameObject.SetActive(false);
-            BGMSource.gameObject.SetActive(false);
+            BGMSource.volume = 0.0f;
 
             isBGMOn = true;
         }
@@ -52,7 +52,7 @@ public class SoundController : MonoBehaviour
             GameObject.Find("BgmVolume").gameObject.GetComponent<Image>().sprite = BGMOnImg;
 
             //BGMSlider.gameObject.SetActive(true);
-            BGMSource.gameObject.SetActive(true);
+            BGMSource.volume = 1f;
 
             isBGMOn = false;
         }
@@ -63,12 +63,8 @@ public class SoundController : MonoBehaviour
         {
             GameObject.Find("SfxVolume").gameObject.GetComponent<Image>().sprite = SFXOffImg;
 
-            //SFXSlider.gameObject.SetActive(false);
-            SFXSource.gameObject.SetActive(false);
-            TypingSource.gameObject.SetActive(false);
-
-            SFXSource.clip = null;
-            TypingSource.clip = null;
+            SFXSource.volume = 0.0f;
+            TypingSource.volume = 0.0f;
 
             isSFXOn = true;
         }
@@ -77,9 +73,8 @@ public class SoundController : MonoBehaviour
         {
             GameObject.Find("SfxVolume").gameObject.GetComponent<Image>().sprite = SFXOnImg;
 
-            //SFXSlider.gameObject.SetActive(true);
-            SFXSource.gameObject.SetActive(true);
-            TypingSource.gameObject.SetActive(true);
+            SFXSource.volume = 1.0f;
+            TypingSource.volume = 1.0f;
 
             isSFXOn = false;
         }

@@ -18,16 +18,7 @@ public class NotePatterns : MonoBehaviour
     {
         //StartCoroutine("FamilyPattern");
     }
-    private void Update()
-    {
-        /*if (Presser.FindObjectOfType<Presser>().GetComponent<Presser>().ClickedItem.name == "가족")
-        {
-            if (DestroyCnt == 7)
-            {
-                Presser.FindObjectOfType<Presser>().GetComponent<Presser>().PresserEnd();
-            }
-        }*/
-    }
+
     IEnumerator FamilyPattern()
     {
         yield return new WaitForSeconds(1.0f);
@@ -168,6 +159,239 @@ public class NotePatterns : MonoBehaviour
 
         yield return null;
     }
+
+    IEnumerator FriendPattern()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.4f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+        //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
+
+        yield return null;
+    }
+
+    IEnumerator ToyPattern()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.4f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+        //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
+
+        yield return null;
+    }
+
+    IEnumerator DollPattern()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.7f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.7f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.8f);
+
+        //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
+
+        yield return null;
+    }
+
+    IEnumerator SchoolPattern()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.7f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.7f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.8f);
+
+        //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
+
+        yield return null;
+    }
+
+    IEnumerator PlayGroundPattern()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.5f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.7f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.7f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.8f);
+
+        //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
+
+        yield return null;
+    }
+
+    IEnumerator TravelPattern()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.6f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.3f);
+
+        CreateRightNote();
+        yield return new WaitForSeconds(0.2f);
+
+        CreateLeftNote();
+        yield return new WaitForSeconds(0.3f);
+
+        //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
+
+        yield return null;
+    }
+
     GameObject CreateLeftNote()
     {
         GameObject go = Instantiate(Note, NoteStartPos);

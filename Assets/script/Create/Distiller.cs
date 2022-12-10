@@ -45,9 +45,8 @@ public class Distiller : MonoBehaviour
     public AudioClip MiddleSFX;
     public AudioClip HighSFX;
 
-
-    //public GameObject baseInvenSlots;
     public GameObject DistillWindow;
+
     public void OnEnable()
     {
         // GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boiling");
@@ -63,8 +62,12 @@ public class Distiller : MonoBehaviour
     }
 public void DistillerOn(ItemProperty item)
     {
+        TotalScore.FindObjectOfType<TotalScore>().DistillCnt++;
+        for (int i = 0; i < GameObject.Find("BaseInvenSlots").transform.childCount; i++)
+        {
+            GameObject.Find("BaseInvenSlots").transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         Receipt.gameObject.SetActive(false);
-        //this.gameObject.GetComponent<Button>().interactable = true;//증류기 버튼 클릭 가능해짐.
         ClickedItem = item;
         itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
         if (ClickedItem.name == BaseItemName)
@@ -174,8 +177,6 @@ public void DistillerOn(ItemProperty item)
                 if (maxTemperDuration > 1.5f)// 최대 지속 시간 1.5보다 크면
                 {
                     Debug.Log("타버림");
-                    //itemImage.GetComponent<Image>().color = new Color(1, 0, 0); 
-                    //clickedItem.GetComponent<Image>().color = new Color(1, 0, 0);
                     EndDistiller();
                     maxTemperDuration = 0.0f;
                 }
@@ -281,9 +282,9 @@ public void DistillerOn(ItemProperty item)
         GameObject.Find("SFX").GetComponent<AudioSource>().loop = false;
         DistillerResult();
         temperatureSlider.GetComponent<Slider>().value = 1;
-        HighTemperDuration = 0;
-        TemperDuration = 0;
-        LowTemperDuration = 0;
+        HighTemperDuration = 0.0f;
+        TemperDuration = 0.0f;
+        LowTemperDuration = 0.0f;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
         InvenUI.GetComponent<Button>().interactable = true;
         Invoke("CloseWindow", 0.5f);
@@ -293,7 +294,7 @@ public void DistillerOn(ItemProperty item)
     {
         TotalScore.FindObjectOfType<TotalScore>().isDistillFin = true;
         temperature = 0;
-        //distiller.gameObject.GetComponent<Button>().interactable = false;
+        distiller.gameObject.GetComponent<Button>().interactable = false;
         distillerDetail.SetActive(false);
         Receipt.gameObject.SetActive(true);
 

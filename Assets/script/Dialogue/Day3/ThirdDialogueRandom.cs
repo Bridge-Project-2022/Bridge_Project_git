@@ -13,6 +13,7 @@ public class ThirdDialogueRandom : MonoBehaviour
     public GameObject Customer;
 
     public GameObject Distiller;
+    public GameObject DistillerUI;
     public GameObject Presser;
     public GameObject Cooler;
 
@@ -33,7 +34,7 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public string[] SellerSentences = new string[2];// 유저 대화 배열
 
-    DialogueScript DS;
+    ThirdDialogueScript DS;
 
     public string[] BuyerOrder = new string[10];
     public string[] BuyerIntensity = new string[5];
@@ -73,7 +74,7 @@ public class ThirdDialogueRandom : MonoBehaviour
     public void Update()
     {
 
-        DS = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>();
+        DS = GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>();
 
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
         WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
@@ -358,14 +359,7 @@ public class ThirdDialogueRandom : MonoBehaviour
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
             Customer.gameObject.SetActive(true);
             Buyer.gameObject.SetActive(true);
-            if (GameObject.Find("CriminalSystem").GetComponent<CriminalSystem>().isDeclareClick == false)
-            {
-                GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
-            }
-            if (DailyResult.GetComponent<DailyResult>().personNum == 0)
-            {
-                GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
-            }
+
             AStart = true;
             isDialogueStart = true;
             NextDialogue();

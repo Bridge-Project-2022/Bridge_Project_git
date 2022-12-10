@@ -27,6 +27,8 @@ public class NextDay : MonoBehaviour
 
     string[] CustomerTxt = new string[2];
 
+    public GameObject Store;
+
     public void Start()
     {
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
@@ -62,13 +64,16 @@ public class NextDay : MonoBehaviour
         }
         if (day == 3)
         {
-            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
-            Invoke("GoToTitle", 3f);
-            //Invoke("ThirdDayStart", 3f);
+            Invoke("ThirdDayStart", 3f);
         }
         if (day == 4)
         {
             Invoke("FourthDayStart", 3f);
+        }
+        if (day == 5)
+        {
+            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
+            Invoke("GoToTitle", 3f);
         }
     }
 
@@ -127,6 +132,7 @@ public class NextDay : MonoBehaviour
         BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
         WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
 
+        Store.GetComponent<Store>().openCnt = 0;
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<DialogueRandom>().enabled = false;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = true;
@@ -140,6 +146,7 @@ public class NextDay : MonoBehaviour
         BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
         WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
 
+        Store.GetComponent<Store>().openCnt = 0;
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = false;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = true;
@@ -153,6 +160,7 @@ public class NextDay : MonoBehaviour
         BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
         WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
 
+        Store.GetComponent<Store>().openCnt = 0;
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = true;

@@ -23,75 +23,6 @@ public class PresserTap : MonoBehaviour
         CatPress.gameObject.GetComponent<Image>().SetNativeSize();
         //CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[0];
     }
-    /*public void OnTapBtnClicked(int tapType)
-    {
-        ChildList = Notes.GetComponentsInChildren<Transform>();
-
-        GameObject NextNote = null;
-        foreach (Transform child in ChildList)
-        {
-            GameObject go = child.gameObject;
-
-            // 부모를 제외 자식만 가져옴.
-            if (go.name == "Notes")
-                continue;
-
-            if ((int)go.GetComponent<Note>().noteType == tapType)
-            {
-                NextNote = go;
-                break;
-            }
-        }
-
-        if (NextNote == null)
-            return;
-
-        float NextNoteXpos = NextNote.transform.position.x;
-        float distance = Mathf.Abs(NextNoteXpos - EndPoint.transform.position.x);
-
-        if (distance > 250.0f)
-        {
-            CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[0];
-            return;
-        }
-
-        if (distance > 200.0f)
-        {
-            if (tapType == 0 && isPressDown == true)
-                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[10];
-            if (tapType == 1 && isPressDown == true)
-                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[12];
-            Debug.Log("Miss...");
-            
-        }
-        else if (distance > 150.0f)
-        {
-            if (tapType == 0 && isPressDown == true)
-                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[7];
-            if (tapType == 1 && isPressDown == true)
-                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[9];
-            Debug.Log("Bad");
-
-        }
-        else if (distance > 100.0f)
-        {
-            if (tapType == 0 && isPressDown == true)
-                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[4];
-            if (tapType == 1 && isPressDown == true)
-                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[6];
-            Debug.Log("Good");
-        }
-        else
-        {
-            if (tapType == 0 && isPressDown == true)
-                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[1];
-            if (tapType == 1 && isPressDown == true)
-                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[3];
-            Debug.Log("Perfect!");
-        }
-
-        Destroy(NextNote);
-    }*/
 
     public void PressDown(int tapType)
     {
@@ -168,8 +99,6 @@ public class PresserTap : MonoBehaviour
             Debug.Log("Perfect!");
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("pressDown");
-        //GameObject.Find("NoteLine").GetComponent<NotePatterns>().DestroyCnt++;
-
     }
 
     public void PressUp()

@@ -59,6 +59,11 @@ public class TotalScore : MonoBehaviour
     public bool isAllFinished = false;
 
     public GameObject Distiller;
+
+    public int DistillCnt = 0;
+    public int PressCnt = 0;
+    public int CoolCnt = 0;
+
     private void Start()
     {
         totalScore = 0;
@@ -366,5 +371,9 @@ public class TotalScore : MonoBehaviour
 
         reputNum = 0;
         perfumePrice = 0;
+
+        DistillCnt = 0;
+        PressCnt = 0;
+        CoolCnt = 0;
     }
 }

@@ -5,5 +5,4 @@ using UnityEngine;
 public class ItemBuffer : MonoBehaviour
 {
     public List<ItemProperty> items;
-
 }

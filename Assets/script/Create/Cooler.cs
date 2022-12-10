@@ -65,17 +65,21 @@ public class Cooler : MonoBehaviour
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         }
-           
-        //Debug.Log(ClickedItem.name);
+          
     }
 
     public void CoolerStart()//냉침기 자세히 보여지고 기능 시작. 
     {
+        TotalScore.FindObjectOfType<TotalScore>().CoolCnt++;
+        for (int i = 0; i < GameObject.Find("TopInvenSlots").transform.childCount; i++)
+        {
+            GameObject.Find("TopInvenSlots").transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolerTouch");
         GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
         Receipt.gameObject.SetActive(false);
-        CoolerDetail.gameObject.SetActive(true);
+        Invoke("CoolerDetailShow", 0.5f);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
-        //GameObject.Find("Desk").GetComponent<Button>().interactable = false;
 
         if (ClickedItem.name == "기쁨")
         {
@@ -111,6 +115,10 @@ public class Cooler : MonoBehaviour
         Invoke("Cooling", 3.5f);
     }
 
+    public void CoolerDetailShow()
+    {
+        CoolerDetail.gameObject.SetActive(true);
+    }
     public void Cooling()
     {
         if (ClickedItem.name.Equals("행복"))
@@ -161,6 +169,7 @@ public class Cooler : MonoBehaviour
     }
     public void CoolerClose()//냉침기 종료
     {
+        this.gameObject.GetComponent<Button>().interactable = false;
         Receipt.gameObject.SetActive(true);
         for (int i = 0; i < topInvenSlots.transform.childCount; i++)
         {
