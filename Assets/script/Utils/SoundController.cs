@@ -41,7 +41,7 @@ public class SoundController : MonoBehaviour
         {
             GameObject.Find("BgmVolume").gameObject.GetComponent<Image>().sprite = BGMOffImg;
 
-            //BGMSlider.gameObject.SetActive(false);
+            BGMSlider.gameObject.SetActive(false);
             BGMSource.volume = 0.0f;
 
             isBGMOn = true;
@@ -51,7 +51,7 @@ public class SoundController : MonoBehaviour
         {
             GameObject.Find("BgmVolume").gameObject.GetComponent<Image>().sprite = BGMOnImg;
 
-            //BGMSlider.gameObject.SetActive(true);
+            BGMSlider.gameObject.SetActive(true);
             BGMSource.volume = 1f;
 
             isBGMOn = false;

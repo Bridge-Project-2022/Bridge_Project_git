@@ -234,7 +234,7 @@ public void DistillerOn(ItemProperty item)
             {
                 TemperDuration = 0;
                 HighTemperDuration = 0;
-                LowTemperDuration += 0.01f;
+                LowTemperDuration = 0;
                 //Debug.Log("약불로 바뀜");
                 isHigh = false;
                 isMiddle = false;
@@ -282,9 +282,6 @@ public void DistillerOn(ItemProperty item)
         GameObject.Find("SFX").GetComponent<AudioSource>().loop = false;
         DistillerResult();
         temperatureSlider.GetComponent<Slider>().value = 1;
-        HighTemperDuration = 0.0f;
-        TemperDuration = 0.0f;
-        LowTemperDuration = 0.0f;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
         InvenUI.GetComponent<Button>().interactable = true;
         Invoke("CloseWindow", 0.5f);
@@ -292,6 +289,9 @@ public void DistillerOn(ItemProperty item)
 
     public void CloseWindow()
     {
+        HighTemperDuration = 0.0f;
+        TemperDuration = 0.0f;
+        LowTemperDuration = 0.0f;
         TotalScore.FindObjectOfType<TotalScore>().isDistillFin = true;
         temperature = 0;
         distiller.gameObject.GetComponent<Button>().interactable = false;

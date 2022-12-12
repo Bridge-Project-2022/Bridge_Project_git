@@ -35,7 +35,7 @@ public class DialogueRecipt : MonoBehaviour
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
 
-            /*foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder)
+            foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder)
             {
                 PerfumeOrder = DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder;
             }
@@ -43,94 +43,66 @@ public class DialogueRecipt : MonoBehaviour
             foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder)
             {
                 IntensityOrder = DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder;
-            }*/
-            for (int i = 0; i < DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder.Length; i++)
-            {
-                if (DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder[i] == "")
-                    break;
-
-                PerfumeOrder[i] = DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder[i];
             }
 
-            for (int i = 0; i < DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder.Length; i++)
-            {
-                if (DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder[i] == "")
-                    break;
+            string PerfumeOrderText = string.Join("", PerfumeOrder);
+            string IntensityOrderText = string.Join("", IntensityOrder);
 
-                IntensityOrder[i] = DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder[i];
-            }
-
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrder[0] + "\n" + PerfumeOrder[1] + "\n" + PerfumeOrder[2] + "\n" + PerfumeOrder[3] + "\n" + PerfumeOrder[4] + "\n" + PerfumeOrder[5] + "\n" + PerfumeOrder[6] + "\n" + PerfumeOrder[7] + "\n" + PerfumeOrder[8]
-            + "\n" + "\n" + IntensityOrder[0] + "\n" + IntensityOrder[1] + "\n" + IntensityOrder[2] + "\n" + IntensityOrder[3];
+            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {
-            for (int i = 0; i < DialogueScript.GetComponent<SecondDialogueScript>().Customer_PerfumeOrder.Length; i++)
+            foreach (string str in DialogueScript.GetComponent<SecondDialogueScript>().Customer_PerfumeOrder)
             {
-                if (DialogueScript.GetComponent<SecondDialogueScript>().Customer_PerfumeOrder[i] == "")
-                    break;
-
-                PerfumeOrder[i] = DialogueScript.GetComponent<SecondDialogueScript>().Customer_PerfumeOrder[i];
+                PerfumeOrder = DialogueScript.GetComponent<SecondDialogueScript>().Customer_PerfumeOrder;
             }
 
-            for (int i = 0; i < DialogueScript.GetComponent<SecondDialogueScript>().Customer_IntensityOrder.Length; i++)
+            foreach (string str in DialogueScript.GetComponent<SecondDialogueScript>().Customer_IntensityOrder)
             {
-                if (DialogueScript.GetComponent<SecondDialogueScript>().Customer_IntensityOrder[i] == "")
-                    break;
-
-                IntensityOrder[i] = DialogueScript.GetComponent<SecondDialogueScript>().Customer_IntensityOrder[i];
+                IntensityOrder = DialogueScript.GetComponent<SecondDialogueScript>().Customer_IntensityOrder;
             }
 
+            string PerfumeOrderText = string.Join("", PerfumeOrder);
+            string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrder[0] + "\n" + PerfumeOrder[1] + "\n" + PerfumeOrder[2] + "\n" + PerfumeOrder[3] + "\n" + PerfumeOrder[4] + "\n" + PerfumeOrder[5] + "\n"
-            + "\n" + IntensityOrder[0] + "\n" + IntensityOrder[1] + "\n" + IntensityOrder[2] + "\n" + IntensityOrder[3];
+            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
-            for (int i = 0; i < DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder.Length; i++)
+            foreach (string str in DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder)
             {
-                if (DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder[i] == "")
-                    break;
-
-                PerfumeOrder[i] = DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder[i];
+                PerfumeOrder = DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder;
             }
 
-            for (int i = 0; i < DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder.Length; i++)
+            foreach (string str in DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder)
             {
-                if (DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder[i] == "")
-                    break;
-
-                IntensityOrder[i] = DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder[i];
+                IntensityOrder = DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder;
             }
 
+            string PerfumeOrderText = string.Join("", PerfumeOrder);
+            string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrder[0] + "\n" + PerfumeOrder[1] + "\n" + PerfumeOrder[2] + "\n" + PerfumeOrder[3] + "\n" + PerfumeOrder[4] + "\n" + PerfumeOrder[5] + "\n"
-            + "\n" + IntensityOrder[0] + "\n" + IntensityOrder[1] + "\n" + IntensityOrder[2] + "\n" + IntensityOrder[3];
+            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 4)
         {
-            for (int i = 0; i < DialogueScript.GetComponent<FourthDialogueScript>().Customer_PerfumeOrder.Length; i++)
+            foreach (string str in DialogueScript.GetComponent<FourthDialogueScript>().Customer_PerfumeOrder)
             {
-                if (DialogueScript.GetComponent<FourthDialogueScript>().Customer_PerfumeOrder[i] == "")
-                    break;
-
-                PerfumeOrder[i] = DialogueScript.GetComponent<FourthDialogueScript>().Customer_PerfumeOrder[i];
+                PerfumeOrder = DialogueScript.GetComponent<FourthDialogueScript>().Customer_PerfumeOrder;
             }
 
-            for (int i = 0; i < DialogueScript.GetComponent<FourthDialogueScript>().Customer_IntensityOrder.Length; i++)
+            foreach (string str in DialogueScript.GetComponent<FourthDialogueScript>().Customer_IntensityOrder)
             {
-                if (DialogueScript.GetComponent<FourthDialogueScript>().Customer_IntensityOrder[i] == "")
-                    break;
-
-                IntensityOrder[i] = DialogueScript.GetComponent<FourthDialogueScript>().Customer_IntensityOrder[i];
+                IntensityOrder = DialogueScript.GetComponent<FourthDialogueScript>().Customer_IntensityOrder;
             }
 
+            string PerfumeOrderText = string.Join("", PerfumeOrder);
+            string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrder[0] + "\n" + PerfumeOrder[1] + "\n" + PerfumeOrder[2] + "\n" + PerfumeOrder[3] + "\n" + PerfumeOrder[4] + "\n" + PerfumeOrder[5] + "\n"
-            + "\n" + IntensityOrder[0] + "\n" + IntensityOrder[1] + "\n" + IntensityOrder[2] + "\n" + IntensityOrder[3];
+            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
 
