@@ -22,6 +22,14 @@ public class PresserTap : MonoBehaviour
     {
         CatPress.gameObject.GetComponent<Image>().SetNativeSize();
         //CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[0];
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            PressDown(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            PressDown(1);
+        }
     }
 
     public void PressDown(int tapType)

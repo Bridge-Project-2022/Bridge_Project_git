@@ -9,15 +9,9 @@ public class Presser : MonoBehaviour
     public GameObject PresserDetail;
     public ItemProperty ClickedItem;
 
-    public GameObject body;// 압착 부품이 닿는 바닥 부품
-    public GameObject handle;// 압착기 움직이는 핸들
-    public GameObject button;// 압착기 전원 켜고 끄는 버튼
-    //public GameObject PressItem;//압착 재료
     public GameObject NotePattern;
 
     public int PressureScore = 0;
-    private bool isBtnOn;
-    public static bool isHandleUp = true;
     public int PressCount;
     public bool isEnd = false;//끝나서 수거하면 true
 
@@ -28,8 +22,6 @@ public class Presser : MonoBehaviour
 
     public void Start()
     {
-        isBtnOn = false;
-        button.GetComponent<Image>().color = Color.red;
         PressCount = 0;
     }
     public void PresserOn(ItemProperty item)
