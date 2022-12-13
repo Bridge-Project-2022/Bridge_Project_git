@@ -8,6 +8,7 @@ public class Test : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
        GameDataManager.Instance.NewGameStart();
+       GameDataManager.Instance.Money = GameDataManager.Instance.Money - 100;
     }
 
     // Update is called once per frame

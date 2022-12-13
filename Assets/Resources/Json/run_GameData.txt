@@ -1,5 +1,5 @@
 {
-    "money": 1000,
+    "money": 800,
     "day": 0,
     "reputation": 50,
     "sound": 5.0,

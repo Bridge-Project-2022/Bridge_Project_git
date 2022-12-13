@@ -10,6 +10,14 @@ public class GameDataManager : Singleton<GameDataManager>
 
     private string newGameDataFileName = "GameData";
     private string runTimeGameDataFileName = "run_GameData";
+    
+    private void Awake()
+    {
+        gameData = new GameData();
+        gameData.itemList = new List<ItemProperty>();
+    }
+    
+    #region Property
 
     public int Money
     {
@@ -45,21 +53,29 @@ public class GameDataManager : Singleton<GameDataManager>
     {
         if (item == null)
             return;
-        gameData.itemList.Add(item);
+        if(gameData.itemList.Contains(item))
+        {
+            gameData.itemList.Find(x => x == item).itemCount += 1;
+        }
+        else
+        {
+            gameData.itemList.Add(item);
+        }
     }
 
     public void RemoveItem(ItemProperty item)
     {
         if (item == null)
             return;
-        gameData.itemList.Remove(item); // 아이템 데이터 삭제 물어볼 것
+        if(gameData.itemList.Contains(item))
+        {
+            gameData.itemList.Find(x => x == item).itemCount -= 1;
+        }
     }
 
-    private void Awake()
-    {
-        gameData = new GameData();
-        gameData.itemList = new List<ItemProperty>();
-    }
+    #endregion 
+
+    #region PublicMethod
 
     /// <summary>
     /// 게임 시작 후 첫 시작의 경우 호출
@@ -70,6 +86,7 @@ public class GameDataManager : Singleton<GameDataManager>
         GameDataJsonSave(runTimeGameDataFileName);
         // 추가적인 newGame 게임 세팅 여기서
         // ...
+        
     }
 
     /// <summary>
@@ -79,6 +96,7 @@ public class GameDataManager : Singleton<GameDataManager>
     {
         GameDataJsonSave(runTimeGameDataFileName);
         // 저장 후 처리
+        
     }
     
     /// <summary>
@@ -90,6 +108,8 @@ public class GameDataManager : Singleton<GameDataManager>
         // 불러오기 처리
     }
 
+    #endregion
+    
     #region UtillsMethod
 
     private void GameDataJsonLoad(string fileName)
