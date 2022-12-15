@@ -14,3 +14,4 @@ public class ItemProperty
     public string itemExplanation;
     public bool isNew;
 }
+
