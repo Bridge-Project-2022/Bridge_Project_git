@@ -77,7 +77,7 @@ public class Slot : MonoBehaviour
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
-            GameObject.Find("Manufacture").transform.GetChild(7).GetComponent<Distiller>().DistillerOn(ClickedItem);
+            GameObject.Find("Manufacture").transform.GetChild(6).GetComponent<Distiller>().DistillerOn(ClickedItem);
             Debug.Log("증류기 시작");
         }
 

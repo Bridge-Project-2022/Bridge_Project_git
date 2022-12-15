@@ -10,7 +10,7 @@ public class MenuBtn : MonoBehaviour
     public Sprite close;
 
     public GameObject Menu;
-    public GameObject FadePannel;
+    public GameObject NewsFadePanel;
 
     public GameObject RepHandle;
 
@@ -91,17 +91,23 @@ public class MenuBtn : MonoBehaviour
     {
         GameQuit.gameObject.SetActive(false);
     }
-
-
+    public void ShowUnsupportedMessage()
+    {
+        GameObject.Find("popup").transform.GetChild(2).gameObject.SetActive(true);
+        Invoke("CloseUnsupportedMessage", 2f);
+    }
+    public void CloseUnsupportedMessage()
+    {
+        GameObject.Find("popup").transform.GetChild(2).gameObject.SetActive(false);
+    }
     public void NewsClose()
     {
-        StartCoroutine(FadeIn());
-        Invoke("CloseNews", 1f);
+        NewsFadePanel.SetActive(true);
+        Invoke("CloseNews", 2f);
         GameObject.Find("BGM").GetComponent<AudioSource>().clip = main;
-        GameObject.Find("BGM").GetComponent<AudioSource>().volume = 0.15f;
         GameObject.Find("BGM").GetComponent<AudioSource>().Play();
     }
-    IEnumerator FadeIn()
+    /*IEnumerator FadeIn()
     {
         for (int i = 0; i < 10; i++)
         {
@@ -111,11 +117,11 @@ public class MenuBtn : MonoBehaviour
             FadePannel.GetComponent<Image>().color = c;
             yield return new WaitForSeconds(0.1f);
         }
-    }
+    }*/
 
     public void CloseNews()
     {
-        FadePannel.gameObject.SetActive(false);
+        NewsFadePanel.gameObject.SetActive(false);
         GameObject.Find("NewsTime").gameObject.SetActive(false);
     }
 }

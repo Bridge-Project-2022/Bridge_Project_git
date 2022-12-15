@@ -29,6 +29,11 @@ public class NextDay : MonoBehaviour
 
     public GameObject Store;
 
+    public GameObject NewsPanel;
+
+    public Sprite[] NewsIMG = new Sprite[7];
+
+    public AudioClip NewsBGM;
     public void Start()
     {
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
@@ -89,6 +94,32 @@ public class NextDay : MonoBehaviour
 
     }
 
+    public void NewsTimePanel()
+    {
+        NewsPanel.gameObject.SetActive(true);
+
+        GameObject.Find("BGM").GetComponent<AudioSource>().clip = NewsBGM;
+        GameObject.Find("BGM").GetComponent<AudioSource>().Play();
+
+        if (day == 1)
+        {
+            NewsPanel.gameObject.GetComponent<Image>().sprite = NewsIMG[0];
+        }
+        if (day == 2)
+        {
+            NewsPanel.gameObject.GetComponent<Image>().sprite = NewsIMG[1];
+        }
+        if (day == 3)
+        {
+            NewsPanel.gameObject.GetComponent<Image>().sprite = NewsIMG[2];
+            NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        if (day == 4)
+        {
+            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
+            Invoke("GoToTitle", 3f);
+        }
+    }
     public void SellerStart()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("visit");
@@ -104,7 +135,6 @@ public class NextDay : MonoBehaviour
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";
-        //GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
 
         for (int a = 0; a < narration.Length; a++)
         {

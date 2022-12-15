@@ -60,6 +60,17 @@ public class TitleBtns : MonoBehaviour
             i4.gameObject.SetActive(false);
 
     }
+
+    public void ShowUnsupportedMessage()
+    {
+        GameObject.Find("Canvas").transform.GetChild(3).gameObject.SetActive(true);
+        Invoke("CloseUnsupportedMessage", 2f);
+    }
+    public void CloseUnsupportedMessage()
+    {
+        GameObject.Find("Canvas").transform.GetChild(3).gameObject.SetActive(false);
+    }
+
     public void ExitBtnClicked()
     {
 #if UNITY_EDITOR

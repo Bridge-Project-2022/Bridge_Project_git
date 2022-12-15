@@ -22,6 +22,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip news;
     public AudioClip main;
+    public AudioClip Lorena1;
+    public AudioClip LorenaCutScene;
 
     public GameObject newsPanel;
 
@@ -32,16 +34,6 @@ public class SoundManager : MonoBehaviour
         sfxAudioSource = this.transform.GetChild(1).gameObject.GetComponent<AudioSource>();
         typeAudioSource = this.transform.GetChild(2).gameObject.GetComponent<AudioSource>();
     }
-    public void Update()
-    {
-        //if(newsPanel.activeSelf == true)
-        //{
-            //PlayBGM("news");
-        //}
-        //else
-           // PlayBGM("main");
-    }
-    // Update is called once per frame
     public void PlaySFX(string action)
     {
         switch (action)
@@ -109,6 +101,14 @@ public class SoundManager : MonoBehaviour
 
             case "main":
                 bgmAudioSource.clip = main;
+                break;
+
+            case "Lorena1":
+                bgmAudioSource.clip = Lorena1;
+                break;
+
+            case "LorenaCutScene":
+                bgmAudioSource.clip = LorenaCutScene;
                 break;
         }
         bgmAudioSource.Play();
