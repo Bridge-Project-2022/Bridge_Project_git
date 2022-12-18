@@ -14,12 +14,13 @@ public class CriminalSystem : MonoBehaviour
     public Sprite Fail;
 
     public bool isDeclareClick = false;
+    public Sprite[] MontageIMG = new Sprite[5];
 
     public void Start()
     {
         for (int i = 0; i < CriminalNum.Length; i++)
         {
-            CriminalNum[i] = Random.Range(1, 6);
+            CriminalNum[i] = Random.Range(1, 5);
             for (int j = 0; j < i; j++)
             {
                 if (CriminalNum[i] == CriminalNum[j])
@@ -28,6 +29,25 @@ public class CriminalSystem : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+    public void MontageShow()
+    {
+        if (CriminalNum[0] == 1)
+        { 
+            GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = MontageIMG[0];
+        }
+        if (CriminalNum[0] == 2)
+        {
+            GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = MontageIMG[1];
+        }
+        if (CriminalNum[0] == 3)
+        {
+            GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = MontageIMG[2];
+        }
+        if (CriminalNum[0] == 4)
+        {
+            GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = MontageIMG[3];
         }
     }
     public void DeclarationClick()

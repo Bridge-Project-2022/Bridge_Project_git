@@ -9,7 +9,6 @@ public class CriminalImage : MonoBehaviour
     public Sprite[] G2_Criminal_Image = new Sprite[12];
     public Sprite[] G3_Criminal_Image = new Sprite[12];
     public Sprite[] G4_Criminal_Image = new Sprite[12];
-    public Sprite[] G5_Criminal_Image = new Sprite[12];
 
     public Sprite[] H1_Criminal_Image = new Sprite[12];
     public Sprite[] H2_Criminal_Image = new Sprite[12];
@@ -214,46 +213,6 @@ public class CriminalImage : MonoBehaviour
                             Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G4_Criminal_Image[10];
                         else if (CurrentTime == "night")
                             Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G4_Criminal_Image[11];
-                    }
-                }
-
-                if (CriminalSystem.GetComponent<CriminalSystem>().CriminalNum[0] == 5)
-                {
-                    if (CurrentFeel == "Common")
-                    {
-                        if (CurrentTime == "morning")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[0];
-                        else if (CurrentTime == "afternoon")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[1];
-                        else if (CurrentTime == "night")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[2];
-                    }
-                    if (CurrentFeel == "Happy")
-                    {
-                        if (CurrentTime == "morning")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[3];
-                        else if (CurrentTime == "afternoon")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[4];
-                        else if (CurrentTime == "night")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[5];
-                    }
-                    if (CurrentFeel == "Sad")
-                    {
-                        if (CurrentTime == "morning")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[6];
-                        else if (CurrentTime == "afternoon")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[7];
-                        else if (CurrentTime == "night")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[8];
-                    }
-                    if (CurrentFeel == "Bad")
-                    {
-                        if (CurrentTime == "morning")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[9];
-                        else if (CurrentTime == "afternoon")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[10];
-                        else if (CurrentTime == "night")
-                            Customer.GetComponent<Image>().sprite = this.GetComponent<CriminalImage>().G5_Criminal_Image[11];
                     }
                 }
             }

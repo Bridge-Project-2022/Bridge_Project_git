@@ -39,6 +39,28 @@ public class NextDay : MonoBehaviour
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
         WindowBG = GameObject.Find("BGIMG").transform.GetChild(1).gameObject;
     }
+
+    public void DayCheck()
+    {
+        //Debug.Log(day);
+        if (day == 1)
+        {
+            NextDayClick();
+        }
+        else if (day == 2)
+        {
+            NextDayClick();
+        }
+        else if (day == 3)
+        {
+            NewsTimePanel();
+        }
+        else if (day == 4)
+        {
+            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
+            Invoke("GoToTitle", 3f);
+        }
+    }
     public void NextDayClick()
     {
         Declaration.gameObject.SetActive(false);
@@ -63,6 +85,7 @@ public class NextDay : MonoBehaviour
         buyer.SetActive(false);
 
         day++;
+
         if (day == 2)
         {
             Invoke("SecondDayStart", 3f);
@@ -97,28 +120,9 @@ public class NextDay : MonoBehaviour
     public void NewsTimePanel()
     {
         NewsPanel.gameObject.SetActive(true);
-
-        GameObject.Find("BGM").GetComponent<AudioSource>().clip = NewsBGM;
-        GameObject.Find("BGM").GetComponent<AudioSource>().Play();
-
-        if (day == 1)
-        {
-            NewsPanel.gameObject.GetComponent<Image>().sprite = NewsIMG[0];
-        }
-        if (day == 2)
-        {
-            NewsPanel.gameObject.GetComponent<Image>().sprite = NewsIMG[1];
-        }
-        if (day == 3)
-        {
-            NewsPanel.gameObject.GetComponent<Image>().sprite = NewsIMG[2];
-            NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
-        }
-        if (day == 4)
-        {
-            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
-            Invoke("GoToTitle", 3f);
-        }
+        CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("news");
+        NewsPanel.gameObject.GetComponent<Image>().sprite = NewsIMG[2];
     }
     public void SellerStart()
     {

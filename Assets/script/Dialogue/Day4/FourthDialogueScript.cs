@@ -19,6 +19,8 @@ public class FourthDialogueScript : MonoBehaviour
     public string[] RejectFace = new string[5];
     public string[] ReactFace = new string[5];
 
+
+    public bool isCriminal = false;
     public bool isUnique = false;
 
     public int UniqueID = 1000;
@@ -30,7 +32,7 @@ public class FourthDialogueScript : MonoBehaviour
         //손님 아이디 배열에 1-9까지 중에 랜덤으로 넣되 중복되지 않도록 배치함. 
         for (int i = 0; i < Customer_ID.Length; i++)
         {
-            Customer_ID[i] = Random.Range(28, 35);
+            Customer_ID[i] = Random.Range(27, 36);
             for (int j = 0; j < i; j++)
             {
                 if (Customer_ID[i] == Customer_ID[j])
@@ -48,8 +50,8 @@ public class FourthDialogueScript : MonoBehaviour
         Customer B = CustomerManager.Instance.days.day[3].customer[2];
         Customer I = CustomerManager.Instance.days.day[3].customer[3];
         Customer H = CustomerManager.Instance.days.day[3].customer[4];
-        Customer C = CustomerManager.Instance.days.day[3].customer[5];
-        Customer G = CustomerManager.Instance.days.day[3].customer[6];
+        Customer G = CustomerManager.Instance.days.day[3].customer[5];
+        Customer A = CustomerManager.Instance.days.day[3].customer[6];
         Customer E = CustomerManager.Instance.days.day[3].customer[7];
         Customer J = CustomerManager.Instance.days.day[3].customer[8];
 
@@ -554,97 +556,97 @@ public class FourthDialogueScript : MonoBehaviour
 
         }
 
-        if (Customer_ID[0] == C.id)
+        if (Customer_ID[0] == A.id)
         {
-            Customer_Name = C.name;
+            Customer_Name = A.name;
 
-            if (C.uniqueGuest == true)
+            if (A.uniqueGuest == true)
             {
                 isUnique = true;
-                UniqueID = C.id;
+                UniqueID = A.id;
             }
 
-            if (C.criminalGuest == true)
+            if (A.criminalGuest == true)
             {
                 RC.GetComponent<CriminalImage>().isCriminal = true;
-                RC.GetComponent<CriminalImage>().CriminaID = C.id;
+                RC.GetComponent<CriminalImage>().CriminaID = A.id;
             }
 
-            foreach (string str in C.dialogue.visitComment)
+            foreach (string str in A.dialogue.visitComment)
             {
-                Customer_PerfumeOrder = C.dialogue.visitComment;
+                Customer_PerfumeOrder = A.dialogue.visitComment;
             }
 
-            foreach (string str in C.dialogue.requestComment)
+            foreach (string str in A.dialogue.requestComment)
             {
-                Customer_IntensityOrder = C.dialogue.requestComment;
+                Customer_IntensityOrder = A.dialogue.requestComment;
             }
 
-            foreach (string str in C.dialogue.refusalComment)
+            foreach (string str in A.dialogue.refusalComment)
             {
-                Customer_RejectReaction = C.dialogue.refusalComment;
+                Customer_RejectReaction = A.dialogue.refusalComment;
             }
 
-            foreach (string str in C.dialogue.visitFace)
+            foreach (string str in A.dialogue.visitFace)
             {
-                OrderFace = C.dialogue.visitFace;
+                OrderFace = A.dialogue.visitFace;
             }
 
-            foreach (string str in C.dialogue.requestFace)
+            foreach (string str in A.dialogue.requestFace)
             {
-                IntensityFace = C.dialogue.requestFace;
+                IntensityFace = A.dialogue.requestFace;
             }
 
-            foreach (string str in C.dialogue.refusalFace)
+            foreach (string str in A.dialogue.refusalFace)
             {
-                RejectFace = C.dialogue.refusalFace;
+                RejectFace = A.dialogue.refusalFace;
             }
 
-            Distiller.GetComponent<Distiller>().DistillerStatus = C.currentPerfume.perfumeForce[0];
+            Distiller.GetComponent<Distiller>().DistillerStatus = A.currentPerfume.perfumeForce[0];
 
-            Customer_Flavoring[0] = C.currentPerfume.bassNotes;
-            Customer_Flavoring[1] = C.currentPerfume.middleNotes;
-            Customer_Flavoring[2] = C.currentPerfume.topNotes[0];
+            Customer_Flavoring[0] = A.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = A.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = A.currentPerfume.topNotes[0];
 
 
             if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    foreach (string str in C.dialogue.resultGoodComment)
+                    foreach (string str in A.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction = C.dialogue.resultGoodComment;
+                        Customer_PerfumeReaction = A.dialogue.resultGoodComment;
                     }
 
-                    foreach (string str in C.dialogue.resultGoodFace)
+                    foreach (string str in A.dialogue.resultGoodFace)
                     {
-                        ReactFace = C.dialogue.resultGoodFace;
+                        ReactFace = A.dialogue.resultGoodFace;
                     }
                 }
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    foreach (string str in C.dialogue.resultNormalComment)
+                    foreach (string str in A.dialogue.resultNormalComment)
                     {
-                        Customer_PerfumeReaction = C.dialogue.resultNormalComment;
+                        Customer_PerfumeReaction = A.dialogue.resultNormalComment;
                     }
 
-                    foreach (string str in C.dialogue.resultNormalFace)
+                    foreach (string str in A.dialogue.resultNormalFace)
                     {
-                        ReactFace = C.dialogue.resultNormalFace;
+                        ReactFace = A.dialogue.resultNormalFace;
                     }
                 }
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    foreach (string str in C.dialogue.resultBadComment)
+                    foreach (string str in A.dialogue.resultBadComment)
                     {
-                        Customer_PerfumeReaction = C.dialogue.resultBadComment;
+                        Customer_PerfumeReaction = A.dialogue.resultBadComment;
                     }
 
-                    foreach (string str in C.dialogue.resultBadFace)
+                    foreach (string str in A.dialogue.resultBadFace)
                     {
-                        ReactFace = C.dialogue.resultBadFace;
+                        ReactFace = A.dialogue.resultBadFace;
                     }
                 }
             }
@@ -652,27 +654,27 @@ public class FourthDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    foreach (string str in C.dialogue.resultGoodComment)
+                    foreach (string str in A.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction = C.dialogue.noFlavorComment;
+                        Customer_PerfumeReaction = A.dialogue.noFlavorComment;
                     }
 
-                    foreach (string str in C.dialogue.noFlavorFace)
+                    foreach (string str in A.dialogue.noFlavorFace)
                     {
-                        ReactFace = C.dialogue.noFlavorFace;
+                        ReactFace = A.dialogue.noFlavorFace;
                     }
                 }
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    foreach (string str in C.dialogue.resultGoodComment)
+                    foreach (string str in A.dialogue.resultGoodComment)
                     {
-                        Customer_PerfumeReaction = C.dialogue.noExistComment;
+                        Customer_PerfumeReaction = A.dialogue.noExistComment;
                     }
 
-                    foreach (string str in C.dialogue.noExistFace)
+                    foreach (string str in A.dialogue.noExistFace)
                     {
-                        ReactFace = C.dialogue.noExistFace;
+                        ReactFace = A.dialogue.noExistFace;
                     }
                 }
             }

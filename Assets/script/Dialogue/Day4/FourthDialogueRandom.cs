@@ -374,6 +374,7 @@ public class FourthDialogueRandom : MonoBehaviour
 
     public void C_1_Start()// 유저 : 승낙 - 향 세기 질문
     {
+        GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
@@ -385,6 +386,7 @@ public class FourthDialogueRandom : MonoBehaviour
 
     public void C_2_Start()//유저 : 거부 - 거부 이유 제시
     {
+        GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
@@ -419,6 +421,7 @@ public class FourthDialogueRandom : MonoBehaviour
 
     public void D_1_Start()//손님 : 승낙 - 향 세기 결정
     {
+        GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
         Buyer.gameObject.SetActive(true);
         D1Start = true;
         isDialogueStart = true;
@@ -427,6 +430,7 @@ public class FourthDialogueRandom : MonoBehaviour
 
     public void D_2_Start()// 손님 : 거부 - 불만 표출
     {
+        GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
         Buyer.gameObject.SetActive(true);
         D2Start = true;
         isDialogueStart = true;
@@ -436,6 +440,7 @@ public class FourthDialogueRandom : MonoBehaviour
 
     public void E_1_Start()//손님 : 향수 받고 반응
     {
+        GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
         isArrowStart = false;
         EStart = true;
         isDialogueStart = true;
