@@ -11826,7 +11826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673200503103411026, guid: cf0d50652947a66428fca01da85d172d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -447.4
+      value: -459
       objectReference: {fileID: 0}
     - target: {fileID: 6673200503103411026, guid: cf0d50652947a66428fca01da85d172d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -18171,7 +18171,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 247, y: 266}
-  m_Spacing: {x: 58.2, y: 48.4}
+  m_Spacing: {x: 58.2, y: 90}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &891140102
@@ -25748,7 +25748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673200503103411026, guid: cf0d50652947a66428fca01da85d172d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -447.4
+      value: -459
       objectReference: {fileID: 0}
     - target: {fileID: 6673200503103411026, guid: cf0d50652947a66428fca01da85d172d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -30757,7 +30757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -485, y: 450}
+  m_AnchoredPosition: {x: -1346, y: 450}
   m_SizeDelta: {x: 337, y: 127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1532829887
@@ -34398,7 +34398,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 247, y: 266}
-  m_Spacing: {x: 58.2, y: 48.4}
+  m_Spacing: {x: 58.2, y: 90}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1694378472
@@ -37215,7 +37215,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 247, y: 266}
-  m_Spacing: {x: 58.2, y: 48.4}
+  m_Spacing: {x: 58.2, y: 90}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1834425812
@@ -44664,6 +44664,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c6e42b18ec54d5c4e8429b1ce87014ac, type: 3}
   - {fileID: 21300000, guid: 9ce7aa239b2ca444bab7c5e6d95ecfc2, type: 3}
   - {fileID: 21300000, guid: f637ff3e92170c648a384354d7e2dcfb, type: 3}
+  - {fileID: 21300000, guid: 9ce7aa239b2ca444bab7c5e6d95ecfc2, type: 3}
+  - {fileID: 21300000, guid: c6e42b18ec54d5c4e8429b1ce87014ac, type: 3}
+  - {fileID: 21300000, guid: 54ac626a8ae5e9148a35da4ff2c55d77, type: 3}
+  - {fileID: 21300000, guid: e4487f6cb66657442a372a450f23691b, type: 3}
   ItemBurnSprites:
   - {fileID: 21300000, guid: 9eb375a3afb344047bcfffec4dd05611, type: 3}
   Receipt: {fileID: 994908512}

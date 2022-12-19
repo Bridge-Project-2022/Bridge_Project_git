@@ -172,7 +172,7 @@ public class ThirdDialogueRandom : MonoBehaviour
                 }
                 else if (ACount == 5)
                 {
-                    GameObject.Find("seller").transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    //GameObject.Find("seller").transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
                     GameObject.Find("Dialogue").transform.GetChild(3).gameObject.SetActive(false);
                 }
 
@@ -200,7 +200,6 @@ public class ThirdDialogueRandom : MonoBehaviour
             {
                 if (ACount == 0)
                 {
-                    GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
                     RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<CriminalImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerOrderFace[0];
@@ -502,6 +501,10 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public void End()
     {
+        if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == true)
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+        }
         CustomerEnd = true;
         GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique = false;
         if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9 && isDialogueEnd == true)

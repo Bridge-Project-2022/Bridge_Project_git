@@ -51,8 +51,8 @@ public class CriminalImage : MonoBehaviour
 
     public void RCFeeling()
     {
-       
-       if (CurrentName == "G")
+
+        if (CurrentName == "G")
         {
             if (isCriminal == true)
             {
@@ -384,6 +384,13 @@ public class CriminalImage : MonoBehaviour
                 }
             }
             Customer.GetComponent<Image>().SetNativeSize();
+        }
+
+        else
+        {
+            isCriminal = false;
+            GameObject.Find("RC").GetComponent<RandomImage>().RCFeeling();
+            //GameObject.Find("RC").GetComponent<CriminalImage>().enabled = false;
         }
     }
 }
