@@ -97,18 +97,22 @@ public class SoundManager : MonoBehaviour
         {
             case "news":
                 bgmAudioSource.clip = news;
+                bgmAudioSource.volume = 1f;
                 break;
 
             case "main":
                 bgmAudioSource.clip = main;
+                bgmAudioSource.volume = 0.7f;
                 break;
 
             case "Lorena1":
                 bgmAudioSource.clip = Lorena1;
+                bgmAudioSource.volume = 1f;
                 break;
 
             case "LorenaCutScene":
                 bgmAudioSource.clip = LorenaCutScene;
+                bgmAudioSource.volume = 1f;
                 break;
         }
         bgmAudioSource.Play();

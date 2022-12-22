@@ -110,9 +110,13 @@ public class DialogueRecipt : MonoBehaviour
 
     public void ReceiptClick()
     {
-        if (Recipt.activeSelf)
-            Recipt.SetActive(false);
-        else
-            Recipt.SetActive(true);
+        Recipt.SetActive(true);
+        this.GetComponent<Image>().enabled = false;
+    }
+
+    public void CloseBtnClick()
+    {
+        Recipt.SetActive(false);
+        this.GetComponent<Image>().enabled = true;
     }
 }

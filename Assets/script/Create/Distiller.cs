@@ -48,6 +48,7 @@ public class Distiller : MonoBehaviour
     public AudioClip HighSFX;
 
     public GameObject DistillWindow;
+    public GameObject DistillPanel;
 
     public void OnEnable()
     {
@@ -58,6 +59,7 @@ public class Distiller : MonoBehaviour
 
     public void DistillWindowOpen()
     {
+        DistillPanel.SetActive(false);
         GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
         DistillWindow.gameObject.SetActive(true);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
@@ -315,12 +317,13 @@ public void DistillerOn(ItemProperty item)
 
     public void EndDistiller()
     {
+        DistillPanel.SetActive(true);
         GameObject.Find("SFX").GetComponent<AudioSource>().loop = false;
         DistillerResult();
         temperatureSlider.GetComponent<Slider>().value = 1;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
         InvenUI.GetComponent<Button>().interactable = true;
-        Invoke("CloseWindow", 0.5f);
+        Invoke("CloseWindow", 1.5f);
     }
 
     public void CloseWindow()

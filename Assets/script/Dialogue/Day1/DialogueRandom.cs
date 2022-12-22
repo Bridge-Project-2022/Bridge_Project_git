@@ -132,10 +132,12 @@ public class DialogueRandom : MonoBehaviour
             if (isSelectStart == true)
             {
                 Select.gameObject.SetActive(true);
+                GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(false);
             }
             if (isArrowStart == true)
             {
                 arrow.gameObject.SetActive(true);
+                GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(false);
             }
         }
         else
@@ -176,6 +178,7 @@ public class DialogueRandom : MonoBehaviour
 
                     BuyerDialogue.text = BuyerOrder[ACount-1];
                     isDialogueEnd = true;
+                    GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(true);
                 }
                 else if (isDialogueEnd == true)
                 {
@@ -218,6 +221,7 @@ public class DialogueRandom : MonoBehaviour
 
                     BuyerDialogue.text = BuyerIntensity[D1Count - 1];
                     isDialogueEnd = true;
+                    GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(true);
                 }
                 else if (isDialogueEnd == true)
                 {
@@ -261,6 +265,7 @@ public class DialogueRandom : MonoBehaviour
 
                     BuyerDialogue.text = BuyerRejectReaction[D2Count - 1];
                     isDialogueEnd = true;
+                    GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(true);
                 }
                 else if (isDialogueEnd == true)
                 {
@@ -316,6 +321,7 @@ public class DialogueRandom : MonoBehaviour
                     RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerReactFace[ECount - 1];
                     BuyerDialogue.text = BuyerPerfumeReaction[ECount - 1];
                     isDialogueEnd = true;
+                    GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(true);
                 }
                 else if (isDialogueEnd == true)
                 {
@@ -328,6 +334,7 @@ public class DialogueRandom : MonoBehaviour
                         Buyer.gameObject.GetComponent<Button>().interactable = false;
                         ECount = 0;
                         EStart = false;
+                        GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(false);
                         Invoke("End", 1f);
                     }
 
@@ -336,6 +343,7 @@ public class DialogueRandom : MonoBehaviour
                         Buyer.gameObject.GetComponent<Button>().interactable = false;
                         ECount = 0;
                         EStart = false;
+                        GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(false);
                         Invoke("End", 1f);
                     }
 
@@ -521,10 +529,16 @@ public class DialogueRandom : MonoBehaviour
             writerText += narration[a];
 
             if (a + 1 == narration.Length)
+            {
                 isDialogueEnd = true;
+                GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(true);
+            }
             else
+            {
                 isDialogueEnd = false;
-
+                GameObject.Find("Dialogue").transform.GetChild(4).GetChild(2).gameObject.SetActive(false);
+            }
+               
             if (narration[a] == ' ')
             {
                 GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();

@@ -111,6 +111,30 @@ public class Cooler : MonoBehaviour
             CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[4];
             CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[4];
         }
+        if (ClickedItem.name == "미움")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[5];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[5];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[5];
+        }
+        if (ClickedItem.name == "죄책감")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[6];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[6];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[6];
+        }
+        if (ClickedItem.name == "부끄러움")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[7];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[7];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[7];
+        }
+        if (ClickedItem.name == "의심")
+        {
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemSprites[8];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemSprites[8];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemSprites[8];
+        }
         // 선택한 탑 아이템 냉침 123에 세팅 완료
         Invoke("Cooling", 3.5f);
     }

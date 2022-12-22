@@ -57,6 +57,7 @@ public class Presser : MonoBehaviour
     {
         GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
         PresserDetail.gameObject.SetActive(true);
+        GameObject.Find("CatPress").gameObject.GetComponent<Image>().sprite = PresserTap.FindObjectOfType<PresserTap>().PressReaction[0];
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         if (ClickedItem.name == "가족")
         {

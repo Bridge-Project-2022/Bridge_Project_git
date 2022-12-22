@@ -29,9 +29,10 @@ public class MouseFollow : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
         float w = transform_icon.rect.width;
         float h = transform_icon.rect.height;
-        transform_icon.position = mousePos + (new Vector2(w, h) * 0.5f);
+        transform_icon.position = mousePos;
+        //transform_icon.position = mousePos + (new Vector2(w, h) * 0.5f);
 
-        string message = mousePos.ToString();
+        //string message = mousePos.ToString();
         //text_mouse.text = message;
         //Debug.Log(message);
     }

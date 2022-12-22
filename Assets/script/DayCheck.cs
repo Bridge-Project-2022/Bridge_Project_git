@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DayCheck : MonoBehaviour
 {
@@ -127,5 +128,21 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().E_1_Start();
         }
+    }
+    public void YesBold()
+    {
+        GameObject.Find("Dialogue").transform.GetChild(5).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 40;
+    }
+    public void YesRegular()
+    {
+        GameObject.Find("Dialogue").transform.GetChild(5).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 30;
+    }
+    public void NoBold()
+    {
+        GameObject.Find("Dialogue").transform.GetChild(5).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 35;
+    }
+    public void NoRegular()
+    {
+        GameObject.Find("Dialogue").transform.GetChild(5).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 30;
     }
 }

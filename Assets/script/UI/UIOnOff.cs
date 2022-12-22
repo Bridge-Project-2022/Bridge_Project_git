@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Text;
 
 public class UIOnOff : MonoBehaviour
 {
-
     public GameObject Store;
     public GameObject Inven;
+    
     public void InvenOpen()
     {
         //Debug.Log("인벤토리 오픈");
@@ -34,5 +36,23 @@ public class UIOnOff : MonoBehaviour
         GameObject.Find("Customer").gameObject.SetActive(false);
 
     }
+
+    public void YesBold()
+    {
+        GameObject.Find("Customer").transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 40;
+    }
+    public void YesRegular()
+    {
+        GameObject.Find("Customer").transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 30;
+    }
+    public void NoBold()
+    {
+        GameObject.Find("Customer").transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 35;
+    }
+    public void NoRegular()
+    {
+        GameObject.Find("Customer").transform.GetChild(2).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 30;
+    }
+
 
 }
