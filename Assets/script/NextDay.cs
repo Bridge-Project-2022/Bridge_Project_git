@@ -42,6 +42,9 @@ public class NextDay : MonoBehaviour
 
     public void DayCheck()
     {
+        DailyResult.GetComponent<Animator>().enabled = false;
+        DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
+
         //Debug.Log(day);
         if (day == 1)
         {
@@ -170,7 +173,7 @@ public class NextDay : MonoBehaviour
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<DialogueRandom>().enabled = false;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = true;
-        TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+        //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
 
     public void ThirdDayStart()
@@ -184,7 +187,7 @@ public class NextDay : MonoBehaviour
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = false;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = true;
-        TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+        //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
 
     public void FourthDayStart()
@@ -198,6 +201,6 @@ public class NextDay : MonoBehaviour
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = true;
-        TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+        //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
 }

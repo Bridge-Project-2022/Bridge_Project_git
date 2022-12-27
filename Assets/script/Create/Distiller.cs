@@ -50,6 +50,8 @@ public class Distiller : MonoBehaviour
     public GameObject DistillWindow;
     public GameObject DistillPanel;
 
+    public bool isBaseRight = false;
+
     public void OnEnable()
     {
         // GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boiling");
@@ -59,6 +61,8 @@ public class Distiller : MonoBehaviour
 
     public void DistillWindowOpen()
     {
+        Receipt.gameObject.SetActive(false);
+        GameObject.Find("Manufacture").transform.GetChild(7).gameObject.SetActive(false);
         DistillPanel.SetActive(false);
         GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
         DistillWindow.gameObject.SetActive(true);
@@ -66,34 +70,35 @@ public class Distiller : MonoBehaviour
     }
 public void DistillerOn(ItemProperty item)
     {
-        TotalScore.FindObjectOfType<TotalScore>().DistillCnt++;
-        for (int i = 0; i < GameObject.Find("BaseInvenSlots").transform.childCount; i++)
-        {
-            GameObject.Find("BaseInvenSlots").transform.GetChild(i).GetComponent<Button>().interactable = false;
-        }
-        Receipt.gameObject.SetActive(false);
         ClickedItem = item;
         itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
         if (ClickedItem.name == BaseItemName)
         {
+            isBaseRight = true;
             Debug.Log("베이스 향료 맞음");
-            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
-            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
-
         }
         else
         {
-            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
-            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+            isBaseRight = false;
         }
     }
 
     public void OnDistillerBtnClick()
     {
+        if (isBaseRight == true)
+        {
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
+            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
+        }
+        else if (isBaseRight == false)
+        {
+            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+        }
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
         distillerDetail.SetActive(true);
 
@@ -165,7 +170,6 @@ public void DistillerOn(ItemProperty item)
                     DistillGood = false;
                     DistillNormal = false;
                     DistillBad = true;
-                    Debug.Log("sss");
                 }
             }
             else
@@ -246,8 +250,8 @@ public void DistillerOn(ItemProperty item)
                 Anim.SetBool("isNormal", false);
                 Anim.SetBool("isLow", false);
 
-                this.GetComponent<AudioSource>().clip = HighSFX;
-                this.GetComponent<AudioSource>().Play();
+                //this.GetComponent<AudioSource>().clip = HighSFX;
+                //this.GetComponent<AudioSource>().Play();
             }
             /*else if (curTemper >= 135)//현재 온도가 135보다 크면
             {
@@ -276,8 +280,8 @@ public void DistillerOn(ItemProperty item)
                 Anim.SetBool("isNormal", true);
                 Anim.SetBool("isLow", false);
 
-                this.GetComponent<AudioSource>().clip = MiddleSFX;
-                this.GetComponent<AudioSource>().Play();
+                //this.GetComponent<AudioSource>().clip = MiddleSFX;
+                //this.GetComponent<AudioSource>().Play();
             }
         }
         if (isWickDown == false)
@@ -294,8 +298,8 @@ public void DistillerOn(ItemProperty item)
                 Anim.SetBool("isNormal", false);
                 Anim.SetBool("isLow", true);
 
-                this.GetComponent<AudioSource>().clip = LowSFX;
-                this.GetComponent<AudioSource>().Play();
+                //this.GetComponent<AudioSource>().clip = LowSFX;
+                //this.GetComponent<AudioSource>().Play();
             }
 
             else if (curTemper >= 46 && curTemper <= 90)
@@ -309,12 +313,29 @@ public void DistillerOn(ItemProperty item)
                 Anim.SetBool("isNormal", true);
                 Anim.SetBool("isLow", false);
 
-                this.GetComponent<AudioSource>().clip = MiddleSFX;
-                this.GetComponent<AudioSource>().Play();
+                //this.GetComponent<AudioSource>().clip = MiddleSFX;
+                //this.GetComponent<AudioSource>().Play();
             }
         }
     }
-
+    public void DistillSound()
+    {
+        if (isHigh == true)
+        {
+            this.GetComponent<AudioSource>().clip = HighSFX;
+            this.GetComponent<AudioSource>().Play();
+        }
+        else if (isMiddle == true)
+        {
+            this.GetComponent<AudioSource>().clip = MiddleSFX;
+            this.GetComponent<AudioSource>().Play();
+        }
+        else if (isLow == true)
+        {
+            this.GetComponent<AudioSource>().clip = LowSFX;
+            this.GetComponent<AudioSource>().Play();
+        }
+    }
     public void EndDistiller()
     {
         DistillPanel.SetActive(true);
@@ -328,6 +349,13 @@ public void DistillerOn(ItemProperty item)
 
     public void CloseWindow()
     {
+        DistillPanel.SetActive(false);
+        isBaseRight = false;
+        TotalScore.FindObjectOfType<TotalScore>().DistillCnt++;
+        for (int i = 0; i < GameObject.Find("BaseInvenSlots").transform.childCount; i++)
+        {
+            GameObject.Find("BaseInvenSlots").transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         HighTemperDuration = 0.0f;
         TemperDuration = 0.0f;
         LowTemperDuration = 0.0f;

@@ -58,6 +58,7 @@ public class Slot : MonoBehaviour
 
     public void ItemClick(Slot ClickedSlot)//슬롯 아이템 클릭 경우
     {
+        GameObject.Find("Manufacture").transform.GetChild(7).gameObject.SetActive(true);
         GameObject.Find("Inventory").transform.position = new Vector3(1038, 3000, 0);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         //클릭한 아이템이 화면에 보여짐
@@ -73,12 +74,11 @@ public class Slot : MonoBehaviour
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
             GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
-            GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
-            GameObject.Find("Manufacture").transform.GetChild(6).GetComponent<Distiller>().DistillerOn(ClickedItem);
-            Debug.Log("증류기 시작");
+            GameObject.Find("Manufacture").transform.GetChild(5).GetComponent<Distiller>().DistillerOn(ClickedItem);
+            Debug.Log("증류기 시작 가능");
         }
 
         else if (item.itemType == "Middle" && GameObject.Find("TotalScoreBuffer").GetComponent<TotalScore>().PressCnt == 0)//압착기 실행
@@ -87,11 +87,10 @@ public class Slot : MonoBehaviour
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
             GameObject.Find("Presser").GetComponent<Button>().interactable = true;
-            GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
-            Debug.Log("압착기 시작");
+            Debug.Log("압착기 시작 가능");
             GameObject.Find("Presser").GetComponent<Presser>().PresserOn(ClickedItem);
         }
         else if (item.itemType == "Top" && GameObject.Find("TotalScoreBuffer").GetComponent<TotalScore>().CoolCnt == 0)//냉침기 실행
@@ -100,12 +99,11 @@ public class Slot : MonoBehaviour
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
 
             GameObject.Find("Cooler").GetComponent<Button>().interactable = true;
-            GameObject.Find("ClickedItem").GetComponent<Button>().interactable = true;
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
             GameObject.Find("Cooler").GetComponent<Cooler>().CoolerOn(ClickedItem);
-            Debug.Log("냉침기 시작");
+            Debug.Log("냉침기 시작 가능");
         }
         else
             Debug.Log("오류");

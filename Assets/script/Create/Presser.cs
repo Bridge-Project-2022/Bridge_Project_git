@@ -19,42 +19,43 @@ public class Presser : MonoBehaviour
 
     public GameObject middleInvenSlots;
     public GameObject Receipt;
-
+    public bool isMiddleRight = false;
     public void Start()
     {
         PressCount = 0;
     }
     public void PresserOn(ItemProperty item)
     {
-        TotalScore.FindObjectOfType<TotalScore>().PressCnt++;
-        for (int i = 0; i < GameObject.Find("MiddleInvenSlots").transform.childCount; i++)
-        {
-            GameObject.Find("MiddleInvenSlots").transform.GetChild(i).GetComponent<Button>().interactable = false;
-        }
-        Receipt.gameObject.SetActive(false);
-        this.gameObject.GetComponent<Button>().interactable = true;//냉침기 버튼 클릭 가능해짐.
         ClickedItem = item;
         if (ClickedItem.name == MiddleItemName)
         {
             Debug.Log("미들 향료 맞음");
+            isMiddleRight = true;
+        }
+        else
+        {
+            isMiddleRight = false;
+        }
+    }
+
+    public void PresserShow()//압착기 화면 보임.
+    {
+        Receipt.gameObject.SetActive(false);
+        if (isMiddleRight == true)
+        {
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
             TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
         }
-        else
+        else if (isMiddleRight == false)
         {
             TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
             GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         }
-            
-        //Debug.Log(ClickedItem.name);
-    }
-
-    public void PresserShow()//압착기 화면 보임.
-    {
+        GameObject.Find("Manufacture").transform.GetChild(7).gameObject.SetActive(false);
         GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
         PresserDetail.gameObject.SetActive(true);
         GameObject.Find("CatPress").gameObject.GetComponent<Image>().sprite = PresserTap.FindObjectOfType<PresserTap>().PressReaction[0];
@@ -136,6 +137,12 @@ public class Presser : MonoBehaviour
     }
     public void PresserEnd()//압착 과정 종료
     {
+        isMiddleRight = false;
+        TotalScore.FindObjectOfType<TotalScore>().PressCnt++;
+        for (int i = 0; i < GameObject.Find("MiddleInvenSlots").transform.childCount; i++)
+        {
+            GameObject.Find("MiddleInvenSlots").transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         Debug.Log("압착 끝");
         if ((PressureScore / 9) >= 3)
         {

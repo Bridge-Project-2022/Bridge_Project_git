@@ -384,7 +384,7 @@ public class FourthDialogueRandom : MonoBehaviour
         GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
+        DailyResult.GetComponent<DailyResult>().personNum += 1;
         Select.SetActive(false);
         isDialogueStart = false;
         Buyer.gameObject.SetActive(false);
@@ -396,8 +396,8 @@ public class FourthDialogueRandom : MonoBehaviour
         GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum += 1;
-        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().rejectNum += 1;
+        DailyResult.GetComponent<DailyResult>().personNum += 1;
+        DailyResult.GetComponent<DailyResult>().rejectNum += 1;
         float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         rejectCnt += 1;
         if (rejectCnt == 1)
@@ -419,7 +419,7 @@ public class FourthDialogueRandom : MonoBehaviour
             //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
 
-        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        DailyResult.GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
         isDialogueStart = false;
         Buyer.gameObject.SetActive(false);
@@ -456,7 +456,7 @@ public class FourthDialogueRandom : MonoBehaviour
 
     public void F_1Start()
     {
-        GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        DailyResult.GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         Select.SetActive(false);
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().declareStart = false;
         isDialogueStart = false;
@@ -475,9 +475,9 @@ public class FourthDialogueRandom : MonoBehaviour
     public void End()
     {
         CustomerEnd = true;
-        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum < 9 && isDialogueEnd == true)
+        if (DailyResult.GetComponent<DailyResult>().personNum < 9 && isDialogueEnd == true)
         {
-            if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
+            if (DailyResult.GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
                 //CriminalImage.FindObjectOfType<CriminalImage>().CurrentTime = "afternoon";
@@ -486,7 +486,7 @@ public class FourthDialogueRandom : MonoBehaviour
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
             }
-            else if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
+            else if (DailyResult.GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
                 //CriminalImage.FindObjectOfType<CriminalImage>().CurrentTime = "night";
@@ -514,9 +514,11 @@ public class FourthDialogueRandom : MonoBehaviour
         }
 
 
-        if (GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().personNum == 9 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
+        if (DailyResult.GetComponent<DailyResult>().personNum == 9 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
         {
             CustomerStart = false;
+            Customer.SetActive(false);
+            Buyer.SetActive(false);
             GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
             Invoke("DailyWindowOpen", 3f);
         }
@@ -524,7 +526,8 @@ public class FourthDialogueRandom : MonoBehaviour
 
     public void DailyWindowOpen()
     {
-        DailyResult.gameObject.SetActive(true);
+        DailyResult.transform.localPosition = new Vector3(0, 0, 0);
+        DailyResult.GetComponent<Animator>().enabled = true;
     }
 
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능

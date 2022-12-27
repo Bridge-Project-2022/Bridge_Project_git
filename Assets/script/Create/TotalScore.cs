@@ -104,7 +104,7 @@ public class TotalScore : MonoBehaviour
             float imsiMoney = fd.Money;
             fd.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, fd.Money));
-            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
+            GameObject.Find("DailyResult").GetComponent<DailyResult>().allRevenue += perfumePrice;
             Debug.Log("평판 밷");
             float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
@@ -120,7 +120,7 @@ public class TotalScore : MonoBehaviour
             float imsiMoney = fd.Money;
             fd.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, fd.Money));
-            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
+            GameObject.Find("DailyResult").GetComponent<DailyResult>().allRevenue += perfumePrice;
             Debug.Log("평판 밷");
             float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
@@ -136,7 +136,7 @@ public class TotalScore : MonoBehaviour
             perfumePrice = rightPrice + totalScore;
             fd.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, fd.Money));
-            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().allRevenue += perfumePrice;
+            GameObject.Find("DailyResult").GetComponent<DailyResult>().allRevenue += perfumePrice;
             float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
             if (RightItem == 3)
             {
@@ -187,10 +187,10 @@ public class TotalScore : MonoBehaviour
                 }
                 Debug.Log("최종 향수 가격 : " + totalScore);
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money += totalScore;
-                GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
                 //Invoke("ResetAll", 2f);
             }
         }
+        GameObject.Find("DailyResult").GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
     }
     public void totalPrice()
     {

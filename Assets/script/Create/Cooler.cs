@@ -28,6 +28,7 @@ public class Cooler : MonoBehaviour
     public Sprite[] ItemBurnSprites = new Sprite[1];//탄 아이템 이미지 배열
 
     public GameObject Receipt;
+    public bool isTopRight = false;
     public void Start()
     {
         goodCount = 0;
@@ -53,30 +54,34 @@ public class Cooler : MonoBehaviour
         if (ClickedItem.name == TopItemName)
         {
             Debug.Log("탑 향료 맞음");
-            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
-            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
+            isTopRight = true;
         }
         else
         {
-            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
-            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
-            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+            isTopRight = false;
         }
           
     }
 
     public void CoolerStart()//냉침기 자세히 보여지고 기능 시작. 
     {
-        TotalScore.FindObjectOfType<TotalScore>().CoolCnt++;
-        for (int i = 0; i < GameObject.Find("TopInvenSlots").transform.childCount; i++)
+        if (isTopRight == true)
         {
-            GameObject.Find("TopInvenSlots").transform.GetChild(i).GetComponent<Button>().interactable = false;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
+            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
+        }
+        else if(isTopRight == false)
+        {
+            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolerTouch");
         GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
+        GameObject.Find("Manufacture").transform.GetChild(7).gameObject.SetActive(false);
         Receipt.gameObject.SetActive(false);
         Invoke("CoolerDetailShow", 0.5f);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
@@ -193,12 +198,14 @@ public class Cooler : MonoBehaviour
     }
     public void CoolerClose()//냉침기 종료
     {
+        isTopRight = false;
+        TotalScore.FindObjectOfType<TotalScore>().CoolCnt++;
+        for (int i = 0; i < GameObject.Find("TopInvenSlots").transform.childCount; i++)
+        {
+            GameObject.Find("TopInvenSlots").transform.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         this.gameObject.GetComponent<Button>().interactable = false;
         Receipt.gameObject.SetActive(true);
-        for (int i = 0; i < topInvenSlots.transform.childCount; i++)
-        {
-            topInvenSlots.transform.GetChild(i).GetComponent<Button>().interactable = false;
-        }
         TotalScore.FindObjectOfType<TotalScore>().isCoolFin = true;
         CoolerDetail.gameObject.SetActive(false);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
