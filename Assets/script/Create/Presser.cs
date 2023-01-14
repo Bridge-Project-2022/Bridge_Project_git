@@ -126,17 +126,18 @@ public class Presser : MonoBehaviour
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("TravelPattern");
             Invoke("PresserEnd", 8f);
         }
-        else
+        /*else
         {
             Debug.Log("else");
             //NotePattern.gameObject.SetActive(true);
             NotePattern.GetComponent<NotePatterns>().StartCoroutine("FamilyPattern");//이거 지금은 가족패턴 적용인데 그냥 기본 패턴 넣으면 될듯.
             Invoke("PresserEnd", 8f);
-        }
+        }*/
         //PressItem.GetComponent<Image>().sprite = ClickedItem.sprite;
     }
     public void PresserEnd()//압착 과정 종료
     {
+        GameObject.Find("LiquidColor").GetComponent<PerfumeColor>().PerfumeMix(50, 50, 50);
         isMiddleRight = false;
         TotalScore.FindObjectOfType<TotalScore>().PressCnt++;
         for (int i = 0; i < GameObject.Find("MiddleInvenSlots").transform.childCount; i++)

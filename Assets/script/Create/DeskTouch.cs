@@ -100,6 +100,8 @@ public class DeskTouch : MonoBehaviour
 
         ClickItem.SetActive(false);
 
+        GameObject.Find("LiquidColor").GetComponent<PerfumeColor>().PerfumeReset();
+
         desk.gameObject.SetActive(true);
         Manufacture.gameObject.SetActive(false);
 

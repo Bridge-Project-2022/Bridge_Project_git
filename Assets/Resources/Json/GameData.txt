@@ -1,8 +1,8 @@
 {
-    "money": 1000,
-    "day": 0,
-    "reputation": 50,
-    "sound": 5.0,
+    "money": 50000,
+    "day": 1,
+    "reputation": 60,
+    "sound": 1.0,
     "soundEnable": true,
     "itemList": []
 }

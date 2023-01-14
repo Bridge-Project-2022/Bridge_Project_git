@@ -26,6 +26,7 @@ public class TitleBtns : MonoBehaviour
     }
     public void NewGameBtnClicked()
     {
+        GameDataManager.Instance.NewGameStart();
         SceneManager.LoadScene("Main");
         //NewSoundManager.instance.StopBGM();
     }

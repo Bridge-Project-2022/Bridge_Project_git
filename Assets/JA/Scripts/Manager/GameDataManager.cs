@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameDataManager : Singleton<GameDataManager>
 {
@@ -10,7 +12,7 @@ public class GameDataManager : Singleton<GameDataManager>
 
     private string newGameDataFileName = "GameData";
     private string runTimeGameDataFileName = "run_GameData";
-    
+    public bool isGameStart = false;
     private void Awake()
     {
         gameData = new GameData();
@@ -82,8 +84,9 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void NewGameStart()
     {
-        GameDataJsonLoad(newGameDataFileName);
-        GameDataJsonSave(runTimeGameDataFileName);
+        //GameDataJsonLoad(newGameDataFileName);
+        //GameDataJsonSave(runTimeGameDataFileName);
+        isGameStart = true;
         // 추가적인 newGame 게임 세팅 여기서
         // ...
         
@@ -104,6 +107,16 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void LoadData()
     {
+        /*if (isGameStart == true)
+        {
+            GameDataJsonLoad(runTimeGameDataFileName);
+            SceneManager.LoadScene("Main");
+        }
+        else
+        {
+            GameObject.Find("GameStart").GetComponent<TitleBtns>().ShowUnsupportedMessage();
+        }*/
+        //SceneManager.LoadScene("Main");
         GameDataJsonLoad(runTimeGameDataFileName);
         // 불러오기 처리
     }
@@ -116,6 +129,18 @@ public class GameDataManager : Singleton<GameDataManager>
     {
         var fromJson = Resources.Load<TextAsset>("Json/" + fileName);
         gameData = JsonUtility.FromJson<GameData>(fromJson.ToString());
+
+        Debug.Log(GameDataManager.Instance.Money);
+        Debug.Log(GameDataManager.Instance.Day);
+        Debug.Log(GameDataManager.Instance.Reputation);
+        Debug.Log(GameDataManager.Instance.Sound);
+        Debug.Log(GameDataManager.Instance.SoundEnable);
+
+        FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money = GameDataManager.Instance.Money;
+        NextDay.FindObjectOfType<NextDay>().day = GameDataManager.Instance.Day;
+        FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation = GameDataManager.Instance.Reputation;
+        GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value = GameDataManager.Instance.Sound;
+        GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn = GameDataManager.Instance.SoundEnable;
     }
 
     private void GameDataJsonSave(string fileName)

@@ -7,7 +7,7 @@ using TMPro;
 public class FirstDaySetting : MonoBehaviour
 {
     public int Time = 8;
-    public int Money = 50000;
+    public int Money = 10000;
     public int Reputation = 60;
 
     public TextMeshProUGUI GameMoney;

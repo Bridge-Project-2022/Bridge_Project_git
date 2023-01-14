@@ -34,6 +34,7 @@ public class NextDay : MonoBehaviour
     public Sprite[] NewsIMG = new Sprite[7];
 
     public AudioClip NewsBGM;
+    public GameObject BGMSlider;
     public void Start()
     {
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
@@ -42,6 +43,7 @@ public class NextDay : MonoBehaviour
 
     public void DayCheck()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("DayFinish");
         DailyResult.GetComponent<Animator>().enabled = false;
         DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
 
@@ -119,7 +121,22 @@ public class NextDay : MonoBehaviour
         Invoke("SellerStart", 2f);
 
     }
+    public void SaveData()
+    {
+        GameDataManager.Instance.Money = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money;
+        GameDataManager.Instance.Day = day;
+        GameDataManager.Instance.Reputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        GameDataManager.Instance.Sound = BGMSlider.GetComponent<Slider>().value;
+        GameDataManager.Instance.SoundEnable = GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn;
 
+        Debug.Log(GameDataManager.Instance.Money);
+        Debug.Log(GameDataManager.Instance.Day);
+        Debug.Log(GameDataManager.Instance.Reputation);
+        Debug.Log(GameDataManager.Instance.Sound);
+        Debug.Log(GameDataManager.Instance.SoundEnable);
+
+        GameDataManager.Instance.SaveData();
+    }
     public void NewsTimePanel()
     {
         NewsPanel.gameObject.SetActive(true);

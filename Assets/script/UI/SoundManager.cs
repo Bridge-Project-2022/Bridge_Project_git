@@ -19,6 +19,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip boilLow;
     public AudioClip pressDown;
     public AudioClip CoolerTouch;
+    public AudioClip DayFinish;
+    public AudioClip BuyFail;
 
     public AudioClip news;
     public AudioClip main;
@@ -85,6 +87,16 @@ public class SoundManager : MonoBehaviour
 
             case "coolerTouch":
                 sfxAudioSource.clip = CoolerTouch;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "DayFinish":
+                sfxAudioSource.clip = DayFinish;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "BuyFail":
+                sfxAudioSource.clip = BuyFail;
                 sfxAudioSource.loop = false;
                 break;
         }

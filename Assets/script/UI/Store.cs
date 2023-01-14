@@ -65,6 +65,9 @@ public class Store : MonoBehaviour
 
     public int BuyNum = 1;
     public int AllBuyNum = 1;
+    public int MiddleAllBuyNum = 1;
+    public int TopAllBuyNum = 1;
+
 
     int slotItemPrice = 0;
     int MiddleslotItemPrice = 0;
@@ -582,22 +585,22 @@ public class Store : MonoBehaviour
     public void MiddlePlusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum += 1;
+        MiddleAllBuyNum += 1;
 
-        MiddleslotItemPrice = MiddleAllPrice * AllBuyNum;
+        MiddleslotItemPrice = MiddleAllPrice * MiddleAllBuyNum;
 
-        MiddleBuyAllNum.text = AllBuyNum.ToString();
+        MiddleBuyAllNum.text = MiddleAllBuyNum.ToString();
         MiddleBuyAllPrice.text = " / " + MiddleslotItemPrice.ToString() + "$";
     }
 
     public void TopPlusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum += 1;
+        TopAllBuyNum += 1;
 
-        TopslotItemPrice = TopAllPrice * AllBuyNum;
+        TopslotItemPrice = TopAllPrice * TopAllBuyNum;
 
-        TopBuyAllNum.text = AllBuyNum.ToString();
+        TopBuyAllNum.text = TopAllBuyNum.ToString();
         TopBuyAllPrice.text = " / " + TopslotItemPrice.ToString() + "$";
     }
     public void MinusAllItem()
@@ -615,22 +618,22 @@ public class Store : MonoBehaviour
     public void MiddleMinusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum -= 1;
+        MiddleAllBuyNum -= 1;
 
-        MiddleslotItemPrice = MiddleAllPrice * AllBuyNum;
+        MiddleslotItemPrice = MiddleAllPrice * MiddleAllBuyNum;
 
-        MiddleBuyAllNum.text = AllBuyNum.ToString();
+        MiddleBuyAllNum.text = MiddleAllBuyNum.ToString();
         MiddleBuyAllPrice.text = " / " + MiddleslotItemPrice.ToString() + "$";
     }
 
     public void TopMinusAllItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        AllBuyNum -= 1;
+        TopAllBuyNum -= 1;
 
-        TopslotItemPrice = TopAllPrice * AllBuyNum;
+        TopslotItemPrice = TopAllPrice * TopAllBuyNum;
 
-        TopBuyAllNum.text = AllBuyNum.ToString();
+        TopBuyAllNum.text = TopAllBuyNum.ToString();
         TopBuyAllPrice.text = " / " + TopslotItemPrice.ToString() + "$";
     }
 
@@ -740,8 +743,8 @@ public class Store : MonoBehaviour
 
             MiddleItemList[i] = Middleslots[i].item;
         }
-        AllBuyNum = 1;
-        MiddleBuyAllNum.text = AllBuyNum.ToString();
+        MiddleAllBuyNum = 1;
+        MiddleBuyAllNum.text = MiddleAllBuyNum.ToString();
         MiddleslotItemPrice = 0;
         MiddleBuyAll.gameObject.SetActive(true);
 
@@ -783,8 +786,8 @@ public class Store : MonoBehaviour
 
             TopItemList[i] = Topslots[i].item;
         }
-        AllBuyNum = 1;
-        TopBuyAllNum.text = AllBuyNum.ToString();
+        TopAllBuyNum = 1;
+        TopBuyAllNum.text = TopAllBuyNum.ToString();
         TopslotItemPrice = 0;
         TopBuyAll.gameObject.SetActive(true);
         for (int i = 0; i < Topslots.Count; i++)
@@ -825,15 +828,15 @@ public class Store : MonoBehaviour
         {
             if (MiddleItemList[i] == null)
             {
-                break;
+                continue;
             }
 
             inven.GetComponent<Inventory>().BuyItem(MiddleItemList[i]);
-            MiddleItemList[i].itemCount -= 1 * AllBuyNum;
+            MiddleItemList[i].itemCount -= MiddleAllBuyNum;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice;
+        fd.Money -= MiddleslotItemPrice;
         StartCoroutine(Count(imsiMoney, fd.Money));
         BaseBuyAll.SetActive(false);
         MiddleBuyAll.SetActive(false);
@@ -845,14 +848,14 @@ public class Store : MonoBehaviour
         for (int i = 0; i < TopItemList.Length; i++)
         {
             if (TopItemList[i] == null)
-                break;
+                continue;
 
             inven.GetComponent<Inventory>().BuyItem(TopItemList[i]);
-            TopItemList[i].itemCount -= 1 * AllBuyNum;
+            TopItemList[i].itemCount -= TopAllBuyNum;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice;
+        fd.Money -= TopslotItemPrice;
         StartCoroutine(Count(imsiMoney, fd.Money));
         BaseBuyAll.SetActive(false);
         MiddleBuyAll.SetActive(false);
@@ -898,7 +901,7 @@ public class Store : MonoBehaviour
             TopMinusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
-        if (AllBuyNum <= 1)
+        if (AllBuyNum <= 1 || MiddleAllBuyNum <= 1 || TopAllBuyNum <= 1)
         {
             BaseAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = false;
             MiddleAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = false;
@@ -927,7 +930,7 @@ public class Store : MonoBehaviour
 
         if (fd.Money <= slotItemPrice)
         {
-            Debug.Log("잔액 부족");
+            //Debug.Log("잔액 부족");
             BaseAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
             MiddleAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
             TopAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
@@ -994,7 +997,7 @@ public class Store : MonoBehaviour
 
             if (this.transform.GetChild(1).GetChild(1).gameObject.activeSelf == true)
             {
-                if (AllBuyNum == Mmin)
+                if (MiddleAllBuyNum == Mmin)
                 {
                     MiddleAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
                 }
@@ -1019,7 +1022,7 @@ public class Store : MonoBehaviour
 
             if (this.transform.GetChild(1).GetChild(2).gameObject.activeSelf == true)
             {
-                if (AllBuyNum == Tmin)
+                if (TopAllBuyNum == Tmin)
                 {
                     TopAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;
                 }

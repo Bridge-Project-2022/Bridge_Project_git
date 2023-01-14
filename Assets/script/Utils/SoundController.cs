@@ -22,6 +22,7 @@ public class SoundController : MonoBehaviour
 
     public void SetBGMVolume(float volume)
     {
+        Debug.Log(volume);
         BGMSource.volume = volume;
     }
 

@@ -349,6 +349,7 @@ public void DistillerOn(ItemProperty item)
 
     public void CloseWindow()
     {
+        GameObject.Find("LiquidColor").GetComponent<PerfumeColor>().PerfumeMix(50, 50, 50);
         DistillPanel.SetActive(false);
         isBaseRight = false;
         TotalScore.FindObjectOfType<TotalScore>().DistillCnt++;
