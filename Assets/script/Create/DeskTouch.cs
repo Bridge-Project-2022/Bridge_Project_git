@@ -101,7 +101,7 @@ public class DeskTouch : MonoBehaviour
         ClickItem.SetActive(false);
 
         GameObject.Find("LiquidColor").GetComponent<PerfumeColor>().PerfumeReset();
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
         desk.gameObject.SetActive(true);
         Manufacture.gameObject.SetActive(false);
 
@@ -111,7 +111,6 @@ public class DeskTouch : MonoBehaviour
 
     public void PerfumeDialogue()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         DayCheck.FindObjectOfType<DayCheck>().E1_Check();
     }
     public void feelStart()

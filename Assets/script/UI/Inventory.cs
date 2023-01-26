@@ -268,4 +268,32 @@ public class Inventory : MonoBehaviour
         this.transform.Translate(new Vector3(2000, 2000, 0));
         //this.gameObject.SetActive(false);
     }
+
+    public void ResetInven()
+    {
+        for (int i = 0; i < Baseslots.Count; i++)
+        {
+            Baseslots[i].itemName.text = "";
+            Baseslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "";
+            Baseslots[i].item = null;
+            Baseslots[i].image.enabled = false;
+            Baseslots[i].gameObject.name = "Empty";
+        }
+        for (int i = 0; i < Middleslots.Count; i++)
+        {
+            Middleslots[i].itemName.text = "";
+            Middleslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "";
+            Middleslots[i].item = null;
+            Middleslots[i].image.enabled = false;
+            Middleslots[i].gameObject.name = "Empty";
+        }
+        for (int i = 0; i < Topslots.Count; i++)
+        {
+            Topslots[i].itemName.text = "";
+            Topslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "";
+            Topslots[i].item = null;
+            Topslots[i].image.enabled = false;
+            Topslots[i].gameObject.name = "Empty";
+        }
+    }
 }

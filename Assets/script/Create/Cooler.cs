@@ -252,7 +252,7 @@ public class Cooler : MonoBehaviour
         CoolerOne.gameObject.tag = "bad";
         CoolerTwo.gameObject.tag = "bad";
         CoolerThree.gameObject.tag = "bad";
-
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolPick");
     }
 
     public void ItemResult(GameObject itemResult)//아이템 수거
@@ -279,7 +279,7 @@ public class Cooler : MonoBehaviour
         Color color = itemResult.gameObject.GetComponent<Image>().color;
         color.a = 0;
         itemResult.gameObject.GetComponent<Image>().color = color;//아이템 제거
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolPick");
 
         if (itemResult.gameObject.tag == "bad")
         {

@@ -16,9 +16,11 @@ public class GameDataManager : Singleton<GameDataManager>
     private void Awake()
     {
         gameData = new GameData();
-        gameData.itemList = new List<ItemProperty>();
+        gameData.baseItemList = new List<ItemProperty>();
+        gameData.middleItemList = new List<ItemProperty>();
+        gameData.topItemList = new List<ItemProperty>();
     }
-    
+
     #region Property
 
     public int Money
@@ -38,11 +40,21 @@ public class GameDataManager : Singleton<GameDataManager>
         get => gameData.reputation;
         set => gameData.reputation = Mathf.Clamp(value, 0, 100);
     }
-
-    public float Sound
+    public float ReputationValue
     {
-        get => gameData.sound;
-        set => gameData.sound = Mathf.Clamp(value, 0, 100);
+        get => gameData.reputationValue;
+        set => gameData.reputationValue = Mathf.Clamp(value, 0, 100);
+    }
+
+    public float BGM
+    {
+        get => gameData.bgm;
+        set => gameData.bgm = Mathf.Clamp(value, 0, 100);
+    }
+    public float SFX
+    {
+        get => gameData.sfx;
+        set => gameData.sfx = Mathf.Clamp(value, 0, 100);
     }
 
     public bool SoundEnable
@@ -51,21 +63,47 @@ public class GameDataManager : Singleton<GameDataManager>
         set => gameData.soundEnable = value;
     }
     
-    public void AddItem(ItemProperty item)
+    public void AddBaseItem(ItemProperty item)
     {
         if (item == null)
             return;
-        if(gameData.itemList.Contains(item))
+        if(gameData.baseItemList.Contains(item))
         {
-            gameData.itemList.Find(x => x == item).itemCount += 1;
+            gameData.baseItemList.Find(x => x == item).itemCount += 1;
         }
         else
         {
-            gameData.itemList.Add(item);
+            gameData.baseItemList.Add(item);
+        }
+    }
+    public void AddMiddleItem(ItemProperty item)
+    {
+        if (item == null)
+            return;
+        if (gameData.middleItemList.Contains(item))
+        {
+            gameData.middleItemList.Find(x => x == item).itemCount += 1;
+        }
+        else
+        {
+            gameData.middleItemList.Add(item);
+        }
+    }
+    public void AddTopItem(ItemProperty item)
+    {
+        if (item == null)
+            return;
+        if (gameData.topItemList.Contains(item))
+        {
+            gameData.topItemList.Find(x => x == item).itemCount += 1;
+        }
+        else
+        {
+            gameData.topItemList.Add(item);
         }
     }
 
-    public void RemoveItem(ItemProperty item)
+    /*public void RemoveItem(ItemProperty item)
     {
         if (item == null)
             return;
@@ -73,7 +111,7 @@ public class GameDataManager : Singleton<GameDataManager>
         {
             gameData.itemList.Find(x => x == item).itemCount -= 1;
         }
-    }
+    }*/
 
     #endregion 
 
@@ -84,8 +122,8 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void NewGameStart()
     {
-        //GameDataJsonLoad(newGameDataFileName);
-        //GameDataJsonSave(runTimeGameDataFileName);
+        GameDataJsonLoad(newGameDataFileName);
+        GameDataJsonSave(runTimeGameDataFileName);
         isGameStart = true;
         // 추가적인 newGame 게임 세팅 여기서
         // ...
@@ -122,25 +160,61 @@ public class GameDataManager : Singleton<GameDataManager>
     }
 
     #endregion
-    
-    #region UtillsMethod
 
+    #region UtillsMethod
+    public void loadScene()
+    {
+        SceneManager.LoadScene("main");
+    }
     private void GameDataJsonLoad(string fileName)
     {
         var fromJson = Resources.Load<TextAsset>("Json/" + fileName);
         gameData = JsonUtility.FromJson<GameData>(fromJson.ToString());
 
-        Debug.Log(GameDataManager.Instance.Money);
+        /*Debug.Log(GameDataManager.Instance.Money);
         Debug.Log(GameDataManager.Instance.Day);
         Debug.Log(GameDataManager.Instance.Reputation);
-        Debug.Log(GameDataManager.Instance.Sound);
+        Debug.Log(GameDataManager.Instance.BGM);
         Debug.Log(GameDataManager.Instance.SoundEnable);
-
+        */
         FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money = GameDataManager.Instance.Money;
-        NextDay.FindObjectOfType<NextDay>().day = GameDataManager.Instance.Day;
+        NextDay.FindObjectOfType<NextDay>().day = GameDataManager.Instance.Day - 1;
         FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation = GameDataManager.Instance.Reputation;
-        GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value = GameDataManager.Instance.Sound;
+        GameObject.Find("ReputationSlider").GetComponent<Slider>().value = GameDataManager.Instance.ReputationValue;
+        GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value = GameDataManager.Instance.BGM;
+        GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value = GameDataManager.Instance.SFX;
         GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn = GameDataManager.Instance.SoundEnable;
+
+        if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 30)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationBad;
+        }
+        else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 60 && FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 30)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationNormal;
+        }
+        else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 60)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
+        }
+
+        Inventory.FindObjectOfType<Inventory>().ResetInven();
+        for (int i = 0; i < gameData.baseItemList.Count; i++)
+        {
+            gameData.baseItemList[i].InvenItemNum -= 1;
+            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.baseItemList[i]);
+        }
+        for (int i = 0; i < gameData.middleItemList.Count; i++)
+        {
+            gameData.middleItemList[i].InvenItemNum -= 1;
+            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.middleItemList[i]);
+        }
+        for (int i = 0; i < gameData.topItemList.Count; i++)
+        {
+            gameData.topItemList[i].InvenItemNum -= 1;
+            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.topItemList[i]);
+        }
+        NextDay.FindObjectOfType<NextDay>().NextDayClick();
     }
 
     private void GameDataJsonSave(string fileName)

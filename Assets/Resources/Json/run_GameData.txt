@@ -1,8 +1,399 @@
 {
-    "money": 48410,
-    "day": 3,
-    "reputation": 60,
-    "sound": 1.0,
+    "money": 10000,
+    "day": 2,
+    "reputation": 42,
+    "reputationValue": 0.4200000464916229,
+    "bgm": 1.0,
+    "sfx": 1.0,
     "soundEnable": false,
-    "itemList": []
+    "baseItemList": [
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        }
+    ],
+    "middleItemList": [
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        }
+    ],
+    "topItemList": [
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        },
+        {
+            "name": "",
+            "sprite": {
+                "instanceID": 0
+            },
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
+            "isNew": false
+        }
+    ]
 }

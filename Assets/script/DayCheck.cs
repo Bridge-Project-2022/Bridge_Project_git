@@ -92,6 +92,7 @@ public class DayCheck : MonoBehaviour
     }
     public void E1_Check()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
             GameObject.Find("Trigger").GetComponent<DialogueRandom>().E_1_Start();

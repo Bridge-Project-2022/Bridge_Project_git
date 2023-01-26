@@ -8687,7 +8687,7 @@ GameObject:
   - component: {fileID: 385449664}
   - component: {fileID: 385449663}
   m_Layer: 5
-  m_Name: Handle
+  m_Name: ReputationHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31683,6 +31683,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 15d01009cc22b7a47949a38aeb7c77f8, type: 3}
   NewsBGM: {fileID: 8300000, guid: 2783584853704b941b0cd2a9d89c4c80, type: 3}
   BGMSlider: {fileID: 907681485}
+  SFXSlider: {fileID: 1686489155}
 --- !u!1 &1534612176
 GameObject:
   m_ObjectHideFlags: 0
@@ -34522,7 +34523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -29, y: -159}
+  m_AnchoredPosition: {x: -29, y: -177.1}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1659029427
@@ -35583,17 +35584,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visit: {fileID: 8300000, guid: 446d65a614e30464c81b00aa44dbb38c, type: 3}
   inven: {fileID: 8300000, guid: 14b78016c1755ea47b69fa05585855aa, type: 3}
-  money: {fileID: 8300000, guid: 3b88ebfcd2dc6f7408b4b997f626d4e5, type: 3}
+  money: {fileID: 8300000, guid: a5e22ed3862274446aa5c8227e3da098, type: 3}
   fireon: {fileID: 8300000, guid: 94c4a88460bf33047bf049d8618d67d8, type: 3}
   click: {fileID: 8300000, guid: 9aea34c5ac6ef1f4ca2703824860ace5, type: 3}
   typing: {fileID: 8300000, guid: 61523e7e498853d4292b6fb400f09e4b, type: 3}
   boilHigh: {fileID: 8300000, guid: 84c7f15d56865a24e8003de03fbcc4f6, type: 3}
   boilMiddle: {fileID: 8300000, guid: e19b496478997fa4caaae6796f7f792c, type: 3}
   boilLow: {fileID: 8300000, guid: 145846590804dac43990343dc453eb97, type: 3}
-  pressDown: {fileID: 8300000, guid: 8fb5f4a7c08b77b4382a54b6d79abb1c, type: 3}
+  pressDown: {fileID: 8300000, guid: 60c9991454b0d324b8863e6a3068618e, type: 3}
   CoolerTouch: {fileID: 8300000, guid: e04b1b18da2e65c47ba97111e8460de7, type: 3}
   DayFinish: {fileID: 8300000, guid: 12a31ad8b0fe99245b3e1574436b5456, type: 3}
   BuyFail: {fileID: 8300000, guid: 8f7067cc49c9f4842ae8a8e8c1ee53ac, type: 3}
+  coolPick: {fileID: 8300000, guid: b797132de4c50cd43accc35a0f1a9ad9, type: 3}
+  perfumeTouch: {fileID: 8300000, guid: 15128bc688df48a438eef2febc59a2f8, type: 3}
   news: {fileID: 8300000, guid: 2783584853704b941b0cd2a9d89c4c80, type: 3}
   main: {fileID: 8300000, guid: 11f3de9522c691e4e95917c6a3f17503, type: 3}
   Lorena1: {fileID: 8300000, guid: 009ae5200358d1f40898f420c2debd4f, type: 3}
@@ -37028,6 +37031,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1532829890}
         m_TargetAssemblyTypeName: NextDay, Assembly-CSharp
         m_MethodName: DayCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1532829890}
+        m_TargetAssemblyTypeName: NextDay, Assembly-CSharp
+        m_MethodName: SaveData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

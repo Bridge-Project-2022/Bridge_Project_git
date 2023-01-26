@@ -35,6 +35,10 @@ public class NextDay : MonoBehaviour
 
     public AudioClip NewsBGM;
     public GameObject BGMSlider;
+    public GameObject SFXSlider;
+
+    private GameData gameData;
+
     public void Start()
     {
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
@@ -126,16 +130,35 @@ public class NextDay : MonoBehaviour
         GameDataManager.Instance.Money = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money;
         GameDataManager.Instance.Day = day;
         GameDataManager.Instance.Reputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
-        GameDataManager.Instance.Sound = BGMSlider.GetComponent<Slider>().value;
+        GameDataManager.Instance.ReputationValue = GameObject.Find("ReputationSlider").GetComponent<Slider>().value;
+        GameDataManager.Instance.BGM = BGMSlider.GetComponent<Slider>().value;
+        GameDataManager.Instance.SFX = SFXSlider.GetComponent<Slider>().value;
         GameDataManager.Instance.SoundEnable = GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn;
 
-        Debug.Log(GameDataManager.Instance.Money);
+        GameObject.Find("Canvas").transform.GetChild(8).gameObject.SetActive(true);
+        for (int i = 0; i < Inventory.FindObjectOfType<Inventory>().Baseslots.Count; i++)
+        {
+            GameDataManager.Instance.AddBaseItem(Inventory.FindObjectOfType<Inventory>().Baseslots[i].item);
+        }
+        for (int i = 0; i < Inventory.FindObjectOfType<Inventory>().Middleslots.Count; i++)
+        {
+            GameDataManager.Instance.AddMiddleItem(Inventory.FindObjectOfType<Inventory>().Middleslots[i].item);
+        }
+        for (int i = 0; i < Inventory.FindObjectOfType<Inventory>().Topslots.Count; i++)
+        {
+            GameDataManager.Instance.AddTopItem(Inventory.FindObjectOfType<Inventory>().Topslots[i].item);
+        }
+
+        /*Debug.Log(GameDataManager.Instance.Money);
         Debug.Log(GameDataManager.Instance.Day);
         Debug.Log(GameDataManager.Instance.Reputation);
-        Debug.Log(GameDataManager.Instance.Sound);
+        Debug.Log(GameDataManager.Instance.BGM);
+        Debug.Log(GameDataManager.Instance.SFX);
         Debug.Log(GameDataManager.Instance.SoundEnable);
+        Debug.Log(gameData.itemList);*/
 
         GameDataManager.Instance.SaveData();
+        GameObject.Find("Canvas").transform.GetChild(8).gameObject.SetActive(false);
     }
     public void NewsTimePanel()
     {
