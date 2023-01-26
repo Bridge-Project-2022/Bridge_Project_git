@@ -1,58 +1,58 @@
 {
-    "money": 7550,
-    "day": 2,
+    "money": 10000,
+    "day": 1,
     "reputation": 60,
     "reputationValue": 0.6000000238418579,
-    "bgm": 0.501366913318634,
-    "sfx": 0.2758137881755829,
+    "bgm": 1.0,
+    "sfx": 1.0,
     "soundEnable": false,
     "baseItemList": [
         {
-            "name": "사람",
+            "name": "",
             "sprite": {
-                "instanceID": 21812
+                "instanceID": 0
             },
-            "itemCount": 4,
-            "itemPrice": 100,
-            "InvenItemNum": 1,
-            "itemType": "Base",
-            "itemExplanation": "사람에 대한 추억을 담을 수 있는 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "동물",
+            "name": "",
             "sprite": {
-                "instanceID": 21814
+                "instanceID": 0
             },
-            "itemCount": 4,
-            "itemPrice": 80,
-            "InvenItemNum": 1,
-            "itemType": "Base",
-            "itemExplanation": "동물에 대한 추억을 담을 수 있는 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "물건",
+            "name": "",
             "sprite": {
-                "instanceID": 21816
+                "instanceID": 0
             },
-            "itemCount": 4,
-            "itemPrice": 150,
-            "InvenItemNum": 1,
-            "itemType": "Base",
-            "itemExplanation": "물에 대한 추억을 담을 수 있는 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "장소",
+            "name": "",
             "sprite": {
-                "instanceID": 21818
+                "instanceID": 0
             },
-            "itemCount": 4,
-            "itemPrice": 200,
-            "InvenItemNum": 1,
-            "itemType": "Base",
-            "itemExplanation": "장소에 대한 추억을 담을 수 있는 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
@@ -106,75 +106,75 @@
     ],
     "middleItemList": [
         {
-            "name": "연인",
+            "name": "",
             "sprite": {
-                "instanceID": 21072
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 150,
-            "InvenItemNum": 1,
-            "itemType": "Middle",
-            "itemExplanation": "대상과 연애하는 관계로서 함께한 추억을 담을 수 있는 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "가족",
+            "name": "",
             "sprite": {
-                "instanceID": 21014
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 200,
-            "InvenItemNum": 1,
-            "itemType": "Middle",
-            "itemExplanation": "부부, 자녀 사이 등과 같이 가족 관계로서 함께한 추억을 담을 수 있는 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "반려동물",
+            "name": "",
             "sprite": {
-                "instanceID": 21074
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 170,
-            "InvenItemNum": 1,
-            "itemType": "Middle",
-            "itemExplanation": " 반려동물과 함께한 추억을 담을 수 있는 향료 ",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "인형",
+            "name": "",
             "sprite": {
-                "instanceID": 21076
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 180,
-            "InvenItemNum": 1,
-            "itemType": "Middle",
-            "itemExplanation": "인형에 대한 특별한 추억을 담을 수 있는 향료 ",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "놀이공원",
+            "name": "",
             "sprite": {
-                "instanceID": 21078
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 270,
-            "InvenItemNum": 1,
-            "itemType": "Middle",
-            "itemExplanation": "놀이공원에서의 소중한 추억을 담을 수 있는 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "여행지",
+            "name": "",
             "sprite": {
-                "instanceID": 21080
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 300,
-            "InvenItemNum": 1,
-            "itemType": "Middle",
-            "itemExplanation": "여행지에서의 소중한 추억을 담을 수 있는 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
@@ -252,51 +252,51 @@
     ],
     "topItemList": [
         {
-            "name": "행복",
+            "name": "",
             "sprite": {
-                "instanceID": 21092
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 100,
-            "InvenItemNum": 1,
-            "itemType": "Top",
-            "itemExplanation": "좋은 일이 생겼을 때, 충분한 만족감과 편안함으로 희망찬 감정 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "기쁨",
+            "name": "",
             "sprite": {
-                "instanceID": 21094
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 100,
-            "InvenItemNum": 1,
-            "itemType": "Top",
-            "itemExplanation": "무언가로 인해 즐겁거나 짜릿한 감정 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "사랑",
+            "name": "",
             "sprite": {
-                "instanceID": 21096
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 200,
-            "InvenItemNum": 1,
-            "itemType": "Top",
-            "itemExplanation": " 대상을 몹시 아끼고 귀중히 여기거나 순수하게 좋아하는 감정 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {
-            "name": "슬픔",
+            "name": "",
             "sprite": {
-                "instanceID": 21098
+                "instanceID": 0
             },
-            "itemCount": 2,
-            "itemPrice": 250,
-            "InvenItemNum": 1,
-            "itemType": "Top",
-            "itemExplanation": "무엇으로 인해 울고 싶을 정도로 서럽고, 우울한 감정 향료",
+            "itemCount": 0,
+            "itemPrice": 0,
+            "InvenItemNum": 0,
+            "itemType": "",
+            "itemExplanation": "",
             "isNew": false
         },
         {

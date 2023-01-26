@@ -13,4 +13,18 @@ public class GameData
     public List<ItemProperty> baseItemList;
     public List<ItemProperty> middleItemList;
     public List<ItemProperty> topItemList;
+
+    public GameData()
+    {
+        this.money = 500;
+        this.day = 2;
+        this.reputation = 60;
+        this.reputationValue = 0.0f;
+        this.bgm = 1.0f;
+        this.sfx = 1.0f;
+        this.soundEnable = false;
+        this.baseItemList = new List<ItemProperty>();
+        this.middleItemList = new List<ItemProperty>();
+        this.topItemList = new List<ItemProperty>();
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class FirstDaySetting : MonoBehaviour
+public class FirstDaySetting : MonoBehaviour, IDataPersistence
 {
     public int Time = 8;
     public int Money = 10000;
@@ -26,6 +26,7 @@ public class FirstDaySetting : MonoBehaviour
             GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
             Invoke("FirstDayStart", 6f);
         }
+        
     }
     private void Update()
     {
@@ -87,4 +88,13 @@ public class FirstDaySetting : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
     }
 
+    public void LoadData(GameData data)
+    {
+        this.Money = data.money;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.money = this.Money;
+    }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TitleBtns : MonoBehaviour
@@ -23,12 +22,6 @@ public class TitleBtns : MonoBehaviour
     void Start()
     {
         //StartCoroutine(TitleBtnActive());
-    }
-    public void NewGameBtnClicked()
-    {
-        GameDataManager.Instance.NewGameStart();
-        SceneManager.LoadScene("Main");
-        //NewSoundManager.instance.StopBGM();
     }
 
     public void OptionBtnClicked()

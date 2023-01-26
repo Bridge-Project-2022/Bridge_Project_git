@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 using UnityEngine.UI;
 
 public class GameDataManager : Singleton<GameDataManager>
@@ -10,15 +12,25 @@ public class GameDataManager : Singleton<GameDataManager>
 
     private GameData gameData;
 
-    private string newGameDataFileName = "GameData";
-    private string runTimeGameDataFileName = "run_GameData";
+    //private const string newGameDataFileName = "GameData";
+    private const string runTimeGameDataFileName = "run_GameData";
+
+
+    private List<IDataPersistence> dataPersistenceObjects;
+    private FileDataHandler dataHandler;
+
     public bool isGameStart = false;
     private void Awake()
     {
-        gameData = new GameData();
-        gameData.baseItemList = new List<ItemProperty>();
-        gameData.middleItemList = new List<ItemProperty>();
-        gameData.topItemList = new List<ItemProperty>();
+        
+        
+    }
+
+    private void Start()
+    {
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        
+        dataHandler = new FileDataHandler(Application.persistentDataPath, runTimeGameDataFileName);
     }
 
     #region Property
@@ -122,8 +134,8 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void NewGameStart()
     {
-        GameDataJsonLoad(newGameDataFileName);
-        GameDataJsonSave(runTimeGameDataFileName);
+        // 초기화 추가
+        gameData = new GameData();
         isGameStart = true;
         // 추가적인 newGame 게임 세팅 여기서
         // ...
@@ -135,9 +147,14 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void SaveData()
     {
-        GameDataJsonSave(runTimeGameDataFileName);
+
+        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
+        {
+            dataPersistence.SaveData(ref gameData);
+        }
         // 저장 후 처리
         
+        dataHandler.Save(gameData);
     }
     
     /// <summary>
@@ -145,31 +162,35 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void LoadData()
     {
-        /*if (isGameStart == true)
+        this.gameData = dataHandler.Load();
+        
+        if (this.gameData == null)
         {
-            GameDataJsonLoad(runTimeGameDataFileName);
-            SceneManager.LoadScene("Main");
+            NewGameStart();
         }
-        else
-        {
-            GameObject.Find("GameStart").GetComponent<TitleBtns>().ShowUnsupportedMessage();
-        }*/
+        
         SceneManager.LoadScene("Main");
-        GameDataJsonLoad(runTimeGameDataFileName);
         // 불러오기 처리
+
+        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
+        {
+            dataPersistence.LoadData(gameData);
+        }
     }
 
     #endregion
 
     #region UtillsMethod
-    public void loadScene()
+
+    private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        SceneManager.LoadScene("main");
+        IEnumerable<IDataPersistence> dataPersistences = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+
+        return new List<IDataPersistence>(dataPersistences);
     }
+
     private void GameDataJsonLoad(string fileName)
     {
-        var fromJson = Resources.Load<TextAsset>("Json/" + fileName);
-        gameData = JsonUtility.FromJson<GameData>(fromJson.ToString());
 
         /*Debug.Log(GameDataManager.Instance.Money);
         Debug.Log(GameDataManager.Instance.Day);
@@ -177,51 +198,46 @@ public class GameDataManager : Singleton<GameDataManager>
         Debug.Log(GameDataManager.Instance.BGM);
         Debug.Log(GameDataManager.Instance.SoundEnable);
         */
-        FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money = GameDataManager.Instance.Money;
-        NextDay.FindObjectOfType<NextDay>().day = GameDataManager.Instance.Day - 1;
-        FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation = GameDataManager.Instance.Reputation;
-        GameObject.Find("ReputationSlider").GetComponent<Slider>().value = GameDataManager.Instance.ReputationValue;
-        GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value = GameDataManager.Instance.BGM;
-        GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value = GameDataManager.Instance.SFX;
-        GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn = GameDataManager.Instance.SoundEnable;
-
-        if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 30)
-        {
-            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationBad;
-        }
-        else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 60 && FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 30)
-        {
-            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationNormal;
-        }
-        else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 60)
-        {
-            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
-        }
-
-        Inventory.FindObjectOfType<Inventory>().ResetInven();
-        for (int i = 0; i < gameData.baseItemList.Count; i++)
-        {
-            gameData.baseItemList[i].InvenItemNum -= 1;
-            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.baseItemList[i]);
-        }
-        for (int i = 0; i < gameData.middleItemList.Count; i++)
-        {
-            gameData.middleItemList[i].InvenItemNum -= 1;
-            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.middleItemList[i]);
-        }
-        for (int i = 0; i < gameData.topItemList.Count; i++)
-        {
-            gameData.topItemList[i].InvenItemNum -= 1;
-            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.topItemList[i]);
-        }
-        NextDay.FindObjectOfType<NextDay>().NextDayClick();
+         // FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money = GameDataManager.Instance.Money;
+         // NextDay.FindObjectOfType<NextDay>().day = GameDataManager.Instance.Day - 1;
+         // FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation = GameDataManager.Instance.Reputation;
+         // GameObject.Find("ReputationSlider").GetComponent<Slider>().value = GameDataManager.Instance.ReputationValue;
+         // GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value = GameDataManager.Instance.BGM;
+         // GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value = GameDataManager.Instance.SFX;
+         // GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn = GameDataManager.Instance.SoundEnable;
+         //
+         // if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 30)
+         // {
+         //     GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationBad;
+         // }
+         // else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 60 && FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 30)
+         // {
+         //     GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationNormal;
+         // }
+         // else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 60)
+         // {
+         //     GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
+         // }
+        
+        // Inventory.FindObjectOfType<Inventory>().ResetInven();
+        // for (int i = 0; i < gameData.baseItemList.Count; i++)
+        // {
+        //     gameData.baseItemList[i].InvenItemNum -= 1;
+        //     Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.baseItemList[i]);
+        // }
+        // for (int i = 0; i < gameData.middleItemList.Count; i++)
+        // {
+        //     gameData.middleItemList[i].InvenItemNum -= 1;
+        //     Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.middleItemList[i]);
+        // }
+        // for (int i = 0; i < gameData.topItemList.Count; i++)
+        // {
+        //     gameData.topItemList[i].InvenItemNum -= 1;
+        //     Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.topItemList[i]);
+        // }
+        // NextDay.FindObjectOfType<NextDay>().NextDayClick();
     }
-
-    private void GameDataJsonSave(string fileName)
-    {
-        string toJson = JsonUtility.ToJson(gameData, prettyPrint: true);
-        File.WriteAllText(Application.dataPath + "/Resources/Json/" + fileName+".txt", toJson);
-    }
+    
 
     #endregion
 }
