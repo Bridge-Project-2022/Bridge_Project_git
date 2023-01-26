@@ -154,7 +154,7 @@ public class GameDataManager : Singleton<GameDataManager>
         {
             GameObject.Find("GameStart").GetComponent<TitleBtns>().ShowUnsupportedMessage();
         }*/
-        //SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Main");
         GameDataJsonLoad(runTimeGameDataFileName);
         // 불러오기 처리
     }

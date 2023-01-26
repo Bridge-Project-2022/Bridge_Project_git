@@ -1,58 +1,58 @@
 {
-    "money": 10000,
+    "money": 7550,
     "day": 2,
-    "reputation": 42,
-    "reputationValue": 0.4200000464916229,
-    "bgm": 1.0,
-    "sfx": 1.0,
+    "reputation": 60,
+    "reputationValue": 0.6000000238418579,
+    "bgm": 0.501366913318634,
+    "sfx": 0.2758137881755829,
     "soundEnable": false,
     "baseItemList": [
         {
-            "name": "",
+            "name": "사람",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21812
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 4,
+            "itemPrice": 100,
+            "InvenItemNum": 1,
+            "itemType": "Base",
+            "itemExplanation": "사람에 대한 추억을 담을 수 있는 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "동물",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21814
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 4,
+            "itemPrice": 80,
+            "InvenItemNum": 1,
+            "itemType": "Base",
+            "itemExplanation": "동물에 대한 추억을 담을 수 있는 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "물건",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21816
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 4,
+            "itemPrice": 150,
+            "InvenItemNum": 1,
+            "itemType": "Base",
+            "itemExplanation": "물에 대한 추억을 담을 수 있는 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "장소",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21818
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 4,
+            "itemPrice": 200,
+            "InvenItemNum": 1,
+            "itemType": "Base",
+            "itemExplanation": "장소에 대한 추억을 담을 수 있는 향료",
             "isNew": false
         },
         {
@@ -106,75 +106,75 @@
     ],
     "middleItemList": [
         {
-            "name": "",
+            "name": "연인",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21072
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 150,
+            "InvenItemNum": 1,
+            "itemType": "Middle",
+            "itemExplanation": "대상과 연애하는 관계로서 함께한 추억을 담을 수 있는 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "가족",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21014
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 200,
+            "InvenItemNum": 1,
+            "itemType": "Middle",
+            "itemExplanation": "부부, 자녀 사이 등과 같이 가족 관계로서 함께한 추억을 담을 수 있는 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "반려동물",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21074
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 170,
+            "InvenItemNum": 1,
+            "itemType": "Middle",
+            "itemExplanation": " 반려동물과 함께한 추억을 담을 수 있는 향료 ",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "인형",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21076
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 180,
+            "InvenItemNum": 1,
+            "itemType": "Middle",
+            "itemExplanation": "인형에 대한 특별한 추억을 담을 수 있는 향료 ",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "놀이공원",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21078
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 270,
+            "InvenItemNum": 1,
+            "itemType": "Middle",
+            "itemExplanation": "놀이공원에서의 소중한 추억을 담을 수 있는 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "여행지",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21080
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 300,
+            "InvenItemNum": 1,
+            "itemType": "Middle",
+            "itemExplanation": "여행지에서의 소중한 추억을 담을 수 있는 향료",
             "isNew": false
         },
         {
@@ -252,51 +252,51 @@
     ],
     "topItemList": [
         {
-            "name": "",
+            "name": "행복",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21092
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 100,
+            "InvenItemNum": 1,
+            "itemType": "Top",
+            "itemExplanation": "좋은 일이 생겼을 때, 충분한 만족감과 편안함으로 희망찬 감정 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "기쁨",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21094
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 100,
+            "InvenItemNum": 1,
+            "itemType": "Top",
+            "itemExplanation": "무언가로 인해 즐겁거나 짜릿한 감정 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "사랑",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21096
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 200,
+            "InvenItemNum": 1,
+            "itemType": "Top",
+            "itemExplanation": " 대상을 몹시 아끼고 귀중히 여기거나 순수하게 좋아하는 감정 향료",
             "isNew": false
         },
         {
-            "name": "",
+            "name": "슬픔",
             "sprite": {
-                "instanceID": 0
+                "instanceID": 21098
             },
-            "itemCount": 0,
-            "itemPrice": 0,
-            "InvenItemNum": 0,
-            "itemType": "",
-            "itemExplanation": "",
+            "itemCount": 2,
+            "itemPrice": 250,
+            "InvenItemNum": 1,
+            "itemType": "Top",
+            "itemExplanation": "무엇으로 인해 울고 싶을 정도로 서럽고, 우울한 감정 향료",
             "isNew": false
         },
         {
