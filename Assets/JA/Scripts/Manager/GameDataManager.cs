@@ -11,20 +11,13 @@ public class GameDataManager : Singleton<GameDataManager>
     protected GameDataManager() { }
 
     private GameData gameData;
-
-    //private const string newGameDataFileName = "GameData";
+    
     private const string runTimeGameDataFileName = "run_GameData";
-
-
+    
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
 
     public bool isGameStart = false;
-    private void Awake()
-    {
-        
-        
-    }
 
     private void Start()
     {
@@ -134,12 +127,8 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void NewGameStart()
     {
-        // 초기화 추가
         gameData = new GameData();
         isGameStart = true;
-        // 추가적인 newGame 게임 세팅 여기서
-        // ...
-        
     }
 
     /// <summary>
@@ -147,7 +136,6 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void SaveData()
     {
-
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);

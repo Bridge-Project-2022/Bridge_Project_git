@@ -30,6 +30,7 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     }
     private void Update()
     {
+        
         GameMoney.text = Money.ToString();
         GameReputation.gameObject.GetComponent<Text>().text = Reputation.ToString();
 
