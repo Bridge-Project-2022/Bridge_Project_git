@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IDataPersistence
 {
     public Transform BaseslotRoot;
     public Transform MiddleslotRoot;
@@ -214,55 +214,6 @@ public class Inventory : MonoBehaviour
         }
 
     }
-
-    /*public void AllBuyItem()//일괄 구매
-    {
-        Debug.Log("시작");
-        var emptySlot = slots.Find(t =>
-        {
-            return t.item == null || t.item.name == string.Empty;
-        });//모든 슬롯중에 아이템이 빈 슬롯을 emptyslot이라는 변수 할당.
-        for (int i = 0; i < slotRoot.childCount; i++)
-        {
-            for (int j = 0; j < storeSlotRoot.childCount; j++)
-            {
-                if (slots[i].item != storeSlots[i].item)//중복이 아닌 경우
-                {
-                    Debug.Log("중복없음");
-                    //Debug.Log(storeSlots[i].item.name);
-                    if (emptySlot != null)//슬롯 꽉차지 않은 경우
-                    {
-                        Debug.Log(storeSlots[i].item.name);
-                        emptySlot.SetInvenItem(storeSlots[i].item);
-                        //storeSlots[i].item = allItem;
-                        isAllsame = false;
-                    }
-                    else
-                    {
-                        Debug.Log("슬롯 꽉참");
-                    }
-                }
-
-                if (slots[i].item == storeSlots[i].item)
-                {
-                    Debug.Log("중복있음");
-                    isAllsame = true;
-                    slots[i].item.InvenItemNum += store.AllBuyNum;
-                    slots[i].transform.GetChild(3).GetComponent<Text>().text = slots[i].item.InvenItemNum.ToString();
-
-                    break;
-                }
-            }
-        }
-
-        if (isAllsame == false)//중복인 아이템이 없는 경우 -> 슬롯 추가
-        {
-            emptySlot.SetInvenItem(allItem);
-            //allItem.InvenItemNum = 0;
-            //allItem.InvenItemNum += store.AllBuyNum;
-            //emptySlot.transform.GetChild(3).GetComponent<Text>().text = allItem.InvenItemNum.ToString();
-        }
-    }*/
     public void Close()
     {
         this.transform.Translate(new Vector3(2000, 2000, 0));
@@ -294,6 +245,43 @@ public class Inventory : MonoBehaviour
             Topslots[i].item = null;
             Topslots[i].image.enabled = false;
             Topslots[i].gameObject.name = "Empty";
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.ResetInven();
+
+        for (int i = 0; i < data.baseItemList.Count; i++)
+        {
+            data.baseItemList[i].InvenItemNum -= 1;
+            this.BuyItem(data.baseItemList[i]);
+        }
+        for (int i = 0; i < data.middleItemList.Count; i++)
+        {
+            data.middleItemList[i].InvenItemNum -= 1;
+            this.BuyItem(data.middleItemList[i]);
+        }
+        for (int i = 0; i < data.topItemList.Count; i++)
+        {
+            data.topItemList[i].InvenItemNum -= 1;
+            this.BuyItem(data.topItemList[i]);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        for (int i = 0; i < Baseslots.Count; i++)
+        {
+            data.baseItemList[i] = this.Baseslots[i].item;
+        }
+        for (int i = 0; i < Middleslots.Count; i++)
+        {
+            data.middleItemList[i] = this.Middleslots[i].item;
+        }
+        for (int i = 0; i < Topslots.Count; i++)
+        {
+            data.topItemList[i] = this.Topslots[i].item;
         }
     }
 }

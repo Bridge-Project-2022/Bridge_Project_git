@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SoundController : MonoBehaviour
+public class SoundController : MonoBehaviour, IDataPersistence
 {
     public AudioSource BGMSource;
     public AudioSource SFXSource;
@@ -23,6 +23,7 @@ public class SoundController : MonoBehaviour
     public void SetBGMVolume(float volume)
     {
         BGMSource.volume = volume;
+        Debug.Log(BGMSource.volume);
     }
 
     public void SetSFXVolume(float volume)
@@ -78,5 +79,17 @@ public class SoundController : MonoBehaviour
 
             isSFXOn = false;
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value = data.bgm;
+        GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value = data.sfx;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.bgm = GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value;
+        data.sfx = GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value;
     }
 }

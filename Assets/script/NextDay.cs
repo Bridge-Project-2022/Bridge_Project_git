@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 
-public class NextDay : MonoBehaviour
+public class NextDay : MonoBehaviour, IDataPersistence
 {
     public int day = 1;
     public GameObject DailyResult;
@@ -125,7 +125,7 @@ public class NextDay : MonoBehaviour
         Invoke("SellerStart", 2f);
 
     }
-    public void SaveData()
+    /*public void SaveData()
     {
         GameDataManager.Instance.Money = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money;
         GameDataManager.Instance.Day = day;
@@ -155,11 +155,11 @@ public class NextDay : MonoBehaviour
         Debug.Log(GameDataManager.Instance.BGM);
         Debug.Log(GameDataManager.Instance.SFX);
         Debug.Log(GameDataManager.Instance.SoundEnable);
-        Debug.Log(gameData.itemList);*/
+        Debug.Log(gameData.itemList);
 
         GameDataManager.Instance.SaveData();
         GameObject.Find("Canvas").transform.GetChild(8).gameObject.SetActive(false);
-    }
+    }*/
     public void NewsTimePanel()
     {
         NewsPanel.gameObject.SetActive(true);
@@ -242,5 +242,16 @@ public class NextDay : MonoBehaviour
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.day = data.day - 1;
+        NextDayClick();
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.day = this.day;
     }
 }

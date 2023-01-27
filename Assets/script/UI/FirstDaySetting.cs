@@ -92,10 +92,26 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.Money = data.money;
+        this.Reputation = data.reputation;
+        GameObject.Find("ReputationSlider").GetComponent<Slider>().value = data.reputationValue;
+        if (this.Reputation <= 30)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationBad;
+        }
+        else if (this.Reputation <= 60 && this.Reputation > 30)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationNormal;
+        }
+        else if (this.Reputation > 60)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
+        }
     }
 
     public void SaveData(ref GameData data)
     {
         data.money = this.Money;
+        data.reputation = this.Reputation;
+        data.reputationValue = GameObject.Find("ReputationSlider").GetComponent<Slider>().value;
     }
 }
