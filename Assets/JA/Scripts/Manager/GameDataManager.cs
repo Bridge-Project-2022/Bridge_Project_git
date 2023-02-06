@@ -19,7 +19,7 @@ public class GameDataManager : Singleton<GameDataManager>
 
     public bool isGameStart = false;
 
-    private void Start()
+    private void Awake()
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         
@@ -136,6 +136,8 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void SaveData()
     {
+        Debug.Log("저장체크");
+        
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);
@@ -143,6 +145,8 @@ public class GameDataManager : Singleton<GameDataManager>
         // 저장 후 처리
         
         dataHandler.Save(gameData);
+
+        
     }
     
     /// <summary>
@@ -150,6 +154,10 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void LoadData()
     {
+        Debug.Log("불러오기");
+        
+        SceneManager.LoadScene("Main");
+        
         this.gameData = dataHandler.Load();
         
         if (this.gameData == null)
@@ -157,9 +165,9 @@ public class GameDataManager : Singleton<GameDataManager>
             NewGameStart();
         }
         
-        SceneManager.LoadScene("Main");
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        
         // 불러오기 처리
-
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.LoadData(gameData);
@@ -176,57 +184,7 @@ public class GameDataManager : Singleton<GameDataManager>
 
         return new List<IDataPersistence>(dataPersistences);
     }
-
-    private void GameDataJsonLoad(string fileName)
-    {
-
-        /*Debug.Log(GameDataManager.Instance.Money);
-        Debug.Log(GameDataManager.Instance.Day);
-        Debug.Log(GameDataManager.Instance.Reputation);
-        Debug.Log(GameDataManager.Instance.BGM);
-        Debug.Log(GameDataManager.Instance.SoundEnable);
-        */
-         // FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money = GameDataManager.Instance.Money;
-         // NextDay.FindObjectOfType<NextDay>().day = GameDataManager.Instance.Day - 1;
-         // FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation = GameDataManager.Instance.Reputation;
-         // GameObject.Find("ReputationSlider").GetComponent<Slider>().value = GameDataManager.Instance.ReputationValue;
-         // GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value = GameDataManager.Instance.BGM;
-         // GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value = GameDataManager.Instance.SFX;
-         // GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn = GameDataManager.Instance.SoundEnable;
-         //
-         // if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 30)
-         // {
-         //     GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationBad;
-         // }
-         // else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 60 && FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 30)
-         // {
-         //     GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationNormal;
-         // }
-         // else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 60)
-         // {
-         //     GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
-         // }
-        
-        // Inventory.FindObjectOfType<Inventory>().ResetInven();
-        // for (int i = 0; i < gameData.baseItemList.Count; i++)
-        // {
-        //     gameData.baseItemList[i].InvenItemNum -= 1;
-        //     Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.baseItemList[i]);
-        // }
-        // for (int i = 0; i < gameData.middleItemList.Count; i++)
-        // {
-        //     gameData.middleItemList[i].InvenItemNum -= 1;
-        //     Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.middleItemList[i]);
-        // }
-        // for (int i = 0; i < gameData.topItemList.Count; i++)
-        // {
-        //     gameData.topItemList[i].InvenItemNum -= 1;
-        //     Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.topItemList[i]);
-        // }
-        // NextDay.FindObjectOfType<NextDay>().NextDayClick();
-    }
     
-
     #endregion
 }
 
