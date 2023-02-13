@@ -137,7 +137,8 @@ public class Presser : MonoBehaviour
     }
     public void PresserEnd()//압착 과정 종료
     {
-        GameObject.Find("LiquidColor").GetComponent<PerfumeColor>().PerfumeMix(50, 50, 50);
+        GameObject.Find("Perfume").GetComponent<PerfumeColor>().FinishCnt++;
+        GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeChoice(ClickedItem.name);
         isMiddleRight = false;
         TotalScore.FindObjectOfType<TotalScore>().PressCnt++;
         for (int i = 0; i < GameObject.Find("MiddleInvenSlots").transform.childCount; i++)

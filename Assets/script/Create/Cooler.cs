@@ -198,7 +198,8 @@ public class Cooler : MonoBehaviour
     }
     public void CoolerClose()//냉침기 종료
     {
-        GameObject.Find("LiquidColor").GetComponent<PerfumeColor>().PerfumeMix(50, 50, 50);
+        GameObject.Find("Perfume").GetComponent<PerfumeColor>().FinishCnt++;
+        GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeChoice(ClickedItem.name);
         isTopRight = false;
         TotalScore.FindObjectOfType<TotalScore>().CoolCnt++;
         for (int i = 0; i < GameObject.Find("TopInvenSlots").transform.childCount; i++)

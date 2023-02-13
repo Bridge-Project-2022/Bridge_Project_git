@@ -26,6 +26,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip news;
     public AudioClip main;
+    public AudioClip create_asmr;
     public AudioClip Lorena1;
     public AudioClip LorenaCutScene;
 
@@ -136,6 +137,11 @@ public class SoundManager : MonoBehaviour
 
             case "LorenaCutScene":
                 bgmAudioSource.clip = LorenaCutScene;
+                bgmAudioSource.volume = 1f;
+                break;
+
+            case "create_asmr":
+                bgmAudioSource.clip = create_asmr;
                 bgmAudioSource.volume = 1f;
                 break;
         }

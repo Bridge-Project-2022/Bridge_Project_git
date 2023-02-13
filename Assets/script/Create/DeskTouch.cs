@@ -73,7 +73,7 @@ public class DeskTouch : MonoBehaviour
         {
             topSlot.transform.GetChild(i).GetComponent<Button>().interactable = true;
         }
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("create_asmr");
 
         Timer.FindObjectOfType<Timer>().isTimerStart = true;
     }
@@ -100,7 +100,7 @@ public class DeskTouch : MonoBehaviour
 
         ClickItem.SetActive(false);
 
-        GameObject.Find("LiquidColor").GetComponent<PerfumeColor>().PerfumeReset();
+        GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
         desk.gameObject.SetActive(true);
         Manufacture.gameObject.SetActive(false);
@@ -112,6 +112,7 @@ public class DeskTouch : MonoBehaviour
     public void PerfumeDialogue()
     {
         DayCheck.FindObjectOfType<DayCheck>().E1_Check();
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
     }
     public void feelStart()
     {
