@@ -127,7 +127,6 @@ public class Slot : MonoBehaviour
     {
         if (this.item != null && this.tag != "InvenSlot")
         {
-            //Debug.Log("s");
             itemCount.text = item.itemCount.ToString() + "개 보유";
             if (item.itemCount <= 0)
             {

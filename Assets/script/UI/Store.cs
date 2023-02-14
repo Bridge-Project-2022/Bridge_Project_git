@@ -114,6 +114,7 @@ public class Store : MonoBehaviour
     bool isMiddleAllOpen = false;
     bool isTopAllOpen = false;
 
+    public int Basecnt = 0;
     public void StoreOpen()
     {
         this.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
@@ -196,6 +197,9 @@ public class Store : MonoBehaviour
        
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {
+            BaseBuyAllBtn.GetComponent<Button>().interactable = true;
+            MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
+            TopBuyAllBtn.GetComponent<Button>().interactable = true;
             for (int i = 0; i <= 3; i++)
             {
                 slot = slotRoot.GetChild(i).GetComponent<Slot>();
@@ -282,6 +286,9 @@ public class Store : MonoBehaviour
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
+            BaseBuyAllBtn.GetComponent<Button>().interactable = true;
+            MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
+            TopBuyAllBtn.GetComponent<Button>().interactable = true;
             for (int i = 0; i <= 3; i++)
             {
                 slot = slotRoot.GetChild(i).GetComponent<Slot>();
@@ -374,6 +381,9 @@ public class Store : MonoBehaviour
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 4)
         {
+            BaseBuyAllBtn.GetComponent<Button>().interactable = true;
+            MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
+            TopBuyAllBtn.GetComponent<Button>().interactable = true;
             for (int i = 0; i <= 3; i++)
             {
                 slot = slotRoot.GetChild(i).GetComponent<Slot>();
@@ -640,15 +650,35 @@ public class Store : MonoBehaviour
     public void BuyItem()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        
         if (onStoreSlotClick != null)
         {
             onStoreSlotClick(slot.item);
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         slot.item.itemCount -= 1 * BuyNum;
+
+        if (slot.item.itemCount < 0)
+            slot.item.itemCount = 0;
         float imsiMoney = fd.Money;
         fd.Money -= slot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
+
+        int cnt = 0;
+        for (int i = 0; i < BaseItemList.Length; i++)
+        {
+            if (BaseItemList[i].itemCount == 0)
+            {
+                cnt++;
+            }
+
+            if (cnt == BaseItemList.Length)
+            {
+                BaseBuyAllBtn.GetComponent<Button>().interactable = false;
+            }
+        }
+        cnt = 0;
+
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
         TopItemDetail.gameObject.SetActive(false);
@@ -663,9 +693,29 @@ public class Store : MonoBehaviour
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         Middleslot.item.itemCount -= 1 * BuyNum;
+
+        if (Middleslot.item.itemCount < 0)
+            Middleslot.item.itemCount = 0;
+
         float imsiMoney = fd.Money;
         fd.Money -= Middleslot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
+
+        int cnt = 0;
+        for (int i = 0; i < MiddleItemList.Length; i++)
+        {
+            if (MiddleItemList[i].itemCount == 0)
+            {
+                cnt++;
+            }
+
+            if (cnt == MiddleItemList.Length)
+            {
+                MiddleBuyAllBtn.GetComponent<Button>().interactable = false;
+            }
+        }
+        cnt = 0;
+
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
         TopItemDetail.gameObject.SetActive(false);
@@ -680,9 +730,29 @@ public class Store : MonoBehaviour
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         Topslot.item.itemCount -= 1 * BuyNum;
+
+        if (Topslot.item.itemCount < 0)
+            Topslot.item.itemCount = 0;
+
         float imsiMoney = fd.Money;
         fd.Money -= Topslot.item.itemPrice * BuyNum;
         StartCoroutine(Count(imsiMoney, fd.Money));
+
+        int cnt = 0;
+        for (int i = 0; i < TopItemList.Length; i++)
+        {
+            if (TopItemList[i].itemCount == 0)
+            {
+                cnt++;
+            }
+
+            if (cnt == TopItemList.Length)
+            {
+                TopBuyAllBtn.GetComponent<Button>().interactable = false;
+            }
+        }
+        cnt = 0;
+
         ItemDetail.gameObject.SetActive(false);
         MiddleItemDetail.gameObject.SetActive(false);
         TopItemDetail.gameObject.SetActive(false);
@@ -813,11 +883,30 @@ public class Store : MonoBehaviour
 
             inven.GetComponent<Inventory>().BuyItem(BaseItemList[i]);
             BaseItemList[i].itemCount -= AllBuyNum;
+            if (BaseItemList[i].itemCount < 0)
+                BaseItemList[i].itemCount = 0;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
         fd.Money -= slotItemPrice;
         StartCoroutine(Count(imsiMoney, fd.Money));
+
+        int cnt = 0;
+        for (int i = 0; i < BaseItemList.Length; i++)
+        {
+            if (BaseItemList[i].itemCount == 0)
+            {
+                cnt++;
+            }
+
+            if (cnt == BaseItemList.Length)
+            {
+                BaseBuyAllBtn.GetComponent<Button>().interactable = false;
+            }
+        }
+        cnt = 0;
+
+
         BaseBuyAll.SetActive(false);
         MiddleBuyAll.SetActive(false);
         TopBuyAll.SetActive(false);
@@ -833,11 +922,30 @@ public class Store : MonoBehaviour
 
             inven.GetComponent<Inventory>().BuyItem(MiddleItemList[i]);
             MiddleItemList[i].itemCount -= MiddleAllBuyNum;
+
+            if (MiddleItemList[i].itemCount < 0)
+                MiddleItemList[i].itemCount = 0;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
         fd.Money -= MiddleslotItemPrice;
         StartCoroutine(Count(imsiMoney, fd.Money));
+
+        int cnt = 0;
+        for (int i = 0; i < MiddleItemList.Length; i++)
+        {
+            if (MiddleItemList[i].itemCount == 0)
+            {
+                cnt++;
+            }
+
+            if (cnt == MiddleItemList.Length)
+            {
+                MiddleBuyAllBtn.GetComponent<Button>().interactable = false;
+            }
+        }
+        cnt = 0;
+
         BaseBuyAll.SetActive(false);
         MiddleBuyAll.SetActive(false);
         TopBuyAll.SetActive(false);
@@ -852,11 +960,30 @@ public class Store : MonoBehaviour
 
             inven.GetComponent<Inventory>().BuyItem(TopItemList[i]);
             TopItemList[i].itemCount -= TopAllBuyNum;
+
+            if (TopItemList[i].itemCount < 0)
+                TopItemList[i].itemCount = 0;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
         float imsiMoney = fd.Money;
         fd.Money -= TopslotItemPrice;
         StartCoroutine(Count(imsiMoney, fd.Money));
+
+        int cnt = 0;
+        for (int i = 0; i < TopItemList.Length; i++)
+        {
+            if (TopItemList[i].itemCount == 0)
+            {
+                cnt++;
+            }
+
+            if (cnt == TopItemList.Length)
+            {
+                TopBuyAllBtn.GetComponent<Button>().interactable = false;
+            }
+        }
+        cnt = 0;
+
         BaseBuyAll.SetActive(false);
         MiddleBuyAll.SetActive(false);
         TopBuyAll.SetActive(false);
@@ -979,6 +1106,7 @@ public class Store : MonoBehaviour
                 else
                     BaseAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = true;
             }
+
         }
 
         if (isMiddleAllOpen == true)

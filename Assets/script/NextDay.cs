@@ -39,6 +39,10 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
     private GameData gameData;
 
+    public RectTransform BaseSlots;
+    public RectTransform MiddleSlots;
+    public RectTransform TopSlots;
+
     public void Start()
     {
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
@@ -93,6 +97,8 @@ public class NextDay : MonoBehaviour, IDataPersistence
         RandomBuyer.SetActive(false);
         buyer.SetActive(false);
 
+
+
         day++;
 
         if (day == 2)
@@ -125,9 +131,10 @@ public class NextDay : MonoBehaviour, IDataPersistence
         Invoke("SellerStart", 2f);
 
     }
-    /*public void SaveData()
+    public void SaveData()
     {
-        GameDataManager.Instance.Money = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money;
+        //GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().SaveData();
+        /*GameDataManager.Instance.Money = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money;
         GameDataManager.Instance.Day = day;
         GameDataManager.Instance.Reputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
         GameDataManager.Instance.ReputationValue = GameObject.Find("ReputationSlider").GetComponent<Slider>().value;
@@ -149,7 +156,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
             GameDataManager.Instance.AddTopItem(Inventory.FindObjectOfType<Inventory>().Topslots[i].item);
         }
 
-        /*Debug.Log(GameDataManager.Instance.Money);
+        Debug.Log(GameDataManager.Instance.Money);
         Debug.Log(GameDataManager.Instance.Day);
         Debug.Log(GameDataManager.Instance.Reputation);
         Debug.Log(GameDataManager.Instance.BGM);
@@ -158,8 +165,8 @@ public class NextDay : MonoBehaviour, IDataPersistence
         Debug.Log(gameData.itemList);
 
         GameDataManager.Instance.SaveData();
-        GameObject.Find("Canvas").transform.GetChild(8).gameObject.SetActive(false);
-    }*/
+        GameObject.Find("Canvas").transform.GetChild(8).gameObject.SetActive(false);*/
+    }
     public void NewsTimePanel()
     {
         NewsPanel.gameObject.SetActive(true);
@@ -214,6 +221,11 @@ public class NextDay : MonoBehaviour, IDataPersistence
         Trigger.GetComponent<DialogueRandom>().enabled = false;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+
+        MiddleSlots.anchoredPosition = new Vector3(0, -56, 0); //-28, +306
+        MiddleSlots.sizeDelta = new Vector2(1302, 1086);
+        TopSlots.anchoredPosition = new Vector3(0, -28, 0);
+        TopSlots.sizeDelta = new Vector2(1302, 780);
     }
 
     public void ThirdDayStart()
