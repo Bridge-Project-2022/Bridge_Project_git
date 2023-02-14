@@ -18,4 +18,13 @@ public class Enums
         sad,
         happy,
     }
+    
+    public enum MoveButton
+    {
+        RootOfReadButton,
+        AlleyButton,
+        TreeButton,
+        LorenaButton,
+        AronButton
+    }
 }
