@@ -19,8 +19,10 @@ public class GameDataManager : Singleton<GameDataManager>
 
     public bool isGameStart = false;
 
-    private void Start()
+    private void Awake()
     {
+        gameData = new GameData();
+        
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         
         dataHandler = new FileDataHandler(Application.persistentDataPath, runTimeGameDataFileName);
@@ -152,10 +154,10 @@ public class GameDataManager : Singleton<GameDataManager>
     {
         this.gameData = dataHandler.Load();
         
-        if (this.gameData == null)
-        {
-            NewGameStart();
-        }
+        // if (this.gameData == null)
+        // {
+        //     NewGameStart();
+        // }
         
         SceneManager.LoadScene("Main");
         // 불러오기 처리

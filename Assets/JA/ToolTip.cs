@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class ToolTip
 {
-    public Enums.MoveButton button;
-    public string name;
-
+    public readonly Enums.MoveButton button;
+    public readonly string name;
+    
     public ToolTip(Enums.MoveButton button, string name)
     {
         this.name = name;
