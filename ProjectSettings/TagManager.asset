@@ -20,7 +20,7 @@ TagManager:
   - UI
   - RC
   - UITEXT
-  - 
+  - Effect
   - 
   - 
   - 
@@ -48,7 +48,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: 
+  - name: BACKGROUND
+    uniqueID: 2130813103
+    locked: 0
+  - name: EFFECT
     uniqueID: 598394063
     locked: 0
   - name: UI

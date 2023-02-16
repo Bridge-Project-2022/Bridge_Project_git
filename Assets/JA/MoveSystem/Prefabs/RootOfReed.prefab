@@ -102,6 +102,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 4497016000470233587}
+          m_TargetAssemblyTypeName: DG.Tweening.DOTweenAnimation, Assembly-CSharp-firstpass
+          m_MethodName: DORestart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -931,6 +943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveButton: 0
-  name: 
+  placeName: "\uD5A5\uC218 \uACF5\uBC29"
   placeVisibilityController: {fileID: 4803998606472544268}
   toolTipController: {fileID: 0}

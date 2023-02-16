@@ -23,12 +23,19 @@ public class CutScene : MonoBehaviour
     private bool leftActive;
     private bool rightActive;
     
-
     [Header("Text")] 
     [SerializeField] private TextMeshProUGUI dialogFild;
+    [SerializeField] private TextMeshProUGUI dialogName;
+    [SerializeField] private GameObject textBox;
+    [SerializeField] private GameObject tailLeft;
+    [SerializeField] private GameObject tailRight;
 
-    
-    
+    [Header("Fade")] 
+    [SerializeField] private DOTweenAnimation fade;
+
+    [Header("Effect")] 
+    [SerializeField] private GameObject mapEffects;
+    //[SerializeField] private GameObject dialogueEffects;
 
     private List<PlaceDialogDBEntity> data;
     private List<string> person; 
@@ -40,9 +47,10 @@ public class CutScene : MonoBehaviour
     
     private IEnumerator SetBackGround()
     {
-        
         yield return new WaitForSeconds(fadeTime);
+
         backGround.gameObject.SetActive(true);
+        textBox.gameObject.SetActive(true);
 
         leftActive = false;
         rightActive = false;
@@ -63,8 +71,10 @@ public class CutScene : MonoBehaviour
                 }
                 if (i % 2 == 0)
                 {
+                    tailRight.SetActive(false);
+                    tailLeft.SetActive(true);
                     personLeft.color = new Color(1,1,1,1);
-                    
+
                     leftActive = true;
                     if (rightActive)
                     {
@@ -75,6 +85,8 @@ public class CutScene : MonoBehaviour
                 }
                 else
                 {
+                    tailLeft.SetActive(false);
+                    tailRight.SetActive(true);
                     personRight.color = new Color(1,1,1,1);
 
                     rightActive = true;
@@ -88,15 +100,24 @@ public class CutScene : MonoBehaviour
             }
             
             dialogFild.text = item.dialog;
+            dialogName.text = item.name;
             
             yield return new WaitForSeconds(fadeTime);
         }
+
+        fade.DORestart();
         
+        yield return new WaitForSeconds(fadeTime);
+
+        mapEffects.SetActive(true);
         this.gameObject.SetActive(false);
     }
 
     public void SetUp(ToolTip toolTip)
     {
+        fade.DORestart();
+        mapEffects.SetActive(false);
+        
         data = placeController.GetPlaceDialogData(GameDataManager.Instance.Day, toolTip.button);
         person = new List<string>();
 
@@ -110,6 +131,10 @@ public class CutScene : MonoBehaviour
         
         personRight.color = new Color(0, 0, 0, 0);
         personLeft.color = new Color(0, 0, 0, 0);
+        backGround.gameObject.SetActive(false);
+        textBox.gameObject.SetActive(false);
+        tailLeft.SetActive(false);
+        tailRight.SetActive(false);
 
         StartCoroutine(SetBackGround());
     }
