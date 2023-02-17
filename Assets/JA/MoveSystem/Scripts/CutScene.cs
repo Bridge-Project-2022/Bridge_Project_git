@@ -51,6 +51,7 @@ public class CutScene : MonoBehaviour
 
         backGround.gameObject.SetActive(true);
         textBox.gameObject.SetActive(true);
+        mapEffects.SetActive(false);
 
         leftActive = false;
         rightActive = false;
@@ -116,7 +117,6 @@ public class CutScene : MonoBehaviour
     public void SetUp(ToolTip toolTip)
     {
         fade.DORestart();
-        mapEffects.SetActive(false);
         
         data = placeController.GetPlaceDialogData(GameDataManager.Instance.Day, toolTip.button);
         person = new List<string>();
