@@ -151,7 +151,7 @@ public void DistillerOn(ItemProperty item)
             HighTemperDuration = 0;
             LowTemperDuration = 0;
 
-            if (DistillerStatus == "보통")
+            if (DistillerStatus == "중간")
             {
                 if (TemperDuration >= 3f)
                 {
@@ -392,7 +392,7 @@ public void DistillerOn(ItemProperty item)
             }
         }
 
-        else if (DistillerStatus == "보통")
+        else if (DistillerStatus == "중간")
         {
             if (DistillGood == true)
             {

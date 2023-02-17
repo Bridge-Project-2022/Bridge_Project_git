@@ -93,38 +93,8 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "A",
-                    "id": 3,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "가족",
-                        "topNotes": ["행복"],
-                        "perfumeForce": ["강함", "중간", "약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하세요?", "저도 형 가지고 싶어요!", "형이 있으면 좋겠다!", "그럼 맨날 같이 놀고 행복할 텐데!!", "형 냄새라도 맡을 수 있을까요?!!"],
-                        "visitFace": ["Common", "Common", "Common", "Happy", "Common"],
-                        "refusalComment": ["안돼요??", "왜 안돼요??", "진짜로요??", "알겠어요…."],
-                        "refusalFace": ["Sad", "Sad", "Sad", "Sad"],
-                        "requestComment": ["향의 세기는 아무거나 상관없어요!!"],
-                        "requestFace": ["Happy"],
-                        "resultGoodComment": ["와!! 고맙습니다!!", "이거면 나도 형이 생긴 건가??!"],
-                        "resultGoodFace": ["Happy", "Happy"],
-                        "resultNormalComment": ["오오.. 고맙습니다!!"],
-                        "resultNormalFace": ["Happy"],
-                        "resultBadComment": ["이건… 고맙습니다...!"],
-                        "resultBadFace": ["Common"],
-                        "noExistComment": ["이건… 형 냄새가 아닌데요..?"],
-                        "noExistFace": ["Bad"],
-                        "noFlavorComment": ["냄새가 안 느껴지는데… 아저씨 제대로 만든 거 맞아요..?"],
-                        "noFlavorFace": ["Sad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
                     "name": "E",
-                    "id": 4,
+                    "id": 3,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -151,10 +121,14 @@
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
-                },
+                }
+            ]
+        },
+        {
+            "customer": [
                 {
                     "name": "I",
-                    "id": 5,
+                    "id": 4,
                     "currentPerfume": {
                         "bassNotes": "장소",
                         "middleNotes": "여행지",
@@ -182,133 +156,10 @@
                     "uniqueGuest": false,
                     "criminalGuest": false
                 },
-                {
-                    "name": "C",
-                    "id": 6,
-                    "currentPerfume": {
-                        "bassNotes": "동물",
-                        "middleNotes": "반려동물",
-                        "topNotes": ["기쁨"],
-                        "perfumeForce": ["약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하세요, 아저씨", "오늘 아빠가 귀여운 새끼 강아지를 데리고 왔어요.", "하얀 털이 복슬복슬한 동물이 우리 집에 같이 산다니.. ", "이제 우리 가족이 된 강아지와의 첫 만남을 평생 기억하고 싶어요", "도와주세요..!"],
-                        "visitFace": ["Common", "Happy", "Happy", "Happy", "Happy"],
-                        "refusalComment": ["예?", "아.. 뭐.. 어쩔 수 없죠.."],
-                        "refusalFace": ["Sad", "Sad"],
-                        "requestComment": ["향은 집에서 늘 은은하게 풍기면 좋겠어요."],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["와아!", "감사합니다, 아저씨!", "우리 집 강아지는 복슬 강아지~"],
-                        "resultGoodFace": ["Happy", "Happy"],
-                        "resultNormalComment": ["감사합니다..", "이 향수 잘 간직할게요."],
-                        "resultNormalFace": ["Common", "Common"],
-                        "resultBadComment": ["여기서 이상한 냄새가 나요..", "일단 감사합니다."],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["아저씨, 이건 제가 말한 게 아니잖아요.", "제가 부탁드린 향수가 맞나요?"],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["뭐지..?", "내 코가 막힌 건가.."],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "D",
-                    "id": 7,
-                    "currentPerfume": {
-                        "bassNotes": "동물",
-                        "middleNotes": "반려동물",
-                        "topNotes": ["사랑"],
-                        "perfumeForce": ["강함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하세요?", "우리 집에 귀여운 강아지 쪼꼬가 있거든요?", "볼 때마다 얼마나 사랑스러운 모르겠어요?!", "이걸 다른 애들한테도 알려주고 싶은데..!", "향수를 선물하면 되지 않을까요?"],
-                        "visitFace": ["Happy", "Happy", "Happy", "Happy", "Happy"],
-                        "refusalComment": ["응?", "흠… 왜요??", "향수 팔면 좋은 거 아닌가??"],
-                        "refusalFace": ["Common", "Common", "Common"],
-                        "requestComment": ["향을 완전 진하게? 해주세요!!!"],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["오! 진짜 쪼꼬 냄새다!", "고마워요!!"],
-                        "resultGoodFace": ["Happy", "Happy"],
-                        "resultNormalComment": ["오 쪼꼬 냄새난다!", "좋아요!"],
-                        "resultNormalFace": ["Happy", "Happy"],
-                        "resultBadComment": ["으… 이상한 냄새!!!", "쪼꼬는 꼬소한 냄새가 난다구요!!!"],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["음..? 무슨 냄새지..?", "완전히 다른 냄새인데요?"],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["이건 무슨 냄새지..?", "아무 냄새도 안 나는데요?"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "H",
-                    "id": 8,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "연인",
-                        "topNotes": ["슬픔"],
-                        "perfumeForce": ["약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["저기요..?", "헤어진 지 몇 년이나 지났는데, 아직도 생각나는 건 왜일까요..?", "사랑할 땐 슬프기만 해서 헤어지면 후련할 줄 알았는데..", "전 아직 제대로 잊지 못했나 봐요.", "이럴 줄 알았으면 시작하지 말았어야 했는데...", "참 바보 같죠?", "바보 같다는 건 알지만, 이제는 놓아주고 싶어요..", "저를 도와줄 수 있나요..?"],
-                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad"],
-                        "refusalComment": ["…...", "….... ", "알겠어요.."],
-                        "refusalFace": ["Bad", "Bad", "Bad"],
-                        "requestComment": ["향은 약하게 해주세요..", "향이 강하면 미련이 계속 남을 수도 있잖아요..?"],
-                        "requestFace": ["Sad", "Sad"],
-                        "resultGoodComment": ["생각하면 할수록 그 사람 참 나빴는데..", "이제는 잊을 수 있을 것 같아요..", "고마워요.. 언젠간 좋은 사람이 오겠죠..?"],
-                        "resultGoodFace": ["Sad", "Sad", "Sad"],
-                        "resultNormalComment": ["고마워요…", "이제는 나아질 수 있겠죠..?"],
-                        "resultNormalFace": ["Happy", "Happy"],
-                        "resultBadComment": ["어떻게 이럴 수가 있죠..?", "최악이에요.."],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["이게… 뭐죠…?", "전혀 다른 냄새가 나는데요..?", "이상한 걸 넣으면 어떡해요!!"],
-                        "noExistFace": ["Bad", "Bad", "Bad"],
-                        "noFlavorComment": ["음… 전혀 느낄 수가 없는데요..?", "제대로 한 게 맞나요..?"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                }
-            ]
-        },
-        {
-            "customer": [
-                {
-                    "name": "J",
-                    "id": 9,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "연인",
-                        "topNotes": ["놀라움"],
-                        "perfumeForce": ["약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["저기요..?", "오늘은.. 저의 옛 결혼기념일이랍니다..", "그가 처음으로 저에게 반지를 건넸을 때는", "정말 깜짝 놀라서 믿지를 못했어요..", "그때의 감정이 새록새록 떠오르네요..", "물론 더이상 그를 볼 일이 없겠지만 말이죠. ", "이런 저의 옛 추억도 담아줄 수 있나요?"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Sad", "Sad"],
-                        "refusalComment": ["그다지 어려운 부탁을 하진 않았던 거 같은데..", "다시는 이런 일이 없으면 좋겠네요."],
-                        "refusalFace": ["Bad", "Bad"],
-                        "requestComment": ["더 이상 과거에 집착하고 싶지 않아요..", "향은 그냥 은은하게 해주세요!"],
-                        "requestFace": ["Common", "Common"],
-                        "resultGoodComment": ["고마워요, 덕분에 좋은 기억만을 가져가네요.."],
-                        "resultGoodFace": ["Happy"],
-                        "resultNormalComment": ["음.. 만족스럽네요."],
-                        "resultNormalFace": ["Common"],
-                        "resultBadComment": ["이걸 나보고 어떻게 쓰라는 거예요?", "이건 악취잖아요 악취!"],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["대체 무슨 향수를 만든 거죠?", "정말 형편없네요."],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["이게 다 만든 건가요..?", "받을 가치도 없네요."],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
+
                 {
                     "name": "K",
-                    "id": 10,
+                    "id": 5,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -337,98 +188,8 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "A",
-                    "id": 11,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "가족",
-                        "topNotes": ["기쁨"],
-                        "perfumeForce": ["중간", "약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하세요?", "저도 동생을 가지고 싶어요!!", "친구들이 동생이랑만 아주 신나게 소꿉놀이를 하더라구요!", "나도 진짜 잘 놀아줄 자신 있는데..", "저도 동생 냄새라도 맡아보고 싶어요..!"],
-                        "visitFace": ["Common", "Happy", "Happy", "Common", "Happy"],
-                        "refusalComment": ["안돼요??", "왜 안돼요??", "진짜로요??", "알겠어요…."],
-                        "refusalFace": ["Sad", "Sad", "Sad", "Sad"],
-                        "requestComment": ["혹시 동생이 다칠 수 있으니까 향은 너무 세지않게 해주세요!"],
-                        "requestFace": ["Happy"],
-                        "resultGoodComment": ["우와! 나도 이런 동생을 낳아달라고 할래요!"],
-                        "resultGoodFace": ["Happy"],
-                        "resultNormalComment": ["감사합니다, 아저씨!"],
-                        "resultNormalFace": ["Common"],
-                        "resultBadComment": ["으…. 별로야… "],
-                        "resultBadFace": ["Bad"],
-                        "noExistComment": ["저는.. 이런 향수를… 사러 온 게 아니에요.."],
-                        "noExistFace": ["Bad"],
-                        "noFlavorComment": ["냄새가 안 느껴지는데… 아저씨 제대로 만든 거 맞아요..?"],
-                        "noFlavorFace": ["Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "F",
-                    "id": 12,
-                    "currentPerfume": {
-                        "bassNotes": "장소",
-                        "middleNotes": "여행지",
-                        "topNotes": ["놀라움"],
-                        "perfumeForce": ["약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["저기 너 말이야!", "루트 대륙 끝에 작은 산맥이 있는 거 알아?", "그 작은 산맥을 가로지르는 길이 하나 있는데", "거기서 주위를 둘러보면 그렇게 좋을 수가 없다...?", "그 풍경에 놀라서 아직도 입이 다 물어지지 않아!", "그때 생각나게 해줄 거지?"],
-                        "visitFace": ["Common", "Common", "Common", "Happy", "Happy", "Happy"],
-                        "refusalComment": ["뭐..?", " 손님을 그렇게 대해도 되는거야?", "실망이야"],
-                        "refusalFace": ["Bad", "Bad", "Bad"],
-                        "requestComment": ["좋아! 내가 언제나 다시 여행할 수 있도록 향은 은은하게 해줘!"],
-                        "requestFace": ["Happy"],
-                        "resultGoodComment": ["너무 짜릿해! 너 덕분에 그 풍경을 다시 즐길 수 있었어.", "정말 고마워!"],
-                        "resultGoodFace": ["Happy"],
-                        "resultNormalComment": ["오.. 만족스러운걸?!", "정말 고마워!"],
-                        "resultNormalFace": ["Common", "Happy"],
-                        "resultBadComment": ["으으…..", "최악이야.. "],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["이게 대체 무슨 냄새야?!", "내가 원하는 게 아니잖아!!"],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["이거 맞아?", "정말로 다 한 거 맞아?!"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "B",
-                    "id": 13,
-                    "currentPerfume": {
-                        "bassNotes": "물건",
-                        "middleNotes": "인형",
-                        "topNotes": ["행복"],
-                        "perfumeForce": ["강함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["아저씨…", "내 애착 인형이 너무 그리워..", "그 인형을 껴안으면 진짜 행복했는데..", "엄마가 내 인형이 터졌다고 버려버린 거 있지..?", "내가 수술해 주기로 꼬옥 약속했는데…"],
-                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad"],
-                        "refusalComment": ["지금 안 만들어 주실 거예요?", "아저씨 미워!", "진짜 미워!"],
-                        "refusalFace": ["Sad", "Bad","Bad"],
-                        "requestComment": ["향은 엄청 많이! 진하게! 해줘요!!"],
-                        "requestFace": ["Happy"],
-                        "resultGoodComment": ["와! 인형이다!!", "그래그래, 너를 다시 만나니까 너무 좋아!"],
-                        "resultGoodFace": ["Happy", "Happy"],
-                        "resultNormalComment": ["와아.. 정말 감사합니다!"],
-                        "resultNormalFace": ["Common"],
-                        "resultBadComment": ["이 냄새 아니야!!", "내 인형 냄새가 아니야!!"],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["그러니까.. .이게.. 내 인형이야.?", "이럴 리가 없는데.."],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["뭐 하나 빠트리신 거 아니에요?", "이게 아닌 거 같은데..", "완전 꽝이야!"],
-                        "noFlavorFace": ["Common", "Common", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
                     "name": "D",
-                    "id": 14,
+                    "id": 6,
                     "currentPerfume": {
                         "bassNotes": "물건",
                         "middleNotes": "장난감",
@@ -458,7 +219,7 @@
                 },
                 {
                     "name": "E",
-                    "id": 15,
+                    "id": 7,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -487,38 +248,8 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "H",
-                    "id": 16,
-                    "currentPerfume": {
-                        "bassNotes": "장소",
-                        "middleNotes": "학교",
-                        "topNotes": ["행복"],
-                        "perfumeForce": ["중간"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하세요~", "축하해줘야 하는 일이 하나 있어요.", " 바로바로..", "제가 그토록 원하던 로스쿨에 드디어 합격했다고요!", "이 기분 좋은 날을 평생 기억하고 싶어요~", "향수 하나만 부탁드릴게요!"],
-                        "visitFace": ["Common", "Happy", "Common", "Happy", "Happy", " Happy"],
-                        "refusalComment": ["네!?", "참.. 어이가 없네요.", "여기는 괜히 왔던 것 같아요."],
-                        "refusalFace": ["Bad", "Bad", "Bad"],
-                        "requestComment": ["향은 적당히만 해도 충분할 거 같아요!"],
-                        "requestFace": ["Happy"],
-                        "resultGoodComment": ["이 추억을 소중하게 잘 간직해서 멋진 변호사가 될게요.", "정말 감사합니다!"],
-                        "resultGoodFace": ["Happy", "Happy"],
-                        "resultNormalComment": ["오.. 좋아요!", "만족합니다!"],
-                        "resultNormalFace": ["Common", "Common"],
-                        "resultBadComment": ["악.. 이게 뭔가요..?", "이건 문제가 있다고 생각하는 걸요.. "],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["제가..찾는 향은 아니겠죠?", "실수는 용납할 수 없어요."],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["무슨 향이 난다는 건지..", "그게 완성품인가요?"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
                     "name": "C",
-                    "id": 17,
+                    "id": 8,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -551,30 +282,30 @@
         {
             "customer": [
                 {
-                    "name": "C",
-                    "id": 18,
+                    "name": "F",
+                    "id": 9,
                     "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "친구",
-                        "topNotes": ["죄책감"],
-                        "perfumeForce": ["중간"]
+                        "bassNotes": "장소",
+                        "middleNotes": "여행지",
+                        "topNotes": ["놀라움"],
+                        "perfumeForce": ["약함"]
                     },
                     "dialogue": {
-                        "visitComment": ["저기..", "나 도와주고 싶은 친구가 있어..", "친구가 괴롭힘당하지만 아무 것도 못 하고 있어..", "내가 조금만 더 용기를 내면 괜찮을까..?", "조금이라도 달라질까..?", "그 친구만 생각하면 너무 미안하구..", "내가 그 친구를 도와줄 수 있을까..?"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
-                        "refusalComment": ["…..", "그래 내가 알아서 할게.."],
-                        "refusalFace": ["Common", "Common"],
-                        "requestComment": ["내가 힘낼 수 있도록 향은 적당히 조절해줘…"],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["고마워!", "이제야 친구를 도울 수 있을 것 같아..!"],
-                        "resultGoodFace": ["Common", "Common"],
-                        "resultNormalComment": ["이 정도면 괜찮은 거 같아..!"],
-                        "resultNormalFace": ["Common"],
-                        "resultBadComment": ["왜 이렇게 만든 거야..?", "정말 싫어.."],
-                        "resultBadFace": ["Common", "Common"],
-                        "noExistComment": ["대체 뭘 만든 거야..?", "이건 완전 다른 거잖아!!"],
+                        "visitComment": ["저기 너 말이야!", "루트 대륙 끝에 작은 산맥이 있는 거 알아?", "그 작은 산맥을 가로지르는 길이 하나 있는데", "거기서 주위를 둘러보면 그렇게 좋을 수가 없다...?", "그 풍경에 놀라서 아직도 입이 다 물어지지 않아!", "그때 생각나게 해줄 거지?"],
+                        "visitFace": ["Common", "Common", "Common", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["뭐..?", "손님을 그렇게 대해도 되는거야?", "실망이야"],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["좋아! 내가 언제나 다시 여행할 수 있도록 향은 은은하게 해줘!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["너무 짜릿해! 너 덕분에 그 풍경을 다시 즐길 수 있었어.", "정말 고마워!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["오.. 만족스러운걸?!", "정말 고마워!"],
+                        "resultNormalFace": ["Common", "Happy"],
+                        "resultBadComment": ["으으…..", "최악이야.."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["이게 대체 무슨 냄새야?!", "내가 원하는 게 아니잖아!!"],
                         "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["일부로 이런 거야…?", "이러지 않아도 됐잖아…"],
+                        "noFlavorComment": ["이거 맞아?", "정말로 다 한 거 맞아?!"],
                         "noFlavorFace": ["Bad", "Bad"]
                     },
                     "uniqueGuest": false,
@@ -582,7 +313,7 @@
                 },
                 {
                     "name": "G",
-                    "id": 19,
+                    "id": 10,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -611,98 +342,8 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "I",
-                    "id": 20,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "친구",
-                        "topNotes": ["죄책감"],
-                        "perfumeForce": ["강함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하신가..", "내 죽은 친구 놈이 보고 싶구만,,", "그때 가지 말라고 말렸어야 했는데 말이야..", "빌어먹을.. 그놈이 사고에 휘말렸어..", "제기랄.. 내 탓이지 뭐..", "혹시 향수 하나만 만들어줄 수 있는가?"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common"],
-                        "refusalComment": ["젠장.. 내가 당신한테 뭘 잘못했지..?", "오늘도 개 같은 하루구만.."],
-                        "refusalFace": ["Common", "Common"],
-                        "requestComment": ["그 친구 향이 영원히 지속됐으면 좋겠군…", "내가 감히 이래도 되는 걸까..?"],
-                        "requestFace": ["Common", "Common"],
-                        "resultGoodComment": ["내가… 정말…", "정말...", "…...."],
-                        "resultGoodFace": ["Common", "Common", "Common"],
-                        "resultNormalComment": ["고맙군.. 자네.."],
-                        "resultNormalFace": ["Common"],
-                        "resultBadComment": ["이건 대체 뭘..", "형편없구만"],
-                        "resultBadFace": ["Common", "Common"],
-                        "noExistComment": ["내가 우습나?", "이럴 거면 때려치우게"],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["지금 장난하는건가?", "향이 안 느껴지는데 뭐 어떡하라는 거야?"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "E",
-                    "id": 21,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "연인",
-                        "topNotes": ["사랑"],
-                        "perfumeForce": ["강함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["… 저기.. 요?", "…. 제발 내 사랑을 다시 한번만이라도 보고 싶어…", "내가 이렇게 좋아하는데.. 대체 어떻게 지내고 있는거야.. ?", "내가 사랑하는 그녀가 미치도록 보고 싶어 ..", "이런 나를 좀 도와주지 않을래..?"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common"],
-                        "refusalComment": ["… 나한테 대체 왜 그래요? ", "당신만큼은 그러면 안 되잖아", "다른 사람들한테도 말할 거야", "후회하지 마 당신이 한 선택이잖아?"],
-                        "refusalFace": ["Common", "Common", "Common", "Common"],
-                        "requestComment": ["향은 절대 빠지지 않도록 강하게 해주세요…"],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["이것이 바로 그녀의 향..", "정말 감사합니다.. 정말로…"],
-                        "resultGoodFace": ["Common", "Common"],
-                        "resultNormalComment": ["고마워요… "],
-                        "resultNormalFace": ["Common"],
-                        "resultBadComment": ["너무 못 만든거 아닌가요..?", "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?"],
-                        "resultBadFace": ["Common", "Common"],
-                        "noExistComment": ["이건 내가 맡고 싶은 향이 아니에요..", "정말 최악이네요.."],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["제대로 만든 거 맞나요..?", "아무 것도 느껴지지 않아요.."],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "F",
-                    "id": 22,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "친구",
-                        "topNotes": ["기쁨"],
-                        "perfumeForce": ["강함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["반가워요, 아저씨!", "내 친구가 드디어 자기만의 신발을 만들었어요!!", "진짜 고생 많이 했는데...", "너무 잘됐어 진짜!!", "친구한테 뭐라도 해주고 싶어!!", "친구에게 줄 향수를 만들어주세요!"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common"],
-                        "refusalComment": ["네?", "지금 손님한테 이렇게 대하셔도 되는 건가요?", "하!"],
-                        "refusalFace": ["Common", "Common", "Common"],
-                        "requestComment": ["앞으로 더 잘 되라고 강하게 해주세요!!"],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["이거이거..", "친구가 정말 감동받겠어요!", "감사해요!"],
-                        "resultGoodFace": ["Happy", "Happy", "Happy"],
-                        "resultNormalComment": ["오.. 나쁘지 않네요.", "고마워요!"],
-                        "resultNormalFace": ["Common", "Happy"],
-                        "resultBadComment": ["으악..", "이 향수.. 진짜 별론데요?"],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["이건..", "제가 찾던 게 아니잖아요"],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["이거 맞아?", "정말로 다 한 거 맞아?!"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
                     "name": "B",
-                    "id": 23,
+                    "id": 11,
                     "currentPerfume": {
                         "bassNotes": "물건",
                         "middleNotes": "장난감",
@@ -731,38 +372,8 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "L",
-                    "id": 24,
-                    "currentPerfume": {
-                        "bassNotes": "장소",
-                        "middleNotes": "여행지",
-                        "topNotes": ["행복"],
-                        "perfumeForce": ["중간"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["으음…", "젊은 날 갔었던 곳인데 기억이 나질 않네", "음….", "분명 에메랄드 빛으로 물든 곳이었는데 말이야…", "햇살이 밝게 빛났던 것 같은데..", "그땐 정말 행복했다니까..?", "다른 건 몰라도 이게 아직도 기억나니까 말이야..", "그때로 돌아갈 수 있을까..?"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
-                        "refusalComment": ["안된다고?", "흐음..", "알겠네.."],
-                        "refusalFace": ["Common", "Common", "Common"],
-                        "requestComment": ["향은 적당하기만 하면 될 것 같네"],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["아 드디어 생각났네!", "그때 어떤 사람을 봤는데 얼마나 멋있었는지...", "엄청 호쾌했던 사람이었다네!", "지금도 잘 지내고 있나 몰라?", "이젠 나처럼 나이도 많이 먹었겠지..?"],
-                        "resultGoodFace": ["Happy", "Happy", "Happy", "Happy", "Happy"],
-                        "resultNormalComment": ["고맙네, 덕분에 좋은 걸 얻었어!"],
-                        "resultNormalFace": ["Common"],
-                        "resultBadComment": ["잘못 만든 것 같은데..", "일단 받아 가겠네.."],
-                        "resultBadFace": ["Common", "Common"],
-                        "noExistComment": ["음 이건 아니었던 거 같은데.."],
-                        "noExistFace": ["Bad"],
-                        "noFlavorComment": ["이상하네...", "향이 잘 안 나는데...?"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
                     "name": "D",
-                    "id": 25,
+                    "id": 12,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -792,7 +403,7 @@
                 },
                 {
                     "name": "로레나",
-                    "id": 26,
+                    "id": 13,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -819,194 +430,10 @@
                     },
                     "uniqueGuest": true,
                     "criminalGuest": false
-                }
-            ]
-        },
-        {
-            "customer": [
-                {
-                    "name": "D",
-                    "id": 27,
-                    "currentPerfume": {
-                        "bassNotes": "장소",
-                        "middleNotes": "놀이공원",
-                        "topNotes": ["놀라움"],
-                        "perfumeForce": ["강함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["아저씨! 안녕하세요?", "우리 마을의 비밀 정원이 있는 엄청 큰 놀이공원을 알고 계시나요?", "숲속을 지나 놀이공원에 도착하면..", "슈우웅!", "바로 눈앞에서 큰 바이킹이 하늘을 향해 날아가고 있어요!", "다시 생각해도 두근거리네요..", "이것도 향수로 만들어줄 수 있나요?"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
-                        "refusalComment": ["향수 만드는 게..", "어려운 거죠..?", "알겠어요.."],
-                        "refusalFace": ["Sad", "Sad", "Sad"],
-                        "requestComment": ["바이킹처럼 아주 센 향이 났으면 좋겠어요!"],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["감사합니다!", "이제 이 놀이공원의 추억을 잊지 못할 것 같아요."],
-                        "resultGoodFace": ["Happy", "Happy"],
-                        "resultNormalComment": ["와! 감사합니다.", "그런데.. 제가 무슨 놀이기구를 탔었죠..?"],
-                        "resultNormalFace": ["Happy", "Common"],
-                        "resultBadComment": ["이게 아니에요..", "제가 말했던 건 신나는 놀이공원이라고요!"],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["제 향수가 맞나요..?", "정말 이상한 향이에요.."],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["음..?", "그때의 추억이 아주 희미하게 보여요..."],
-                        "noFlavorFace": ["Common", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "F",
-                    "id": 28,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "연인",
-                        "topNotes": ["행복"],
-                        "perfumeForce": ["약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하세요, 아저씨?", "나를 안 좋아하는 줄만 알았던 남자친구 집에서", "이곳의 향수를 발견했어요!", "소심한 줄만 알았는데..", "저 때문에 샀다는 게 너무 귀엽지 않나요?", "이번에는 제가 기념일 선물로 행복한 추억을 담아 선물하고 싶어요.", "어때요? 좋아할 것 같나요?"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
-                        "refusalComment": ["왜 안되는 건가요??", "다시는 오지 않겠어요."],
-                        "refusalFace": ["Bad", "Bad"],
-                        "requestComment": ["향은 역시 은은한 게 좋아요"],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["꺄악! 너무 행복해요.", "우리의 추억이 담긴 향수라니..", "정말 낭만적이에요"],
-                        "resultGoodFace": ["Happy", "Happy", "Happy"],
-                        "resultNormalComment": ["와! 좋은 향수네요.", "고마워요!"],
-                        "resultNormalFace": ["Common", "Happy"],
-                        "resultBadComment": ["흐음..", "오래된 향료로 만들었나보네요..."],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["아저씨..", "제가 원했던 향수가 아닌 것 같아요..."],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["이게 다 끝난 건가요?", "뭔가 부족해 보이네요.."],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "B",
-                    "id": 29,
-                    "currentPerfume": {
-                        "bassNotes": "장소",
-                        "middleNotes": "놀이터",
-                        "topNotes": ["부끄러움"],
-                        "perfumeForce": ["약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["아저씨..", "오늘 놀이터에서 짝꿍이 볼에 뽀뽀를 하고 도망갔어요..", "다른 친구들이 보진 않았겠죠??", "이건 비밀인데..", "오늘이 인생 첫 뽀뽀라고요!!", "부끄럽지만 향수로 만들어둘래요..", "첫 뽀뽀는 소중하니까요.."],
-                        "visitFace": ["Common", "Common", "Sad", "Common", "Happy", "Happy", "Happy"],
-                        "refusalComment": ["안되는 거에요..?", "나도 꼭 향수를 사보고 싶었는데.."],
-                        "refusalFace": ["Sad", "Sad"],
-                        "requestComment": ["너무 부끄러워요..", "다른 친구들이 아무도 모르게 해주세요!"],
-                        "requestFace": ["Sad", "Common"],
-                        "resultGoodComment": ["감사합니다!", "아저씨..", "뽀뽀하면 이제 사귀는 거겠쬬?"],
-                        "resultGoodFace": ["Happy", "Common", "Happy"],
-                        "resultNormalComment": ["우와!", "감사합니다, 아저씨!"],
-                        "resultNormalFace": ["Common", "Happy"],
-                        "resultBadComment": ["이건..", "이상해요.."],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["아저씨! 이건..", "제가 말한 향수가 아니에요."],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["아저씨!!", "아무 향도 나지 않아요.."],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "I",
-                    "id": 30,
-                    "currentPerfume": {
-                        "bassNotes": "물건",
-                        "middleNotes": "인형",
-                        "topNotes": ["행복"],
-                        "perfumeForce": ["약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하신가!", "날씨가 정말 춥구만 그래..", "여기에 우리 손녀를 두고 알로카시아(미정) 마을로 가야 하는데..", "어렸을 때 인형을 품에 안고 잠을 자는 모습이 눈에 아른아른 거리는구만..", "내 손녀의 행복한 모습을 볼 수 있도록 포근한 향수 하나 포장해주게나"],
-                        "visitFace": ["Common", "Sad", "Common", "Common", "Happy", "Happy"],
-                        "refusalComment": ["뭐라고?", "부탁을 거절하다니!!", "정말 실망이네!"],
-                        "refusalFace": ["Bad", "Bad", "Bad"],
-                        "requestComment": ["하하!", "울 손녀가 깨지 않게 은은하게 맡을 수 있으면 좋겠네."],
-                        "requestFace": ["Happy", "Happy"],
-                        "resultGoodComment": ["오호!!", "우리 손녀가 좋아하는 인형을 어떻게 맞춘건가?", "용하네 용해!"],
-                        "resultGoodFace": ["Happy", "Happy", "Happy"],
-                        "resultNormalComment": ["고맙네!", "덕분에 우리 손녀를 멀리서도 생각할 수 있겠어!"],
-                        "resultNormalFace": ["Happy", "Happy"],
-                        "resultBadComment": ["이 향수는...", "정말 별로구만!"],
-                        "resultBadFace": ["Bad", "Bad"],
-                        "noExistComment": ["흠..", "내가 찾는 향수가 아니네", "냄새가 정말 고약하고만.."],
-                        "noExistFace": ["Bad", "Bad", "Bad"],
-                        "noFlavorComment": ["무슨 향인가?", "차라리 이런 향수는 받지 않겠네!"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "H",
-                    "id": 31,
-                    "currentPerfume": {
-                        "bassNotes": "장소",
-                        "middleNotes": "학교",
-                        "topNotes": ["부끄러움"],
-                        "perfumeForce": ["중간"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕하세요!", "어른이 되고 나니까 괜히 어릴 때로 돌아가고 싶은 거 있죠?", "친구들과 학교 다닐 때가 정말 좋았는데..", "매일 아침 지각해서 복도에서 손들고 있었다니까요~?", "하하! 그때는 볼이 빨개져서 쥐구멍에 숨고 싶었는데..", "지나보니 그런 게 다 저에겐 추억이더라고요..", "혹시 이것도 향수로 받을 수 있을까요?"],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
-                        "refusalComment": ["네? 지금 거절하신 건가요?", "그래요, 제 기분을 제대로 망치셨네요"],
-                        "refusalFace": ["Bad", "Bad"],
-                        "requestComment": ["향은 너무 진하지 않도록 적당하게 부탁해요!"],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["저의 학창 시절의 모습이 그대로 담겨있네요.", "순수했던 모습을 찾아줘서 고마워요!"],
-                        "resultGoodFace": ["Happy", "Happy"],
-                        "resultNormalComment": ["바로 이거야..!", "정말 고마워요!"],
-                        "resultNormalFace": ["Common", "Common"],
-                        "resultBadComment": ["이걸 내 돈 주고 샀다는 게 정말 부끄럽네요.."],
-                        "resultBadFace": ["Bad"],
-                        "noExistComment": ["이게 대체 무슨 냄새지?", "조금.. 실망인걸요.."],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["이거 맞나요?", "정말로... 다 한 거 맞는 거죠..?"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "G",
-                    "id": 32,
-                    "currentPerfume": {
-                        "bassNotes": "동물",
-                        "middleNotes": "반려동물",
-                        "topNotes": ["기쁨"],
-                        "perfumeForce": ["강함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["저기요 아저씨.", "향수 좀 줘요.", "우리 집에 작고 귀여운 애 한 마리 있는데.", "제가 좀 멀리 갈 일이 있어서 냄새라도 계속 맡고 싶어요.", "우리 개만 보면 기쁘단 말이에요.", "그래줄 거죠?"],
-                        "visitFace": ["Common", "Common", "Common", "Sad", "Sad", "Happy"],
-                        "refusalComment": ["왜요?", "내가 뭔 짓이라도 할까 봐?", "참… 어이가 없어.", "다음에.. 다시 올게."],
-                        "refusalFace": ["Bad", "Bad", "Bad", "Bad"],
-                        "requestComment": ["음 강하게.. 강하게 합시다."],
-                        "requestFace": ["Common"],
-                        "resultGoodComment": ["고마워요 잘 쓸게요~"],
-                        "resultGoodFace": ["Happy"],
-                        "resultNormalComment": ["음 좋네요."],
-                        "resultNormalFace": ["Common"],
-                        "resultBadComment": ["이거 쓸 수 있는 거 맞죠..?"],
-                        "resultBadFace": ["Bad"],
-                        "noExistComment": ["이거 쓸 수 있는 거 맞죠..?"],
-                        "noExistFace": ["Bad"],
-                        "noFlavorComment": ["이거 쓸 수 있는 거 맞죠..?"],
-                        "noFlavorFace": ["Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": true
                 },
                 {
                     "name": "A",
-                    "id": 33,
+                    "id": 14,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "가족",
@@ -1033,11 +460,74 @@
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "B",
+                    "id": 15,
+                    "currentPerfume": {
+                        "bassNotes": "물건",
+                        "middleNotes": "인형",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["아저씨…", "내 애착 인형이 너무 그리워..", "그 인형을 껴안으면 진짜 행복했는데..", "엄마가 내 인형이 터졌다고 버려버린 거 있지..?", "내가 수술해 주기로 꼬옥 약속했는데…"],
+                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad"],
+                        "refusalComment": ["지금 안 만들어 주실 거예요?", "아저씨 미워!", "진짜 미워!"],
+                        "refusalFace": ["Sad", "Bad", "Bad"],
+                        "requestComment": ["향은 엄청 많이! 진하게! 해줘요!!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["와! 인형이다!!", "그래그래, 너를 다시 만나니까 너무 좋아!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["와아.. 정말 감사합니다!"],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이 냄새 아니야!!", "내 인형 냄새가 아니야!!"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["그러니까.. .이게.. 내 인형이야.?", "이럴 리가 없는데.."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["뭐 하나 빠트리신 거 아니에요?", "이게 아닌 거 같은데..", "완전 꽝이야!"],
+                        "noFlavorFace": ["Common", "Common", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
                 },
-
+                {
+                    "name": "D",
+                    "id": 16,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "놀이공원",
+                        "topNotes": ["놀라움"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["아저씨! 안녕하세요?", "우리 마을의 숨겨진 비밀이 있는 놀이공원을 아시나요?", "쉿! 이거 비밀인데..", "12시가 될 때, 숲속을 지나면..", "슈우웅!", "아주 큰 바이킹이 하늘을 향해 날아가요!", "그 모습은 정말 다시 생각해도 두근거린다고요..", "이것도 향수로 만들어줄 수 있나요?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["향수 만드는 게..", "어려운 거죠..?", "알겠어요.."],
+                        "refusalFace": ["Sad", "Sad", "Sad"],
+                        "requestComment": ["바이킹처럼 아주 센 향이 났으면 좋겠어요!"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["감사합니다!", "이제 이 놀이공원의 추억을 잊지 못할 것 같아요."],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["와! 감사합니다.", "그런데.. 제가 무슨 놀이기구를 탔었죠..?"],
+                        "resultNormalFace": ["Happy", "Common"],
+                        "resultBadComment": ["이게 아니에요..", "제가 말했던 건 신나는 놀이공원이라고요!"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["제 향수가 맞나요..?", "정말 이상한 향이에요.."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["음..?", "그때의 추억이 아주 희미하게 보여요..."],
+                        "noFlavorFace": ["Common", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
                 {
                     "name": "E",
-                    "id": 34,
+                    "id": 17,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -1066,8 +556,500 @@
                     "criminalGuest": false
                 },
                 {
+                    "name": "L",
+                    "id": 18,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "여행지",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["중간"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["으음…", "젊은 날 갔었던 곳인데 기억이 나질 않네.", "음….", "분명 에메랄드 빛으로 물든 곳이었는데 말이야…", "햇살이 밝게 빛났던 것 같은데..", "그땐 정말 행복했다니까..?", "다른 건 몰라도 이게 아직도 기억나니까 말이야..", "그때로 돌아갈 수 있을까..?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["안된다고?", "흐음..", "알겠네.."],
+                        "refusalFace": ["Common", "Common", "Common"],
+                        "requestComment": ["향은 적당하기만 하면 될 것 같네"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["아 드디어 생각났네!", "그때 어떤 사람을 봤는데 얼마나 멋있었는지...", "엄청 호쾌했던 사람이었다네!", "지금도 잘 지내고 있나 몰라?", "이젠 나처럼 나이도 많이 먹었겠지..?"],
+                        "resultGoodFace": ["Happy", "Happy", "Happy", "Happy", "Happy"],
+                        "resultNormalComment": ["고맙네, 덕분에 좋은 걸 얻었어!"],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["잘못 만든 것 같은데..", "일단 받아 가겠네.."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["음 이건 아니었던 거 같은데.."],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["이상하네...", "향이 잘 안 나는데...?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "G",
+                    "id": 19,
+                    "currentPerfume": {
+                        "bassNotes": "동물",
+                        "middleNotes": "반려동물",
+                        "topNotes": ["기쁨"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기요 아저씨.", "향수 좀 줘요.", "우리 집에 작고 귀여운 애 한 마리 있는데.", "제가 좀 멀리 갈 일이 있어서 냄새라도 계속 맡고 싶어요.", "우리 개만 보면 기쁘단 말이에요.", "그래줄 거죠?"],
+                        "visitFace": ["Common", "Common", "Common", "Sad", "Sad", "Happy"],
+                        "refusalComment": ["왜요?", "내가 뭔 짓이라도 할까 봐?", "참… 어이가 없어.", "다음에.. 다시 올게."],
+                        "refusalFace": ["Bad", "Bad", "Bad", "Bad"],
+                        "requestComment": ["음 강하게.. 강하게 합시다."],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["고마워요 잘 쓸게요~"],
+                        "resultGoodFace": ["Happy"],
+                        "resultNormalComment": ["음 좋네요."],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이거 쓸 수 있는 거 맞죠..?"],
+                        "resultBadFace": ["Bad"],
+                        "noExistComment": ["이거 쓸 수 있는 거 맞죠..?"],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["이거 쓸 수 있는 거 맞죠..?"],
+                        "noFlavorFace": ["Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": true
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "H",
+                    "id": 20,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["슬픔"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기요..?", "헤어진 지 몇 년이나 지났는데, 아직도 생각나는 건 왜일까요..?", "사랑할 땐 슬프기만 해서 헤어지면 후련할 줄 알았는데..", "전 아직 제대로 잊지 못했나 봐요.", "이럴 줄 알았으면 시작하지 말았어야 했는데...", "참 바보 같죠?", "바보 같다는 건 알지만, 이제는 놓아주고 싶어요..", "저를 도와줄 수 있나요..?"],
+                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad"],
+                        "refusalComment": ["…...", "….... ", "알겠어요.."],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["향은 약하게 해주세요..", "향이 강하면 미련이 계속 남을 수도 있잖아요..?"],
+                        "requestFace": ["Sad", "Sad"],
+                        "resultGoodComment": ["생각하면 할수록 그 사람 참 나빴는데..", "이제는 잊을 수 있을 것 같아요..", "고마워요.. 언젠간 좋은 사람이 오겠죠..?"],
+                        "resultGoodFace": ["Sad", "Sad", "Sad"],
+                        "resultNormalComment": ["고마워요…", "이제는 나아질 수 있겠죠..?"],
+                        "resultNormalFace": ["Happy", "Happy"],
+                        "resultBadComment": ["어떻게 이럴 수가 있죠..?", "최악이에요.."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["이게… 뭐죠…?", "전혀 다른 냄새가 나는데요..?", "이상한 걸 넣으면 어떡해요!!"],
+                        "noExistFace": ["Bad", "Bad", "Bad"],
+                        "noFlavorComment": ["음… 전혀 느낄 수가 없는데요..?", "제대로 한 게 맞나요..?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "I",
+                    "id": 21,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "친구",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["중간"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["하하, 안녕하세요!", "친구랑 오랜만에 만나서 한 잔 했는데..", "아후, 정말 반갑더라고요!", "오랜만에 봐서 그런가..", "지금은  바빠서 자주 보지도 못하는데..", "친구랑 걱정없이 지내던 시간이 너무 그립네요..", "친구와의 추억이 담긴 얼큰한 향수 하나 부탁드려요."],
+                        "visitFace": ["Happy", "Happy", "Happy", "Common", "Sad", "Sad", "Common"],
+                        "refusalComment": ["뭐라고!?", "나 술에 취한 게 아니라니까!", "정말 실망이구만!"],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["적당하게...", "추억을 음미하게 해주세요!"],
+                        "requestFace": ["Common", "Happy"],
+                        "resultGoodComment": ["하하하!", "어릴 적 활기찬 우리 모습을 보니까 기분이 너무 좋네요.", "좋은 추억은 잘 간직하겠습니다, 형님!"],
+                        "resultGoodFace": ["Happy", "Happy", "Happy"],
+                        "resultNormalComment": ["으흠!", "좋은 향수를 받았네요."],
+                        "resultNormalFace": ["Common", "Happy"],
+                        "resultBadComment": ["형님..", "향수가.. 술이 확 깨는 향이네요.."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["음, 이 향수가.. 아니었던 거 같은데.."],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["향이..", "없는 게 맞나요?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "C",
+                    "id": 22,
+                    "currentPerfume": {
+                        "bassNotes": "물건",
+                        "middleNotes": "장난감",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저기 아저씨..?", "어렸을 때 나무 비행기를 가지고 놀았었는데 정말 재밌었어.", "그래서 그런가? 지금도 푸른 하늘만 보면 자유롭게 날아보고 싶어.", "내가 만약 비행기를 조종한다면 어떻게 될까???", "분명 잘할 것 같은데…", "아무튼 그때 가지고 놀던 시절이 너무 그립네.", "요즘은 지겨운 공부만 하고 있거든.", "그때는 비행기를 사랑할 정도였는데...", "혹시 이런 것도 향수로 만들어줄 수 있어?"],
+                        "visitFace": ["Common", "Common", "Happy", "Happy", "Common", "Common", "Bad", "Common", "Common"],
+                        "refusalComment": ["…..?", "알겠어.", "그냥 가는 게 좋겠네."],
+                        "refusalFace": ["Sad", "Sad", "Sad"],
+                        "requestComment": ["완전 진하게.", "진하게 해줘."],
+                        "requestFace": ["Common", "Common"],
+                        "resultGoodComment": ["내가 원하던 게 바로 이거야!!", "고마워.", "덕분에 정말 행복할 것 같네."],
+                        "resultGoodFace": ["Happy", "Common", "Happy"],
+                        "resultNormalComment": ["고마워.", "이제 그럼 가볼게."],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["제대로 만들어 준거 맞지?", "일단 가볼게."],
+                        "resultBadFace": ["Bad", "Common"],
+                        "noExistComment": ["음.. 좀 이상한 거 같은데..", "뭔가 좀 다른 것 같지만 일단 가볼게."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["음.. 뭘 빠트린 거 아니야?", "이건 좀 아닌 거 같은데…", "일단 그냥 갈게."],
+                        "noFlavorFace": ["Bad", "Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": true
+                },
+                {
+                    "name": "D",
+                    "id": 23,
+                    "currentPerfume": {
+                        "bassNotes": "동물",
+                        "middleNotes": "반려동물",
+                        "topNotes": ["놀라움"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["아저씨!", "우리 쪼꼬 기억하시죠?", "쪼꼬는 정말 천재 강아지라니까요!", "제가 이름을 부르면 빙글빙글 돌면서 대답도 해요!", "정말 놀랍지 않나요?", "쪼꼬의 묘기를 생생하게 간직해두고 싶어요.", "멋진 쪼꼬의 향수를 만들어주세요!"],
+                        "visitFace": ["Common", "Common", "Happy", "Happy", "Happy", "Common", "Common"],
+                        "refusalComment": ["쪼꼬가 궁금하지 않으신건가요?", "흠..", "그래요.."],
+                        "refusalFace": ["Sad", "Sad", "Sad"],
+                        "requestComment": ["우리 쪼꼬는 아주 유명해질 거라고요.", "아! 향을 세게 해달라는 뜻이에요."],
+                        "requestFace": ["Common", "Happy"],
+                        "resultGoodComment": ["와! 방금 쪼꼬 공중 점프한 거 보셨어요?", "정말 마음에 드네요!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["쪼꼬의 모습이 잘 담겼네요..", "감사합니다!"],
+                        "resultNormalFace": ["Common", "Happy"],
+                        "resultBadComment": ["이게 쪼꼬인가요..?", "정말 별로네요."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["아저씨?", "이 향수는 제가 찾는 게 아닌걸요.."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["냄새가.. 아무 냄새가 나질 않네요.", "이게 정말 끝인가요?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "F",
+                    "id": 24,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "놀이공원",
+                        "topNotes": ["의심"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["음.. 안녕하세요?", "오늘 동생과 함께 놀이공원에 다녀왔는데..", "아주 수상한 것을 발견했어요..",  "놀이기구 아래 풀 사이에 무언가 반짝이던 게..", "혹시 유령은 아니겠죠?", "제가 더 알아봐야겠어요!",  "이 기억을 향수로 만들어주시겠어요?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Sad", "Common", "Happy"],
+                        "refusalComment": ["정말 봤다니까요?", "믿기 힘드신건가요?", "그래요.."],
+                        "refusalFace": ["Bad", "Bad", "Sad"],
+                        "requestComment": ["추리는 정확한 게 생명이죠.", "향을 아주 세게 해주세요!"],
+                        "requestFace": ["Happy", "Happy"],
+                        "resultGoodComment": ["오! 감사합니다!", "집에서 자세히 연구해봐야겠어요!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["약간 희미하긴 하지만..", "이걸로 열심히 추리해보도록 하죠!"],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["흐음..", "이걸 대체 어디에 써야 하죠?"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["킁킁..", "다시 맡아봐도 무슨 향인지 모르겠네요.."],
+                        "noExistFace": ["Common", "Bad"],
+                        "noFlavorComment": ["으음.. 향이 부족한데..", "아저씨! 깜빡하는 버릇이 있는 건 아닌가요?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "A",
+                    "id": 27,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "가족",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함","중간","약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": [],
+                        "visitFace": [],
+                        "refusalComment": [],
+                        "refusalFace": [],
+                        "requestComment": [],
+                        "requestFace": [],
+                        "resultGoodComment": [],
+                        "resultGoodFace": [],
+                        "resultNormalComment": [],
+                        "resultNormalFace": [],
+                        "resultBadComment": [],
+                        "resultBadFace": [],
+                        "noExistComment": [],
+                        "noExistFace": [],
+                        "noFlavorComment": [],
+                        "noFlavorFace": []
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "I",
+                    "id": 26,
+                    "currentPerfume": {
+                        "bassNotes": "물건",
+                        "middleNotes": "인형",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하신가!", "날씨가 정말 춥구만 그래..", "여기에 우리 손녀를 두고 알로카시아(미정) 마을로 가야 하는데..", "어렸을 때 인형을 품에 안고 잠을 자는 모습이 눈에 아른아른 거리는구만..", "내 손녀의 행복한 모습을 볼 수 있도록 포근한 향수 하나 포장해주게나"],
+                        "visitFace": ["Common", "Sad", "Common", "Common", "Happy", "Happy"],
+                        "refusalComment": ["뭐라고?", "부탁을 거절하다니!!", "정말 실망이네!"],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["하하!", "울 손녀가 깨지 않게 은은하게 맡을 수 있으면 좋겠네."],
+                        "requestFace": ["Happy", "Happy"],
+                        "resultGoodComment": ["오호!!", "우리 손녀가 좋아하는 인형을 어떻게 맞춘건가?", "용하네 용해!"],
+                        "resultGoodFace": ["Happy", "Happy", "Happy"],
+                        "resultNormalComment": ["고맙네!", "덕분에 우리 손녀를 멀리서도 생각할 수 있겠어!"],
+                        "resultNormalFace": ["Happy", "Happy"],
+                        "resultBadComment": ["이 향수는...", "정말 별로구만!"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["흠..", "내가 찾는 향수가 아니네", "냄새가 정말 고약하고만.."],
+                        "noExistFace": ["Bad", "Bad", "Bad"],
+                        "noFlavorComment": ["무슨 향인가?", "차라리 이런 향수는 받지 않겠네!"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "A",
+                    "id": 27,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "가족",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함", "중간","약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요?", "저도 형 가지고 싶어요!", "형이 있으면 좋겠다!", "그럼 맨날 같이 놀고 행복할 텐데!!", "형 냄새라도 맡을 수 있을까요?!!"],
+                        "visitFace": ["Common", "Common", "Common", "Happy", "Common"],
+                        "refusalComment": ["안돼요??", "왜 안돼요??", "진짜로요??", "알겠어요…."],
+                        "refusalFace": ["Sad", "Sad", "Sad", "Sad"],
+                        "requestComment": ["향의 세기는 아무거나 상관없어요!!"],
+                        "requestFace": ["Happy"],
+                        "resultGoodComment": ["와!! 고맙습니다!!", "이거면 나도 형이 생긴 건가??!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["오오.. 고맙습니다!!"],
+                        "resultNormalFace": ["Happy"],
+                        "resultBadComment": ["이건… 고맙습니다...!"],
+                        "resultBadFace": ["Common"],
+                        "noExistComment": ["이건… 형 냄새가 아닌데요..?"],
+                        "noExistFace": ["Bad"],
+                        "noFlavorComment": ["냄새가 안 느껴지는데… 아저씨 제대로 만든 거 맞아요..?"],
+                        "noFlavorFace": ["Sad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "B",
+                    "id": 28,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "놀이터",
+                        "topNotes": ["부끄러움"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["아저씨..", "오늘 놀이터에서 짝꿍이 볼에 뽀뽀를 하고 도망갔어요..", "다른 친구들이 보진 않았겠죠??", "이건 비밀인데..", "오늘이 인생 첫 뽀뽀라고요!!", "부끄럽지만 향수로 만들어둘래요..", "첫 뽀뽀는 소중하니까요.."],
+                        "visitFace": ["Common", "Common", "Sad", "Common", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["안되는 거에요..?", "나도 꼭 향수를 사보고 싶었는데.."],
+                        "refusalFace": ["Sad", "Sad"],
+                        "requestComment": ["너무 부끄러워요..", "다른 친구들이 아무도 모르게 해주세요!"],
+                        "requestFace": ["Sad", "Common"],
+                        "resultGoodComment": ["감사합니다!", "아저씨..", "뽀뽀하면 이제 사귀는 거겠쬬?"],
+                        "resultGoodFace": ["Happy", "Common", "Happy"],
+                        "resultNormalComment": ["우와!", "감사합니다, 아저씨!"],
+                        "resultNormalFace": ["Common", "Happy"],
+                        "resultBadComment": ["이건..", "이상해요.."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["아저씨! 이건..", "제가 말한 향수가 아니에요."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["아저씨!!", "아무 향도 나지 않아요.."],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "C",
+                    "id": 29,
+                    "currentPerfume": {
+                        "bassNotes": "동물",
+                        "middleNotes": "반려동물",
+                        "topNotes": ["기쁨"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요, 아저씨.", "오늘 아빠가 귀여운 새끼 강아지를 데리고 왔어요.", "하얀 털이 복슬복슬한 동물이 우리 집에 같이 산다니..", "이제 우리 가족이 된 강아지와의 첫 만남을 평생 기억하고 싶어요.", "도와주세요..!"],
+                        "visitFace": ["Common", "Happy", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["예?", "아.. 뭐.. 어쩔 수 없죠.."],
+                        "refusalFace": ["Sad", "Sad"],
+                        "requestComment": ["향은 집에서 늘 은은하게 풍기면 좋겠어요."],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["와아!", "감사합니다, 아저씨!", "우리 집 강아지는 복슬 강아지~"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["감사합니다..", "이 향수 잘 간직할게요."],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["여기서 이상한 냄새가 나요..", "일단 감사합니다."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["아저씨, 이건 제가 말한 게 아니잖아요.", "제가 부탁드린 향수가 맞나요?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["뭐지..?", "내 코가 막힌 건가.."],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "F",
+                    "id": 30,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요, 아저씨?", "나를 안 좋아하는 줄만 알았던 남자친구 집에서", "이곳의 향수를 발견했어요!", "소심한 줄만 알았는데..", "저 때문에 샀다는 게 너무 귀엽지 않나요?", "이번에는 제가 기념일 선물로 행복한 추억을 담아 선물하고 싶어요.", "어때요? 좋아할 것 같나요?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["왜 안되는 건가요??", "다시는 오지 않겠어요."],
+                        "refusalFace": ["Bad", "Bad"],
+                        "requestComment": ["향은 역시 은은한 게 좋아요"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["꺄악! 너무 행복해요.", "우리의 추억이 담긴 향수라니..", "정말 낭만적이에요"],
+                        "resultGoodFace": ["Happy", "Happy", "Happy"],
+                        "resultNormalComment": ["와! 좋은 향수네요.", "고마워요!"],
+                        "resultNormalFace": ["Common", "Happy"],
+                        "resultBadComment": ["흐음..", "오래된 향료로 만들었나보네요..."],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["아저씨..", "제가 원했던 향수가 아닌 것 같아요..."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이게 다 끝난 건가요?", "뭔가 부족해 보이네요.."],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "E",
+                    "id": 31,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["… 저기.. 요?", "…. 제발 내 사랑을 다시 한번만이라도 보고 싶어…", "내가 이렇게 좋아하는데.. 대체 어떻게 지내고 있는거야.. ?", "내가 사랑하는 그녀가 미치도록 보고 싶어 ..", "이런 나를 좀 도와주지 않을래..?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["… 나한테 대체 왜 그래요? ", "당신만큼은 그러면 안 되잖아", "다른 사람들한테도 말할 거야", "후회하지 마 당신이 한 선택이잖아?"],
+                        "refusalFace": ["Common", "Common", "Common", "Common"],
+                        "requestComment": ["향은 절대 빠지지 않도록 강하게 해주세요…"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["이것이 바로 그녀의 향..", "정말 감사합니다.. 정말로…"],
+                        "resultGoodFace": ["Common", "Common"],
+                        "resultNormalComment": ["고마워요… "],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["너무 못 만든거 아닌가요..?", "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?"],
+                        "resultBadFace": ["Common", "Common"],
+                        "noExistComment": ["이건 내가 맡고 싶은 향이 아니에요..", "정말 최악이네요.."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["제대로 만든 거 맞나요..?", "아무 것도 느껴지지 않아요.."],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                }
+            ]
+        },
+        {
+            "customer": [
+                {
+                    "name": "I",
+                    "id": 32,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "친구",
+                        "topNotes": ["죄책감"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하신가..", "내 죽은 친구 놈이 보고 싶구만,,", "그때 가지 말라고 말렸어야 했는데 말이야..", "빌어먹을.. 그놈이 사고에 휘말렸어..", "제기랄.. 내 탓이지 뭐..", "혹시 향수 하나만 만들어줄 수 있는가?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["젠장.. 내가 당신한테 뭘 잘못했지..?", "오늘도 개 같은 하루구만.."],
+                        "refusalFace": ["Common", "Common"],
+                        "requestComment": ["그 친구 향이 영원히 지속됐으면 좋겠군…", "내가 감히 이래도 되는 걸까..?"],
+                        "requestFace": ["Common", "Common"],
+                        "resultGoodComment": ["내가… 정말…", "정말...", "…...."],
+                        "resultGoodFace": ["Common", "Common", "Common"],
+                        "resultNormalComment": ["고맙군.. 자네.."],
+                        "resultNormalFace": ["Common"],
+                        "resultBadComment": ["이건 대체 뭘..", "형편없구만"],
+                        "resultBadFace": ["Common", "Common"],
+                        "noExistComment": ["내가 우습나?", "이럴 거면 때려치우게"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["지금 장난하는건가?", "향이 안 느껴지는데 뭐 어떡하라는 거야?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "B",
+                    "id": 33,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "친구",
+                        "topNotes": ["부끄러움"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕, 아저씨….", "오늘 새로운 유치원에 갔는데", "계속 혼자 있었어….", "친해지고 싶은 친구는 있었는데….", "어떻게 먼저 말을 걸어야 하는 거야?", "부끄러워서 아무 말도 못 하겠어….", "아! 그 친구한테 선물을 주면 좋아하지 않을까?", "아저씨가 대신 친구에게 줄 선물을 만들어줘!"],
+                        "visitFace": ["Common", "Common", "Sad", "Sad", "Common", "Common", "Happy", "Happy"],
+                        "refusalComment": ["흥!", "친구 없어도 잘 지낼 수 있어!", "실망이야, 아저씨!"],
+                        "refusalFace": ["Bad", "Bad", "Bad"],
+                        "requestComment": ["친구를 부담스럽게 하고 싶지 않아!"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["히히, 감사합니다.", "빨리 친구한테 주고 싶어요!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["감사합니다, 아저씨!", "저도 친구 만들 수 있겠죠?"],
+                        "resultNormalFace": ["Common", "Happy"],
+                        "resultBadComment": ["으아아앙", "아저씨 때문에 친구 못 만들면 어떡해요?"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["아저씨..", "이걸 선물해도 되는 건가요..?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["아저씨!!", "아무 향도 나지 않아요.."],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
                     "name": "J",
-                    "id": 35,
+                    "id": 34,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -1085,7 +1067,7 @@
                         "resultGoodFace": ["Happy", "Happy", "Happy"],
                         "resultNormalComment": ["고마워요!", "덕분에 좋은 추억 계속 간직할 수 있겠네요!"],
                         "resultNormalFace": ["Happy", "Happy"],
-                        "resultBadComment": ["으…", "대체 어떻게 만드신 거죠…?", "너무 못 만드신 거 아니에요?", "주변 사람들에게 알려야겠어요."],
+                        "resultBadComment": ["으… ", "대체 어떻게 만드신 거죠…?", "너무 못 만드신 거 아니에요?", "주변 사람들에게 알려야겠어요."],
                         "resultBadFace": ["Bad", "Bad", "Bad", "Bad"],
                         "noExistComment": ["뭘 만드신거죠?", "아니 완전 다르잖아요..", "다른 사람들한테 알릴 거예요."],
                         "noExistFace": ["Bad", "Bad", "Bad"],
@@ -1094,277 +1076,93 @@
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
-                }
-            ]
-        },
-        {
-            "customer": [
+                },
                 {
-                    "name": "I",
+                    "name": "H",
+                    "id": 35,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "학교",
+                        "topNotes": ["부끄러움"],
+                        "perfumeForce": ["중간"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요!", "어른이 되고 나니까 괜히 어릴 때로 돌아가고 싶은 거 있죠?", "친구들과 학교 다닐 때가 정말 좋았는데..", "매일 아침 지각해서 복도에서 손들고 있었다니까요~?", "하하! 그때는 볼이 빨개져서 쥐구멍에 숨고 싶었는데..", "지나보니 그런 게 다 저에겐 추억이더라고요..", "혹시 이것도 향수로 받을 수 있을까요?"],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["네? 지금 거절하신 건가요?", "그래요, 제 기분을 제대로 망치셨네요"],
+                        "refusalFace": ["Bad", "Bad"],
+                        "requestComment": ["향은 너무 진하지 않도록 적당하게 부탁해요!"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["저의 학창 시절의 모습이 그대로 담겨있네요.", "순수했던 모습을 찾아줘서 고마워요!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["바로 이거야..!", "정말 고마워요!"],
+                        "resultNormalFace": ["Common", "Common"],
+                        "resultBadComment": ["이걸 내 돈 주고 샀다는 게 정말 부끄럽네요.."],
+                        "resultBadFace": ["Bad"],
+                        "noExistComment": ["이게 대체 무슨 냄새지?", "조금.. 실망인걸요.."],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이거 맞나요?", "정말로... 다 한 거 맞는 거죠..?"],
+                        "noFlavorFace": ["Bad", "Bad"]
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "D",
                     "id": 36,
                     "currentPerfume": {
+                        "bassNotes": "동물",
+                        "middleNotes": "반려동물",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["안녕하세요?", "우리 집에 귀여운 강아지 쪼꼬가 있거든요?", "볼 때마다 얼마나 사랑스러운 모르겠어요?!", "이걸 다른 애들한테도 알려주고 싶은데..!", "향수를 선물하면 되지 않을까요?"],
+                        "visitFace": ["Happy", "Happy", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["응?", "흠… 왜요??", "향수 팔면 좋은 거 아닌가??"],
+                        "refusalFace": ["Common", "Common", "Common"],
+                        "requestComment": ["향을 완전 진하게? 해주세요!!!"],
+                        "requestFace": ["Common"],
+                        "resultGoodComment": ["오! 진짜 쪼꼬 냄새다!", "고마워요!!"],
+                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultNormalComment": ["오 쪼꼬 냄새난다!", "좋아요!"],
+                        "resultNormalFace": ["Happy", "Happy"],
+                        "resultBadComment": ["으… 이상한 냄새!!!", "쪼꼬는 꼬소한 냄새가 난다구요!!!"],
+                        "resultBadFace": ["Bad", "Bad"],
+                        "noExistComment": ["음..? 무슨 냄새지..?", "완전히 다른 냄새인데요?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이건 무슨 냄새지..?", "아무 냄새도 안 나는데요?"],
+                        "noFlavorFace": ["Bad", "Bad"] 
+                    },
+                    "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "G",
+                    "id": 37,
+                    "currentPerfume": {
                         "bassNotes": "사람",
-                        "middleNotes": "친구",
-                        "topNotes": ["물건"],
-                        "perfumeForce": []
+                        "middleNotes": "연인",
+                        "topNotes": ["슬픔"],
+                        "perfumeForce": ["강함"]
                     },
                     "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
-                    },
-                    "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
-                    },
-                    "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
-                    },
-                    "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
-                    },
-                    "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
-                    },
-                    "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
-                    },
-                    "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
-                    },
-                    "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
-                    "name": "",
-                    "id": 0,
-                    "currentPerfume": {
-                        "bassNotes": "",
-                        "middleNotes": "",
-                        "topNotes": [],
-                        "perfumeForce": []
-                    },
-                    "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
+                        "visitComment": ["….", "안녕하세요..", "헤어진지 꽤 된거 같은데 아직도 그녀가 잊혀지지 않네요…", "오늘은 특히 더 그래요…", "….....", "오늘이 기념일이었거든요..", "비록 슬픈 사랑이었지만", "아직도 사랑했던 시간들이 고스란히 남아있어요...", "...어떻게 해야 할까요..?", "저한테 괜찮은 향수 좀 주실 수 있나요..?"],
+                        "visitFace": ["Sad", "Common", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad"],
+                        "refusalComment": ["…...", "다음에 올게요…"],
+                        "refusalFace": ["Sad", "Sad"],
+                        "requestComment": ["향은 진하게 부탁드려요…", "그래야 다 풀릴 것 같거든요.."],
+                        "requestFace": ["Sad", "Common"],
+                        "resultGoodComment": ["그녀도 저와 같은 마음일까요..?", "난 아직 보내주지 못했는데", "이제는 보내줘야겠죠..?", "고마워요….", "언젠간 좋은 사람이 오겠죠…?"],
+                        "resultGoodFace": ["Common", "Sad", "Sad", "Sad", "Sad"],
+                        "resultNormalComment": ["고맙습니다..", "이제는 나아질 수 있겠죠..?"],
+                        "resultNormalFace": ["Happy", "Happy"],
+                        "resultBadComment": ["…. 별로 좋진 않네요"],
+                        "resultBadFace": ["Bad"],
+                        "noExistComment": ["음… 이게 뭐죠..?", "전혀 다른 냄새가 나는데요..?"],
+                        "noExistFace": ["Bad", "Bad"],
+                        "noFlavorComment": ["이게 대체 뭔가요…?", "제대로 한 게 맞나요..?"],
+                        "noFlavorFace": ["Bad", "Bad"]
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false

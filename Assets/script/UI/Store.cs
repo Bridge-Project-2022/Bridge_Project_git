@@ -153,7 +153,7 @@ public class Store : MonoBehaviour
                 slots.Add(slot);
             }
 
-            for (int j = 0; j <= 5; j++)
+            for (int j = 0; j <= 3; j++)
             {
                 Middleslot = MiddleslotRoot.GetChild(j).GetComponent<Slot>();
                 Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
@@ -220,7 +220,7 @@ public class Store : MonoBehaviour
                 slots.Add(slot);
             }
 
-            for (int j = 0; j <= 8; j++)
+            for (int j = 0; j <= 7; j++)
             {
                 Middleslot = MiddleslotRoot.GetChild(j).GetComponent<Slot>();
                 Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
@@ -261,11 +261,17 @@ public class Store : MonoBehaviour
                 Topslots.Add(Topslot);
             }
 
-            for (int i = 6; i <= 8; i++)
+            for (int i = 4; i <= 6; i++)
             {
                 MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
             }
-            TopslotRoot.transform.GetChild(4).gameObject.SetActive(true);
+            for (int i = 0; i <= 3; i++)
+            {
+                if (MiddleitemBuffer.items[i].isNew == true)
+                {
+                    MiddleslotRoot.GetChild(i).GetChild(5).gameObject.SetActive(false);
+                }
+            }
 
             if (openCnt == 1)//처음 열었을 때
             {
@@ -330,7 +336,7 @@ public class Store : MonoBehaviour
                 Middleslots.Add(Middleslot);
             }
 
-            for (int k = 0; k <= 6; k++)
+            for (int k = 0; k <= 7; k++)
             {
                 Topslot = TopslotRoot.GetChild(k).GetComponent<Slot>();
                 Topslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
@@ -350,18 +356,26 @@ public class Store : MonoBehaviour
                 Topslots.Add(Topslot);
             }
 
-            for (int i = 6; i <= 8; i++)
-            {
-                MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
-            }
+            MiddleslotRoot.transform.GetChild(7).gameObject.SetActive(true);
+
             for (int i = 4; i <= 6; i++)
             {
                 TopslotRoot.transform.GetChild(i).gameObject.SetActive(true);
             }
 
-            if (TopitemBuffer.items[4].isNew == true)
+            for (int i = 0; i <= 7; i++)
             {
-                TopslotRoot.GetChild(4).GetChild(5).gameObject.SetActive(false);
+                if (MiddleitemBuffer.items[i].isNew == true)
+                {
+                    MiddleslotRoot.GetChild(i).GetChild(5).gameObject.SetActive(false);
+                }
+            }
+            for (int i = 0; i <= 3; i++)
+            {
+                if (TopitemBuffer.items[i].isNew == true)
+                {
+                    TopslotRoot.GetChild(i).GetChild(5).gameObject.SetActive(false);
+                }
             }
             if (openCnt == 1)//처음 열었을 때
             {
@@ -445,14 +459,8 @@ public class Store : MonoBehaviour
                 Topslots.Add(Topslot);
             }
 
-            for (int i = 6; i <= 8; i++)
-            {
-                MiddleslotRoot.transform.GetChild(i).gameObject.SetActive(true);
-            }
-            for (int i = 4; i <= 8; i++)
-            {
-                TopslotRoot.transform.GetChild(i).gameObject.SetActive(true);
-            }
+            TopslotRoot.transform.GetChild(8).gameObject.SetActive(true);
+
 
             for (int i = 0; i <= 6; i++)
             {
