@@ -197,3 +197,24 @@ MonoBehaviour:
     place: 4
     placeImage: 
     special: 0
+  - day: 2
+    name: 
+    face: 
+    dialog: aaa
+    place: 1
+    placeImage: TreeImageType01
+    special: 1
+  - day: 2
+    name: 
+    face: 
+    dialog: bb
+    place: 1
+    placeImage: TreeImageType01
+    special: 1
+  - day: 2
+    name: 
+    face: 
+    dialog: c
+    place: 1
+    placeImage: TreeImageType01
+    special: 1
