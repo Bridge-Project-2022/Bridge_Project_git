@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlaceController : MonoBehaviour
@@ -84,15 +85,19 @@ public class PlaceController : MonoBehaviour
 
     public List<PlaceDialogDBEntity> GetPlaceDialogData(int curDay, Enums.MoveButton curPlace)
     {
-        List<PlaceDialogDBEntity> placeDialogList = new List<PlaceDialogDBEntity>();
-        
-        for (int i = 0; i < data.PlaceEntity.Count; i++)
-        {
-            if (data.PlaceEntity[i].day == curDay && data.PlaceEntity[i].place == curPlace)
-            {
-                placeDialogList.Add(data.PlaceEntity[i]);
-            }
-        }
+        // List<PlaceDialogDBEntity> placeDialogList = new List<PlaceDialogDBEntity>();
+        //
+        // for (int i = 0; i < data.PlaceEntity.Count; i++)
+        // {
+        //     if (data.PlaceEntity[i].day == curDay && data.PlaceEntity[i].place == curPlace)
+        //     {
+        //         placeDialogList.Add(data.PlaceEntity[i]);
+        //     }
+        // }
+
+        List<PlaceDialogDBEntity> placeDialogList = (from dialogDB in data.PlaceEntity
+            where dialogDB.day == curDay && dialogDB.place == curPlace
+            select dialogDB).ToList();
 
         return placeDialogList;
     }
