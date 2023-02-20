@@ -70,6 +70,18 @@ public class NextDay : MonoBehaviour, IDataPersistence
         }
         else if (day == 4)
         {
+            NewsTimePanel();
+        }
+        else if (day == 5)
+        {
+            NewsTimePanel();
+        }
+        else if (day == 6)
+        {
+            NewsTimePanel();
+        }
+        else if (day == 7)
+        {
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
         }
@@ -115,6 +127,18 @@ public class NextDay : MonoBehaviour, IDataPersistence
         }
         if (day == 5)
         {
+            Invoke("FifthDayStart", 3f);
+        }
+        if (day == 6)
+        {
+            Invoke("SixthDayStart", 3f);
+        }
+        if (day == 7)
+        {
+            Invoke("SeventhDayStart", 3f);
+        }
+        if (day == 8)
+        {
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
         }
@@ -133,39 +157,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
     }
     public void SaveData()
     {
-        //GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().SaveData();
-        /*GameDataManager.Instance.Money = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money;
-        GameDataManager.Instance.Day = day;
-        GameDataManager.Instance.Reputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
-        GameDataManager.Instance.ReputationValue = GameObject.Find("ReputationSlider").GetComponent<Slider>().value;
-        GameDataManager.Instance.BGM = BGMSlider.GetComponent<Slider>().value;
-        GameDataManager.Instance.SFX = SFXSlider.GetComponent<Slider>().value;
-        GameDataManager.Instance.SoundEnable = GameObject.Find("SoundManager").GetComponent<SoundController>().isBGMOn;
 
-        GameObject.Find("Canvas").transform.GetChild(8).gameObject.SetActive(true);
-        for (int i = 0; i < Inventory.FindObjectOfType<Inventory>().Baseslots.Count; i++)
-        {
-            GameDataManager.Instance.AddBaseItem(Inventory.FindObjectOfType<Inventory>().Baseslots[i].item);
-        }
-        for (int i = 0; i < Inventory.FindObjectOfType<Inventory>().Middleslots.Count; i++)
-        {
-            GameDataManager.Instance.AddMiddleItem(Inventory.FindObjectOfType<Inventory>().Middleslots[i].item);
-        }
-        for (int i = 0; i < Inventory.FindObjectOfType<Inventory>().Topslots.Count; i++)
-        {
-            GameDataManager.Instance.AddTopItem(Inventory.FindObjectOfType<Inventory>().Topslots[i].item);
-        }
-
-        Debug.Log(GameDataManager.Instance.Money);
-        Debug.Log(GameDataManager.Instance.Day);
-        Debug.Log(GameDataManager.Instance.Reputation);
-        Debug.Log(GameDataManager.Instance.BGM);
-        Debug.Log(GameDataManager.Instance.SFX);
-        Debug.Log(GameDataManager.Instance.SoundEnable);
-        Debug.Log(gameData.itemList);
-
-        GameDataManager.Instance.SaveData();
-        GameObject.Find("Canvas").transform.GetChild(8).gameObject.SetActive(false);*/
     }
     public void NewsTimePanel()
     {
@@ -254,6 +246,53 @@ public class NextDay : MonoBehaviour, IDataPersistence
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = true;
+        //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+    }
+
+    public void FifthDayStart()
+    {
+        Today.text = "05";
+        RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
+        BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
+        WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
+
+        Store.GetComponent<Store>().openCnt = 0;
+        GameObject Trigger = GameObject.Find("Trigger").gameObject;
+        Trigger.GetComponent<FourthDialogueRandom>().enabled = false;
+        Trigger.GetComponent<FifthDialogueRandom>().enabled = true;
+        //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+
+        MiddleSlots.anchoredPosition = new Vector3(0, -56, 0);
+        MiddleSlots.sizeDelta = new Vector2(1302, 1086);
+        TopSlots.anchoredPosition = new Vector3(0, -56, 0);
+        TopSlots.sizeDelta = new Vector2(1302, 1086);
+    }
+
+    public void SixthDayStart()
+    {
+        Today.text = "06";
+        RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
+        BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
+        WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
+
+        Store.GetComponent<Store>().openCnt = 0;
+        GameObject Trigger = GameObject.Find("Trigger").gameObject;
+        Trigger.GetComponent<FifthDialogueRandom>().enabled = false;
+        Trigger.GetComponent<SixthDialogueRandom>().enabled = true;
+        //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+    }
+
+    public void SeventhDayStart()
+    {
+        Today.text = "07";
+        RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "morning";
+        BackGround.GetComponent<SpriteRenderer>().sprite = BG_Sprite;
+        WindowBG.GetComponent<SpriteRenderer>().sprite = WD_Sprite;
+
+        Store.GetComponent<Store>().openCnt = 0;
+        GameObject Trigger = GameObject.Find("Trigger").gameObject;
+        Trigger.GetComponent<SixthDialogueRandom>().enabled = false;
+        Trigger.GetComponent<SeventhDialogueRandom>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
 

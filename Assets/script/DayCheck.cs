@@ -25,6 +25,21 @@ public class DayCheck : MonoBehaviour
             GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().A_Start();
             Invoke("DeclareBtnShow", 0.1f);
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        {
+            GameObject.Find("Trigger").GetComponent<FifthDialogueRandom>().A_Start();
+            Invoke("DeclareBtnShow", 0.1f);
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        {
+            GameObject.Find("Trigger").GetComponent<SixthDialogueRandom>().A_Start();
+            Invoke("DeclareBtnShow", 0.1f);
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        {
+            GameObject.Find("Trigger").GetComponent<SeventhDialogueRandom>().A_Start();
+            Invoke("DeclareBtnShow", 0.1f);
+        }
     }
     public void DeclareBtnShow()
     {
@@ -48,6 +63,18 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().C_1_Start();
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        {
+            GameObject.Find("Trigger").GetComponent<FifthDialogueRandom>().C_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        {
+            GameObject.Find("Trigger").GetComponent<SixthDialogueRandom>().C_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        {
+            GameObject.Find("Trigger").GetComponent<SeventhDialogueRandom>().C_1_Start();
+        }
     }
 
     public void C2_Check()
@@ -69,6 +96,18 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().C_2_Start();
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        {
+            GameObject.Find("Trigger").GetComponent<FifthDialogueRandom>().C_2_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        {
+            GameObject.Find("Trigger").GetComponent<SixthDialogueRandom>().C_2_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        {
+            GameObject.Find("Trigger").GetComponent<SeventhDialogueRandom>().C_2_Start();
+        }
     }
 
     public void ND_Check()
@@ -88,6 +127,18 @@ public class DayCheck : MonoBehaviour
         else if (NextDay.FindObjectOfType<NextDay>().day == 4)
         {
             GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().NextDialogue();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        {
+            GameObject.Find("Trigger").GetComponent<FifthDialogueRandom>().NextDialogue();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        {
+            GameObject.Find("Trigger").GetComponent<SixthDialogueRandom>().NextDialogue();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        {
+            GameObject.Find("Trigger").GetComponent<SeventhDialogueRandom>().NextDialogue();
         }
     }
     public void E1_Check()
@@ -109,6 +160,18 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().E_1_Start();
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        {
+            GameObject.Find("Trigger").GetComponent<FifthDialogueRandom>().E_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        {
+            GameObject.Find("Trigger").GetComponent<SixthDialogueRandom>().E_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        {
+            GameObject.Find("Trigger").GetComponent<SeventhDialogueRandom>().E_1_Start();
+        }
     }
 
     public void F2_Check()
@@ -128,6 +191,18 @@ public class DayCheck : MonoBehaviour
         else if (NextDay.FindObjectOfType<NextDay>().day == 4)
         {
             GameObject.Find("Trigger").GetComponent<FourthDialogueRandom>().E_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        {
+            GameObject.Find("Trigger").GetComponent<FifthDialogueRandom>().E_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        {
+            GameObject.Find("Trigger").GetComponent<SixthDialogueRandom>().E_1_Start();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        {
+            GameObject.Find("Trigger").GetComponent<SeventhDialogueRandom>().E_1_Start();
         }
     }
     public void YesBold()

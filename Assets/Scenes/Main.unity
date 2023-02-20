@@ -978,6 +978,9 @@ Transform:
   - {fileID: 673567375}
   - {fileID: 30177059}
   - {fileID: 485988086}
+  - {fileID: 929657430}
+  - {fileID: 405891130}
+  - {fileID: 789657069}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9005,6 +9008,114 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &405891129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405891130}
+  - component: {fileID: 405891131}
+  m_Layer: 0
+  m_Name: DialogueScript6
+  m_TagString: DialogueScript
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405891130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405891129}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 409.50848, y: -132.78412, z: -228.81538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 36811418}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &405891131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405891129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46bd6277689fe54181fb057e5a4a5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distiller: {fileID: 6248577078843635384}
+  Customer_Name: 
+  Customer_ID: 000000000000000000000000000000000000000000000000
+  Customer_PerfumeOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_IntensityOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_Flavoring:
+  - 
+  - 
+  - 
+  Customer_RejectReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_PerfumeReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  OrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  IntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  RejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  ReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  isCriminal: 0
+  isUnique: 0
+  CriminalID: 10
+  UniqueID: 1000
+  RC: {fileID: 1965479738}
 --- !u!1 &419942375
 GameObject:
   m_ObjectHideFlags: 0
@@ -9862,7 +9973,7 @@ MonoBehaviour:
     itemType: Middle
     itemExplanation: " \uC7A5\uB09C\uAC10\uC5D0 \uB300\uD55C \uD2B9\uBCC4\uD55C \uCD94\uC5B5\uC744
       \uB2F4\uC744 \uC218 \uC788\uB294 \uD5A5\uB8CC "
-    isNew: 1
+    isNew: 0
   - name: "\uC5EC\uD589\uC9C0"
     sprite: {fileID: 21300000, guid: 729a198fd8e11064087d14f11e7af87d, type: 3}
     itemCount: 3
@@ -9871,7 +9982,7 @@ MonoBehaviour:
     itemType: Middle
     itemExplanation: "\uC5EC\uD589\uC9C0\uC5D0\uC11C\uC758 \uC18C\uC911\uD55C \uCD94\uC5B5\uC744
       \uB2F4\uC744 \uC218 \uC788\uB294 \uD5A5\uB8CC"
-    isNew: 1
+    isNew: 0
   - name: "\uAC00\uC871"
     sprite: {fileID: 21300000, guid: 46937e3bd19f14541802f950eb2b7f35, type: 3}
     itemCount: 3
@@ -9891,6 +10002,24 @@ MonoBehaviour:
     itemExplanation: "\uD559\uAD50\uC5D0\uC11C\uC758 \uC18C\uC911\uD55C \uCD94\uC5B5\uC744
       \uB2F4\uC744 \uC218 \uC788\uB294 \uD5A5\uB8CC"
     isNew: 1
+  - name: "\uB180\uC774\uD130"
+    sprite: {fileID: 21300000, guid: 8adf285277a20f74ca994e147aaafab7, type: 3}
+    itemCount: 3
+    itemPrice: 250
+    InvenItemNum: 0
+    itemType: Middle
+    itemExplanation: "\uB180\uC774\uC5D0\uC11C\uC758 \uC18C\uC911\uD55C \uCD94\uC5B5\uC744
+      \uB2F4\uC744 \uC218 \uC788\uB294 \uD5A5\uB8CC"
+    isNew: 0
+  - name: "\uC790\uC2E0"
+    sprite: {fileID: 21300000, guid: 0179d7627d24b4a45b6f3fcc8d76156c, type: 3}
+    itemCount: 3
+    itemPrice: 200
+    InvenItemNum: 0
+    itemType: Middle
+    itemExplanation: "\uC790\uC2E0\uC744 \uB300\uC0C1\uC73C\uB85C \uD558\uB294 \uCD94\uC5B5\uC744
+      \uB2F4\uC744 \uC218 \uC788\uB294 \uD5A5\uB8CC"
+    isNew: 0
 --- !u!1 &466130437
 GameObject:
   m_ObjectHideFlags: 0
@@ -11250,7 +11379,7 @@ MonoBehaviour:
     itemType: Top
     itemExplanation: " \uBB34\uC5C7\uC774 \uB9C8\uC74C\uC5D0 \uB4E4\uC9C0 \uC54A\uAC70\uB098,
       \uC2EB\uC5B4\uD574\uC11C \uC0DD\uAE30\uB294 \uAC10\uC815 \uD5A5\uB8CC"
-    isNew: 1
+    isNew: 0
   - name: "\uC8C4\uCC45\uAC10"
     sprite: {fileID: 21300000, guid: 1d1248d4799e6de4f855e34ee31218c8, type: 3}
     itemCount: 3
@@ -11259,7 +11388,7 @@ MonoBehaviour:
     itemType: Top
     itemExplanation: "\uC800\uC9C0\uB978 \uC798\uBABB\uC5D0 \uD6C4\uD68C\uD558\uBA70
       \uCC45\uC784\uC744 \uB290\uB07C\uB294 \uAC10\uC815 \uD5A5\uB8CC"
-    isNew: 1
+    isNew: 0
   - name: "\uB180\uB77C\uC6C0"
     sprite: {fileID: 21300000, guid: d4c2f5be6c559c644afef6597fe34108, type: 3}
     itemCount: 3
@@ -11269,7 +11398,7 @@ MonoBehaviour:
     itemExplanation: "\uBB34\uC5B8\uAC00\uC5D0 \uD06C\uAC8C \uAC10\uB3D9\uD558\uC5EC
       \uB9E4\uC6B0 \uAC10\uD0C4\uD558\uAC70\uB098 \uB450\uB824\uC6B4 \uAC10\uC815
       \uD5A5\uB8CC"
-    isNew: 1
+    isNew: 0
   - name: "\uBD80\uB044\uB7EC\uC6C0"
     sprite: {fileID: 21300000, guid: 40a789ce42e3f704d871f41732c07858, type: 3}
     itemCount: 3
@@ -11279,7 +11408,7 @@ MonoBehaviour:
     itemExplanation: "\uC2A4\uC2A4\uB85C \uC591\uC2EC\uC5D0 \uAC70\uB9AC\uB07C\uC5B4
       \uB5B3\uB5B3\uD558\uC9C0 \uBABB\uD558\uAC70\uB098 \uB2E4\uB978 \uC0AC\uB78C
       \uC55E\uC5D0\uC11C \uC218\uC90D\uC740 \uAC10\uC815  \uD5A5\uB8CC"
-    isNew: 1
+    isNew: 0
   - name: "\uC758\uC2EC"
     sprite: {fileID: 21300000, guid: 8576d8c4babfbc04aad4ae5037e6b7ba, type: 3}
     itemCount: 3
@@ -11288,7 +11417,7 @@ MonoBehaviour:
     itemType: Top
     itemExplanation: "\uD655\uC2E4\uD788 \uC54C \uC218 \uC5C6\uC5B4\uC11C \uBBFF\uC9C0
       \uBABB\uD558\uACE0 \uC774\uC0C1\uD788 \uC5EC\uAE30\uB294 \uAC10\uC815 \uD5A5\uB8CC"
-    isNew: 1
+    isNew: 0
 --- !u!1001 &532339036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16146,6 +16275,114 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6673200503103411026, guid: cf0d50652947a66428fca01da85d172d, type: 3}
   m_PrefabInstance: {fileID: 787221648}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &789657068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 789657069}
+  - component: {fileID: 789657070}
+  m_Layer: 0
+  m_Name: DialogueScript7
+  m_TagString: DialogueScript
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &789657069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789657068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 409.50848, y: -132.78412, z: -228.81538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 36811418}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &789657070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789657068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b74c9d20291eb49b07322bf9cbd259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distiller: {fileID: 6248577078843635384}
+  Customer_Name: 
+  Customer_ID: 000000000000000000000000000000000000000000000000
+  Customer_PerfumeOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_IntensityOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_Flavoring:
+  - 
+  - 
+  - 
+  Customer_RejectReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_PerfumeReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  OrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  IntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  RejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  ReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  isCriminal: 0
+  isUnique: 0
+  CriminalID: 10
+  UniqueID: 1000
+  RC: {fileID: 1965479738}
 --- !u!1 &797361887
 GameObject:
   m_ObjectHideFlags: 0
@@ -16310,6 +16547,9 @@ GameObject:
   - component: {fileID: 806175968}
   - component: {fileID: 806175967}
   - component: {fileID: 806175971}
+  - component: {fileID: 806175974}
+  - component: {fileID: 806175973}
+  - component: {fileID: 806175972}
   m_Layer: 5
   m_Name: Trigger
   m_TagString: Untagged
@@ -16661,6 +16901,312 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e5479a57cb00094b804319905cc458d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RC: {fileID: 1965479738}
+  Buyer: {fileID: 2130944401}
+  Select: {fileID: 1170537487}
+  Customer: {fileID: 772955856}
+  Distiller: {fileID: 6248577078843635384}
+  DistillerUI: {fileID: 1534612176}
+  Presser: {fileID: 132443742}
+  Cooler: {fileID: 2126001539}
+  DailyResult: {fileID: 2015426897}
+  BuyerDialogue: {fileID: 78113239}
+  isDialogueEnd: 0
+  arrow: {fileID: 832237960}
+  rejectCnt: 0
+  SellerSentences:
+  - 
+  - 
+  BuyerOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensity:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerPerfumeReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerOrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerFeel:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  BG_Sprite:
+  - {fileID: 21300000, guid: 215facdda8328cd4489ac1390865b67d, type: 3}
+  - {fileID: 21300000, guid: b4c20fa6e32b61b4998555547e4a9bd3, type: 3}
+  - {fileID: 21300000, guid: fd480068d09909942b32e45e3fa50f17, type: 3}
+  - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
+  - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
+  - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
+  D2Count: 0
+  ECount: 0
+  isDialogueStart: 0
+--- !u!114 &806175972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806175965}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b63d6331ddc3cc429b79a8cf3d6598f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RC: {fileID: 1965479738}
+  Buyer: {fileID: 2130944401}
+  Select: {fileID: 1170537487}
+  Customer: {fileID: 772955856}
+  Distiller: {fileID: 6248577078843635384}
+  DistillerUI: {fileID: 1534612176}
+  Presser: {fileID: 132443742}
+  Cooler: {fileID: 2126001539}
+  DailyResult: {fileID: 2015426897}
+  BuyerDialogue: {fileID: 78113239}
+  isDialogueEnd: 0
+  arrow: {fileID: 832237960}
+  rejectCnt: 0
+  SellerSentences:
+  - 
+  - 
+  BuyerOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensity:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerPerfumeReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerOrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerFeel:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  BG_Sprite:
+  - {fileID: 21300000, guid: 215facdda8328cd4489ac1390865b67d, type: 3}
+  - {fileID: 21300000, guid: b4c20fa6e32b61b4998555547e4a9bd3, type: 3}
+  - {fileID: 21300000, guid: fd480068d09909942b32e45e3fa50f17, type: 3}
+  - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
+  - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
+  - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
+  D2Count: 0
+  ECount: 0
+  isDialogueStart: 0
+--- !u!114 &806175973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806175965}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34cd1386ce8fe94685ca93a21bd1967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RC: {fileID: 1965479738}
+  Buyer: {fileID: 2130944401}
+  Select: {fileID: 1170537487}
+  Customer: {fileID: 772955856}
+  Distiller: {fileID: 6248577078843635384}
+  DistillerUI: {fileID: 1534612176}
+  Presser: {fileID: 132443742}
+  Cooler: {fileID: 2126001539}
+  DailyResult: {fileID: 2015426897}
+  BuyerDialogue: {fileID: 78113239}
+  isDialogueEnd: 0
+  arrow: {fileID: 832237960}
+  rejectCnt: 0
+  SellerSentences:
+  - 
+  - 
+  BuyerOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensity:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerPerfumeReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerOrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerFeel:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  BG_Sprite:
+  - {fileID: 21300000, guid: 215facdda8328cd4489ac1390865b67d, type: 3}
+  - {fileID: 21300000, guid: b4c20fa6e32b61b4998555547e4a9bd3, type: 3}
+  - {fileID: 21300000, guid: fd480068d09909942b32e45e3fa50f17, type: 3}
+  - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
+  - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
+  - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
+  D2Count: 0
+  ECount: 0
+  isDialogueStart: 0
+--- !u!114 &806175974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806175965}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a02881fbcd7f1242a76e121f620b4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RC: {fileID: 1965479738}
@@ -19697,6 +20243,114 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &929657429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 929657430}
+  - component: {fileID: 929657431}
+  m_Layer: 0
+  m_Name: DialogueScript5
+  m_TagString: DialogueScript
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &929657430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929657429}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 409.50848, y: -132.78412, z: -228.81538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 36811418}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &929657431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929657429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9ebe8ba2417e543be9a8b587a6af87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distiller: {fileID: 6248577078843635384}
+  Customer_Name: 
+  Customer_ID: 000000000000000000000000000000000000000000000000
+  Customer_PerfumeOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_IntensityOrder:
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_Flavoring:
+  - 
+  - 
+  - 
+  Customer_RejectReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  Customer_PerfumeReaction:
+  - 
+  - 
+  - 
+  - 
+  - 
+  OrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  IntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  RejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  ReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  isCriminal: 0
+  isUnique: 0
+  CriminalID: 10
+  UniqueID: 1000
+  RC: {fileID: 1965479738}
 --- !u!1 &935091276
 GameObject:
   m_ObjectHideFlags: 0
