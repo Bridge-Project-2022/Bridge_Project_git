@@ -222,10 +222,8 @@ public class NextDay : MonoBehaviour, IDataPersistence
         Trigger.GetComponent<SecondDialogueRandom>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
 
-        MiddleSlots.anchoredPosition = new Vector3(0, -56, 0); //-28, +306
-        MiddleSlots.sizeDelta = new Vector2(1302, 1086);
-        TopSlots.anchoredPosition = new Vector3(0, -28, 0);
-        TopSlots.sizeDelta = new Vector2(1302, 780);
+        MiddleSlots.anchoredPosition = new Vector3(0, -28, 0); //-28, +306
+        MiddleSlots.sizeDelta = new Vector2(1302, 780);
     }
 
     public void ThirdDayStart()
@@ -240,6 +238,9 @@ public class NextDay : MonoBehaviour, IDataPersistence
         Trigger.GetComponent<SecondDialogueRandom>().enabled = false;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+
+        TopSlots.anchoredPosition = new Vector3(0, -28, 0);
+        TopSlots.sizeDelta = new Vector2(1302, 780);
     }
 
     public void FourthDayStart()
