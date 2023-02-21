@@ -770,8 +770,8 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "A",
-                    "id": 27,
+                    "name": "로레나",
+                    "id": 25,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "가족",
@@ -779,22 +779,22 @@
                         "perfumeForce": ["강함","중간","약함"]
                     },
                     "dialogue": {
-                        "visitComment": [],
-                        "visitFace": [],
-                        "refusalComment": [],
-                        "refusalFace": [],
-                        "requestComment": [],
-                        "requestFace": [],
-                        "resultGoodComment": [],
-                        "resultGoodFace": [],
-                        "resultNormalComment": [],
-                        "resultNormalFace": [],
-                        "resultBadComment": [],
-                        "resultBadFace": [],
-                        "noExistComment": [],
-                        "noExistFace": [],
-                        "noFlavorComment": [],
-                        "noFlavorFace": []
+                        "visitComment": ["어쩌구","어쩌구","어쩌구","어쩌구"],
+                        "visitFace": ["L01_faint2","L01_vacant","L01_faint2","L03_ecstatic1"],
+                        "refusalComment": ["어쩌구"],
+                        "refusalFace": ["L02_paintful1"],
+                        "requestComment": ["어쩌구"],
+                        "requestFace": ["L02_paintful1"],
+                        "resultGoodComment": ["어쩌구"],
+                        "resultGoodFace": ["L02_paintful1"],
+                        "resultNormalComment": ["어쩌구"],
+                        "resultNormalFace": ["L02_paintful1"],
+                        "resultBadComment": ["어쩌구"],
+                        "resultBadFace": ["L02_paintful1"],
+                        "noExistComment": ["어쩌구"],
+                        "noExistFace": ["L02_paintful1"],
+                        "noFlavorComment": ["어쩌구"],
+                        "noFlavorFace": ["L02_paintful1"]
                     },
                     "uniqueGuest": true,
                     "criminalGuest": false

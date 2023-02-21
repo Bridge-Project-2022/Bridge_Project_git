@@ -66,19 +66,19 @@ public class NextDay : MonoBehaviour, IDataPersistence
         }
         else if (day == 3)
         {
-            NewsTimePanel();
+            Invoke("NewsTimePanel", 2f);
         }
         else if (day == 4)
         {
-            NewsTimePanel();
+            Invoke("NewsTimePanel", 2f);
         }
         else if (day == 5)
         {
-            NewsTimePanel();
+            Invoke("NewsTimePanel", 2f);
         }
         else if (day == 6)
         {
-            NewsTimePanel();
+            Invoke("NewsTimePanel", 2f);
         }
         else if (day == 7)
         {

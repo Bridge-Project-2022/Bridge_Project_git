@@ -40,6 +40,18 @@ public class StoryCustomerImage : MonoBehaviour
         {
             CurrentName = GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().Customer_Name.ToString();
         }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        {
+            CurrentName = GameObject.Find("DialogueScript5").GetComponent<FifthDialogueScript>().Customer_Name.ToString();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        {
+            CurrentName = GameObject.Find("DialogueScript6").GetComponent<SixthDialogueScript>().Customer_Name.ToString();
+        }
+        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        {
+            CurrentName = GameObject.Find("DialogueScript7").GetComponent<SeventhDialogueScript>().Customer_Name.ToString();
+        }
         RCFeeling();
     }
 
