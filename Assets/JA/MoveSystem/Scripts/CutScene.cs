@@ -100,7 +100,7 @@ public class CutScene : MonoBehaviour
                 }
             }
             
-            dialogFild.text = item.dialog;
+            dialogFild.text = item.dialog.Replace("\\n", "\n");
             dialogName.text = item.name;
             
             yield return new WaitForSeconds(fadeTime);
