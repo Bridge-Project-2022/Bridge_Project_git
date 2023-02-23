@@ -13,6 +13,7 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     public TextMeshProUGUI GameMoney;
     public GameObject GameReputation;
     public GameObject Customer;
+    public GameObject TutorialPanel;
 
     string[] CustomerTxt = new string[2];
 
@@ -46,7 +47,8 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(true);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
         GameObject.Find("BGM").GetComponent<AudioSource>().Play();
-        Invoke("SellerStart", 1f);
+        TutorialPanel.SetActive(true);
+        TutorialPanel.GetComponent<Tutorial>().StartDialogue();
     }
 
     public void SellerStart()
