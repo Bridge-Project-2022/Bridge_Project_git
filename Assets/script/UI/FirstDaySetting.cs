@@ -16,7 +16,7 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
 
     string[] CustomerTxt = new string[2];
 
-    public void Start()
+    public void FirstStart()
     {
         CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
         CustomerTxt[1] = "더 필요한 물건이 있나?";
@@ -24,7 +24,7 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
         if (GameObject.Find("NextDay").GetComponent<NextDay>().day == 1)
         {
             GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
-            Invoke("FirstDayStart", 6f);
+            Invoke("FirstDayStart", 8f);
         }
         
     }
@@ -44,6 +44,8 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     {
         GameObject.Find("FirstDayPanel").gameObject.SetActive(false);
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(true);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+        GameObject.Find("BGM").GetComponent<AudioSource>().Play();
         Invoke("SellerStart", 1f);
     }
 

@@ -9,7 +9,7 @@ public class StartSceneManager : MonoBehaviour
     public VideoPlayer vid;
     public void SkipBtnClicked()
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Main");
     }
     public void Start()
     {
@@ -18,6 +18,6 @@ public class StartSceneManager : MonoBehaviour
 
     public void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Main");
     }
 }

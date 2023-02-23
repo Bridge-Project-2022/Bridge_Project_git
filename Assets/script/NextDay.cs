@@ -43,6 +43,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
     public RectTransform MiddleSlots;
     public RectTransform TopSlots;
 
+
     public void Start()
     {
         BackGround = GameObject.Find("BGIMG").transform.GetChild(0).gameObject;
@@ -55,33 +56,39 @@ public class NextDay : MonoBehaviour, IDataPersistence
         DailyResult.GetComponent<Animator>().enabled = false;
         DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
 
-        //Debug.Log(day);
         if (day == 1)
         {
-            NextDayClick();
+            day++;
+            Invoke("NewsTimePanel", 2f);
         }
         else if (day == 2)
         {
-            NextDayClick();
+            day++;
+            Invoke("NewsTimePanel", 2f);
         }
         else if (day == 3)
         {
+            day++;
             Invoke("NewsTimePanel", 2f);
         }
         else if (day == 4)
         {
+            day++;
             Invoke("NewsTimePanel", 2f);
         }
         else if (day == 5)
         {
+            day++;
             Invoke("NewsTimePanel", 2f);
         }
         else if (day == 6)
         {
+            day++;
             Invoke("NewsTimePanel", 2f);
         }
         else if (day == 7)
         {
+            day++;
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
         }
@@ -95,8 +102,8 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
         DayPanel.gameObject.SetActive(true);
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
-        DayPanelDay1.GetComponent<TextMeshProUGUI>().text = (day + 1).ToString();
-        DayPanelDay2.GetComponent<TextMeshProUGUI>().text = (day + 1).ToString();
+        DayPanelDay1.GetComponent<TextMeshProUGUI>().text = (day).ToString();
+        DayPanelDay2.GetComponent<TextMeshProUGUI>().text = (day).ToString();
         Invoke("DayStartPanel", 6f);
 
         DailyResult.GetComponent<DailyResult>().personNum = 0;
@@ -109,10 +116,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
         RandomBuyer.SetActive(false);
         buyer.SetActive(false);
 
-
-
-        day++;
-
+        Debug.Log(day);
         if (day == 2)
         {
             Invoke("SecondDayStart", 3f);
@@ -152,6 +156,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
     {
         DayPanel.gameObject.SetActive(false);
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(true);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
         Invoke("SellerStart", 2f);
 
     }
@@ -161,10 +166,47 @@ public class NextDay : MonoBehaviour, IDataPersistence
     }
     public void NewsTimePanel()
     {
-        NewsPanel.gameObject.SetActive(true);
-        CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("news");
-        NewsPanel.gameObject.GetComponent<Image>().sprite = NewsIMG[2];
+        NewsPanel.gameObject.SetActive(true);
+        if (day == 1)
+        {
+            NewsPanel.GetComponent<Image>().sprite = NewsIMG[0];
+        }
+        if (day == 2)
+        {
+            NewsPanel.GetComponent<Image>().sprite = NewsIMG[1];
+        }
+        if (day == 3)
+        {
+            NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
+            CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
+            NewsPanel.GetComponent<Image>().sprite = NewsIMG[2];
+        }
+        if (day == 4)
+        {
+            NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
+            CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
+            NewsPanel.GetComponent<Image>().sprite = NewsIMG[3];
+        }
+        if (day == 5)
+        {
+            NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
+            CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
+            NewsPanel.GetComponent<Image>().sprite = NewsIMG[4];
+        }
+        if (day == 6)
+        {
+            NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
+            CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
+            NewsPanel.GetComponent<Image>().sprite = NewsIMG[5];
+        }
+        if (day == 7)
+        {
+            NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
+            CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
+            NewsPanel.GetComponent<Image>().sprite = NewsIMG[6];
+        }
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("news");
     }
     public void SellerStart()
     {

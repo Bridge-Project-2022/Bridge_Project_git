@@ -23,6 +23,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip BuyFail;
     public AudioClip coolPick;
     public AudioClip perfumeTouch;
+    public AudioClip coolParticle;
+    public AudioClip coolFail;
 
     public AudioClip news;
     public AudioClip main;
@@ -45,71 +47,97 @@ public class SoundManager : MonoBehaviour
         {
             case "visit":
                 sfxAudioSource.clip = visit;
+                sfxAudioSource.volume = 0.26f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "inven":
                 sfxAudioSource.clip = inven;
+                sfxAudioSource.volume = 0.26f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "money":
                 sfxAudioSource.clip = money;
+                sfxAudioSource.volume = 0.26f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "fireon":
                 sfxAudioSource.clip = fireon;
+                sfxAudioSource.volume = 0.46f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "click":
                 sfxAudioSource.clip = click;
+                sfxAudioSource.volume = 0.2f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "boilHigh":
                 sfxAudioSource.clip = boilHigh;
+                sfxAudioSource.volume = 0.56f;
                 sfxAudioSource.loop = true;
                 break;
 
             case "boilMiddle":
                 sfxAudioSource.clip = boilMiddle;
+                sfxAudioSource.volume = 0.56f;
                 sfxAudioSource.loop = true;
                 break;
 
             case "boilLow":
                 sfxAudioSource.clip = boilLow;
+                sfxAudioSource.volume = 0.56f;
                 sfxAudioSource.loop = true;
                 break;
 
             case "pressDown":
                 sfxAudioSource.clip = pressDown;
+                sfxAudioSource.volume = 0.26f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "coolerTouch":
                 sfxAudioSource.clip = CoolerTouch;
+                sfxAudioSource.volume = 0.46f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "DayFinish":
                 sfxAudioSource.clip = DayFinish;
+                sfxAudioSource.volume = 0.36f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "BuyFail":
                 sfxAudioSource.clip = BuyFail;
+                sfxAudioSource.volume = 0.26f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "coolPick":
                 sfxAudioSource.clip = coolPick;
+                sfxAudioSource.volume = 0.66f;
                 sfxAudioSource.loop = false;
                 break;
 
             case "perfumeTouch":
                 sfxAudioSource.clip = perfumeTouch;
+                sfxAudioSource.volume = 0.36f;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "coolParticle":
+                sfxAudioSource.clip = coolParticle;
+                sfxAudioSource.volume = 0.66f;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "coolFail":
+                sfxAudioSource.clip = coolFail;
+                sfxAudioSource.volume = 0.76f;
                 sfxAudioSource.loop = false;
                 break;
         }
@@ -122,7 +150,7 @@ public class SoundManager : MonoBehaviour
         {
             case "news":
                 bgmAudioSource.clip = news;
-                bgmAudioSource.volume = 1f;
+                bgmAudioSource.volume = 0.8f;
                 break;
 
             case "main":
@@ -142,7 +170,7 @@ public class SoundManager : MonoBehaviour
 
             case "create_asmr":
                 bgmAudioSource.clip = create_asmr;
-                bgmAudioSource.volume = 1f;
+                bgmAudioSource.volume = 0.7f;
                 break;
         }
         bgmAudioSource.Play();

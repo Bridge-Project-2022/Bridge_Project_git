@@ -219,6 +219,7 @@ public class Cooler : MonoBehaviour
         if(CoolerOne.gameObject.GetComponent<Image>().sprite != null)
         {
             Particle1.gameObject.SetActive(true);
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
             CoolerOne.GetComponent<Button>().interactable = true;
             CoolerOne.gameObject.tag = "good";
         }
@@ -226,6 +227,7 @@ public class Cooler : MonoBehaviour
         if (CoolerTwo.gameObject.GetComponent<Image>().sprite != null)
         {
             Particle2.gameObject.SetActive(true);
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
             CoolerTwo.GetComponent<Button>().interactable = true;
             CoolerTwo.gameObject.tag = "good";
         }
@@ -233,6 +235,7 @@ public class Cooler : MonoBehaviour
         if (CoolerThree.gameObject.GetComponent<Image>().sprite != null)
         {
             Particle3.gameObject.SetActive(true);
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
             CoolerThree.GetComponent<Button>().interactable = true;
             CoolerThree.gameObject.tag = "good";
         }
@@ -250,6 +253,7 @@ public class Cooler : MonoBehaviour
         CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
         CoolerThree.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
 
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolFail");
         CoolerOne.gameObject.tag = "bad";
         CoolerTwo.gameObject.tag = "bad";
         CoolerThree.gameObject.tag = "bad";
