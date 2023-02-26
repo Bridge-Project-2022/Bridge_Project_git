@@ -14,9 +14,9 @@ public class Store : MonoBehaviour
     public ItemBuffer MiddleitemBuffer;
     public ItemBuffer TopitemBuffer;
 
-    private List<Slot> slots;
-    private List<Slot> Middleslots;
-    private List<Slot> Topslots;
+    public List<Slot> slots;
+    public List<Slot> Middleslots;
+    public List<Slot> Topslots;
 
     public FirstDaySetting fd;
     public GameObject inven;
@@ -130,7 +130,6 @@ public class Store : MonoBehaviour
         int MiddleslotCount = MiddleslotRoot.childCount;
         int TopslotCount = TopslotRoot.childCount;
 
-
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
             for (int i = 0; i <= 3; i++)
@@ -183,6 +182,7 @@ public class Store : MonoBehaviour
        
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)
         {
+            Array.Resize(ref MiddleItemList, 7);
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
             MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
             TopBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -262,6 +262,8 @@ public class Store : MonoBehaviour
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
+            Array.Resize(ref MiddleItemList, 8);
+            Array.Resize(ref TopItemList, 7);
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
             MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
             TopBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -349,6 +351,7 @@ public class Store : MonoBehaviour
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 4)
         {
+            Array.Resize(ref TopItemList, 8);
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
             MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
             TopBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -427,6 +430,8 @@ public class Store : MonoBehaviour
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 5)
         {
+            Array.Resize(ref MiddleItemList, 9);
+            Array.Resize(ref TopItemList, 9);
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
             MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
             TopBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -503,6 +508,8 @@ public class Store : MonoBehaviour
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 6)
         {
+            Array.Resize(ref MiddleItemList, 10);
+
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
             MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
             TopBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -579,6 +586,7 @@ public class Store : MonoBehaviour
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 7)
         {
+            Array.Resize(ref MiddleItemList, 11);
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
             MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
             TopBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -649,6 +657,36 @@ public class Store : MonoBehaviour
                     TopitemBuffer.items[i].itemCount = 3;
                 }
             }
+        }
+
+        for (int i = 0; i < BaseItemList.Length; i++)
+        {
+            if (slots[i].item.itemCount == 0)
+            {
+                continue;
+            }
+
+            BaseItemList[i] = slots[i].item;
+        }
+
+        for (int i = 0; i < MiddleItemList.Length; i++)
+        {
+            if (Middleslots[i].item.itemCount == 0)
+            {
+                continue;
+            }
+
+            MiddleItemList[i] = Middleslots[i].item;
+        }
+
+        for (int i = 0; i < TopItemList.Length; i++)
+        {
+            if (Topslots[i].item.itemCount == 0)
+            {
+                continue;
+            }
+
+            TopItemList[i] = Topslots[i].item;
         }
     }
     public void OnClickSlot(Slot clickedSlot)
@@ -843,7 +881,6 @@ public class Store : MonoBehaviour
             {
                 cnt++;
             }
-
             if (cnt == BaseItemList.Length)
             {
                 BaseBuyAllBtn.GetComponent<Button>().interactable = false;
@@ -934,15 +971,6 @@ public class Store : MonoBehaviour
     {
         isBaseAllOpen = true;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        for (int i = 0; i < BaseItemList.Length; i++)
-        {
-            if (slots[i].item.itemCount == 0)
-            {
-                continue;
-            }
-
-            BaseItemList[i] = slots[i].item;
-        }
         AllBuyNum = 1;
         BaseBuyAllNum.text = AllBuyNum.ToString();
         slotItemPrice = 0;
@@ -963,37 +991,8 @@ public class Store : MonoBehaviour
     public void MiddleBuyAllItemUI()
     {
         isMiddleAllOpen = true;
-        if (NextDay.FindObjectOfType<NextDay>().day == 2)
-        {
-            Array.Resize(ref MiddleItemList, 7);
-        }
-        if (NextDay.FindObjectOfType<NextDay>().day == 3)
-        {
-            Array.Resize(ref MiddleItemList, 8);
-        }
-        if (NextDay.FindObjectOfType<NextDay>().day == 5)
-        {
-            Array.Resize(ref MiddleItemList, 9);
-        }
-        if (NextDay.FindObjectOfType<NextDay>().day == 6)
-        {
-            Array.Resize(ref MiddleItemList, 10);
-        }
-        if (NextDay.FindObjectOfType<NextDay>().day == 7)
-        {
-            Array.Resize(ref MiddleItemList, 11);
-        }
-
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        for (int i = 0; i < MiddleItemList.Length; i++)
-        {
-            if (Middleslots[i].item.itemCount == 0)
-            {
-                continue;
-            }
 
-            MiddleItemList[i] = Middleslots[i].item;
-        }
         MiddleAllBuyNum = 1;
         MiddleBuyAllNum.text = MiddleAllBuyNum.ToString();
         MiddleslotItemPrice = 0;
@@ -1015,28 +1014,8 @@ public class Store : MonoBehaviour
     public void TopBuyAllItemUI()
     {
         isTopAllOpen = true;
-        if (NextDay.FindObjectOfType<NextDay>().day == 3)
-        {
-            Array.Resize(ref TopItemList, 7);
-        }
-        if (NextDay.FindObjectOfType<NextDay>().day == 4)
-        {
-            Array.Resize(ref TopItemList, 8);
-        }
-        if (NextDay.FindObjectOfType<NextDay>().day == 5)
-        {
-            Array.Resize(ref TopItemList, 9);
-        }
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        for (int i = 0; i < TopItemList.Length; i++)
-        {
-            if (Topslots[i].item.itemCount == 0)
-            {
-                continue;
-            }
 
-            TopItemList[i] = Topslots[i].item;
-        }
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         TopAllBuyNum = 1;
         TopBuyAllNum.text = TopAllBuyNum.ToString();
         TopslotItemPrice = 0;
@@ -1062,7 +1041,7 @@ public class Store : MonoBehaviour
             if (BaseItemList[i] == null)
                 continue;
 
-            inven.GetComponent<Inventory>().BuyItem(BaseItemList[i]);
+            inven.GetComponent<Inventory>().AllBuyItem(BaseItemList[i]);
             BaseItemList[i].itemCount -= AllBuyNum;
             if (BaseItemList[i].itemCount < 0)
                 BaseItemList[i].itemCount = 0;
@@ -1101,7 +1080,7 @@ public class Store : MonoBehaviour
                 continue;
             }
 
-            inven.GetComponent<Inventory>().BuyItem(MiddleItemList[i]);
+            inven.GetComponent<Inventory>().AllBuyItem(MiddleItemList[i]);
             MiddleItemList[i].itemCount -= MiddleAllBuyNum;
 
             if (MiddleItemList[i].itemCount < 0)
@@ -1139,7 +1118,7 @@ public class Store : MonoBehaviour
             if (TopItemList[i] == null)
                 continue;
 
-            inven.GetComponent<Inventory>().BuyItem(TopItemList[i]);
+            inven.GetComponent<Inventory>().AllBuyItem(TopItemList[i]);
             TopItemList[i].itemCount -= TopAllBuyNum;
 
             if (TopItemList[i].itemCount < 0)
@@ -1171,9 +1150,12 @@ public class Store : MonoBehaviour
     }
     public void Close()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        this.gameObject.SetActive(false);
-        ItemDetail.gameObject.SetActive(false);
+        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutBuy == false)
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+            this.gameObject.SetActive(false);
+            ItemDetail.gameObject.SetActive(false);
+        }
     }
     public void CloseDetail()
     {

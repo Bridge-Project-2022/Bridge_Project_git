@@ -64,9 +64,12 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     }
     public void SellerEnd()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
-        Customer.gameObject.SetActive(true);
-        StartCoroutine(NormalChat(CustomerTxt[1]));
+        if(GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutBuy == false)
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+            Customer.gameObject.SetActive(true);
+            StartCoroutine(NormalChat(CustomerTxt[1]));
+        }
     }
 
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
