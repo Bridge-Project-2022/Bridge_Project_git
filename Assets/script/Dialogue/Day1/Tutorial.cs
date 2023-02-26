@@ -197,12 +197,36 @@ public class Tutorial : MonoBehaviour
                         StartCoroutine(NormalChat_1(TS.tutBuy[buyCnt]));
                         buyCnt++;
                     }
-                    if (buyCnt == 8)
+                    if (buyCnt == 8)//일반 상인 대사로 넘어감
                     {
-                        Store.gameObject.SetActive(false);
+                        Store.TutClose();
                         TutorialDialogue.SetActive(false);
+                        BlackPanel.SetActive(false);
                         TutCustomer.SetActive(true);
                         NextTutDialogue();
+                    }
+                    if (buyCnt == 14)//상인 향료 승낙, 거절 활성화 / 클릭은 안됨
+                    {
+                        TutCustomer.transform.GetChild(1).GetChild(3).gameObject.SetActive(true);
+                        TutCustomer.transform.GetChild(1).GetChild(3).GetChild(0).gameObject.GetComponent<Button>().interactable = false;
+                        TutCustomer.transform.GetChild(1).GetChild(3).GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+                    }
+                    if (buyCnt == 15)//승낙 거절 하이라이팅, 화살표 추가
+                    {
+                        TutCustomer.transform.GetChild(1).GetChild(3).GetChild(0).gameObject.GetComponent<Button>().interactable = true;
+                        TutCustomer.transform.GetChild(1).GetChild(3).GetChild(1).gameObject.GetComponent<Button>().interactable = true;
+                        TutCustomer.transform.GetChild(1).GetChild(3).gameObject.SetActive(false); 
+
+                        MaskPanel.transform.GetChild(5).gameObject.SetActive(true);
+                        MaskArrow.transform.GetChild(0).gameObject.SetActive(true);
+                        BlackPanel.SetActive(true);
+                        MaskArrowPos.anchoredPosition = new Vector3(-876, -86, 0);
+                    }
+                    if (buyCnt == 16)
+                    {
+                        MaskPanel.transform.GetChild(5).gameObject.SetActive(false);
+                        MaskArrow.transform.GetChild(0).gameObject.SetActive(false);
+                        BlackPanel.SetActive(false);
                     }
                 }
             }

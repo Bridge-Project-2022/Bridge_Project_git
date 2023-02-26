@@ -1157,6 +1157,13 @@ public class Store : MonoBehaviour
             ItemDetail.gameObject.SetActive(false);
         }
     }
+    public void TutClose()
+    {
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        this.gameObject.SetActive(false);
+        ItemDetail.gameObject.SetActive(false);
+
+    }
     public void CloseDetail()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
