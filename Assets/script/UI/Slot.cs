@@ -112,7 +112,7 @@ public class Slot : MonoBehaviour
         if (ClickedSlot.item.InvenItemNum >= 1)
         {
             ClickedSlot.item.InvenItemNum -= 1;
-            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 남음";
+            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 보유";
             if (ClickedSlot.item.InvenItemNum == 0)
             {
                 ClickedSlot.itemName.text = "";
@@ -127,7 +127,7 @@ public class Slot : MonoBehaviour
     {
         if (this.item != null && this.tag != "InvenSlot")
         {
-            itemCount.text = item.itemCount.ToString() + "개 보유";
+            itemCount.text = "남은 재고 : " + item.itemCount.ToString();
             if (item.itemCount <= 0)
             {
                 this.itemPrice.text = "0";

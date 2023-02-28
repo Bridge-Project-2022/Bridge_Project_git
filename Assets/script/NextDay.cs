@@ -52,6 +52,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
     public void DayCheck()
     {
+        GameDataManager.FindObjectOfType<GameDataManager>().SaveData();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("DayFinish");
         DailyResult.GetComponent<Animator>().enabled = false;
         DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);

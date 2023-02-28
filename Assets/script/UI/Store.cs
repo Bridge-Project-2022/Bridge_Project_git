@@ -1198,18 +1198,18 @@ public class Store : MonoBehaviour
             TopMinusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
-        if (AllBuyNum <= 1 || MiddleAllBuyNum <= 1 || TopAllBuyNum <= 1)
-        {
+        if (AllBuyNum <= 1)
             BaseAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = false;
+        if (MiddleAllBuyNum <= 1)
             MiddleAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = false;
+        if (TopAllBuyNum <= 1)
             TopAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = false;
-        }
-        else
-        {
+        if (AllBuyNum > 1)
             BaseAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = true;
+        if (MiddleAllBuyNum > 1)
             MiddleAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = true;
+        if (TopAllBuyNum > 1)
             TopAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = true;
-        }
 
         if ((BuyNum + 1) * slot.item.itemPrice > fd.Money)
         {
