@@ -78,7 +78,6 @@ public class PerfumeColor : MonoBehaviour
             color5_1.a = 0f;
             Liquid3_2.transform.GetChild(0).GetComponent<Image>().color = color5_1;
 
-            Debug.Log(name);
             if (name == "¿Âº“")
             {
                 PerfumeMix_1("de7a81");

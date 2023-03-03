@@ -79,6 +79,8 @@ public class Slot : MonoBehaviour
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
             GameObject.Find("Manufacture").transform.GetChild(5).GetComponent<Distiller>().DistillerOn(ClickedItem);
             Debug.Log("증류기 시작 가능");
+            GameObject.Find("MaskPanel").transform.GetChild(8).gameObject.SetActive(false);
+            GameObject.Find("Mask_Arrow").transform.GetChild(7).gameObject.SetActive(false);
         }
 
         else if (item.itemType == "Middle" && GameObject.Find("TotalScoreBuffer").GetComponent<TotalScore>().PressCnt == 0)//압착기 실행

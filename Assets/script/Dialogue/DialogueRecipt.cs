@@ -46,21 +46,28 @@ public class DialogueRecipt : MonoBehaviour
 
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
-
-            foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder)
+            if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == false)
             {
-                PerfumeOrder = DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder;
-            }
+                foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder)
+                {
+                    PerfumeOrder = DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder;
+                }
 
-            foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder)
+                foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder)
+                {
+                    IntensityOrder = DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder;
+                }
+
+                string PerfumeOrderText = string.Join("", PerfumeOrder);
+                string IntensityOrderText = string.Join("", IntensityOrder);
+
+                ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+            }
+            else//튜토리얼일 경우
             {
-                IntensityOrder = DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder;
+                ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "나는 희귀한 향료를 구할 겸, 여행을 위해 갔던 하얀 설산이 떠오르는군. 그때의 추억을 향수로 남기고 싶어." + "\n" + "설산 등반 과정은 험난했지만, 정상에 다다른 후엔 이루 말할 수 없는 기쁨이 몰려왔지." + "\n" + "부디 그 때의 기억을 언제고 다시 추억할 수 있게끔 해주게나." + "\n" + "\n" + "아, 향은 강한 편이 좋겠어. 나의 기억만큼 진한 향 말이야." + "\n";
             }
-
-            string PerfumeOrderText = string.Join("", PerfumeOrder);
-            string IntensityOrderText = string.Join("", IntensityOrder);
-
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+            
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 2)

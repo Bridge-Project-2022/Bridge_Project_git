@@ -54,8 +54,8 @@ public class Distiller : MonoBehaviour
 
     public void OnEnable()
     {
-        // GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("boiling");
-        Invoke("EndDistiller", distillerTime);
+        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == false)
+            Invoke("EndDistiller", distillerTime);
     }
 
 
@@ -70,16 +70,34 @@ public class Distiller : MonoBehaviour
     }
 public void DistillerOn(ItemProperty item)
     {
-        ClickedItem = item;
-        itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
-        if (ClickedItem.name == BaseItemName)
+        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == true)
         {
-            isBaseRight = true;
-            Debug.Log("베이스 향료 맞음");
+            ClickedItem = item;
+            itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
+            if (ClickedItem.name == "장소")
+            {
+                isBaseRight = true;
+                Debug.Log("튜토리얼 베이스 향료 맞음");
+                Tutorial.FindObjectOfType<Tutorial>().NextTutDialogue();
+            }
+            else
+            {
+                isBaseRight = false;
+            }
         }
         else
         {
-            isBaseRight = false;
+            ClickedItem = item;
+            itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
+            if (ClickedItem.name == BaseItemName)
+            {
+                isBaseRight = true;
+                Debug.Log("베이스 향료 맞음");
+            }
+            else
+            {
+                isBaseRight = false;
+            }
         }
     }
 
@@ -111,210 +129,213 @@ public void DistillerOn(ItemProperty item)
 
     void Update()
     {
-        if (isLow == true)
+        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == false || GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutDistill == true)
         {
-            LowTemperDuration += Time.deltaTime;
-            HighTemperDuration = 0;
-            TemperDuration = 0;
-
-            if (DistillerStatus == "약함")
+            if (isLow == true)
             {
-                if (LowTemperDuration >= 3f)
+                LowTemperDuration += Time.deltaTime;
+                HighTemperDuration = 0;
+                TemperDuration = 0;
+
+                if (DistillerStatus == "약함")
                 {
-                    DistillGood = true;
-                    DistillNormal = false;
-                    DistillBad = false;
+                    if (LowTemperDuration >= 3f)
+                    {
+                        DistillGood = true;
+                        DistillNormal = false;
+                        DistillBad = false;
+                    }
+                    if (LowTemperDuration >= 2f && LowTemperDuration < 3f)
+                    {
+                        DistillGood = false;
+                        DistillNormal = true;
+                        DistillBad = false;
+                    }
+                    if (LowTemperDuration < 2f)
+                    {
+                        DistillGood = false;
+                        DistillNormal = false;
+                        DistillBad = true;
+                    }
                 }
-                if (LowTemperDuration >= 2f && LowTemperDuration < 3f)
-                {
-                    DistillGood = false;
-                    DistillNormal = true;
-                    DistillBad = false;
-                }
-                if (LowTemperDuration < 2f)
+                else
                 {
                     DistillGood = false;
                     DistillNormal = false;
                     DistillBad = true;
                 }
             }
-            else
+            if (isMiddle == true)
             {
-                DistillGood = false;
-                DistillNormal = false;
-                DistillBad = true;
-            }
-        }
-        if (isMiddle == true)
-        {
-            TemperDuration += Time.deltaTime;
-            HighTemperDuration = 0;
-            LowTemperDuration = 0;
+                TemperDuration += Time.deltaTime;
+                HighTemperDuration = 0;
+                LowTemperDuration = 0;
 
-            if (DistillerStatus == "중간")
-            {
-                if (TemperDuration >= 3f)
+                if (DistillerStatus == "중간")
                 {
-                    DistillGood = true;
-                    DistillNormal = false;
-                    DistillBad = false;
+                    if (TemperDuration >= 3f)
+                    {
+                        DistillGood = true;
+                        DistillNormal = false;
+                        DistillBad = false;
+                    }
+                    if (TemperDuration >= 2f && TemperDuration < 3f)
+                    {
+                        DistillGood = false;
+                        DistillNormal = true;
+                        DistillBad = false;
+                    }
+                    if (TemperDuration < 2f)
+                    {
+                        DistillGood = false;
+                        DistillNormal = false;
+                        DistillBad = true;
+                    }
                 }
-                if (TemperDuration >= 2f && TemperDuration < 3f)
-                {
-                    DistillGood = false;
-                    DistillNormal = true;
-                    DistillBad = false;
-                }
-                if (TemperDuration < 2f)
-                {
-                    DistillGood = false;
-                    DistillNormal = false;
-                    DistillBad = true;
-                }
-            }
-            else
-            {
-                DistillGood = false;
-                DistillNormal = false;
-                DistillBad = true;
-            }
-        }
-        if (isHigh == true)
-        {
-            HighTemperDuration += Time.deltaTime;
-            TemperDuration = 0;
-            LowTemperDuration = 0;
-
-            if (DistillerStatus == "강함")
-            {
-                if (HighTemperDuration >= 3f)
-                {
-                    DistillGood = true;
-                    DistillNormal = false;
-                    DistillBad = false;
-                }
-                else if (HighTemperDuration >= 2f && HighTemperDuration < 3f)
-                {
-                    DistillGood = false;
-                    DistillNormal = true;
-                    DistillBad = false;
-                }
-                else if (HighTemperDuration < 2f)
+                else
                 {
                     DistillGood = false;
                     DistillNormal = false;
                     DistillBad = true;
                 }
             }
-           else
+            if (isHigh == true)
             {
-                DistillGood = false;
-                DistillNormal = false;
-                DistillBad = true;
+                HighTemperDuration += Time.deltaTime;
+                TemperDuration = 0;
+                LowTemperDuration = 0;
+
+                if (DistillerStatus == "강함")
+                {
+                    if (HighTemperDuration >= 3f)
+                    {
+                        DistillGood = true;
+                        DistillNormal = false;
+                        DistillBad = false;
+                    }
+                    else if (HighTemperDuration >= 2f && HighTemperDuration < 3f)
+                    {
+                        DistillGood = false;
+                        DistillNormal = true;
+                        DistillBad = false;
+                    }
+                    else if (HighTemperDuration < 2f)
+                    {
+                        DistillGood = false;
+                        DistillNormal = false;
+                        DistillBad = true;
+                    }
+                }
+                else
+                {
+                    DistillGood = false;
+                    DistillNormal = false;
+                    DistillBad = true;
+                }
             }
-        }
 
-        /*if (isBurn == true)
-        {
-            HighTemperDuration += Time.deltaTime;
-            TemperDuration = 0;
-            LowTemperDuration = 0;
-
-            maxTemperDuration *= Time.deltaTime;// 최대 지속 시간 초당 늘어남
-            if (maxTemperDuration > 1.5f)// 최대 지속 시간 1.5보다 크면
+            /*if (isBurn == true)
             {
-                DistillGood = false;
-                DistillNormal = false;
-                DistillBad = true;
+                HighTemperDuration += Time.deltaTime;
+                TemperDuration = 0;
+                LowTemperDuration = 0;
 
-                EndDistiller();
-                maxTemperDuration = 0.0f;
-            }
-        }*/
+                maxTemperDuration *= Time.deltaTime;// 최대 지속 시간 초당 늘어남
+                if (maxTemperDuration > 1.5f)// 최대 지속 시간 1.5보다 크면
+                {
+                    DistillGood = false;
+                    DistillNormal = false;
+                    DistillBad = true;
 
-        float curTemper = temperatureSlider.GetComponent<Slider>().value;
-
-        if (isWickDown == true)//증류기누를 경우
-        {
-            temperatureSlider.GetComponent<Slider>().value += 0.3f;//누를 때 마다 슬라이더 1씩 증가
-
-            if (curTemper >= 91 && curTemper <= 134)
-            {
-                isHigh = true;
-                isMiddle = false;
-                isLow = false;
-                isBurn = false;
-
-                //Debug.Log("강불로 바뀜");
-                Anim.SetBool("isHigh", true);
-                Anim.SetBool("isNormal", false);
-                Anim.SetBool("isLow", false);
-
-                //this.GetComponent<AudioSource>().clip = HighSFX;
-                //this.GetComponent<AudioSource>().Play();
-            }
-            /*else if (curTemper >= 135)//현재 온도가 135보다 크면
-            {
-                isHigh = false;
-                isMiddle = false;
-                isLow = false;
-                isBurn = true;
-
-                Debug.Log("타버림");
-                Anim.SetBool("isHigh", true);
-                Anim.SetBool("isNormal", false);
-                Anim.SetBool("isLow", false);
-
-                this.GetComponent<AudioSource>().clip = HighSFX;
-                this.GetComponent<AudioSource>().Play();
+                    EndDistiller();
+                    maxTemperDuration = 0.0f;
+                }
             }*/
-            else if (curTemper >= 46 && curTemper <= 90)
+
+            float curTemper = temperatureSlider.GetComponent<Slider>().value;
+
+            if (isWickDown == true)//증류기누를 경우
             {
-                isHigh = false;
-                isMiddle = true;
-                isLow = false;
-                isBurn = false;
+                temperatureSlider.GetComponent<Slider>().value += 0.3f;//누를 때 마다 슬라이더 1씩 증가
 
-                //Debug.Log("중불로 바뀜");
-                Anim.SetBool("isHigh", false);
-                Anim.SetBool("isNormal", true);
-                Anim.SetBool("isLow", false);
+                if (curTemper >= 91 && curTemper <= 134)
+                {
+                    isHigh = true;
+                    isMiddle = false;
+                    isLow = false;
+                    isBurn = false;
 
-                //this.GetComponent<AudioSource>().clip = MiddleSFX;
-                //this.GetComponent<AudioSource>().Play();
+                    //Debug.Log("강불로 바뀜");
+                    Anim.SetBool("isHigh", true);
+                    Anim.SetBool("isNormal", false);
+                    Anim.SetBool("isLow", false);
+
+                    //this.GetComponent<AudioSource>().clip = HighSFX;
+                    //this.GetComponent<AudioSource>().Play();
+                }
+                /*else if (curTemper >= 135)//현재 온도가 135보다 크면
+                {
+                    isHigh = false;
+                    isMiddle = false;
+                    isLow = false;
+                    isBurn = true;
+
+                    Debug.Log("타버림");
+                    Anim.SetBool("isHigh", true);
+                    Anim.SetBool("isNormal", false);
+                    Anim.SetBool("isLow", false);
+
+                    this.GetComponent<AudioSource>().clip = HighSFX;
+                    this.GetComponent<AudioSource>().Play();
+                }*/
+                else if (curTemper >= 46 && curTemper <= 90)
+                {
+                    isHigh = false;
+                    isMiddle = true;
+                    isLow = false;
+                    isBurn = false;
+
+                    //Debug.Log("중불로 바뀜");
+                    Anim.SetBool("isHigh", false);
+                    Anim.SetBool("isNormal", true);
+                    Anim.SetBool("isLow", false);
+
+                    //this.GetComponent<AudioSource>().clip = MiddleSFX;
+                    //this.GetComponent<AudioSource>().Play();
+                }
             }
-        }
-        if (isWickDown == false)
-        {
-            temperatureSlider.GetComponent<Slider>().value -= 0.3f;
-            if (curTemper >= 1 && curTemper <= 45)
+            if (isWickDown == false)
             {
-                isHigh = false;
-                isMiddle = false;
-                isLow = true;
-                isBurn = false;
+                temperatureSlider.GetComponent<Slider>().value -= 0.3f;
+                if (curTemper >= 1 && curTemper <= 45)
+                {
+                    isHigh = false;
+                    isMiddle = false;
+                    isLow = true;
+                    isBurn = false;
 
-                Anim.SetBool("isHigh", false);
-                Anim.SetBool("isNormal", false);
-                Anim.SetBool("isLow", true);
+                    Anim.SetBool("isHigh", false);
+                    Anim.SetBool("isNormal", false);
+                    Anim.SetBool("isLow", true);
 
-                //this.GetComponent<AudioSource>().clip = LowSFX;
-                //this.GetComponent<AudioSource>().Play();
-            }
+                    //this.GetComponent<AudioSource>().clip = LowSFX;
+                    //this.GetComponent<AudioSource>().Play();
+                }
 
-            else if (curTemper >= 46 && curTemper <= 90)
-            {
-                isHigh = false;
-                isMiddle = true;
-                isLow = false;
+                else if (curTemper >= 46 && curTemper <= 90)
+                {
+                    isHigh = false;
+                    isMiddle = true;
+                    isLow = false;
 
-                //Debug.Log("중불로 바뀜");
-                Anim.SetBool("isHigh", false);
-                Anim.SetBool("isNormal", true);
-                Anim.SetBool("isLow", false);
+                    //Debug.Log("중불로 바뀜");
+                    Anim.SetBool("isHigh", false);
+                    Anim.SetBool("isNormal", true);
+                    Anim.SetBool("isLow", false);
 
-                //this.GetComponent<AudioSource>().clip = MiddleSFX;
-                //this.GetComponent<AudioSource>().Play();
+                    //this.GetComponent<AudioSource>().clip = MiddleSFX;
+                    //this.GetComponent<AudioSource>().Play();
+                }
             }
         }
     }
@@ -371,90 +392,105 @@ public void DistillerOn(ItemProperty item)
 
     public void DistillerResult()
     {
-        if (DistillerStatus == "강함")
+        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == false)
         {
-            if (DistillGood == true)
+            if (DistillerStatus == "강함")
             {
-                DistillBad = false;
-                TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("증류 잘됨");
+                if (DistillGood == true)
+                {
+                    DistillBad = false;
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
+                    Debug.Log("증류 잘됨");
+                }
+                else if (DistillNormal == true)
+                {
+                    DistillBad = false;
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
+                    Debug.Log("증류 보통");
+                }
+                else if (DistillBad == true)
+                {
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
+                    Debug.Log("증류 안됨");
+                }
             }
-            else if (DistillNormal == true)
-            {
-                DistillBad = false;
-                TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("증류 보통");
-            }
-            else if(DistillBad == true)
-            {
-                TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("증류 안됨");
-            }
-        }
 
-        else if (DistillerStatus == "중간")
-        {
-            if (DistillGood == true)
+            else if (DistillerStatus == "중간")
             {
-                DistillBad = false;
-                TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("증류 잘됨");
+                if (DistillGood == true)
+                {
+                    DistillBad = false;
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
+                    Debug.Log("증류 잘됨");
+                }
+                else if (DistillNormal == true)
+                {
+                    DistillBad = false;
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
+                    Debug.Log("증류 보통");
+                }
+                else if (DistillBad == true)
+                {
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
+                    Debug.Log("증류 안됨");
+                }
             }
-            else if (DistillNormal == true)
-            {
-                DistillBad = false;
-                TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("증류 보통");
-            }
-            else if (DistillBad == true)
-            {
-                TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("증류 안됨");
-            }
-        }
 
-        else if (DistillerStatus == "약함")
-        {
-            if (DistillGood == true)
+            else if (DistillerStatus == "약함")
             {
-                DistillBad = false;
-                TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-                Debug.Log("증류 잘됨");
+                if (DistillGood == true)
+                {
+                    DistillBad = false;
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
+                    Debug.Log("증류 잘됨");
+                }
+                else if (DistillNormal == true)
+                {
+                    DistillBad = false;
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
+                    Debug.Log("증류 보통");
+                }
+                else if (DistillBad == true)
+                {
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
+                    Debug.Log("증류 안됨");
+                }
             }
-            else if (DistillNormal == true)
-            {
-                DistillBad = false;
-                TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-                Debug.Log("증류 보통");
-            }
-            else if (DistillBad == true)
-            {
-                TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
-                Debug.Log("증류 안됨");
-            }
-        }
 
-        /*else if (DistillerStatus == "아무거나")
-        {
-            if (DistillGood == true)
+            /*else if (DistillerStatus == "아무거나")
             {
-                DistillBad = false;
-                TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
-            }
-            else if (DistillNormal == true)
-            {
-                DistillBad = false;
-                TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
-            }
+                if (DistillGood == true)
+                {
+                    DistillBad = false;
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
+                }
+                else if (DistillNormal == true)
+                {
+                    DistillBad = false;
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillNormal = true;
+                }
+                else
+                {
+                    TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
+                }
+            }*/
+
             else
             {
                 TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
             }
-        }*/
-
+        }
         else
         {
-            TotalScore.FindObjectOfType<TotalScore>().isDistillBad = true;
+            if (DistillGood == true)
+            {
+                GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().NextTutDialogue();
+                TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
+            }
+            else
+            {
+                GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().TutDistillBad();
+            }
         }
     }
     public void WickDown()

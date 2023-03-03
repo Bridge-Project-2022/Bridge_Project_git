@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class DeskTouch : MonoBehaviour
 {
     public bool isDeskUp = false;
-    GameObject desk;
     GameObject inven;
     public GameObject Buyer;
     [SerializeField] 
@@ -39,26 +38,23 @@ public class DeskTouch : MonoBehaviour
     public void TouchDesk()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        GameObject.Find("Arrow").gameObject.SetActive(false);
+        this.transform.GetChild(0).gameObject.SetActive(false);
         Buyer.gameObject.SetActive(false);
 
         TopBar.transform.Translate(new Vector3(200, 200, 0));
         MoneyBar.transform.Translate(new Vector3(200, 200, 0));
 
-        //GameObject.Find("Declaration").gameObject.SetActive(false);
         Receipt.gameObject.SetActive(true);
-        GameObject.Find("Random_Buyer").gameObject.SetActive(false);
+        Customer.SetActive(false);
         BackGround.gameObject.SetActive(false);
         BGWindow.gameObject.SetActive(false);
 
         deskBG.gameObject.SetActive(true);
-        desk = GameObject.Find("Desk").gameObject;
-        desk.gameObject.SetActive(false);
+        GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(false);
 
         Manufacture.gameObject.SetActive(true);
         inven = InvenUI.gameObject;
         inven.gameObject.SetActive(true);
-        inven.transform.position = new Vector3(300, 400, 0);
         isDeskUp = true;
 
         for (int i = 0; i < baseSlot.transform.childCount; i++)
@@ -79,9 +75,7 @@ public class DeskTouch : MonoBehaviour
     }
 
     public void TouchPerfume()
-    {
-        //Invoke("feelStart", 0.4f);
-        
+    {   
         TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
         Customer.gameObject.SetActive(true);
         TopBar.transform.Translate(new Vector3(-200, -200, 0));
@@ -102,7 +96,7 @@ public class DeskTouch : MonoBehaviour
 
         GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
-        desk.gameObject.SetActive(true);
+        GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(true);
         Manufacture.gameObject.SetActive(false);
 
         isDeskUp = false;
@@ -113,9 +107,5 @@ public class DeskTouch : MonoBehaviour
     {
         DayCheck.FindObjectOfType<DayCheck>().E1_Check();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
-    }
-    public void feelStart()
-    {
-        //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = GameObject.Find("RC").GetComponent<CustomerFeel>().Customer_Feel[0];
     }
 }
