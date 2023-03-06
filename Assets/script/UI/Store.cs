@@ -1150,7 +1150,7 @@ public class Store : MonoBehaviour
     }
     public void Close()
     {
-        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutBuy == false)
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutBuy == false)
         {
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
             this.gameObject.SetActive(false);

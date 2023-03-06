@@ -64,7 +64,7 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     }
     public void SellerEnd()
     {
-        if(GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutBuy == false)
+        if(GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutBuy == false)
         {
             GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
             Customer.gameObject.SetActive(true);

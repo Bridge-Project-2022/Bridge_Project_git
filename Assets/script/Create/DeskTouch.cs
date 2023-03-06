@@ -75,32 +75,59 @@ public class DeskTouch : MonoBehaviour
     }
 
     public void TouchPerfume()
-    {   
-        TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
-        Customer.gameObject.SetActive(true);
-        TopBar.transform.Translate(new Vector3(-200, -200, 0));
-        MoneyBar.transform.Translate(new Vector3(-200, -200, 0));
+    {
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutResult == false)
+        {
+            TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
+            Customer.gameObject.SetActive(true);
+            TopBar.transform.Translate(new Vector3(-200, -200, 0));
+            MoneyBar.transform.Translate(new Vector3(-200, -200, 0));
 
-        Receipt.gameObject.SetActive(false);
+            Receipt.gameObject.SetActive(false);
 
-        BackGround.gameObject.SetActive(true);
-        BGWindow.gameObject.SetActive(true);
-        deskBG.gameObject.SetActive(false);
+            BackGround.gameObject.SetActive(true);
+            BGWindow.gameObject.SetActive(true);
+            deskBG.gameObject.SetActive(false);
 
-        inven.gameObject.SetActive(false);
+            inven.gameObject.SetActive(false);
 
-        RandomBuyer.gameObject.SetActive(true);
-        Buyer.gameObject.SetActive(true);
+            RandomBuyer.gameObject.SetActive(true);
+            Buyer.gameObject.SetActive(true);
 
-        ClickItem.SetActive(false);
+            ClickItem.SetActive(false);
 
-        GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
-        GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(true);
-        Manufacture.gameObject.SetActive(false);
+            GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
+            GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(true);
+            Manufacture.gameObject.SetActive(false);
 
-        isDeskUp = false;
-        Invoke("PerfumeDialogue", 0.3f);
+            isDeskUp = false;
+            Invoke("PerfumeDialogue", 0.3f);
+        }
+        else
+        {
+            TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
+            TopBar.transform.Translate(new Vector3(-200, -200, 0));
+            MoneyBar.transform.Translate(new Vector3(-200, -200, 0));
+
+            Receipt.gameObject.SetActive(false);
+
+            BackGround.gameObject.SetActive(true);
+            BGWindow.gameObject.SetActive(true);
+            deskBG.gameObject.SetActive(false);
+
+            inven.gameObject.SetActive(false);
+
+            ClickItem.SetActive(false);
+
+            GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
+            GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(true);
+            Manufacture.gameObject.SetActive(false);
+
+            isDeskUp = false;
+            Invoke("PerfumeDialogue", 0.3f);
+        }
     }
 
     public void PerfumeDialogue()

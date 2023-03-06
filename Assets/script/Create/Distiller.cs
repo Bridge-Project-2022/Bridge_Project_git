@@ -54,7 +54,7 @@ public class Distiller : MonoBehaviour
 
     public void OnEnable()
     {
-        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == false)
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
             Invoke("EndDistiller", distillerTime);
     }
 
@@ -70,7 +70,7 @@ public class Distiller : MonoBehaviour
     }
 public void DistillerOn(ItemProperty item)
     {
-        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == true)
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == true)
         {
             ClickedItem = item;
             itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
@@ -129,7 +129,7 @@ public void DistillerOn(ItemProperty item)
 
     void Update()
     {
-        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == false || GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutDistill == true)
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false || GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutDistill == true)
         {
             if (isLow == true)
             {
@@ -359,13 +359,40 @@ public void DistillerOn(ItemProperty item)
     }
     public void EndDistiller()
     {
-        DistillPanel.SetActive(true);
-        GameObject.Find("SFX").GetComponent<AudioSource>().loop = false;
-        DistillerResult();
-        temperatureSlider.GetComponent<Slider>().value = 1;
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
-        InvenUI.GetComponent<Button>().interactable = true;
-        Invoke("CloseWindow", 1.5f);
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
+        {
+            DistillPanel.SetActive(true);
+            GameObject.Find("SFX").GetComponent<AudioSource>().loop = false;
+            DistillerResult();
+            temperatureSlider.GetComponent<Slider>().value = 1;
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
+            InvenUI.GetComponent<Button>().interactable = true;
+            Invoke("CloseWindow", 1.5f);
+        }
+        else
+        {
+            if (DistillGood == true)
+            {
+                DistillPanel.SetActive(true);
+                GameObject.Find("SFX").GetComponent<AudioSource>().loop = false;
+                DistillerResult();
+                temperatureSlider.GetComponent<Slider>().value = 1;
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
+                InvenUI.GetComponent<Button>().interactable = true;
+                Invoke("CloseWindow", 1.5f);
+            }
+            else
+            {
+                GameObject.Find("SFX").GetComponent<AudioSource>().loop = false;
+                DistillerResult();
+                temperatureSlider.GetComponent<Slider>().value = 1;
+                HighTemperDuration = 0.0f;
+                TemperDuration = 0.0f;
+                LowTemperDuration = 0.0f;
+                temperature = 0;
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().SFXStop();
+            }
+        }
     }
 
     public void CloseWindow()
@@ -392,7 +419,7 @@ public void DistillerOn(ItemProperty item)
 
     public void DistillerResult()
     {
-        if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == false)
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
         {
             if (DistillerStatus == "강함")
             {
@@ -484,12 +511,21 @@ public void DistillerOn(ItemProperty item)
         {
             if (DistillGood == true)
             {
-                GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().NextTutDialogue();
+                GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().NextTutDialogue();
                 TotalScore.FindObjectOfType<TotalScore>().isDistillGood = true;
             }
             else
             {
-                GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().TutDistillBad();
+                GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().TutDistillBad();
+                HighTemperDuration = 0;
+                TemperDuration = 0;
+                LowTemperDuration = 0;
+                Anim.SetBool("isHigh", false);
+                Anim.SetBool("isNormal", false);
+                Anim.SetBool("isLow", true);
+                isLow = true;
+                isMiddle = false;
+                isHigh = false;
             }
         }
     }

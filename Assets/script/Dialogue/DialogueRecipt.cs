@@ -46,7 +46,7 @@ public class DialogueRecipt : MonoBehaviour
 
         if (NextDay.FindObjectOfType<NextDay>().day == 1)
         {
-            if (GameObject.Find("Panels").transform.GetChild(8).GetComponent<Tutorial>().isTutCreate == false)
+            if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
             {
                 foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder)
                 {
