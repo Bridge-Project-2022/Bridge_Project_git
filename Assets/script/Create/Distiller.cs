@@ -74,10 +74,11 @@ public void DistillerOn(ItemProperty item)
         {
             ClickedItem = item;
             itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
-            if (ClickedItem.name == "장소")
+            if (ClickedItem.name == "동물")
             {
                 isBaseRight = true;
                 Debug.Log("튜토리얼 베이스 향료 맞음");
+                DistillerStatus = "강함";
                 Tutorial.FindObjectOfType<Tutorial>().NextTutDialogue();
             }
             else

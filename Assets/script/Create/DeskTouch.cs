@@ -106,7 +106,6 @@ public class DeskTouch : MonoBehaviour
         }
         else
         {
-            TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
             TopBar.transform.Translate(new Vector3(-200, -200, 0));
             MoneyBar.transform.Translate(new Vector3(-200, -200, 0));
 
@@ -121,10 +120,8 @@ public class DeskTouch : MonoBehaviour
             ClickItem.SetActive(false);
 
             GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
             GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(true);
             Manufacture.gameObject.SetActive(false);
-
             isDeskUp = false;
             Invoke("PerfumeDialogue", 0.3f);
         }
@@ -132,7 +129,12 @@ public class DeskTouch : MonoBehaviour
 
     public void PerfumeDialogue()
     {
-        DayCheck.FindObjectOfType<DayCheck>().E1_Check();
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutResult == false)
+        {
+            DayCheck.FindObjectOfType<DayCheck>().E1_Check();
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+        }
+        else
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
     }
 }

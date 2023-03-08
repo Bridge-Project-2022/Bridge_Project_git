@@ -291,4 +291,20 @@ public class PerfumeColor : MonoBehaviour
         color5_1.a = 0f;
         Liquid3_2.transform.GetChild(0).GetComponent<Image>().color = color5_1;
     }
+
+    public void btn1()
+    {
+        FinishCnt++;
+        PerfumeChoice("동물");   
+    }
+    public void btn2()
+    {
+        FinishCnt++;
+        PerfumeChoice("반려동물");
+    }
+    public void btn3()
+    {
+        FinishCnt++;
+        PerfumeChoice("기쁨");
+    }
 }

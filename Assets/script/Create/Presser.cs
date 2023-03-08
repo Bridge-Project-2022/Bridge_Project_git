@@ -11,7 +11,7 @@ public class Presser : MonoBehaviour
 
     public GameObject NotePattern;
 
-    public int PressureScore = 0;
+    public float PressureScore = 0;
     public int PressCount;
     public bool isEnd = false;//끝나서 수거하면 true
 
@@ -29,7 +29,7 @@ public class Presser : MonoBehaviour
         if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == true)
         {
             ClickedItem = item;
-            if (ClickedItem.name == "여행지")
+            if (ClickedItem.name == "반려동물")
             {
                 Debug.Log("튜토리얼 미들 향료 맞음");
                 isMiddleRight = true;
@@ -172,22 +172,22 @@ public class Presser : MonoBehaviour
     }
     public void TutPressStart()
     {
-        NotePattern.GetComponent<NotePatterns>().StartCoroutine("TravelPattern");
+        NotePattern.GetComponent<NotePatterns>().StartCoroutine("PetPattern");
         Invoke("PresserEnd", 8f);
     }
     public void PresserEnd()//압착 과정 종료
     {
-        if ((PressureScore / 9) >= 4)
+        if ((PressureScore / 9) >= 3.5)
         {
             TotalScore.FindObjectOfType<TotalScore>().isPressGood = true;
         }
 
-        if ((PressureScore / 9) < 4 && (PressureScore / 9) >= 3)
+        if ((PressureScore / 9) < 3.5 && (PressureScore / 9) >= 2.7)
         {
             TotalScore.FindObjectOfType<TotalScore>().isPressNormal = true;
         }
 
-        if ((PressureScore / 9) < 3 && (PressureScore / 9) >= 2)
+        if ((PressureScore / 9) < 2.7 && (PressureScore / 9) >= 1.8)
         {
             TotalScore.FindObjectOfType<TotalScore>().isPressBad = true;
         }

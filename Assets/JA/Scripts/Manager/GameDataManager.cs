@@ -137,7 +137,7 @@ public class GameDataManager : Singleton<GameDataManager>
     public void SaveData()
     {
         Debug.Log("저장체크");
-        
+        Debug.Log(dataPersistenceObjects);
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);
