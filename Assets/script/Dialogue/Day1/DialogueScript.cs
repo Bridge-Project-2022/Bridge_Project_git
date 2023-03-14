@@ -557,7 +557,5 @@ public class DialogueScript : MonoBehaviour
             TotalScore.FindObjectOfType<TotalScore>().middleItem.name = Customer_Flavoring[1];
             TotalScore.FindObjectOfType<TotalScore>().topItem.name = Customer_Flavoring[2];
         }
-        else
-            Distiller.GetComponent<Distiller>().DistillerStatus = "°­ÇÔ";
     } 
   }

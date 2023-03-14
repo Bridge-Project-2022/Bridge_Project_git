@@ -208,6 +208,8 @@ public class Presser : MonoBehaviour
             this.gameObject.GetComponent<Button>().interactable = false;
             PresserDetail.gameObject.SetActive(false);
             GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
+            GameObject.Find("InvenUI").GetComponent<Image>().sprite = Inventory.FindObjectOfType<Inventory>().InvenOrigin;
+            Inventory.FindObjectOfType<Inventory>().isResetTrue = false;
         }
 
         else//튜토리얼일 경우
@@ -235,6 +237,7 @@ public class Presser : MonoBehaviour
                 PressureScore = 0;
             }
         }
+        PressureScore = 0;
     }
 
 }

@@ -24,6 +24,10 @@ public class Inventory : MonoBehaviour, IDataPersistence
     public bool isAllsame;
 
     ItemProperty allItem;
+
+    public Sprite InvenOrigin;
+    public Sprite InvenReset;
+    public bool isResetTrue = false;
     // Start is called before the first frame update
     void Start()
     {

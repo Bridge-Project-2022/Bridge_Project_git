@@ -349,4 +349,9 @@ public class NextDay : MonoBehaviour, IDataPersistence
     {
         data.day = this.day;
     }
+
+    public void ClickSaveBtn()
+    {
+        GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().SaveData();
+    }
 }

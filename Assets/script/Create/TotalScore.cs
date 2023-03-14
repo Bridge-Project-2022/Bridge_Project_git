@@ -339,6 +339,7 @@ public class TotalScore : MonoBehaviour
 
     public void ResetAll()
     {
+        totalTime = 0;
         UseItem = 0;
         isAllFinished = false;
         isCoolGood = false;

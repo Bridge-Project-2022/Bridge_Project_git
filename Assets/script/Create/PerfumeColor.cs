@@ -290,6 +290,8 @@ public class PerfumeColor : MonoBehaviour
         Color color5_1 = Liquid3_2.transform.GetChild(0).GetComponent<Image>().color;
         color5_1.a = 0f;
         Liquid3_2.transform.GetChild(0).GetComponent<Image>().color = color5_1;
+
+        FinishCnt = 0;
     }
 
     public void btn1()

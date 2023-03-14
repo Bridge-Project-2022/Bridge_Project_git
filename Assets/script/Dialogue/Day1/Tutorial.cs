@@ -28,6 +28,8 @@ public class Tutorial : MonoBehaviour
     public RectTransform TutorialDialoguePos;
     public GameObject InvenPanel;
     public GameObject Customer;
+    public GameObject Manufacture;
+    public Sprite alpa;
 
     bool isArrowTrue = true;//true일때만 대화 넘기기 화살표 보여짐
 
@@ -48,7 +50,7 @@ public class Tutorial : MonoBehaviour
     int storeCnt = 0;
     int buyCnt = 0;
     public int createCnt = 0;
-    int resultCnt = 0;
+    public int resultCnt = 0;
 
     bool isItemFive = false;
     bool isItemZero = false;
@@ -67,17 +69,17 @@ public class Tutorial : MonoBehaviour
                 (Inven.Middleslots[0].item.InvenItemNum + Inven.Middleslots[1].item.InvenItemNum + Inven.Middleslots[2].item.InvenItemNum + Inven.Middleslots[3].item.InvenItemNum >= 5) &&
                 (Inven.Topslots[0].item.InvenItemNum + Inven.Topslots[1].item.InvenItemNum + Inven.Topslots[2].item.InvenItemNum + Inven.Topslots[3].item.InvenItemNum >= 5))
             {
-                if(Inven.Baseslots[0].item.InvenItemNum > 0 && Inven.Baseslots[1].item.InvenItemNum > 0 && Inven.Baseslots[2].item.InvenItemNum  > 0 &&Inven.Baseslots[3].item.InvenItemNum > 0 &&
+                if (Inven.Baseslots[0].item.InvenItemNum > 0 && Inven.Baseslots[1].item.InvenItemNum > 0 && Inven.Baseslots[2].item.InvenItemNum > 0 && Inven.Baseslots[3].item.InvenItemNum > 0 &&
                    Inven.Middleslots[0].item.InvenItemNum > 0 && Inven.Middleslots[1].item.InvenItemNum > 0 && Inven.Middleslots[2].item.InvenItemNum > 0 && Inven.Middleslots[3].item.InvenItemNum > 0 &&
                    Inven.Topslots[0].item.InvenItemNum > 0 && Inven.Topslots[1].item.InvenItemNum > 0 && Inven.Topslots[2].item.InvenItemNum > 0 && Inven.Topslots[3].item.InvenItemNum > 0)
-                    {
-                        isBuyStart = false;
-                        TutorialDialogue.SetActive(true);
-                        TutorialDialogue.GetComponent<Button>().interactable = true;
-                        isArrowTrue = true;
-                        BlackPanel.SetActive(true);
-                        NextTutDialogue();
-                    }
+                {
+                    isBuyStart = false;
+                    TutorialDialogue.SetActive(true);
+                    TutorialDialogue.GetComponent<Button>().interactable = true;
+                    isArrowTrue = true;
+                    BlackPanel.SetActive(true);
+                    NextTutDialogue();
+                }
             }
         }
 
@@ -124,7 +126,7 @@ public class Tutorial : MonoBehaviour
                 StartCoroutine(NormalChat_1(TS.tutStart[0]));
                 startCnt++;
             }
-            else if(startCnt != 0)
+            else if (startCnt != 0)
             {
                 if (isDialogueEnd == true)
                 {
@@ -237,7 +239,7 @@ public class Tutorial : MonoBehaviour
                         isBuyStart = true;
                     }
                 }
-                if (buyCnt >= 7 && buyCnt < 17) 
+                if (buyCnt >= 7 && buyCnt < 17)
                 {
                     //Debug.Log("7보다 크거나 같고 17보다 작음");
                     if (isDialogueEnd == true)
@@ -264,7 +266,7 @@ public class Tutorial : MonoBehaviour
                     {
                         isArrowTrue = true;
                         TutCustomer.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = true;
-                        TutCustomer.transform.GetChild(1).GetChild(3).gameObject.SetActive(false); 
+                        TutCustomer.transform.GetChild(1).GetChild(3).gameObject.SetActive(false);
 
                         MaskPanel.transform.GetChild(5).gameObject.SetActive(true);
                         MaskArrow.transform.GetChild(0).gameObject.SetActive(true);
@@ -372,7 +374,8 @@ public class Tutorial : MonoBehaviour
                 {
                     TutorialDialogue.GetComponent<Button>().interactable = true;
                     isArrowTrue = true;
-                    Debug.Log("초기화 버튼 하이라이팅");
+                    MaskPanel.transform.GetChild(20).gameObject.SetActive(true);
+                    MaskArrow.transform.GetChild(3).gameObject.SetActive(true);
                     InvenUI.GetComponent<Button>().interactable = false;
                 }
                 if (createCnt == 11)//장소 향료 잘 선택한 경우 증류기 하이라이팅
@@ -381,6 +384,8 @@ public class Tutorial : MonoBehaviour
                     BlackPanel.SetActive(true);
                     TutorialDialogue.GetComponent<Button>().interactable = false;
                     isArrowTrue = false;
+                    MaskPanel.transform.GetChild(20).gameObject.SetActive(false);
+                    MaskArrow.transform.GetChild(3).gameObject.SetActive(false);
                     MaskPanel.transform.GetChild(8).gameObject.SetActive(true);
                     MaskArrow.transform.GetChild(5).gameObject.SetActive(true);
                 }
@@ -441,7 +446,7 @@ public class Tutorial : MonoBehaviour
                     InvenPanel.SetActive(true);
                     InvenUI.GetComponent<Button>().interactable = false;
                 }
-                if(createCnt == 22)
+                if (createCnt == 22)
                     BlackPanel.SetActive(false);
 
                 if (createCnt == 23)//여행지 제외 다 클릭 안되게
@@ -465,7 +470,7 @@ public class Tutorial : MonoBehaviour
                     MaskPanel.transform.GetChild(12).gameObject.SetActive(true);
                     MaskArrow.transform.GetChild(7).gameObject.SetActive(true);
                 }
-                if(createCnt == 25)//압착기 시작, 압착기 정령 하이라이팅 - 24
+                if (createCnt == 25)//압착기 시작, 압착기 정령 하이라이팅 - 24
                 {
                     isArrowTrue = true;
                     TutorialDialoguePos.anchoredPosition = new Vector3(0, 348, 0);
@@ -523,7 +528,7 @@ public class Tutorial : MonoBehaviour
                     InvenPanel.SetActive(true);
                     InvenUI.GetComponent<Button>().interactable = false;
                 }
-                if(createCnt == 34)
+                if (createCnt == 34)
                     BlackPanel.SetActive(false);
 
                 if (createCnt == 35)//기쁨 선택
@@ -584,7 +589,7 @@ public class Tutorial : MonoBehaviour
                     isTutCool = true;
                     Invoke("TutCoolStart", 2f);
                 }
-                if (createCnt == 43) 
+                if (createCnt == 43)
                 {
                     CoolWindow.SetActive(false);
                     TutorialDialogue.GetComponent<Button>().interactable = true;
@@ -592,7 +597,7 @@ public class Tutorial : MonoBehaviour
                     TutorialDialogue.SetActive(true);
                     BlackPanel.SetActive(true);
                 }
-                if(createCnt == 46)//향수병 하이라이팅
+                if (createCnt == 46)//향수병 하이라이팅
                 {
                     TutorialDialoguePos.anchoredPosition = new Vector3(0, 196, 0);
                     MaskPanel.transform.GetChild(18).gameObject.SetActive(true);
@@ -612,6 +617,8 @@ public class Tutorial : MonoBehaviour
             if (resultCnt == 0)
             {
                 StartCoroutine(NormalChat_1(TS.tutResult[0]));
+                TotalScore.FindObjectOfType<TotalScore>().ResetAll();
+                Timer.FindObjectOfType<Timer>().isTimerStart = false;
                 resultCnt++;
             }
             else if (resultCnt != 0)
@@ -636,6 +643,10 @@ public class Tutorial : MonoBehaviour
                     GameObject.Find("TutorialPanel").gameObject.SetActive(false);
                     BlackPanel.SetActive(false);
                     isTutResult = false;
+                    isTutCreate = false;
+                    GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
+                    GameObject.Find("Etc").transform.GetChild(7).gameObject.GetComponent<Image>().sprite = alpa;
+                    Manufacture.transform.GetChild(3).GetComponent<Button>().interactable = true;
                     DayCheck.FindObjectOfType<DayCheck>().A_Start_Check();
                 }
             }
@@ -693,6 +704,7 @@ public class Tutorial : MonoBehaviour
         isTutResult = true;
         resultCnt = 0;
         BlackPanel.SetActive(true);
+        TotalScore.FindObjectOfType<TotalScore>().Calculate();
         GameObject.Find("Etc").transform.GetChild(2).GetComponent<DeskTouch>().TouchPerfume();
         TutorialDialogue.SetActive(false);
         TutorialDialogue.transform.GetChild(3).gameObject.SetActive(false);
@@ -733,7 +745,7 @@ public class Tutorial : MonoBehaviour
             }
 
             //베이스, 미들, 탑의 모든 향료의 카운트 돌면서 0이면 5번 대사 출력
-            if(Inven.Baseslots[0].item.InvenItemNum == 0 || Inven.Baseslots[1].item.InvenItemNum == 0 || Inven.Baseslots[2].item.InvenItemNum == 0 || Inven.Baseslots[3].item.InvenItemNum == 0 ||
+            if (Inven.Baseslots[0].item.InvenItemNum == 0 || Inven.Baseslots[1].item.InvenItemNum == 0 || Inven.Baseslots[2].item.InvenItemNum == 0 || Inven.Baseslots[3].item.InvenItemNum == 0 ||
                    Inven.Middleslots[0].item.InvenItemNum == 0 || Inven.Middleslots[1].item.InvenItemNum == 0 || Inven.Middleslots[2].item.InvenItemNum == 0 || Inven.Middleslots[3].item.InvenItemNum == 0 ||
                    Inven.Topslots[0].item.InvenItemNum == 0 || Inven.Topslots[1].item.InvenItemNum == 0 || Inven.Topslots[2].item.InvenItemNum == 0 || Inven.Topslots[3].item.InvenItemNum == 0)
             {
@@ -768,7 +780,7 @@ public class Tutorial : MonoBehaviour
         TutorialDialogue.GetComponent<Button>().interactable = false;
         isArrowTrue = true;
         string distill = "...이 향은 너무 약하지 않은가? 불이 약했나보군, 다시 해보게나.";
-        StartCoroutine(NormalChat_2(distill));             
+        StartCoroutine(NormalChat_2(distill));
         Invoke("reDistill", 5f);
     }
     public void reDistill()
@@ -863,7 +875,7 @@ public class Tutorial : MonoBehaviour
             if (a + 1 == narration.Length)
             {
                 isDialogueEnd = true;
-                if(isArrowTrue == true)
+                if (isArrowTrue == true)
                     TutorialDialogue.transform.GetChild(1).gameObject.SetActive(true);
             }
             else
@@ -928,5 +940,10 @@ public class Tutorial : MonoBehaviour
         Inven.BuyItem(GameObject.Find("BaseItemBuffer").GetComponent<ItemBuffer>().items[1]);
         Inven.BuyItem(GameObject.Find("MiddleItemBuffer").GetComponent<ItemBuffer>().items[1]);
         Inven.BuyItem(GameObject.Find("TopItemBuffer").GetComponent<ItemBuffer>().items[1]);
+    }
+
+    public void CreateSkip()
+    {
+        ResultDialogue();
     }
 }

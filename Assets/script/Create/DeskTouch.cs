@@ -26,8 +26,14 @@ public class DeskTouch : MonoBehaviour
     public GameObject Customer;
 
     public GameObject ClickItem;
+    public GameObject Perfume;
+
 
     public Sprite Alpa;
+    public void Start()
+    {
+        inven = InvenUI.gameObject;
+    }
     private void Update()
     {
         RandomBuyer = GameObject.Find("Else").transform.GetChild(0).gameObject;
@@ -53,7 +59,6 @@ public class DeskTouch : MonoBehaviour
         GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(false);
 
         Manufacture.gameObject.SetActive(true);
-        inven = InvenUI.gameObject;
         inven.gameObject.SetActive(true);
         isDeskUp = true;
 
@@ -78,6 +83,8 @@ public class DeskTouch : MonoBehaviour
     {
         if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutResult == false)
         {
+            Cooler.FindObjectOfType<Cooler>().goodCount = 0;
+            Cooler.FindObjectOfType<Cooler>().ResultCount = 0;
             TotalScore.FindObjectOfType<TotalScore>().isAllFinished = true;
             Customer.gameObject.SetActive(true);
             TopBar.transform.Translate(new Vector3(-200, -200, 0));
@@ -106,6 +113,8 @@ public class DeskTouch : MonoBehaviour
         }
         else
         {
+            Cooler.FindObjectOfType<Cooler>().goodCount = 0;
+            Cooler.FindObjectOfType<Cooler>().ResultCount = 0;
             TopBar.transform.Translate(new Vector3(-200, -200, 0));
             MoneyBar.transform.Translate(new Vector3(-200, -200, 0));
 
@@ -119,7 +128,7 @@ public class DeskTouch : MonoBehaviour
 
             ClickItem.SetActive(false);
 
-            GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
+            Perfume.GetComponent<PerfumeColor>().PerfumeReset();
             GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(true);
             Manufacture.gameObject.SetActive(false);
             isDeskUp = false;

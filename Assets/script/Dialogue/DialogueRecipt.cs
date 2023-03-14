@@ -61,7 +61,7 @@ public class DialogueRecipt : MonoBehaviour
                 string PerfumeOrderText = string.Join("", PerfumeOrder);
                 string IntensityOrderText = string.Join("", IntensityOrder);
 
-                ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+                ReceiptText.GetComponent<Text>().text = "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
             }
             else//튜토리얼일 경우
             {
@@ -85,7 +85,7 @@ public class DialogueRecipt : MonoBehaviour
             string PerfumeOrderText = string.Join("", PerfumeOrder);
             string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+            ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
@@ -103,7 +103,7 @@ public class DialogueRecipt : MonoBehaviour
             string PerfumeOrderText = string.Join("", PerfumeOrder);
             string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+            ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 4)
@@ -121,7 +121,7 @@ public class DialogueRecipt : MonoBehaviour
             string PerfumeOrderText = string.Join("", PerfumeOrder);
             string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+            ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 5)
@@ -139,7 +139,7 @@ public class DialogueRecipt : MonoBehaviour
             string PerfumeOrderText = string.Join("", PerfumeOrder);
             string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+            ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 6)
@@ -157,7 +157,7 @@ public class DialogueRecipt : MonoBehaviour
             string PerfumeOrderText = string.Join("", PerfumeOrder);
             string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+            ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
         else if (NextDay.FindObjectOfType<NextDay>().day == 7)
@@ -175,7 +175,7 @@ public class DialogueRecipt : MonoBehaviour
             string PerfumeOrderText = string.Join("", PerfumeOrder);
             string IntensityOrderText = string.Join("", IntensityOrder);
 
-            ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
+            ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
 

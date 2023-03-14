@@ -283,53 +283,60 @@ public class Cooler : MonoBehaviour
         TotalScore.FindObjectOfType<TotalScore>().isCoolFin = true;
         CoolerDetail.gameObject.SetActive(false);
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = true;
-
+        GameObject.Find("InvenUI").GetComponent<Image>().sprite = Inventory.FindObjectOfType<Inventory>().InvenOrigin;
+        Inventory.FindObjectOfType<Inventory>().isResetTrue = false;
     }
 
     public void ParticleShow()//각 초 후에 파티클 생기고 클릭 가능해짐.
     {
-        if(CoolerOne.gameObject.GetComponent<Image>().sprite != null)
+        if (ResultCount != 3)
         {
-            Particle1.gameObject.SetActive(true);
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
-            CoolerOne.GetComponent<Button>().interactable = true;
-            CoolerOne.gameObject.tag = "good";
-        }
+            if (CoolerOne.gameObject.GetComponent<Image>().sprite != null)
+            {
+                Particle1.gameObject.SetActive(true);
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
+                CoolerOne.GetComponent<Button>().interactable = true;
+                CoolerOne.gameObject.tag = "good";
+            }
 
-        if (CoolerTwo.gameObject.GetComponent<Image>().sprite != null)
-        {
-            Particle2.gameObject.SetActive(true);
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
-            CoolerTwo.GetComponent<Button>().interactable = true;
-            CoolerTwo.gameObject.tag = "good";
-        }
+            if (CoolerTwo.gameObject.GetComponent<Image>().sprite != null)
+            {
+                Particle2.gameObject.SetActive(true);
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
+                CoolerTwo.GetComponent<Button>().interactable = true;
+                CoolerTwo.gameObject.tag = "good";
+            }
 
-        if (CoolerThree.gameObject.GetComponent<Image>().sprite != null)
-        {
-            Particle3.gameObject.SetActive(true);
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
-            CoolerThree.GetComponent<Button>().interactable = true;
-            CoolerThree.gameObject.tag = "good";
+            if (CoolerThree.gameObject.GetComponent<Image>().sprite != null)
+            {
+                Particle3.gameObject.SetActive(true);
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolParticle");
+                CoolerThree.GetComponent<Button>().interactable = true;
+                CoolerThree.gameObject.tag = "good";
+            }
         }
     }
 
     public void BurnItem()//파티클 생성 후 2초 뒤에 아이템 탄 이미지로 변환,
     {
-        //여기에 아이템 이름별로 다르게 탄 이미지 변경하도록 조건문 추가해야함.
+        if (ResultCount != 3)
+        {
+            //여기에 아이템 이름별로 다르게 탄 이미지 변경하도록 조건문 추가해야함.
 
-        Particle1.gameObject.SetActive(false);
-        Particle2.gameObject.SetActive(false);
-        Particle3.gameObject.SetActive(false);
+            Particle1.gameObject.SetActive(false);
+            Particle2.gameObject.SetActive(false);
+            Particle3.gameObject.SetActive(false);
 
-        CoolerOne.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
-        CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
-        CoolerThree.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
+            CoolerOne.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
+            CoolerTwo.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
+            CoolerThree.gameObject.GetComponent<Image>().sprite = ItemBurnSprites[0];
 
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolFail");
-        CoolerOne.gameObject.tag = "bad";
-        CoolerTwo.gameObject.tag = "bad";
-        CoolerThree.gameObject.tag = "bad";
-        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolPick");
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolFail");
+            CoolerOne.gameObject.tag = "bad";
+            CoolerTwo.gameObject.tag = "bad";
+            CoolerThree.gameObject.tag = "bad";
+            //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolPick");
+        }
     }
 
     public void ItemResult(GameObject itemResult)//아이템 수거

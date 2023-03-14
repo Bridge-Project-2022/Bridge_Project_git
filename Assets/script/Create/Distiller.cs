@@ -100,9 +100,31 @@ public void DistillerOn(ItemProperty item)
                 isBaseRight = false;
             }
         }
+
+        if (isBaseRight == true)
+        {
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
+            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
+        }
+        else if (isBaseRight == false)
+        {
+            TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
+        }
+        GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
+
+        if (clickedItem == null)
+            return;
+
+        itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
     }
 
-    public void OnDistillerBtnClick()
+    /*public void OnDistillerBtnClick()
     {
         if (isBaseRight == true)
         {
@@ -119,17 +141,18 @@ public void DistillerOn(ItemProperty item)
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         }
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;
-        distillerDetail.SetActive(true);
 
         if (clickedItem == null)
             return;
 
         itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
-    }
+    }*/
 
     void Update()
     {
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == true)
+            DistillerStatus = "강함";
         if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false || GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutDistill == true)
         {
             if (isLow == true)
@@ -410,12 +433,14 @@ public void DistillerOn(ItemProperty item)
         HighTemperDuration = 0.0f;
         TemperDuration = 0.0f;
         LowTemperDuration = 0.0f;
+        isHigh = false; isMiddle = false; isLow = false;
         TotalScore.FindObjectOfType<TotalScore>().isDistillFin = true;
         temperature = 0;
         distiller.gameObject.GetComponent<Button>().interactable = false;
         distillerDetail.SetActive(false);
         Receipt.gameObject.SetActive(true);
-
+        InvenUI.GetComponent<Image>().sprite = Inventory.FindObjectOfType<Inventory>().InvenOrigin;
+        Inventory.FindObjectOfType<Inventory>().isResetTrue = false;
     }
 
     public void DistillerResult()

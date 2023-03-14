@@ -62,7 +62,8 @@ public class Slot : MonoBehaviour
         GameObject.Find("Inventory").transform.position = new Vector3(1038, 3000, 0);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         //클릭한 아이템이 화면에 보여짐
-        
+        GameObject.Find("InvenUI").GetComponent<Image>().sprite = Inventory.FindObjectOfType<Inventory>().InvenReset;//슬롯 클릭하면 인벤 리셋 이미지로 바뀜
+        Inventory.FindObjectOfType<Inventory>().isResetTrue = true;
         Color color = GameObject.Find("ClickedItem").GetComponent<Image>().color;
         color.a = 255;
         GameObject.Find("ClickedItem").GetComponent<Image>().color = color;//클릭한 아이템 투명도 0이었다가 보여져야 하니까 255로 변경
