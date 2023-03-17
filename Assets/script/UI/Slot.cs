@@ -73,7 +73,6 @@ public class Slot : MonoBehaviour
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
-
             GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);

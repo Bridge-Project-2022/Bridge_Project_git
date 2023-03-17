@@ -29,6 +29,8 @@ public class Cooler : MonoBehaviour
 
     public GameObject Receipt;
     public bool isTopRight = false;
+    public bool isCooling = false;
+
     public void Start()
     {
         goodCount = 0;
@@ -211,6 +213,7 @@ public class Cooler : MonoBehaviour
     }
     public void Cooling()
     {
+        isCooling = true;
         if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
         {
             if (ClickedItem.name.Equals("행복"))
@@ -319,7 +322,7 @@ public class Cooler : MonoBehaviour
 
     public void BurnItem()//파티클 생성 후 2초 뒤에 아이템 탄 이미지로 변환,
     {
-        if (ResultCount != 3)
+        if (ResultCount != 3 && isCooling == true)
         {
             //여기에 아이템 이름별로 다르게 탄 이미지 변경하도록 조건문 추가해야함.
 
@@ -426,6 +429,7 @@ public class Cooler : MonoBehaviour
 
     public void CoolTotalScore()
     {
+        isCooling = false;
         if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
         {
             if (goodCount == 3)

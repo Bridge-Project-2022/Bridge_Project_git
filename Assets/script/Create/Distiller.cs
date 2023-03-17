@@ -61,44 +61,14 @@ public class Distiller : MonoBehaviour
 
     public void DistillWindowOpen()
     {
-        Receipt.gameObject.SetActive(false);
-        GameObject.Find("Manufacture").transform.GetChild(7).gameObject.SetActive(false);
-        DistillPanel.SetActive(false);
-        GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
-        DistillWindow.gameObject.SetActive(true);
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
-    }
-public void DistillerOn(ItemProperty item)
-    {
-        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == true)
+        if (ClickedItem.name == BaseItemName)
         {
-            ClickedItem = item;
-            itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
-            if (ClickedItem.name == "동물")
-            {
-                isBaseRight = true;
-                Debug.Log("튜토리얼 베이스 향료 맞음");
-                DistillerStatus = "강함";
-                Tutorial.FindObjectOfType<Tutorial>().NextTutDialogue();
-            }
-            else
-            {
-                isBaseRight = false;
-            }
+            isBaseRight = true;
+            Debug.Log("베이스 향료 맞음");
         }
         else
         {
-            ClickedItem = item;
-            itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
-            if (ClickedItem.name == BaseItemName)
-            {
-                isBaseRight = true;
-                Debug.Log("베이스 향료 맞음");
-            }
-            else
-            {
-                isBaseRight = false;
-            }
+            isBaseRight = false;
         }
 
         if (isBaseRight == true)
@@ -121,7 +91,36 @@ public void DistillerOn(ItemProperty item)
             return;
 
         itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
+
+        Receipt.gameObject.SetActive(false);
+        GameObject.Find("Manufacture").transform.GetChild(7).gameObject.SetActive(false);
+        DistillPanel.SetActive(false);
+        GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
+        DistillWindow.gameObject.SetActive(true);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("fireon");
+    }
+public void DistillerOn(ItemProperty item)
+    {
+        if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == true)
+        {
+            ClickedItem = item;
+            itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
+            if (ClickedItem.name == "동물")
+            {
+                isBaseRight = true;
+                Debug.Log("튜토리얼 베이스 향료 맞음");
+                Tutorial.FindObjectOfType<Tutorial>().NextTutDialogue();
+            }
+            else
+            {
+                isBaseRight = false;
+            }
+        }
+        else
+        {
+            ClickedItem = item;
+            itemImage.GetComponent<Image>().sprite = clickedItem.GetComponent<Image>().sprite;
+        }
     }
 
     /*public void OnDistillerBtnClick()

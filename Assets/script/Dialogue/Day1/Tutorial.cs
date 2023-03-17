@@ -86,7 +86,10 @@ public class Tutorial : MonoBehaviour
         if (createCnt == 9)
         {
             if (isDialogueEnd == true)
+            {
                 InvenUI.GetComponent<Button>().interactable = true;
+                InvenPanel.SetActive(false);
+            }
         }
         if (createCnt == 11)
         {
@@ -96,7 +99,10 @@ public class Tutorial : MonoBehaviour
         if (createCnt == 23)
         {
             if (isDialogueEnd == true)
+            {
                 InvenUI.GetComponent<Button>().interactable = true;
+                InvenPanel.SetActive(false);
+            }
         }
         if (createCnt == 24)
         {
@@ -108,6 +114,7 @@ public class Tutorial : MonoBehaviour
             if (isDialogueEnd == true)
             {
                 InvenUI.GetComponent<Button>().interactable = true;
+                InvenPanel.SetActive(false);
             }
         }
         if (createCnt == 36)
@@ -453,7 +460,6 @@ public class Tutorial : MonoBehaviour
                 {
                     isArrowTrue = false;
                     BlackPanel.SetActive(false);
-                    InvenPanel.SetActive(false);
                     TutorialDialogue.GetComponent<Button>().interactable = false;
                     for (int i = 0; i < Inven.Middleslots.Count; i++)
                     {
@@ -499,6 +505,7 @@ public class Tutorial : MonoBehaviour
                     BlackPanel.SetActive(false);
                     isTutPress = true;
                     Invoke("TutPressStart", 1f);
+                    InvenUI.GetComponent<Image>().sprite = Inventory.FindObjectOfType<Inventory>().InvenOrigin;
                 }
                 if (createCnt == 31)
                 {
@@ -535,7 +542,6 @@ public class Tutorial : MonoBehaviour
                 {
                     isArrowTrue = false;
                     BlackPanel.SetActive(false);
-                    InvenPanel.SetActive(false);
                     InvenUI.GetComponent<Button>().interactable = false;
                     TutorialDialogue.GetComponent<Button>().interactable = false;
                     for (int i = 0; i < Inven.Topslots.Count; i++)
