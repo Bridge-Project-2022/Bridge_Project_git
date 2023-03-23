@@ -55,10 +55,10 @@ MonoBehaviour:
   defaultObjectImage: {fileID: 21300000, guid: 912c19626260da141b316f7f6694577a, type: 3}
   enterObjectImage: {fileID: 21300000, guid: bd8f5b7c5a283e94a8f916422626f426, type: 3}
   noticeImage: {fileID: 4497015998708409276}
-  defaultNoticeImage: {fileID: 21300000, guid: 87ef54f733d46204db2602dd153c01c8, type: 3}
-  enterNoticeImage: {fileID: 21300000, guid: 87ef54f733d46204db2602dd153c01c8, type: 3}
-  defaultSpecialNoticeImage: {fileID: 21300000, guid: 87ef54f733d46204db2602dd153c01c8, type: 3}
-  enterSpecialNoticeImage: {fileID: 21300000, guid: 87ef54f733d46204db2602dd153c01c8, type: 3}
+  defaultNoticeImage: {fileID: 21300000, guid: aa6c0a9b18f860a438cf5756029b80a6, type: 3}
+  enterNoticeImage: {fileID: 21300000, guid: ef2e24f223ea70c4cbbf2c3956fcb2f9, type: 3}
+  defaultSpecialNoticeImage: {fileID: 21300000, guid: 5d90162abc9d0254d987b340439c99a1, type: 3}
+  enterSpecialNoticeImage: {fileID: 21300000, guid: cf52fc2117307fb4894e1f61c2d0d864, type: 3}
   notice: {fileID: 4497015998708409254}
   text: {fileID: 4497016000185395852}
 --- !u!114 &7255949307763307082
