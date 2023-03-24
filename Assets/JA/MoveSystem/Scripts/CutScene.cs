@@ -38,13 +38,10 @@ public class CutScene : MonoBehaviour
     //[SerializeField] private GameObject dialogueEffects;
 
     private List<PlaceDialogDBEntity> data;
-    private List<string> person; 
+    private List<string> person;
     
-    private void Awake()
-    {
-        //StartCoroutine(SetBackGround());
-    }
-    
+    private bool isSpace = false;
+
     private IEnumerator SetBackGround()
     {
         yield return new WaitForSeconds(fadeTime);
@@ -55,12 +52,12 @@ public class CutScene : MonoBehaviour
 
         leftActive = false;
         rightActive = false;
-        
+
         foreach (var item in data)
         {
             backGround.sprite = Resources.Load(backGroundPath + item.placeImage, typeof(Sprite)) as Sprite;
 
-            if (person.Count != 0)
+            if (person.Count != 0 && item.name != String.Empty)
             {
                 int i;
                 for (i = 0; i < person.Count; i++)
@@ -70,16 +67,17 @@ public class CutScene : MonoBehaviour
                         break;
                     }
                 }
+
                 if (i % 2 == 0)
                 {
                     tailRight.SetActive(false);
                     tailLeft.SetActive(true);
-                    personLeft.color = new Color(1,1,1,1);
+                    personLeft.color = new Color(1, 1, 1, 1);
 
                     leftActive = true;
                     if (rightActive)
                     {
-                        personRight.color = new Color(0.5f,0.5f,0.5f,1f);
+                        personRight.color = new Color(0.5f, 0.5f, 0.5f, 1f);
                     }
 
                     personLeft.sprite = Resources.Load(facePath + item.face, typeof(Sprite)) as Sprite;
@@ -88,31 +86,69 @@ public class CutScene : MonoBehaviour
                 {
                     tailLeft.SetActive(false);
                     tailRight.SetActive(true);
-                    personRight.color = new Color(1,1,1,1);
+                    personRight.color = new Color(1, 1, 1, 1);
 
                     rightActive = true;
                     if (leftActive)
                     {
-                        personLeft.color = new Color(0.5f,0.5f,0.5f,1f);
+                        personLeft.color = new Color(0.5f, 0.5f, 0.5f, 1f);
                     }
 
                     personRight.sprite = Resources.Load(facePath + item.face, typeof(Sprite)) as Sprite;
                 }
             }
-            
-            dialogFild.text = item.dialog.Replace("\\n", "\n");
-            dialogName.text = item.name;
-            
-            yield return new WaitForSeconds(fadeTime);
-        }
+            else
+            {
+                tailLeft.SetActive(false);
+                tailRight.SetActive(false);
+                personRight.color = new Color(0, 0, 0, 0);
+                personLeft.color = new Color(0, 0, 0, 0);
+            }
 
-        fade.DORestart();
+            // Set the name and dialog text
+            dialogName.text = item.name;
+            string text = item.dialog.Replace("\\n", "\n");
+
+            for (int i = 0; i <= text.Length; i++)
+            {
+                if (isSpace) // 스페이스바를 눌렀으면
+                {
+                    i = text.Length; // 현재 대사를 모두 출력하고
+                    isSpace = false; // 스페이스바 눌림 상태를 초기화한다
+                }
+
+                dialogFild.text = text.Substring(0, i);
+                yield return new WaitForSeconds(0.07f);
+            }
+
+            // 스페이스바를 한 번 더 누르기 전까지 대기
+            while (!isSpace)
+            {
+                yield return null;
+            }
+
+            isSpace = false; // 스페이스바 눌림 상태 초기화
+        }
         
-        yield return new WaitForSeconds(fadeTime);
+        fade.DORestart();
 
         mapEffects.SetActive(true);
         this.gameObject.SetActive(false);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isSpace = true;
+        }
+    }
+
+    public void SpaceClick()
+    {
+        isSpace = true;
+    }
+
 
     public void SetUp(ToolTip toolTip)
     {
