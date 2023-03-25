@@ -107,7 +107,7 @@ MonoBehaviour:
     special: 0
   - day: 2
     name: "\uC778\uBB3CB"
-    face: Lorena_Happy
+    face: Lorena_Sad
     dialog: "\uC911\uC559 \uB098\uBB34\uB97C \uC774\uB807\uAC8C \uAC00\uAE4C\uC774\uC5D0\uC11C
       \uBCF8 \uC801\uC740 \uCC98\uC74C\uC774\uC9C0?"
     place: 2
@@ -122,7 +122,7 @@ MonoBehaviour:
     special: 0
   - day: 2
     name: "\uC778\uBB3CB"
-    face: Lorena_Happy
+    face: Lorena_Sad
     dialog: "\uC774 \uB098\uBB34\uB294 \uC138\uC0C1\uC5D0\uC11C \uAC00\uC7A5 \uC624\uB798\uB41C
       \uB098\uBB34\uC57C.\\n\uADF8 \uAE34 \uC138\uC6D4 \uB3D9\uC548 \uBE44\uAC00
       \uC624\uB098 \uB208\uC774 \uC624\uB098 \uC774 \uC790\uB9AC\uB97C \uC9C0\uCF1C\uC900
@@ -132,7 +132,7 @@ MonoBehaviour:
     special: 0
   - day: 2
     name: "\uC778\uBB3CB"
-    face: Lorena_Happy
+    face: Lorena_Sad
     dialog: "\uC774 \uB098\uBB34 \uB355\uBD84\uC5D0 \uC0AC\uB78C\uB4E4\uC774 \uBAA8\uC774\uACE0,
       \uC9C0\uAE08 \uC774\uB807\uAC8C \uD2B8\uB9AC\uC548\uC774 \uC788\uC744 \uC218
       \uC788\uB294 \uAC70\uB780\uB2E4."
@@ -149,7 +149,7 @@ MonoBehaviour:
     special: 0
   - day: 2
     name: "\uC778\uBB3CB"
-    face: Lorena_Happy
+    face: Lorena_Sad
     dialog: "\uD558\uB298\uC5D0 \uB2FF\uC744 \uB9CC\uD07C \uD06C\uAE30\uB3C4 \uD558\uC9C0\uB9CC,
       \uC774 \uB098\uBB34\uB294 \uD2B8\uB9AC\uC548\uC758 \uC18C\uC911\uD55C \uCE5C\uAD6C\uC9C0."
     place: 2
@@ -157,7 +157,7 @@ MonoBehaviour:
     special: 0
   - day: 2
     name: "\uC778\uBB3CB"
-    face: Lorena_Happy
+    face: Lorena_Sad
     dialog: "\uC774 \uB098\uBB34\uB9CC \uADFC\uCC98\uC5D0\uB9CC \uC788\uC73C\uBA74
       \uB9C8\uC74C\uC774 \uD3B8\uC548\uD574\uC9C0\uC9C0 \uC54A\uB2C8?"
     place: 2
