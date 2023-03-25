@@ -14,7 +14,10 @@ public class CriminalSystem : MonoBehaviour
     public Sprite Fail;
 
     public bool isDeclareClick = false;
-    public Sprite[] MontageIMG = new Sprite[5];
+    public Sprite[] GMontageIMG = new Sprite[5];
+    public Sprite[] HMontageIMG = new Sprite[5];
+    public Sprite[] DMontageIMG = new Sprite[5];
+    public Sprite[] CMontageIMG = new Sprite[5];
 
     public void Start()
     {
@@ -33,21 +36,24 @@ public class CriminalSystem : MonoBehaviour
     }
     public void MontageShow()
     {
-        if (CriminalNum[0] == 1)
-        { 
-            GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = MontageIMG[0];
-        }
-        if (CriminalNum[0] == 2)
+        if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
-            GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = MontageIMG[1];
-        }
-        if (CriminalNum[0] == 3)
-        {
-            GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = MontageIMG[2];
-        }
-        if (CriminalNum[0] == 4)
-        {
-            GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = MontageIMG[3];
+            if (CriminalNum[0] == 1)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[0];
+            }
+            if (CriminalNum[0] == 2)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[1];
+            }
+            if (CriminalNum[0] == 3)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[2];
+            }
+            if (CriminalNum[0] == 4)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[3];
+            }
         }
     }
     public void DeclarationClick()

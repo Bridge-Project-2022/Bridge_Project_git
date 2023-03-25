@@ -62,7 +62,8 @@ public class Slot : MonoBehaviour
         GameObject.Find("Inventory").transform.position = new Vector3(1038, 3000, 0);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         //클릭한 아이템이 화면에 보여짐
-        
+        GameObject.Find("InvenUI").GetComponent<Image>().sprite = Inventory.FindObjectOfType<Inventory>().InvenReset;//슬롯 클릭하면 인벤 리셋 이미지로 바뀜
+        Inventory.FindObjectOfType<Inventory>().isResetTrue = true;
         Color color = GameObject.Find("ClickedItem").GetComponent<Image>().color;
         color.a = 255;
         GameObject.Find("ClickedItem").GetComponent<Image>().color = color;//클릭한 아이템 투명도 0이었다가 보여져야 하니까 255로 변경
@@ -72,13 +73,14 @@ public class Slot : MonoBehaviour
         {
             ClickedItem = ClickedSlot.item;
             ItemReset.FindObjectOfType<ItemReset>().resetItem = ClickedItem;
-
             GameObject.Find("Distiller").GetComponent<Button>().interactable = true;
             GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
             GameObject.Find("Etc").transform.GetChild(6).GetComponent<MouseFollow>().transform_icon.GetComponent<Image>().sprite = GameObject.Find("ClickedItem").GetComponent<Image>().sprite;
             GameObject.Find("Manufacture").transform.GetChild(5).GetComponent<Distiller>().DistillerOn(ClickedItem);
             Debug.Log("증류기 시작 가능");
+            GameObject.Find("MaskPanel").transform.GetChild(8).gameObject.SetActive(false);
+            GameObject.Find("Mask_Arrow").transform.GetChild(7).gameObject.SetActive(false);
         }
 
         else if (item.itemType == "Middle" && GameObject.Find("TotalScoreBuffer").GetComponent<TotalScore>().PressCnt == 0)//압착기 실행
@@ -112,7 +114,7 @@ public class Slot : MonoBehaviour
         if (ClickedSlot.item.InvenItemNum >= 1)
         {
             ClickedSlot.item.InvenItemNum -= 1;
-            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 남음";
+            ClickedSlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ClickedSlot.item.InvenItemNum.ToString() + "개 보유";
             if (ClickedSlot.item.InvenItemNum == 0)
             {
                 ClickedSlot.itemName.text = "";
@@ -127,8 +129,7 @@ public class Slot : MonoBehaviour
     {
         if (this.item != null && this.tag != "InvenSlot")
         {
-            //Debug.Log("s");
-            itemCount.text = item.itemCount.ToString() + "개 보유";
+            itemCount.text = "남은 재고 : " + item.itemCount.ToString();
             if (item.itemCount <= 0)
             {
                 this.itemPrice.text = "0";

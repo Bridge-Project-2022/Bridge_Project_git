@@ -13,10 +13,11 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     public TextMeshProUGUI GameMoney;
     public GameObject GameReputation;
     public GameObject Customer;
+    public GameObject TutorialPanel;
 
     string[] CustomerTxt = new string[2];
 
-    public void Start()
+    public void FirstStart()
     {
         CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
         CustomerTxt[1] = "더 필요한 물건이 있나?";
@@ -24,7 +25,7 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
         if (GameObject.Find("NextDay").GetComponent<NextDay>().day == 1)
         {
             GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
-            Invoke("FirstDayStart", 6f);
+            Invoke("FirstDayStart", 8f);
         }
         
     }
@@ -44,7 +45,10 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     {
         GameObject.Find("FirstDayPanel").gameObject.SetActive(false);
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(true);
-        Invoke("SellerStart", 1f);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+        GameObject.Find("BGM").GetComponent<AudioSource>().Play();
+        TutorialPanel.SetActive(true);
+        TutorialPanel.GetComponent<Tutorial>().StartDialogue();
     }
 
     public void SellerStart()
@@ -60,9 +64,12 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     }
     public void SellerEnd()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
-        Customer.gameObject.SetActive(true);
-        StartCoroutine(NormalChat(CustomerTxt[1]));
+        if(GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutBuy == false)
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+            Customer.gameObject.SetActive(true);
+            StartCoroutine(NormalChat(CustomerTxt[1]));
+        }
     }
 
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능

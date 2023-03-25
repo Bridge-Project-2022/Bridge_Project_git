@@ -24,6 +24,10 @@ public class Inventory : MonoBehaviour, IDataPersistence
     public bool isAllsame;
 
     ItemProperty allItem;
+
+    public Sprite InvenOrigin;
+    public Sprite InvenReset;
+    public bool isResetTrue = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -214,6 +218,148 @@ public class Inventory : MonoBehaviour, IDataPersistence
         }
 
     }
+
+    public void AllBuyItem(ItemProperty item)//일괄 구매
+    {
+        if (item.itemType == "Base")
+        {
+            var emptySlot = Baseslots.Find(t =>
+            {
+                return t.item == null || t.item.name == string.Empty;
+            });//모든 슬롯중에 아이템이 빈 슬롯을 emptyslot이라는 변수 할당.
+               //var imsiSlot = imsiSlots[0];
+
+            for (int i = 0; i < BaseslotRoot.childCount; i++)
+            {
+                if (Baseslots[i].item == item)//중복인 경우
+                {
+                    Debug.Log(i + "번째 슬롯 아이템이 겹침");
+                    isSame = true;
+                    item.InvenItemNum += store.AllBuyNum;
+
+                    Baseslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "개 남음";
+
+                    break;
+                }
+
+                if (Baseslots[i].item != item)//중복이 아닌 경우
+                {
+                    if (emptySlot != null)//슬롯 꽉차지 않은 경우
+                    {
+                        isSame = false;
+                    }
+                    else
+                    {
+                        Debug.Log("슬롯 꽉참");
+                    }
+                }
+            }
+
+            if (isSame == false)//중복인 아이템이 없는 경우 -> 슬롯 추가
+            {
+                //Debug.Log("실행");
+                emptySlot.SetInvenItem(item);
+                item.InvenItemNum += store.AllBuyNum;
+                //Debug.Log(emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text);
+                emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "개 남음";
+            }
+        }
+
+        else if (item.itemType == "Middle")
+        {
+            var emptySlot = Middleslots.Find(t =>
+            {
+                return t.item == null || t.item.name == string.Empty;
+            });//모든 슬롯중에 아이템이 빈 슬롯을 emptyslot이라는 변수 할당.
+               //var imsiSlot = imsiSlots[0];
+            for (int i = 0; i < MiddleslotRoot.childCount; i++)
+            {
+                if (Middleslots[i].item == item)//중복인 경우
+                {
+                    Debug.Log(i + "번째 슬롯 아이템이 겹침");
+                    isSame = true;
+                    item.InvenItemNum += store.MiddleAllBuyNum;
+                    Middleslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "개 남음";
+
+                    break;
+                }
+
+                if (Middleslots[i].item != item)//중복이 아닌 경우
+                {
+                    if (emptySlot != null)//슬롯 꽉차지 않은 경우
+                    {
+                        isSame = false;
+                    }
+                    else
+                    {
+                        Debug.Log("슬롯 꽉참");
+                    }
+                }
+            }
+
+            if (isSame == false)//중복인 아이템이 없는 경우 -> 슬롯 추가
+            {
+                if (emptySlot != null)//슬롯 꽉차지 않은 경우
+                {
+                    emptySlot.SetInvenItem(item);
+                    item.InvenItemNum += store.MiddleAllBuyNum;
+                    emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "개 남음";
+                }
+                else
+                {
+                    Debug.Log("슬롯 꽉참");
+                }
+
+            }
+        }
+
+        else if (item.itemType == "Top")
+        {
+            var emptySlot = Topslots.Find(t =>
+            {
+                return t.item == null || t.item.name == string.Empty;
+            });//모든 슬롯중에 아이템이 빈 슬롯을 emptyslot이라는 변수 할당.
+               //var imsiSlot = imsiSlots[0];
+            for (int i = 0; i < MiddleslotRoot.childCount; i++)
+            {
+                if (Topslots[i].item == item)//중복인 경우
+                {
+                    Debug.Log(i + "번째 슬롯 아이템이 겹침");
+                    isSame = true;
+                    item.InvenItemNum += store.TopAllBuyNum;
+                    Topslots[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "개 남음";
+
+                    break;
+                }
+
+                if (Topslots[i].item != item)//중복이 아닌 경우
+                {
+                    if (emptySlot != null)//슬롯 꽉차지 않은 경우
+                    {
+                        isSame = false;
+                    }
+                    else
+                    {
+                        Debug.Log("슬롯 꽉참");
+                    }
+                }
+            }
+
+            if (isSame == false)//중복인 아이템이 없는 경우 -> 슬롯 추가
+            {
+                if (emptySlot != null)//슬롯 꽉차지 않은 경우
+                {
+                    emptySlot.SetInvenItem(item);
+                    item.InvenItemNum += store.TopAllBuyNum;
+                    emptySlot.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = item.InvenItemNum.ToString() + "개 남음";
+                }
+                else
+                {
+                    Debug.Log("슬롯 꽉참");
+                }
+            }
+        }
+    }
     public void Close()
     {
         this.transform.Translate(new Vector3(2000, 2000, 0));
@@ -271,6 +417,7 @@ public class Inventory : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        Debug.Log(data);
         for (int i = 0; i < Baseslots.Count; i++)
         {
             data.baseItemList[i] = this.Baseslots[i].item;

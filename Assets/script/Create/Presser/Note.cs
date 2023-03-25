@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Note : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Note : MonoBehaviour
 
         if (transform.position.x < DeletePoint.transform.position.x)
         {
+            GameObject.Find("CatPress").GetComponent<Image>().sprite = PresserTap.FindObjectOfType<PresserTap>().PressReaction[11];
             Destroy(this.gameObject);
         }
     }

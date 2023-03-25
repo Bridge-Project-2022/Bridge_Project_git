@@ -30,6 +30,10 @@ public class PresserTap : MonoBehaviour
         {
             PressDown(1);
         }
+        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            PressUp();
+        }
     }
 
     public void PressDown(int tapType)
