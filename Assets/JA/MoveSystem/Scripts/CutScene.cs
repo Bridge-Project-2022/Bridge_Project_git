@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class CutScene : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CutScene : MonoBehaviour
     
     [Header("Variable")]
     [SerializeField] private float fadeTime;
+    [SerializeField] private float faceFadeTime;
     
     [Header("Image")]
     [SerializeField] private Image backGround;
@@ -29,9 +31,10 @@ public class CutScene : MonoBehaviour
     [SerializeField] private GameObject textBox;
     [SerializeField] private GameObject tailLeft;
     [SerializeField] private GameObject tailRight;
+    [SerializeField] private GameObject nameBox;
 
     [Header("Fade")] 
-    [SerializeField] private DOTweenAnimation fade;
+    [SerializeField] private UnityEvent fadeInOut;
 
     [Header("Effect")] 
     [SerializeField] private GameObject mapEffects;
@@ -56,6 +59,7 @@ public class CutScene : MonoBehaviour
         foreach (var item in data)
         {
             backGround.sprite = Resources.Load(backGroundPath + item.placeImage, typeof(Sprite)) as Sprite;
+            float t = 0;
 
             if (person.Count != 0 && item.name != String.Empty)
             {
@@ -67,6 +71,8 @@ public class CutScene : MonoBehaviour
                         break;
                     }
                 }
+                
+                nameBox.SetActive(true);
 
                 if (i % 2 == 0)
                 {
@@ -77,7 +83,9 @@ public class CutScene : MonoBehaviour
                     leftActive = true;
                     if (rightActive)
                     {
-                        personRight.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+                        StartCoroutine(FaceLerp(personRight, faceFadeTime));
+
+                        rightActive = false;
                     }
 
                     personLeft.sprite = Resources.Load(facePath + item.face, typeof(Sprite)) as Sprite;
@@ -91,7 +99,9 @@ public class CutScene : MonoBehaviour
                     rightActive = true;
                     if (leftActive)
                     {
-                        personLeft.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+                        StartCoroutine(FaceLerp(personLeft, faceFadeTime));
+
+                        leftActive = false;
                     }
 
                     personRight.sprite = Resources.Load(facePath + item.face, typeof(Sprite)) as Sprite;
@@ -103,6 +113,8 @@ public class CutScene : MonoBehaviour
                 tailRight.SetActive(false);
                 personRight.color = new Color(0, 0, 0, 0);
                 personLeft.color = new Color(0, 0, 0, 0);
+                
+                nameBox.SetActive(false);
             }
 
             // Set the name and dialog text
@@ -130,7 +142,8 @@ public class CutScene : MonoBehaviour
             isSpace = false; // 스페이스바 눌림 상태 초기화
         }
         
-        fade.DORestart();
+        fadeInOut?.Invoke();
+        yield return new WaitForSeconds(fadeTime);
 
         mapEffects.SetActive(true);
         this.gameObject.SetActive(false);
@@ -148,11 +161,22 @@ public class CutScene : MonoBehaviour
     {
         isSpace = true;
     }
+    
+    private IEnumerator FaceLerp(Image image, float time)
+    {
+        float t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime / time; // fadeTime에 따라 알파값 변화 속도 조절
+            image.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(0.5f, 0.5f, 0.5f, 1f), t);
+            yield return null;
+        }
+    }
 
 
     public void SetUp(ToolTip toolTip)
     {
-        fade.DORestart();
+        fadeInOut?.Invoke();
         
         data = placeController.GetPlaceDialogData(GameDataManager.Instance.Day, toolTip.button);
         person = new List<string>();
