@@ -21,6 +21,8 @@ public class GameDataManager : Singleton<GameDataManager>
 
     private void Awake()
     {
+        gameData = new GameData();
+        
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         
         dataHandler = new FileDataHandler(Application.persistentDataPath, runTimeGameDataFileName);
@@ -160,10 +162,10 @@ public class GameDataManager : Singleton<GameDataManager>
         
         this.gameData = dataHandler.Load();
         
-        if (this.gameData == null)
-        {
-            NewGameStart();
-        }
+        // if (this.gameData == null)
+        // {
+        //     NewGameStart();
+        // }
         
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         
