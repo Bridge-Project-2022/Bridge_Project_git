@@ -26,7 +26,7 @@ public class LoadingSceneManager : MonoBehaviour
         while (!operation.isDone)
         {
             time = +Time.time;
-            Loading.text = ((int)time * 10).ToString() + " / 100";
+            //Loading.text = ((int)time * 10).ToString() + " / 100";
 
             if (time > 10)
                 operation.allowSceneActivation = true;

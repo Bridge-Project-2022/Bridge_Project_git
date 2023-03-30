@@ -12,6 +12,6 @@ public class MainMenu : MonoBehaviour
     public void OnLoadGameClicked()
     {
         //SceneManager.LoadScene("Main");
-        GameDataManager.Instance.LoadData();
+        GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().LoadData();
     }
 }
