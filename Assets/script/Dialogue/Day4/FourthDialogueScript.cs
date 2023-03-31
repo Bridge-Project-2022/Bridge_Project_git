@@ -23,6 +23,7 @@ public class FourthDialogueScript : MonoBehaviour
     public bool isCriminal = false;
     public bool isUnique = false;
 
+    public int CriminalID = 1000;
     public int UniqueID = 1000;
 
     public GameObject RC;
@@ -32,7 +33,7 @@ public class FourthDialogueScript : MonoBehaviour
         //손님 아이디 배열에 1-9까지 중에 랜덤으로 넣되 중복되지 않도록 배치함. 
         for (int i = 0; i < Customer_ID.Length; i++)
         {
-            Customer_ID[i] = Random.Range(15, 20);
+            Customer_ID[i] = Random.Range(17, 24);
             for (int j = 0; j < i; j++)
             {
                 if (Customer_ID[i] == Customer_ID[j])
@@ -50,6 +51,8 @@ public class FourthDialogueScript : MonoBehaviour
         Customer E = CustomerManager.Instance.days.day[3].customer[2];
         Customer L = CustomerManager.Instance.days.day[3].customer[3];
         Customer G = CustomerManager.Instance.days.day[3].customer[4];
+        Customer LorenaA = CustomerManager.Instance.days.day[3].customer[5];
+        Customer LorenaBC = CustomerManager.Instance.days.day[3].customer[6];
 
 
         if (Customer_ID[0] == B.id)
@@ -671,6 +674,256 @@ public class FourthDialogueScript : MonoBehaviour
                     foreach (string str in G.dialogue.noExistFace)
                     {
                         ReactFace = G.dialogue.noExistFace;
+                    }
+                }
+            }
+
+        }
+
+        if (Customer_ID[0] == LorenaA.id)
+        {
+            Customer_Name = LorenaA.name;
+
+            if (LorenaA.uniqueGuest == true)
+            {
+                RC.GetComponent<StoryCustomerImage>().isUnique = true;
+                RC.GetComponent<StoryCustomerImage>().UniqueID = LorenaA.id;
+            }
+
+            if (LorenaA.criminalGuest == true)
+            {
+                isCriminal = true;
+                CriminalID = LorenaA.id;
+            }
+
+            foreach (string str in LorenaA.dialogue.visitComment)
+            {
+                Customer_PerfumeOrder = LorenaA.dialogue.visitComment;
+            }
+
+            foreach (string str in LorenaA.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = LorenaA.dialogue.requestComment;
+            }
+
+            foreach (string str in LorenaA.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = LorenaA.dialogue.refusalComment;
+            }
+
+            foreach (string str in LorenaA.dialogue.visitFace)
+            {
+                OrderFace = LorenaA.dialogue.visitFace;
+            }
+
+            foreach (string str in LorenaA.dialogue.requestFace)
+            {
+                IntensityFace = LorenaA.dialogue.requestFace;
+            }
+
+            foreach (string str in LorenaA.dialogue.refusalFace)
+            {
+                RejectFace = LorenaA.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = LorenaA.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = LorenaA.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = LorenaA.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = LorenaA.currentPerfume.topNotes[0];
+
+
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
+            {
+                if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
+                {
+                    foreach (string str in LorenaA.dialogue.resultGoodComment)
+                    {
+                        Customer_PerfumeReaction = LorenaA.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in LorenaA.dialogue.resultGoodFace)
+                    {
+                        ReactFace = LorenaA.dialogue.resultGoodFace;
+                    }
+                }
+
+                else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
+                {
+                    foreach (string str in LorenaA.dialogue.resultNormalComment)
+                    {
+                        Customer_PerfumeReaction = LorenaA.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in LorenaA.dialogue.resultNormalFace)
+                    {
+                        ReactFace = LorenaA.dialogue.resultNormalFace;
+                    }
+                }
+
+                else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
+                {
+                    foreach (string str in LorenaA.dialogue.resultBadComment)
+                    {
+                        Customer_PerfumeReaction = LorenaA.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in LorenaA.dialogue.resultBadFace)
+                    {
+                        ReactFace = LorenaA.dialogue.resultBadFace;
+                    }
+                }
+            }
+            else//향료를 하나라도 다르게 사용한 경우
+            {
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
+                {
+                    foreach (string str in LorenaA.dialogue.resultGoodComment)
+                    {
+                        Customer_PerfumeReaction = LorenaA.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in LorenaA.dialogue.noFlavorFace)
+                    {
+                        ReactFace = LorenaA.dialogue.noFlavorFace;
+                    }
+                }
+
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
+                {
+                    foreach (string str in LorenaA.dialogue.resultGoodComment)
+                    {
+                        Customer_PerfumeReaction = LorenaA.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in LorenaA.dialogue.noExistFace)
+                    {
+                        ReactFace = LorenaA.dialogue.noExistFace;
+                    }
+                }
+            }
+
+        }
+
+        if (Customer_ID[0] == LorenaBC.id)
+        {
+            Customer_Name = LorenaBC.name;
+
+            if (LorenaBC.uniqueGuest == true)
+            {
+                RC.GetComponent<StoryCustomerImage>().isUnique = true;
+                RC.GetComponent<StoryCustomerImage>().UniqueID = LorenaBC.id;
+            }
+
+            if (LorenaBC.criminalGuest == true)
+            {
+                isCriminal = true;
+                CriminalID = LorenaBC.id;
+            }
+
+            foreach (string str in LorenaBC.dialogue.visitComment)
+            {
+                Customer_PerfumeOrder = LorenaBC.dialogue.visitComment;
+            }
+
+            foreach (string str in LorenaBC.dialogue.requestComment)
+            {
+                Customer_IntensityOrder = LorenaBC.dialogue.requestComment;
+            }
+
+            foreach (string str in LorenaBC.dialogue.refusalComment)
+            {
+                Customer_RejectReaction = LorenaBC.dialogue.refusalComment;
+            }
+
+            foreach (string str in LorenaBC.dialogue.visitFace)
+            {
+                OrderFace = LorenaBC.dialogue.visitFace;
+            }
+
+            foreach (string str in LorenaBC.dialogue.requestFace)
+            {
+                IntensityFace = LorenaBC.dialogue.requestFace;
+            }
+
+            foreach (string str in LorenaBC.dialogue.refusalFace)
+            {
+                RejectFace = LorenaBC.dialogue.refusalFace;
+            }
+
+            Distiller.GetComponent<Distiller>().DistillerStatus = LorenaBC.currentPerfume.perfumeForce[0];
+
+            Customer_Flavoring[0] = LorenaBC.currentPerfume.bassNotes;
+            Customer_Flavoring[1] = LorenaBC.currentPerfume.middleNotes;
+            Customer_Flavoring[2] = LorenaBC.currentPerfume.topNotes[0];
+
+
+            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
+            {
+                if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
+                {
+                    foreach (string str in LorenaBC.dialogue.resultGoodComment)
+                    {
+                        Customer_PerfumeReaction = LorenaBC.dialogue.resultGoodComment;
+                    }
+
+                    foreach (string str in LorenaBC.dialogue.resultGoodFace)
+                    {
+                        ReactFace = LorenaBC.dialogue.resultGoodFace;
+                    }
+                }
+
+                else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
+                {
+                    foreach (string str in LorenaBC.dialogue.resultNormalComment)
+                    {
+                        Customer_PerfumeReaction = LorenaBC.dialogue.resultNormalComment;
+                    }
+
+                    foreach (string str in LorenaBC.dialogue.resultNormalFace)
+                    {
+                        ReactFace = LorenaBC.dialogue.resultNormalFace;
+                    }
+                }
+
+                else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
+                {
+                    foreach (string str in LorenaBC.dialogue.resultBadComment)
+                    {
+                        Customer_PerfumeReaction = LorenaBC.dialogue.resultBadComment;
+                    }
+
+                    foreach (string str in LorenaBC.dialogue.resultBadFace)
+                    {
+                        ReactFace = LorenaBC.dialogue.resultBadFace;
+                    }
+                }
+            }
+            else//향료를 하나라도 다르게 사용한 경우
+            {
+                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
+                {
+                    foreach (string str in LorenaBC.dialogue.resultGoodComment)
+                    {
+                        Customer_PerfumeReaction = LorenaBC.dialogue.noFlavorComment;
+                    }
+
+                    foreach (string str in LorenaBC.dialogue.noFlavorFace)
+                    {
+                        ReactFace = LorenaBC.dialogue.noFlavorFace;
+                    }
+                }
+
+                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
+                {
+                    foreach (string str in LorenaBC.dialogue.resultGoodComment)
+                    {
+                        Customer_PerfumeReaction = LorenaBC.dialogue.noExistComment;
+                    }
+
+                    foreach (string str in LorenaBC.dialogue.noExistFace)
+                    {
+                        ReactFace = LorenaBC.dialogue.noExistFace;
                     }
                 }
             }

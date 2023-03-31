@@ -13558,6 +13558,7 @@ MonoBehaviour:
   - 
   isCriminal: 0
   isUnique: 0
+  CriminalID: 1000
   UniqueID: 10
   RC: {fileID: 1965479738}
 --- !u!1 &506270700
@@ -17688,6 +17689,7 @@ MonoBehaviour:
   isUnique: 0
   CriminalID: 10
   UniqueID: 10
+  RC: {fileID: 1965479738}
 --- !u!1 &673620090
 GameObject:
   m_ObjectHideFlags: 0
@@ -20196,6 +20198,7 @@ MonoBehaviour:
   isUnique: 0
   CriminalID: 10
   UniqueID: 10
+  RC: {fileID: 1965479738}
 --- !u!1 &780704762
 GameObject:
   m_ObjectHideFlags: 0
