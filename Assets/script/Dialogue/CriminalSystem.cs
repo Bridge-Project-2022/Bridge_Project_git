@@ -55,6 +55,46 @@ public class CriminalSystem : MonoBehaviour
                 GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[3];
             }
         }
+
+        if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        {
+            if (CriminalNum[0] == 1)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[0];
+            }
+            if (CriminalNum[0] == 2)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[1];
+            }
+            if (CriminalNum[0] == 3)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[2];
+            }
+            if (CriminalNum[0] == 4)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[3];
+            }
+        }
+
+        if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        {
+            if (CriminalNum[0] == 1)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[0];
+            }
+            if (CriminalNum[0] == 2)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[1];
+            }
+            if (CriminalNum[0] == 3)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[2];
+            }
+            if (CriminalNum[0] == 4)
+            {
+                GameObject.Find("Panels").transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GMontageIMG[3];
+            }
+        }
     }
     public void DeclarationClick()
     {

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class FourthDialogueScript : MonoBehaviour
 {
     public GameObject Distiller;
 
     public string Customer_Name = "";
-    public int[] Customer_ID = new int[5];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
+    public int[] Customer_ID = new int[7];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
     public string[] Customer_PerfumeOrder = new string[10];//손님 향수 주문 대사
     public string[] Customer_IntensityOrder = new string[5];//향수 강도 대사
     public string[] Customer_Flavoring = new string[3];//원하는 향료 선택(베, 미, 탑)
@@ -21,10 +22,8 @@ public class FourthDialogueScript : MonoBehaviour
 
 
     public bool isCriminal = false;
-    public bool isUnique = false;
 
     public int CriminalID = 1000;
-    public int UniqueID = 1000;
 
     public GameObject RC;
 
@@ -54,21 +53,34 @@ public class FourthDialogueScript : MonoBehaviour
         Customer LorenaA = CustomerManager.Instance.days.day[3].customer[5];
         Customer LorenaBC = CustomerManager.Instance.days.day[3].customer[6];
 
+        if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult == "A")
+        {
+            if (Customer_ID[0] == 23)
+            {
+                Customer_ID[0] = 22;
+            }
+        }
+
+        if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult == "B" || GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult == "C")
+        {
+            if (Customer_ID[0] == 22)
+            {
+                Customer_ID[0] = 23;
+            }
+        }
 
         if (Customer_ID[0] == B.id)
         {
             Customer_Name = B.name;
 
-            if (B.uniqueGuest == true)
+            if (B.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = B.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (B.criminalGuest == true)
+            if (B.criminalGuest == false)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = true;
-                RC.GetComponent<CriminalImage>().CriminaID = B.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in B.dialogue.visitComment)
@@ -184,16 +196,14 @@ public class FourthDialogueScript : MonoBehaviour
         {
             Customer_Name = E.name;
 
-            if (E.uniqueGuest == true)
+            if (E.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = E.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (E.criminalGuest == true)
+            if (E.criminalGuest == false)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = true;
-                RC.GetComponent<CriminalImage>().CriminaID = E.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in E.dialogue.visitComment)
@@ -309,16 +319,14 @@ public class FourthDialogueScript : MonoBehaviour
         {
             Customer_Name = D.name;
 
-            if (D.uniqueGuest == true)
+            if (D.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = D.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (D.criminalGuest == true)
+            if (D.criminalGuest == false)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = true;
-                RC.GetComponent<CriminalImage>().CriminaID = D.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in D.dialogue.visitComment)
@@ -434,16 +442,14 @@ public class FourthDialogueScript : MonoBehaviour
         {
             Customer_Name = L.name;
 
-            if (L.uniqueGuest == true)
+            if (L.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = L.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (L.criminalGuest == true)
+            if (L.criminalGuest == false)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = true;
-                RC.GetComponent<CriminalImage>().CriminaID = L.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in L.dialogue.visitComment)
@@ -559,16 +565,15 @@ public class FourthDialogueScript : MonoBehaviour
         {
             Customer_Name = G.name;
 
-            if (G.uniqueGuest == true)
+            if (G.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = G.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
             if (G.criminalGuest == true)
             {
                 RC.GetComponent<CriminalImage>().isCriminal = true;
-                RC.GetComponent<CriminalImage>().CriminaID = G.id;
+                CriminalID = G.id;
             }
 
             foreach (string str in G.dialogue.visitComment)
@@ -690,10 +695,9 @@ public class FourthDialogueScript : MonoBehaviour
                 RC.GetComponent<StoryCustomerImage>().UniqueID = LorenaA.id;
             }
 
-            if (LorenaA.criminalGuest == true)
+            if (LorenaA.criminalGuest == false)
             {
-                isCriminal = true;
-                CriminalID = LorenaA.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in LorenaA.dialogue.visitComment)
@@ -737,6 +741,7 @@ public class FourthDialogueScript : MonoBehaviour
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "A";
                     foreach (string str in LorenaA.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = LorenaA.dialogue.resultGoodComment;
@@ -750,6 +755,7 @@ public class FourthDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "A";
                     foreach (string str in LorenaA.dialogue.resultNormalComment)
                     {
                         Customer_PerfumeReaction = LorenaA.dialogue.resultNormalComment;
@@ -763,6 +769,7 @@ public class FourthDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "B";
                     foreach (string str in LorenaA.dialogue.resultBadComment)
                     {
                         Customer_PerfumeReaction = LorenaA.dialogue.resultBadComment;
@@ -778,6 +785,7 @@ public class FourthDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "C";
                     foreach (string str in LorenaA.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = LorenaA.dialogue.noFlavorComment;
@@ -791,6 +799,7 @@ public class FourthDialogueScript : MonoBehaviour
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "C";
                     foreach (string str in LorenaA.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = LorenaA.dialogue.noExistComment;
@@ -815,10 +824,9 @@ public class FourthDialogueScript : MonoBehaviour
                 RC.GetComponent<StoryCustomerImage>().UniqueID = LorenaBC.id;
             }
 
-            if (LorenaBC.criminalGuest == true)
+            if (LorenaBC.criminalGuest == false)
             {
-                isCriminal = true;
-                CriminalID = LorenaBC.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in LorenaBC.dialogue.visitComment)
@@ -862,6 +870,7 @@ public class FourthDialogueScript : MonoBehaviour
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "A";
                     foreach (string str in LorenaBC.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = LorenaBC.dialogue.resultGoodComment;
@@ -875,6 +884,7 @@ public class FourthDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "A";
                     foreach (string str in LorenaBC.dialogue.resultNormalComment)
                     {
                         Customer_PerfumeReaction = LorenaBC.dialogue.resultNormalComment;
@@ -888,6 +898,7 @@ public class FourthDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "B";
                     foreach (string str in LorenaBC.dialogue.resultBadComment)
                     {
                         Customer_PerfumeReaction = LorenaBC.dialogue.resultBadComment;
@@ -903,6 +914,7 @@ public class FourthDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "C";
                     foreach (string str in LorenaBC.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = LorenaBC.dialogue.noFlavorComment;
@@ -916,6 +928,7 @@ public class FourthDialogueScript : MonoBehaviour
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
+                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "C";
                     foreach (string str in LorenaBC.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = LorenaBC.dialogue.noExistComment;

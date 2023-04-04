@@ -8,7 +8,7 @@ public class SecondDialogueScript : MonoBehaviour
     public GameObject Distiller;
 
     public string Customer_Name = "";
-    public int[] Customer_ID = new int[5];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
+    public int[] Customer_ID = new int[6];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
     public string[] Customer_PerfumeOrder = new string[10];//손님 향수 주문 대사
     public string[] Customer_IntensityOrder = new string[5];//향수 강도 대사
     public string[] Customer_Flavoring = new string[3];//원하는 향료 선택(베, 미, 탑)
@@ -21,10 +21,8 @@ public class SecondDialogueScript : MonoBehaviour
     public string[] ReactFace = new string[5];
 
     public bool isCriminal = false;
-    public bool isUnique = false;
 
     public int CriminalID = 1000;
-    public int UniqueID = 1000;
 
     public GameObject RC;
 
@@ -57,10 +55,9 @@ public class SecondDialogueScript : MonoBehaviour
         {
             Customer_Name = I.name;
 
-            if (I.uniqueGuest == true)
+            if (I.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = I.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
             if (I.criminalGuest == true)
@@ -182,10 +179,9 @@ public class SecondDialogueScript : MonoBehaviour
         {
             Customer_Name = E.name;
 
-            if (E.uniqueGuest == true)
+            if (E.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = E.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
             if (E.criminalGuest == true)
@@ -307,10 +303,9 @@ public class SecondDialogueScript : MonoBehaviour
         {
             Customer_Name = K.name;
 
-            if (K.uniqueGuest == true)
+            if (K.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = K.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
             if (K.criminalGuest == true)
@@ -431,11 +426,9 @@ public class SecondDialogueScript : MonoBehaviour
         if (Customer_ID[0] == C.id)
         {
             Customer_Name = C.name;
-
-            if (C.uniqueGuest == true)
+            if (C.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = C.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
             if (C.criminalGuest == true)
@@ -557,10 +550,9 @@ public class SecondDialogueScript : MonoBehaviour
         {
             Customer_Name = D.name;
 
-            if (D.uniqueGuest == true)
+            if (D.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = D.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
             if (D.criminalGuest == true)

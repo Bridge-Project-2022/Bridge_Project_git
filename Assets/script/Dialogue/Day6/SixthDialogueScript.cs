@@ -7,7 +7,7 @@ public class SixthDialogueScript : MonoBehaviour
     public GameObject Distiller;
 
     public string Customer_Name = "";
-    public int[] Customer_ID = new int[5];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
+    public int[] Customer_ID = new int[8];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
     public string[] Customer_PerfumeOrder = new string[10];//손님 향수 주문 대사
     public string[] Customer_IntensityOrder = new string[5];//향수 강도 대사
     public string[] Customer_Flavoring = new string[3];//원하는 향료 선택(베, 미, 탑)
@@ -21,10 +21,8 @@ public class SixthDialogueScript : MonoBehaviour
 
 
     public bool isCriminal = false;
-    public bool isUnique = false;
 
     public int CriminalID = 10;
-    public int UniqueID = 1000;
 
     public GameObject RC;
 
@@ -60,16 +58,14 @@ public class SixthDialogueScript : MonoBehaviour
         {
             Customer_Name = B.name;
 
-            if (B.uniqueGuest == true)
+            if (B.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = B.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (B.criminalGuest == true)
+            if (B.criminalGuest == false)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = true;
-                RC.GetComponent<CriminalImage>().CriminaID = B.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in B.dialogue.visitComment)
@@ -185,16 +181,14 @@ public class SixthDialogueScript : MonoBehaviour
         {
             Customer_Name = E.name;
 
-            if (E.uniqueGuest == true)
+            if (E.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = E.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (E.criminalGuest == true)
+            if (E.criminalGuest == false)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = true;
-                RC.GetComponent<CriminalImage>().CriminaID = E.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in E.dialogue.visitComment)
@@ -310,16 +304,14 @@ public class SixthDialogueScript : MonoBehaviour
         {
             Customer_Name = I.name;
 
-            if (I.uniqueGuest == true)
+            if (I.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = I.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (I.criminalGuest == true)
+            if (I.criminalGuest == false)
             {
-                isCriminal = true;
-                CriminalID = I.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in I.dialogue.visitComment)
@@ -435,16 +427,14 @@ public class SixthDialogueScript : MonoBehaviour
         {
             Customer_Name = C.name;
 
-            if (C.uniqueGuest == true)
+            if (C.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = C.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (C.criminalGuest == true)
+            if (C.criminalGuest == false)
             {
-                isCriminal = true;
-                CriminalID = C.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in C.dialogue.visitComment)
@@ -560,16 +550,14 @@ public class SixthDialogueScript : MonoBehaviour
         {
             Customer_Name = F.name;
 
-            if (F.uniqueGuest == true)
+            if (F.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = F.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (F.criminalGuest == true)
+            if (F.criminalGuest == false)
             {
-                isCriminal = true;
-                CriminalID = F.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in F.dialogue.visitComment)
@@ -685,16 +673,14 @@ public class SixthDialogueScript : MonoBehaviour
         {
             Customer_Name = A.name;
 
-            if (A.uniqueGuest == true)
+            if (A.uniqueGuest == false)
             {
-                isUnique = true;
-                UniqueID = A.id;
+                RC.GetComponent<StoryCustomerImage>().isUnique = false;
             }
 
-            if (A.criminalGuest == true)
+            if (A.criminalGuest == false)
             {
-                isCriminal = true;
-                CriminalID = A.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in A.dialogue.visitComment)
@@ -816,10 +802,9 @@ public class SixthDialogueScript : MonoBehaviour
                 RC.GetComponent<StoryCustomerImage>().UniqueID = Lorena1.id;
             }
 
-            if (Lorena1.criminalGuest == true)
+            if (Lorena1.criminalGuest == false)
             {
-                isCriminal = true;
-                CriminalID = Lorena1.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in Lorena1.dialogue.visitComment)
@@ -941,10 +926,9 @@ public class SixthDialogueScript : MonoBehaviour
                 RC.GetComponent<StoryCustomerImage>().UniqueID = Lorena2.id;
             }
 
-            if (Lorena2.criminalGuest == true)
+            if (Lorena2.criminalGuest == false)
             {
-                isCriminal = true;
-                CriminalID = Lorena2.id;
+                RC.GetComponent<CriminalImage>().isCriminal = false;
             }
 
             foreach (string str in Lorena2.dialogue.visitComment)

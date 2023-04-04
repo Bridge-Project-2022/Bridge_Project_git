@@ -19,6 +19,7 @@ public class DayCheck : MonoBehaviour
         else if (NextDay.FindObjectOfType<NextDay>().day == 3)
         {
             GameObject.Find("Trigger").GetComponent<ThirdDialogueRandom>().A_Start();
+            Invoke("DeclareBtnShow", 0.1f);
         }
         else if (NextDay.FindObjectOfType<NextDay>().day == 4)
         {

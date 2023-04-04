@@ -123,36 +123,6 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "E",
-                    "id": 3,
-                    "currentPerfume": {
-                        "bassNotes": "동물",
-                        "middleNotes": "반려동물",
-                        "topNotes": ["슬픔"],
-                        "perfumeForce": ["중간"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["안녕..?", "저기.. 부탁할 게 있는데..", "우리 집 고양이 나비를 한 번만이라도 다시 만나고 싶어…", "힘없이 네 발로 비틀 거리면서 일어서려고 노력하는 게 엊그제 같은데...", "축 처져서 아무것도 안 하더니... ", "이젠 더 이상 볼 수 없어…", "그 조그만 아이가 얼마나 아팠는지 생각하면..", "생각조차 힘들어서 눈물이 나…", "제발 나비를 한 번만이라도 만날 수 있게 해줘…."],
-                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad", "Sad"],
-                        "refusalComment": ["… 나한테 대체 왜 그래요?", "단 한 번만 나비를 만나는 것도 안되는 거야?", "내가 이렇게까지 했는데…", "다른 사람들한테도 말할 거야.", "후회하지 마 당신이 한 선택이잖아."],
-                        "refusalFace": ["Bad", "Bad", "Bad", "Bad", "Bad"],
-                        "requestComment": ["향은 너무 진하지도… 너무 은은하지도 않게 해줘… "],
-                        "requestFace": ["Sad"],
-                        "resultGoodComment": ["나비야… 나비야… ", "차라리 내가 대신 아팠어야 했는데…"],
-                        "resultGoodFace": ["Sad", "Sad"],
-                        "resultNormalComment": ["고마워요…", "이렇게라도 나비를 볼 수 있어서.."],
-                        "resultNormalFace": ["Happy", "Happy"],
-                        "resultBadComment": ["정말 최악이네요…", "다른 사람들도 당신이 이렇게 못 만드는 거 알고 있나요..?"],
-                        "resultBadFace": ["Bad"],
-                        "noExistComment": ["이 향이 아닌데요..?", "뭘 만든 거죠..?"],
-                        "noExistFace": ["Bad", "Bad"],
-                        "noFlavorComment": ["제대로 만든 거 맞나요..?", "느껴지는 게 없는데..?"],
-                        "noFlavorFace": ["Bad", "Bad"]
-                    },
-                    "uniqueGuest": false,
-                    "criminalGuest": false
-                },
-                {
                     "name": "로레나",
                     "id": 4,
                     "currentPerfume": {
@@ -163,7 +133,7 @@
                     },
                     "dialogue": {
                         "visitComment": ["…", "…...", "…...........", "…....향수..좀..줘..", "…....", "남자친구…"],
-                        "visitFace": ["L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant"],
+                        "visitFace": ["L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant"],
                         "refusalComment": ["...", "그래요.."],
                         "refusalFace": ["L01_faint2", "L01_faint2"],
                         "requestComment": ["향은.. 약해도...돼…"],
@@ -347,22 +317,22 @@
                         "perfumeForce": ["강함"]
                     },
                     "dialogue": {
-                        "visitComment": ["저...", "같이 캠퍼스 거닐 때...", "행복했는데.....", "그때가 너무 그리워", "내가 더 잘할 걸...."],
-                        "visitFace": ["L01_faint1", "Common", "Common", "Common", "Common"],
+                        "visitComment": ["저...", "같이 캠퍼스 거닐 때...", "행복했는데.....","." ,"그때가 너무 그리워", "내가 더 잘할 걸...."],
+                        "visitFace": ["L01_faint1", "L01_faint1", "L01_faint1", "L01_faint1", "L01_faint1", "L01_faint1"],
                         "refusalComment": ["아...", "내가  이렇게 필요하다는데", "대체 나한테 왜 그러는  거야?", "어째서..."],
                         "refusalFace": ["Bad", "Bad", "Bad", "Bad"],
                         "requestComment": ["그때의 기억이 희미해져가….", "더 강한 향이 필요해...."],
                         "requestFace": ["Sad", "Sad"],
                         "resultGoodComment": ["난 남자친구를 정말 사랑했어..", "정말 고마워... 정말..."],
-                        "resultGoodFace": ["Happy", "Happy"],
+                        "resultGoodFace": ["L01_faint1", "L01_faint1"],
                         "resultNormalComment": ["이 기억이 맞아...", "..고마워"],
-                        "resultNormalFace": ["Common", "Common"],
+                        "resultNormalFace": ["L01_faint1", "L01_faint1"],
                         "resultBadComment": ["이게 대체 뭐야..", "내 추억을 망치지 마!!"],
                         "resultBadFace": ["Bad", "Bad"],
                         "noExistComment": ["이게 아니야...", "이건 정말 별로야.."],
-                        "noExistFace": ["Bad", "Bad"],
+                        "noExistFace": ["L01_faint1", "L01_faint1"],
                         "noFlavorComment": ["나한테 왜 그러는 거야..?", "당신을 믿은 내가 한심해.."],
-                        "noFlavorFace": ["Bad", "Bad"]
+                        "noFlavorFace": ["L01_faint1", "L01_faint1"]
                     },
                     "uniqueGuest": true,
                     "criminalGuest": false
@@ -429,7 +399,7 @@
                         "noFlavorFace": ["Bad"]
                     },
                     "uniqueGuest": false,
-                    "criminalGuest": false
+                    "criminalGuest": true
                 },
                 {
                     "name": "B",
@@ -532,21 +502,21 @@
                     },
                     "dialogue": {
                         "visitComment": ["...향수...", "남자...친구가... ... 너..무...보고싶어...", "그러니까...빨리...줘..."],
-                        "visitFace": ["Sad", "Sad", "Sad", "Sad", "Sad"],
+                        "visitFace": ["L01_faint1", "L01_faint1", "L01_faint1"],
                         "refusalComment": ["내가 그렇게... 어려운 부탁을 한거야...?", "제발...", "도와줘.."],
-                        "refusalFace": ["Sad", "Sad", "Sad"],
+                        "refusalFace": ["L01_faint1", "L01_faint1", "L01_faint1"],
                         "requestComment": ["남자친구..", "남자친구의 향은", "아주 강하게..!"],
-                        "requestFace": ["Common", "Common", "Common"],
+                        "requestFace": ["L01_faint1", "L01_faint1", "L01_faint1"],
                         "resultGoodComment": ["..맞아, 이거야..", "남자친구의 모습이 선명해..", "지금처럼 내 옆에 계속.. 있어줘.."],
-                        "resultGoodFace": ["Happy", "Happy", "Happy"],
+                        "resultGoodFace": ["L01_faint1", "L01_faint1", "L01_faint1"],
                         "resultNormalComment": ["좋아...", "얼굴이라도 보니까..", "마음이 편안해.."],
-                        "resultNormalFace":["Common", "Common", "Common"],
+                        "resultNormalFace":["L01_faint1", "L01_faint1", "L01_faint1"],
                         "resultBadComment": ["이게 아니야.", "제대로 만들어야지!!", "이게 뭐하는거야?"],
-                        "resultBadFace": ["Bad", "Bad", "Bad"],
+                        "resultBadFace": ["L01_faint1", "L01_faint1", "L01_faint1"],
                         "noExistComment": ["아니야..", "제발 다시 돌아와줘..", "이건 남자친구가 아니야.."],
-                        "noExistFace": ["Bad", "Bad", "Bad"],
+                        "noExistFace": ["L01_faint1", "L01_faint1", "L01_faint1"],
                         "noFlavorComment": ["나한테 왜 그러는 거야..?", "왜 나를 힘들게 하려는거야..?"],
-                        "noFlavorFace": ["Bad", "Bad"]
+                        "noFlavorFace": ["L01_faint1", "L01_faint1"]
                     },
                     "uniqueGuest": true,
                     "criminalGuest": false
@@ -715,8 +685,8 @@
                         "perfumeForce": ["강함"]
                     },
                     "dialogue": {
-                        "visitComment": ["사랑받고 싶어..", "남자친구가 보고싶어..", "향수...향수를 줘", "왜 이럴까 항상...", "내가...너무...싫어...", "걔가 없으면 아무것도 할 수 없어...", "얼른... 향수를 줘..."],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "visitComment": ["사랑받고 싶어..", "남자친구가 보고싶어..", "향수...향수를 줘", ".","왜 이럴까 항상...", "내가...너무...싫어...", "걔가 없으면 아무것도 할 수 없어...", "얼른... 향수를 줘..."],
+                        "visitFace": ["L01_faint1", "L01_faint1", "L01_faint1" , "L01_faint1" , "L01_faint1", "L01_faint1" , "L01_faint1" , "L01_faint1"],
                         "refusalComment": ["어쩌구"],
                         "refusalFace": ["L01_faint2"],
                         "requestComment": ["어쩌구"],
@@ -745,8 +715,8 @@
                         "perfumeForce": ["강함"]
                     },
                     "dialogue": {
-                        "visitComment": ["나도 예전처럼... 사랑받고 싶어...", "남자친구는 어디 있는 거야..?", "내 옆에는 왜 아무도 없는 거지?", "우리 끝까지 사랑하기로 했잖아..?", "으아아아.. 내가 정말 싫어..", "그때 그러면 안 됐는데..", "나는 왜 항상 이러는 거야..?", "너무 힘들어... 이제 제발 내 옆으로 돌아와 줘...", "지금 당장 걔의 향수가  필요해..."],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "visitComment": ["나도 예전처럼... 사랑받고 싶어...", "남자친구는 어디 있는 거야..?", "내 옆에는 왜 아무도 없는 거지?", "우리 끝까지 사랑하기로 했잖아..?", ".","으아아아.. 내가 정말 싫어..", "그때 그러면 안 됐는데..", "나는 왜 항상 이러는 거야..?", "너무 힘들어... 이제 제발 내 옆으로 돌아와 줘...", "지금 당장 걔의 향수가  필요해..."],
+                        "visitFace": ["L01_faint1", "L01_faint1", "L01_faint1" , "L01_faint1" , "L01_faint1" , "L01_faint1" , "L01_faint1" , "L01_faint1" , "L01_faint1" , "L01_faint1"],
                         "refusalComment": ["어쩌구"],
                         "refusalFace": ["L01_faint2"],
                         "requestComment": ["어쩌구"],

@@ -141,9 +141,14 @@ public class DeskTouch : MonoBehaviour
         if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutResult == false)
         {
             DayCheck.FindObjectOfType<DayCheck>().E1_Check();
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+            if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == true)
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("Lorena1");
+            else
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
         }
         else
+        {
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+        }
     }
 }

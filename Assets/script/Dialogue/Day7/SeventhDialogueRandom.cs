@@ -475,7 +475,7 @@ public class SeventhDialogueRandom : MonoBehaviour
     public void End()
     {
         CustomerEnd = true;
-        if (DailyResult.GetComponent<DailyResult>().personNum < 5 && isDialogueEnd == true)
+        if (DailyResult.GetComponent<DailyResult>().personNum < 7 && isDialogueEnd == true)
         {
             if (DailyResult.GetComponent<DailyResult>().personNum == 2)//손님 3명 가고 나서 점심으로 바뀜
             {
@@ -514,7 +514,7 @@ public class SeventhDialogueRandom : MonoBehaviour
         }
 
 
-        if (DailyResult.GetComponent<DailyResult>().personNum == 5 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
+        if (DailyResult.GetComponent<DailyResult>().personNum == 7 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
         {
             CustomerStart = false;
             Customer.SetActive(false);
