@@ -226,7 +226,8 @@ public class FourthDialogueRandom : MonoBehaviour
             {
                 if (ACount == 0)
                 {
-                    GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+                    if (GameObject.Find("SoundManager").GetComponent<SoundManager>().isBgmPlay == false)
+                        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
                     RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<CriminalImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerOrderFace[0];
@@ -480,7 +481,8 @@ public class FourthDialogueRandom : MonoBehaviour
         if (GameObject.Find("Dialogue").transform.GetChild(1).gameObject.activeSelf)
             GameObject.Find("Dialogue").transform.GetChild(1).gameObject.SetActive(false);
         if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == false)
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+            if (GameObject.Find("SoundManager").GetComponent<SoundManager>().isBgmPlay == false)
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
         else if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == true)
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("Lorena1");
 
@@ -499,9 +501,11 @@ public class FourthDialogueRandom : MonoBehaviour
         if (GameObject.Find("Dialogue").transform.GetChild(1).gameObject.activeSelf)
             GameObject.Find("Dialogue").transform.GetChild(1).gameObject.SetActive(false);
         if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == false)
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+            if (GameObject.Find("SoundManager").GetComponent<SoundManager>().isBgmPlay == false)
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
         else if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == true)
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("Lorena1");
+            if (GameObject.Find("SoundManager").GetComponent<SoundManager>().isBgmPlay == false)
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
 
         if (GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().Customer_ID[0] == 22)//로레나일 경우
         {

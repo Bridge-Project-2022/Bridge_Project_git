@@ -57,7 +57,7 @@ public class DialogueRandom : MonoBehaviour
     bool EStart = false;
     bool F2Start = false;
 
-    int ACount = 0;
+    public int ACount = 0;
     int D1Count = 0;
     public int D2Count = 0;
     public int ECount = 0;
@@ -215,7 +215,10 @@ public class DialogueRandom : MonoBehaviour
             {
                 if (ACount == 0)
                 {
-                    GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+                    if (GameObject.Find("SoundManager").GetComponent<SoundManager>().isBgmPlay == false)
+                    {
+                        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+                    }
                     RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<CriminalImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerOrderFace[0];

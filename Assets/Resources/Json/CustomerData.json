@@ -900,7 +900,7 @@
                     },
                     "dialogue": {
                         "visitComment": ["같이 있으니까 너무 좋다..", "평생 같이 하자 우리", "너만 사랑할거야..", "너..너가 필요해…"],
-                        "visitFace": ["Common", "Common", "Common", "Common"],
+                        "visitFace": ["L01_faint2", "L01_faint2", "L01_faint2", "L01_faint2"],
                         "refusalComment": ["어쩌구"],
                         "refusalFace": ["L01_faint2"],
                         "requestComment": ["어쩌구"],
@@ -930,7 +930,7 @@
                     },
                     "dialogue": {
                         "visitComment": ["남자친구야.. 어디 간 거야..?", "너가 없으면 아무것도 못하는 거 알잖아...", "빠... 빨리 돌아와 줘...", "너가 희미해져가...", "나에게서 멀어지지 말아줘.. 응?", "내가 잘할게.. 이제 정말... 잘할게...", "너... 너가... 꼭... 필요해..."],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "visitFace": ["L01_faint2", "L01_faint2", "L01_faint2", "L01_faint2" , "L01_faint2" , "L01_faint2" , "L01_faint2"],
                         "refusalComment": ["어쩌구"],
                         "refusalFace": ["L01_faint2"],
                         "requestComment": ["어쩌구"],
@@ -960,7 +960,7 @@
                     },
                     "dialogue": {
                         "visitComment": ["아저씨..", "지금... 빨리.. 빨리 만들어줘...", "내 남자친구가 보이지가 않아", "대체 어디 간 거야?", "우리 평생 사랑하기로 약속했잖아...", "너가 있어야... 내가 살 수 있어..."],
-                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common"],
+                        "visitFace": ["L01_faint2", "L01_faint2", "L01_faint2", "L01_faint2" , "L01_faint2" , "L01_faint2"],
                         "refusalComment": ["어쩌구"],
                         "refusalFace": ["L01_faint2"],
                         "requestComment": ["어쩌구"],

@@ -21220,6 +21220,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
+  ACount: 0
   D2Count: 0
   ECount: 0
   isDialogueStart: 0
@@ -21330,6 +21331,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef120f9553523404b9c3936c488b4d08, type: 3}
   - {fileID: 21300000, guid: f8df065e7a50a2940b542d7723eacdbb, type: 3}
   - {fileID: 21300000, guid: 736ee5bea0c05c64da0e1c70fa255d07, type: 3}
+  ACount: 0
   D2Count: 0
   ECount: 0
   isDialogueStart: 0
@@ -43795,6 +43797,7 @@ MonoBehaviour:
   Lorena1: {fileID: 8300000, guid: 009ae5200358d1f40898f420c2debd4f, type: 3}
   LorenaCutScene: {fileID: 8300000, guid: 240da2122df649949ad7acc362cc5308, type: 3}
   newsPanel: {fileID: 585306717}
+  isBgmPlay: 0
 --- !u!114 &1707918179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47671,7 +47674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116a25877450e5948a144c545a8b586f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 4
+  day: 2
   nd: {fileID: 1532829890}
 --- !u!1 &1854702878
 GameObject:
@@ -50375,7 +50378,7 @@ MonoBehaviour:
   UniqueID: 1000
   Customer: {fileID: 772955856}
   ThirdLorenaResult: 
-  FourthLorenaResult: 
+  FourthLorenaResult: A
   SixthLorenaResult: 
   LorenaCut1: {fileID: 21300000, guid: 38be348a053a9d04abc506011edcc127, type: 3}
   LorenaCut2: {fileID: 21300000, guid: 56170d98ed110d24b8fa2846396374c4, type: 3}
