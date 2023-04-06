@@ -568,12 +568,15 @@ public class ThirdDialogueRandom : MonoBehaviour
     public void DailyWindowOpen()
     {
         Invoke("CriminalResult", 3f);
+        CriminalSystem.FindObjectOfType<CriminalSystem>().CriminalDailyResult();
         DailyResult.transform.localPosition = new Vector3(0, 0, 0);
         DailyResult.GetComponent<Animator>().enabled = true;
     }
     public void CriminalResult()
     {
         GameObject.Find("DailyResult").transform.GetChild(8).gameObject.SetActive(true);
+        CriminalSystem.FindObjectOfType<CriminalSystem>().isDeclareSuccess = false;
+        CriminalSystem.FindObjectOfType<CriminalSystem>().isCriminalSell = false;
     }
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {

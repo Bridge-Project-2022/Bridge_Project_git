@@ -179,7 +179,9 @@ public class NextDay : MonoBehaviour, IDataPersistence
         }
         if (day == 6)
         {
-            Invoke("SixthDayStart", 3f);
+            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
+            Invoke("GoToTitle", 3f);
+            //Invoke("SixthDayStart", 3f);
         }
         if (day == 7)
         {
