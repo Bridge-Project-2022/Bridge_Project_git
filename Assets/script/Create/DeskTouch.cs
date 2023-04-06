@@ -28,7 +28,8 @@ public class DeskTouch : MonoBehaviour
     public GameObject ClickItem;
     public GameObject Perfume;
 
-
+    public CriminalSystem CriminalSystem;
+    public GameObject Declaration;
     public Sprite Alpa;
     public void Start()
     {
@@ -61,6 +62,9 @@ public class DeskTouch : MonoBehaviour
         Manufacture.gameObject.SetActive(true);
         inven.gameObject.SetActive(true);
         isDeskUp = true;
+
+        if (Declaration.activeSelf)
+            Declaration.SetActive(false);
 
         for (int i = 0; i < baseSlot.transform.childCount; i++)
         {
@@ -102,6 +106,14 @@ public class DeskTouch : MonoBehaviour
             Buyer.gameObject.SetActive(true);
 
             ClickItem.SetActive(false);
+
+            if (NextDay.FindObjectOfType<NextDay>().day >= 3)
+            {
+                if (CriminalSystem.isDeclareClick == true)
+                    Declaration.SetActive(false);
+                else
+                    Declaration.SetActive(true);
+            }
 
             GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
