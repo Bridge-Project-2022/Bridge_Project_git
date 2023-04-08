@@ -827,7 +827,7 @@
                         "noFlavorFace": ["Bad", "Bad", "Bad"]
                     },
                     "uniqueGuest": false,
-                    "criminalGuest": true
+                    "criminalGuest": false
                 },
                 {
                     "name": "D",
