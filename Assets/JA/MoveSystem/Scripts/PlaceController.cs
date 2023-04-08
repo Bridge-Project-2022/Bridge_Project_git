@@ -25,7 +25,7 @@ public class PlaceController : MonoBehaviour
     {
         for (int i = 0; i < data.PlaceEntity.Count; i++)
         {
-            if (data.PlaceEntity[i].day == GameDataManager.Instance.Day)
+            if (data.PlaceEntity[i].day == GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().Day)
             {
                 foreach (var place in places)
                 {

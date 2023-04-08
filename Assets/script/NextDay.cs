@@ -52,11 +52,14 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
     public void DayCheck()
     {
-        GameDataManager.FindObjectOfType<GameDataManager>().SaveData();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("DayFinish");
         DailyResult.GetComponent<Animator>().enabled = false;
         DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
 
+        SceneManager.LoadScene("MoveSystem");
+    }
+    public void MoveAfterDayCheck()
+    {
         if (day == 1)
         {
             day++;
@@ -400,6 +403,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        Debug.Log("S");
         data.day = this.day;
     }
 

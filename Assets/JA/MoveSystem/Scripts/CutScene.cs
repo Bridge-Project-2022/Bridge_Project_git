@@ -118,7 +118,7 @@ public class CutScene : MonoBehaviour
     {
         fade.DORestart();
         
-        data = placeController.GetPlaceDialogData(GameDataManager.Instance.Day, toolTip.button);
+        data = placeController.GetPlaceDialogData(GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().Day, toolTip.button);
         person = new List<string>();
 
         foreach (var item in data)
