@@ -115,6 +115,7 @@ public class DayCheck : MonoBehaviour
         {
             GameObject.Find("Trigger").GetComponent<SeventhDialogueRandom>().C_2_Start();
         }
+        TotalScore.FindObjectOfType<TotalScore>().gameOverCheck();
     }
 
     public void ND_Check()

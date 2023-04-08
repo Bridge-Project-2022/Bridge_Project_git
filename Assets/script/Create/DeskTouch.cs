@@ -146,6 +146,7 @@ public class DeskTouch : MonoBehaviour
             isDeskUp = false;
             Invoke("PerfumeDialogue", 0.3f);
         }
+        TotalScore.FindObjectOfType<TotalScore>().gameOverCheck();
     }
 
     public void PerfumeDialogue()

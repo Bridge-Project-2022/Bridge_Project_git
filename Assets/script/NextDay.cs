@@ -78,7 +78,8 @@ public class NextDay : MonoBehaviour, IDataPersistence
         else if (day == 4)
         {
             day++;
-            Invoke("NewsTimePanel", 2f);
+            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
+            Invoke("GoToTitle", 3f);
         }
         else if (day == 5)
         {

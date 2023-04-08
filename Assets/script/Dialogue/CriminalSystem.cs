@@ -139,6 +139,7 @@ public class CriminalSystem : MonoBehaviour
             {
                 FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
             }
-        }   
+        }
+        TotalScore.FindObjectOfType<TotalScore>().gameOverCheck();
     }
 }
