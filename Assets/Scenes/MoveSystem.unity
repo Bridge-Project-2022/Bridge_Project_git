@@ -504,17 +504,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &205101987 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4039753112701932794, guid: a6eaf6f21a39a1944b1287b7b810af3a, type: 3}
-  m_PrefabInstance: {fileID: 4039753111539060179}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4db6d9d4080ec41b474f348e5d2351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &282043146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 221884771462082544, guid: ef108fda4e8975041940102b59013e62, type: 3}
@@ -3390,7 +3379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeController: {fileID: 1125946277}
   fadeTime: 1
-  faceFadeTime: 0.7
+  faceFadeTime: 0
   backGround: {fileID: 1939262459}
   personLeft: {fileID: 1356304021}
   personRight: {fileID: 599587152}
@@ -3399,22 +3388,10 @@ MonoBehaviour:
   textBox: {fileID: 1856811921}
   tailLeft: {fileID: 1475327819}
   tailRight: {fileID: 482356016}
-  nameBox: {fileID: 1806615883}
+  nameBox: {fileID: 0}
   fadeInOut:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 205101987}
-        m_TargetAssemblyTypeName: FadeEffectController, Assembly-CSharp
-        m_MethodName: FadeInOut
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   mapEffects: {fileID: 938936260}
 --- !u!224 &1425242188 stripped
 RectTransform:
@@ -4072,14 +4049,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6368ff6e0f1d94fa9664e84e10f058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeType: {fileID: 1608803665}
-  homeTypeExplanationText: {fileID: 1702780812}
-  placeType: {fileID: 319827756}
-  placeTypeTitleText: {fileID: 797369435}
-  placeTypeExplanationText: {fileID: 1609114980}
-  notice: {fileID: 1875556481}
-  noticeImage: {fileID: 21300000, guid: c0f32d519514c50448e9b8e2d4d46f44, type: 3}
-  specialNoticeImage: {fileID: 21300000, guid: c0f32d519514c50448e9b8e2d4d46f44, type: 3}
+  homeType: {fileID: 0}
+  homeTypeExplanationText: {fileID: 0}
+  placeType: {fileID: 0}
+  placeTypeTitleText: {fileID: 0}
+  placeTypeExplanationText: {fileID: 0}
+  notice: {fileID: 0}
+  noticeImage: {fileID: 0}
+  specialNoticeImage: {fileID: 0}
   explanation: {fileID: 425979995}
   cutScene: {fileID: 1406183636}
   placeController: {fileID: 1125946277}
