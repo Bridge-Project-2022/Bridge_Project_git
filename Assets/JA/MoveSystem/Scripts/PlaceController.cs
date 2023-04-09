@@ -13,8 +13,6 @@ public class PlaceController : MonoBehaviour
     
     public int VisitableNum { get; private set; }
     public int SpecialNum { get; private set; }
-    
-    //private Dictionary<Enums.MoveButton, PlaceDialogDBEntity> placeDialogDic = new Dictionary<Enums.MoveButton, PlaceDialogDBEntity>();
 
     private void Start()
     {
@@ -25,17 +23,9 @@ public class PlaceController : MonoBehaviour
 
     private void Init()
     {
-        //placeDialogDic.Clear();
-
-        // foreach (var item in data.PlaceEntity)
-        // {
-        //     if (!placeDialogDic.ContainsKey(item.place))
-        //         placeDialogDic.Add(item.place, item);
-        // }
-
         for (int i = 0; i < data.PlaceEntity.Count; i++)
         {
-            if (data.PlaceEntity[i].day == GameDataManager.Instance.Day)
+            if (data.PlaceEntity[i].day == GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().Day)
             {
                 foreach (var place in places)
                 {
@@ -110,19 +100,6 @@ public class PlaceController : MonoBehaviour
             select dialogDB).ToList();
 
         return placeDialogList;
-    }
-    
-    public bool IsUniquePlace(Enums.MoveButton placeType)
-    {
-        foreach (var place in places)
-        {
-            if (place.PlaceState == placeType)
-            {
-                return place.IsSpecial;
-            }
-        }
-
-        return false;
     }
 }
 
