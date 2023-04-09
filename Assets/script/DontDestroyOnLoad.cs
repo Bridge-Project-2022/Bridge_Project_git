@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DontDestroyOnLoad : MonoBehaviour
-{  private void Awake()
+{
+    void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(transform.gameObject);
     }
 
 }
