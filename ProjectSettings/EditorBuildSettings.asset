@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: e062d60ec694efd4889b85dbbc2f8f3a
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 28e27d7d1312cd3488957a6522f28d29
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: ed5d67d0f2be3c549864ce838e59a5f2
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: 28e27d7d1312cd3488957a6522f28d29
+    path: Assets/JA/MoveSystem/MoveSystem.unity
+    guid: 5bf2a5f19842204469ae293d4ebd3aa9
   m_configObjects: {}

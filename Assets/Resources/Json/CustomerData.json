@@ -121,6 +121,36 @@
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
+                },
+                {
+                    "name": "로레나",
+                    "id": 4,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑, 슬픔"],
+                        "perfumeForce": ["약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["…", "…...", "…...........", "…....향수..좀..줘..", "…....", "남자친구…"],
+                        "visitFace": ["L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant"],
+                        "refusalComment": ["...", "그래요.."],
+                        "refusalFace": ["L01_faint2", "L01_faint2"],
+                        "requestComment": ["향은.. 약해도...돼…"],
+                        "requestFace": ["L01_faint1"],
+                        "resultGoodComment": ["와아..", "감사합니다…."],
+                        "resultGoodFace": ["L01_faint1", "L01_faint1"],
+                        "resultNormalComment": ["..음..", "괜찮네요..."],
+                        "resultNormalFace": ["L01_faint1", "L01_faint1"],
+                        "resultBadComment": ["하...", "이게 아니라..."],
+                        "resultBadFace": ["L01_faint2", "L01_faint2"],
+                        "noExistComment": ["…", "이건 대체…."],
+                        "noExistFace": ["L01_vacant", "L01_vacant"],
+                        "noFlavorComment": ["이건..", "무슨.. 향..이죠...?"],
+                        "noFlavorFace": ["L01_vacant", "L01_vacant"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
                 }
             ]
         },
@@ -128,7 +158,7 @@
             "customer": [
                 {
                     "name": "I",
-                    "id": 4,
+                    "id": 5,
                     "currentPerfume": {
                         "bassNotes": "장소",
                         "middleNotes": "여행지",
@@ -159,7 +189,7 @@
 
                 {
                     "name": "K",
-                    "id": 5,
+                    "id": 6,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -189,7 +219,7 @@
                 },
                 {
                     "name": "D",
-                    "id": 6,
+                    "id": 7,
                     "currentPerfume": {
                         "bassNotes": "물건",
                         "middleNotes": "장난감",
@@ -219,7 +249,7 @@
                 },
                 {
                     "name": "E",
-                    "id": 7,
+                    "id": 8,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -249,7 +279,7 @@
                 },
                 {
                     "name": "C",
-                    "id": 8,
+                    "id": 9,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -257,7 +287,7 @@
                         "perfumeForce": ["약함"]
                     },
                     "dialogue": {
-                        "visitComment": ["저기요, 아저씨..", "아니.. 그게..", "혹시 아저씨도 짝사랑을 해본 적이 있나요..?", "요즘 같은 반 짝꿍과 눈만 마주치면 제 심장이 두근거려요.", "예쁜 그 갈색 눈동자..", "이런 제 마음이 어디 새어나가지 않도록 보관할 방법이 없을까요?"],
+                        "visitComment": ["저기요, 아저씨..", "아니.. 그게..", "혹시 아저씨도 짝사랑을 해본 적이 있나요..?", "요즘 단짝 친구의 눈만 마주치면 제 심장이 두근거려요.", "예쁜 그 갈색 눈동자..", "이런 제 마음이 어디 새어나가지 않도록 보관할 방법이 없을까요?"],
                         "visitFace": ["Common", "Common", "Common", "Happy", "Happy", "Common"],
                         "refusalComment": ["에휴.. 이러다 진짜 들키는 거 아니야..?", "돌겠다.."],
                         "refusalFace": ["Bad", "Bad"],
@@ -276,6 +306,36 @@
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
+                },
+                {
+                    "name": "로레나",
+                    "id": 10,
+                    "currentPerfume": {
+                        "bassNotes": "장소",
+                        "middleNotes": "학교",
+                        "topNotes": ["행복"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["저...", "같이 캠퍼스 거닐 때...", "행복했는데.....","." ,"그때가 너무 그리워", "내가 더 잘할 걸...."],
+                        "visitFace": ["L01_vacant", "L01_faint1", "L01_faint2", "L01_faint2", "L01_faint2"],
+                        "refusalComment": ["아...", "내가  이렇게 필요하다는데", "대체 나한테 왜 그러는  거야?", "어째서..."],
+                        "refusalFace": ["L01_faint2", "L01_faint2", "L01_faint2", "L01_faint2"],
+                        "requestComment": ["그때의 기억이 희미해져가….", "더 강한 향이 필요해...."],
+                        "requestFace": ["L01_vacant", "L01_vacant"],
+                        "resultGoodComment": ["난 남자친구를 정말 사랑했어..", "정말 고마워... 정말..."],
+                        "resultGoodFace": ["L01_faint1", "L01_faint1"],
+                        "resultNormalComment": ["이 기억이 맞아...", "..고마워"],
+                        "resultNormalFace": ["L01_vacant", "L01_faint1"],
+                        "resultBadComment": ["이게 대체 뭐야..", "내 추억을 망치지 마!!"],
+                        "resultBadFace": ["L01_vacant", "L01_faint2"],
+                        "noExistComment": ["이게 아니야...", "이건 정말 별로야.."],
+                        "noExistFace": ["L01_faint2", "L01_faint2"],
+                        "noFlavorComment": ["나한테 왜 그러는 거야..?", "당신을 믿은 내가 한심해.."],
+                        "noFlavorFace": ["L01_faint2", "L01_faint2"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
                 }
             ]
         },
@@ -283,7 +343,7 @@
             "customer": [
                 {
                     "name": "F",
-                    "id": 9,
+                    "id": 11,
                     "currentPerfume": {
                         "bassNotes": "장소",
                         "middleNotes": "여행지",
@@ -313,7 +373,7 @@
                 },
                 {
                     "name": "G",
-                    "id": 10,
+                    "id": 12,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -339,11 +399,11 @@
                         "noFlavorFace": ["Bad"]
                     },
                     "uniqueGuest": false,
-                    "criminalGuest": false
+                    "criminalGuest": true
                 },
                 {
                     "name": "B",
-                    "id": 11,
+                    "id": 13,
                     "currentPerfume": {
                         "bassNotes": "물건",
                         "middleNotes": "장난감",
@@ -373,7 +433,7 @@
                 },
                 {
                     "name": "D",
-                    "id": 12,
+                    "id": 14,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -402,38 +462,8 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "로레나",
-                    "id": 13,
-                    "currentPerfume": {
-                        "bassNotes": "사람",
-                        "middleNotes": "연인",
-                        "topNotes": ["사랑", "슬픔"],
-                        "perfumeForce": ["약함"]
-                    },
-                    "dialogue": {
-                        "visitComment": ["…", "…...", "…...........", "…....향수..좀..줘..", "…....", "남자친구…"],
-                        "visitFace": ["L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant"],
-                        "refusalComment": ["...", "그래요.."],
-                        "refusalFace": ["L01_faint2", "L01_faint2"],
-                        "requestComment": ["향은.. 약해도...돼…"],
-                        "requestFace": ["L01_faint1"],
-                        "resultGoodComment": ["와아..", "감사합니다…."],
-                        "resultGoodFace": ["L01_faint1", "L01_faint1"],
-                        "resultNormalComment": ["..음..", "괜찮네요..."],
-                        "resultNormalFace": ["L01_faint1", "L01_faint1"],
-                        "resultBadComment": ["하...", "이게 아니라..."],
-                        "resultBadFace": ["L01_faint1", "L01_faint1"],
-                        "noExistComment": ["…", "이건 대체…."],
-                        "noExistFace": ["L01_faint1", "L01_faint1"],
-                        "noFlavorComment": ["이건.. ", "무슨.. 향..이죠...?"],
-                        "noFlavorFace": ["L01_faint1", "L01_faint1"]
-                    },
-                    "uniqueGuest": true,
-                    "criminalGuest": false
-                },
-                {
                     "name": "A",
-                    "id": 14,
+                    "id": 15,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "가족",
@@ -460,6 +490,36 @@
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
+                },
+                {
+                    "name": "로레나",
+                    "id": 16,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["...향수...", "제이든이.. ... 너..무...보고싶어...", "그러니까...빨리...줘..."],
+                        "visitFace": ["L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant", "L01_vacant"],
+                        "refusalComment": ["내가 그렇게... 어려운 부탁을 한거야...?", "제발...", "도와줘.."],
+                        "refusalFace": ["L01_faint2", "L01_faint2", "L01_faint2"],
+                        "requestComment": ["제이든..", "제이든의 향은", "아주 강하게..!"],
+                        "requestFace": ["L01_vacant", "L01_vacant", "L01_faint1"],
+                        "resultGoodComment": ["..맞아, 이거야..", "제이든의 모습이 선명해..", "지금처럼 내 옆에 계속.. 있어줘.."],
+                        "resultGoodFace": ["L01_faint1", "L01_faint1", "L01_faint1"],
+                        "resultNormalComment": ["좋아...", "얼굴이라도 보니까..", "마음이 편안해.."],
+                        "resultNormalFace":["L01_vacant", "L01_faint1", "L01_faint1"],
+                        "resultBadComment": ["이게 아니야.", "제대로 만들어야지!!", "이게 뭐하는거야?"],
+                        "resultBadFace": ["L01_faint1", "L01_faint1", "L01_faint1"],
+                        "noExistComment": ["아니야..", "제발 다시 돌아와줘..", "이건 남자친구가 아니야.."],
+                        "noExistFace": ["L01_faint1", "L01_cry", "L01_cry"],
+                        "noFlavorComment": ["나한테 왜 그러는 거야..?", "왜 나를 힘들게 하려는거야..?"],
+                        "noFlavorFace": ["L01_cry", "L01_cry"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
                 }
             ]
         },
@@ -467,7 +527,7 @@
             "customer": [
                 {
                     "name": "B",
-                    "id": 15,
+                    "id": 17,
                     "currentPerfume": {
                         "bassNotes": "물건",
                         "middleNotes": "인형",
@@ -497,7 +557,7 @@
                 },
                 {
                     "name": "D",
-                    "id": 16,
+                    "id": 18,
                     "currentPerfume": {
                         "bassNotes": "장소",
                         "middleNotes": "놀이공원",
@@ -527,7 +587,7 @@
                 },
                 {
                     "name": "E",
-                    "id": 17,
+                    "id": 19,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -557,7 +617,7 @@
                 },
                 {
                     "name": "L",
-                    "id": 18,
+                    "id": 20,
                     "currentPerfume": {
                         "bassNotes": "장소",
                         "middleNotes": "여행지",
@@ -587,7 +647,7 @@
                 },
                 {
                     "name": "G",
-                    "id": 19,
+                    "id": 21,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -614,6 +674,66 @@
                     },
                     "uniqueGuest": false,
                     "criminalGuest": true
+                },
+                {
+                    "name": "로레나A",
+                    "id": 22,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["사랑받고 싶어..", "제이든이 보고싶어..", "향수...향수를 줘", ".","왜 이럴까 항상...", "내가...너무...싫어...", "걔가 없으면 아무것도 할 수 없어...", "얼른... 향수를 줘..."],
+                        "visitFace": ["L01_cry", "L01_cry", "L01_cry", "L01_cry", "L01_cry", "L02_painful1", "L02_painful1", "L02_painful2"],
+                        "refusalComment": ["어쩌구"],
+                        "refusalFace": ["L01_faint2"],
+                        "requestComment": ["어쩌구"],
+                        "requestFace": ["L01_faint2"],
+                        "resultGoodComment": ["어쩌구"],
+                        "resultGoodFace":["L01_faint2"],
+                        "resultNormalComment":["어쩌구"],
+                        "resultNormalFace":["L01_faint2"],
+                        "resultBadComment": ["어쩌구"],
+                        "resultBadFace": ["L01_faint2"],
+                        "noExistComment": ["어쩌구"],
+                        "noExistFace": ["L01_faint2"],
+                        "noFlavorComment": ["어쩌구"],
+                        "noFlavorFace": ["L01_faint2"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "로레나BC",
+                    "id": 23,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["나도 예전처럼... 사랑받고 싶어...", "제이든은 어디 있는 거야..?", "내 옆에는 왜 아무도 없는 거지?", "우리 끝까지 사랑하기로 했잖아..?", ".", "으아아아.. 내가 정말 싫어..", "그때 그러면 안 됐는데..", "나는 왜 항상 이러는 거야..?", "너무 힘들어... 이제 제발 내 옆으로 돌아와 줘...", "지금 당장 걔의 향수가  필요해..."],
+                        "visitFace": ["L01_cry", "L01_cry", "L01_cry", "L02_painful1", "L02_painful2", "L02_painful2", "L02_painful2", "L02_painful2", "L02_painful1", "L02_painful1"],
+                        "refusalComment": ["어쩌구"],
+                        "refusalFace": ["L01_faint2"],
+                        "requestComment": ["어쩌구"],
+                        "requestFace": ["L01_faint2"],
+                        "resultGoodComment": ["어쩌구"],
+                        "resultGoodFace":["L01_faint2"],
+                        "resultNormalComment":["어쩌구"],
+                        "resultNormalFace":["L01_faint2"],
+                        "resultBadComment": ["어쩌구"],
+                        "resultBadFace": ["L01_faint2"],
+                        "noExistComment": ["어쩌구"],
+                        "noExistFace": ["L01_faint2"],
+                        "noFlavorComment": ["어쩌구"],
+                        "noFlavorFace": ["L01_faint2"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
                 }
             ]
         },
@@ -621,7 +741,7 @@
             "customer": [
                 {
                     "name": "H",
-                    "id": 20,
+                    "id": 24,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -651,7 +771,7 @@
                 },
                 {
                     "name": "I",
-                    "id": 21,
+                    "id": 25,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -681,7 +801,7 @@
                 },
                 {
                     "name": "C",
-                    "id": 22,
+                    "id": 26,
                     "currentPerfume": {
                         "bassNotes": "물건",
                         "middleNotes": "장난감",
@@ -707,11 +827,11 @@
                         "noFlavorFace": ["Bad", "Bad", "Bad"]
                     },
                     "uniqueGuest": false,
-                    "criminalGuest": true
+                    "criminalGuest": false
                 },
                 {
                     "name": "D",
-                    "id": 23,
+                    "id": 27,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -741,7 +861,7 @@
                 },
                 {
                     "name": "F",
-                    "id": 24,
+                    "id": 28,
                     "currentPerfume": {
                         "bassNotes": "장소",
                         "middleNotes": "놀이공원",
@@ -770,31 +890,91 @@
                     "criminalGuest": false
                 },
                 {
-                    "name": "로레나",
-                    "id": 25,
+                    "name": "로레나A",
+                    "id": 29,
                     "currentPerfume": {
                         "bassNotes": "사람",
-                        "middleNotes": "가족",
-                        "topNotes": ["행복"],
-                        "perfumeForce": ["강함","중간","약함"]
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
                     },
                     "dialogue": {
-                        "visitComment": ["어쩌구","어쩌구","어쩌구","어쩌구"],
-                        "visitFace": ["L01_faint2","L01_vacant","L01_faint2","L03_ecstatic1"],
+                        "visitComment": ["같이 있으니까 너무 좋다..", "평생 같이 하자 우리", "너만 사랑할거야..", "너..너가 필요해…"],
+                        "visitFace": ["L01_faint2", "L01_faint2", "L01_faint2", "L01_faint2"],
                         "refusalComment": ["어쩌구"],
-                        "refusalFace": ["L02_paintful1"],
+                        "refusalFace": ["L01_faint2"],
                         "requestComment": ["어쩌구"],
-                        "requestFace": ["L02_paintful1"],
+                        "requestFace": ["L01_faint2"],
                         "resultGoodComment": ["어쩌구"],
-                        "resultGoodFace": ["L02_paintful1"],
-                        "resultNormalComment": ["어쩌구"],
-                        "resultNormalFace": ["L02_paintful1"],
+                        "resultGoodFace":["L01_faint2"],
+                        "resultNormalComment":["어쩌구"],
+                        "resultNormalFace":["L01_faint2"],
                         "resultBadComment": ["어쩌구"],
-                        "resultBadFace": ["L02_paintful1"],
+                        "resultBadFace": ["L01_faint2"],
                         "noExistComment": ["어쩌구"],
-                        "noExistFace": ["L02_paintful1"],
+                        "noExistFace": ["L01_faint2"],
                         "noFlavorComment": ["어쩌구"],
-                        "noFlavorFace": ["L02_paintful1"]
+                        "noFlavorFace": ["L01_faint2"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "로레나B",
+                    "id": 30,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["남자친구야.. 어디 간 거야..?", "너가 없으면 아무것도 못하는 거 알잖아...", "빠... 빨리 돌아와 줘...", "너가 희미해져가...", "나에게서 멀어지지 말아줘.. 응?", "내가 잘할게.. 이제 정말... 잘할게...", "너... 너가... 꼭... 필요해..."],
+                        "visitFace": ["L01_faint2", "L01_faint2", "L01_faint2", "L01_faint2" , "L01_faint2" , "L01_faint2" , "L01_faint2"],
+                        "refusalComment": ["어쩌구"],
+                        "refusalFace": ["L01_faint2"],
+                        "requestComment": ["어쩌구"],
+                        "requestFace": ["L01_faint2"],
+                        "resultGoodComment": ["어쩌구"],
+                        "resultGoodFace":["L01_faint2"],
+                        "resultNormalComment":["어쩌구"],
+                        "resultNormalFace":["L01_faint2"],
+                        "resultBadComment": ["어쩌구"],
+                        "resultBadFace": ["L01_faint2"],
+                        "noExistComment": ["어쩌구"],
+                        "noExistFace": ["L01_faint2"],
+                        "noFlavorComment": ["어쩌구"],
+                        "noFlavorFace": ["L01_faint2"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "로레나C",
+                    "id": 31,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["아저씨..", "지금... 빨리.. 빨리 만들어줘...", "내 남자친구가 보이지가 않아", "대체 어디 간 거야?", "우리 평생 사랑하기로 약속했잖아...", "너가 있어야... 내가 살 수 있어..."],
+                        "visitFace": ["L01_faint2", "L01_faint2", "L01_faint2", "L01_faint2" , "L01_faint2" , "L01_faint2"],
+                        "refusalComment": ["어쩌구"],
+                        "refusalFace": ["L01_faint2"],
+                        "requestComment": ["어쩌구"],
+                        "requestFace": ["L01_faint2"],
+                        "resultGoodComment": ["어쩌구"],
+                        "resultGoodFace":["L01_faint2"],
+                        "resultNormalComment":["어쩌구"],
+                        "resultNormalFace":["L01_faint2"],
+                        "resultBadComment": ["어쩌구"],
+                        "resultBadFace": ["L01_faint2"],
+                        "noExistComment": ["어쩌구"],
+                        "noExistFace": ["L01_faint2"],
+                        "noFlavorComment": ["어쩌구"],
+                        "noFlavorFace": ["L01_faint2"]
                     },
                     "uniqueGuest": true,
                     "criminalGuest": false
@@ -805,7 +985,7 @@
             "customer": [
                 {
                     "name": "I",
-                    "id": 26,
+                    "id": 32,
                     "currentPerfume": {
                         "bassNotes": "물건",
                         "middleNotes": "인형",
@@ -835,7 +1015,7 @@
                 },
                 {
                     "name": "A",
-                    "id": 27,
+                    "id": 33,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "가족",
@@ -865,7 +1045,7 @@
                 },
                 {
                     "name": "B",
-                    "id": 28,
+                    "id": 34,
                     "currentPerfume": {
                         "bassNotes": "장소",
                         "middleNotes": "놀이터",
@@ -895,7 +1075,7 @@
                 },
                 {
                     "name": "C",
-                    "id": 29,
+                    "id": 35,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -925,7 +1105,7 @@
                 },
                 {
                     "name": "F",
-                    "id": 30,
+                    "id": 36,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -955,7 +1135,7 @@
                 },
                 {
                     "name": "E",
-                    "id": 31,
+                    "id": 37,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -982,6 +1162,66 @@
                     },
                     "uniqueGuest": false,
                     "criminalGuest": false
+                },
+                {
+                    "name": "로레나",
+                    "id": 38,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함, 중간, 약함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["향수 줘", "빨리", "지금 만들라고", "당장!!!", "그냥 달라고", "평소처럼 하면 되잖아.", "나한테 이러면 안 되는 거 잖아?", "내가 어떻게... 어떻게... 했는데...", "얼른 보러 갈게.."],
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["....죽을 거야", "그러니까 향수를 줘", "... 날 살려줘…"],
+                        "refusalFace": ["L01_faint2"],
+                        "requestComment": ["어쩌구"],
+                        "requestFace": ["L01_faint2"],
+                        "resultGoodComment": ["어쩌구"],
+                        "resultGoodFace":["L01_faint2"],
+                        "resultNormalComment":["어쩌구"],
+                        "resultNormalFace":["L01_faint2"],
+                        "resultBadComment": ["어쩌구"],
+                        "resultBadFace": ["L01_faint2"],
+                        "noExistComment": ["어쩌구"],
+                        "noExistFace": ["L01_faint2"],
+                        "noFlavorComment": ["어쩌구"],
+                        "noFlavorFace": ["L01_faint2"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "로레나",
+                    "id": 39,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["향수 줘", "빨리", "지금 만들라고", "당장!!!","그냥 달라고", "평소처럼 하면 되잖아.", "나한테 이러면 안 되는 거 잖아?", "내가 어떻게... 어떻게... 했는데...", "얼른 보러 갈게.."], 
+                        "visitFace": ["Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common", "Common"],
+                        "refusalComment": ["....죽을 거야", "그러니까 향수를 줘", "... 날 살려줘…"],
+                        "refusalFace": ["L01_faint2"],
+                        "requestComment": ["어쩌구"],
+                        "requestFace": ["L01_faint2"],
+                        "resultGoodComment": ["어쩌구"],
+                        "resultGoodFace":["L01_faint2"],
+                        "resultNormalComment":["어쩌구"],
+                        "resultNormalFace":["L01_faint2"],
+                        "resultBadComment": ["어쩌구"],
+                        "resultBadFace": ["L01_faint2"],
+                        "noExistComment": ["어쩌구"],
+                        "noExistFace": ["L01_faint2"],
+                        "noFlavorComment": ["어쩌구"],
+                        "noFlavorFace": ["L01_faint2"]
+                    },
+                    "uniqueGuest": true,
+                    "criminalGuest": false
                 }
             ]
         },
@@ -989,7 +1229,7 @@
             "customer": [
                 {
                     "name": "I",
-                    "id": 32,
+                    "id": 40,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -1019,7 +1259,7 @@
                 },
                 {
                     "name": "B",
-                    "id": 33,
+                    "id": 41,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "친구",
@@ -1049,7 +1289,7 @@
                 },
                 {
                     "name": "J",
-                    "id": 34,
+                    "id": 42,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -1079,7 +1319,7 @@
                 },
                 {
                     "name": "H",
-                    "id": 35,
+                    "id": 43,
                     "currentPerfume": {
                         "bassNotes": "장소",
                         "middleNotes": "학교",
@@ -1109,7 +1349,7 @@
                 },
                 {
                     "name": "D",
-                    "id": 36,
+                    "id": 44,
                     "currentPerfume": {
                         "bassNotes": "동물",
                         "middleNotes": "반려동물",
@@ -1139,7 +1379,7 @@
                 },
                 {
                     "name": "G",
-                    "id": 37,
+                    "id": 45,
                     "currentPerfume": {
                         "bassNotes": "사람",
                         "middleNotes": "연인",
@@ -1165,6 +1405,36 @@
                         "noFlavorFace": ["Bad", "Bad"]
                     },
                     "uniqueGuest": false,
+                    "criminalGuest": false
+                },
+                {
+                    "name": "로레나",
+                    "id": 46,
+                    "currentPerfume": {
+                        "bassNotes": "사람",
+                        "middleNotes": "연인",
+                        "topNotes": ["사랑"],
+                        "perfumeForce": ["강함"]
+                    },
+                    "dialogue": {
+                        "visitComment": ["….", "….. 어..", "오.. 오늘은 향수 사려고 온 거 아니야.", "그냥.. 말하고 싶은 게 있어서 왔어..", "….",  "고마워.", "저번에 준 향수로 절벽 끝에 서 있던 날 찾을 수 있었어.", "이미 떠나버린 사람을 다시 찾기 위해 나를 갉아먹고 있었어.", "그 모든 게 보잘것없다는 걸 지금에서야 알았어…", "그때는 왜 몰랐는지..", "이제는 날 더 아낄 수 있게 됐어.", "앞으로는 나를 더 아끼고, 웃으면서 살아보고 싶어.", "오늘은.. 그냥 이 말을 하고 싶었어.", "지금보다 나를 더 사랑할 수 있을 때, 향수를 사러 올게.", "다음에 봐."],
+                        "visitFace": ["Common", "Happy", "Happy", "Happy",  "Happy", "Sad", "Happy", "Happy", "Happy", "Happy", "Happy", "Happy"],
+                        "refusalComment": ["어쩌구"],
+                        "refusalFace": ["L01_faint2"],
+                        "requestComment": ["어쩌구"],
+                        "requestFace": ["L01_faint2"],
+                        "resultGoodComment": ["어쩌구"],
+                        "resultGoodFace":["L01_faint2"],
+                        "resultNormalComment":["어쩌구"],
+                        "resultNormalFace":["L01_faint2"],
+                        "resultBadComment": ["어쩌구"],
+                        "resultBadFace": ["L01_faint2"],
+                        "noExistComment": ["어쩌구"],
+                        "noExistFace": ["L01_faint2"],
+                        "noFlavorComment": ["어쩌구"],
+                        "noFlavorFace": ["L01_faint2"]
+                    },
+                    "uniqueGuest": true,
                     "criminalGuest": false
                 }
             ]

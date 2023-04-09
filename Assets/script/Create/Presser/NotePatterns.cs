@@ -10,7 +10,7 @@ public class NotePatterns : MonoBehaviour
     public GameObject Note;
 
     public Sprite LeftNote;
-    public Sprite MiddleNote;
+    public Sprite BothNote;
     public Sprite RightNote;
 
     public int DestroyCnt = 0;
@@ -65,7 +65,7 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.2f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.6f);
 
         CreateRightNote();
@@ -74,7 +74,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.2f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.6f);
 
         CreateLeftNote();
@@ -97,13 +97,13 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.3f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.6f);
 
         CreateRightNote();
         yield return new WaitForSeconds(0.3f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.4f);
 
         CreateRightNote();
@@ -112,13 +112,13 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.3f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.6f);
 
         CreateRightNote();
         yield return new WaitForSeconds(0.3f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.4f);
         //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
 
@@ -138,7 +138,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.6f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.3f);
 
         CreateRightNote();
@@ -153,7 +153,7 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.4f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.6f);
         //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
 
@@ -164,7 +164,7 @@ public class NotePatterns : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.5f);
 
         CreateLeftNote();
@@ -173,7 +173,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.6f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.3f);
 
         CreateRightNote();
@@ -182,7 +182,7 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.2f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.6f);
 
         CreateRightNote();
@@ -199,7 +199,7 @@ public class NotePatterns : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.5f);
 
         CreateLeftNote();
@@ -208,7 +208,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.6f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.3f);
 
         CreateRightNote();
@@ -220,7 +220,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.6f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.4f);
 
         CreateLeftNote();
@@ -240,7 +240,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.2f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.5f);
 
         CreateLeftNote();
@@ -249,7 +249,7 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.3f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.5f);
 
         CreateRightNote();
@@ -261,7 +261,7 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.7f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.8f);
 
         //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
@@ -279,7 +279,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.2f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.5f);
 
         CreateLeftNote();
@@ -294,10 +294,10 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.5f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.7f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.7f);
 
         CreateLeftNote();
@@ -315,10 +315,10 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.6f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.2f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.5f);
 
         CreateLeftNote();
@@ -339,7 +339,7 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.7f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.8f);
 
         //여기에 양쪽 노트 추가해야함. 근데 이거 테스트는 모바일에서만 가능임
@@ -357,7 +357,7 @@ public class NotePatterns : MonoBehaviour
         CreateRightNote();
         yield return new WaitForSeconds(0.6f);
 
-        CreateLeftNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.3f);
 
         CreateRightNote();
@@ -372,7 +372,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.3f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.6f);
 
         CreateLeftNote();
@@ -381,7 +381,7 @@ public class NotePatterns : MonoBehaviour
         CreateLeftNote();
         yield return new WaitForSeconds(0.3f);
 
-        CreateRightNote();
+        CreateBothNote();
         yield return new WaitForSeconds(0.2f);
 
         CreateLeftNote();
@@ -415,4 +415,16 @@ public class NotePatterns : MonoBehaviour
         note.noteType = global::Note.NoteType.Right;
         return go;
     }
+    GameObject CreateBothNote()
+    {
+        GameObject go = Instantiate(Note, NoteStartPos);
+        Note note = go.GetComponent<Note>();
+
+        go.transform.SetParent(NoteParent.transform);
+        go.GetComponent<Image>().sprite = BothNote;
+        go.GetComponent<Image>().SetNativeSize();
+        note.noteType = global::Note.NoteType.Both;
+        return go;
+    }
+
 }
