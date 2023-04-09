@@ -30,6 +30,10 @@ public class PresserTap : MonoBehaviour
         {
             PressDown(1);
         }
+        else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+        {
+            PressDown(2);
+        }
         if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             PressUp();
@@ -74,6 +78,8 @@ public class PresserTap : MonoBehaviour
                 CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[10];
             if (tapType == 1)
                 CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[12];
+            if (tapType == 2)
+                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[11];
             Presser.FindObjectOfType<Presser>().PressureScore += 1;
             Destroy(NextNote);
             Debug.Log("Miss...");
@@ -85,6 +91,8 @@ public class PresserTap : MonoBehaviour
                 CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[7];
             if (tapType == 1)
                 CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[9];
+            if (tapType == 2)
+                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[8];
             Presser.FindObjectOfType<Presser>().PressureScore += 2;
             Destroy(NextNote);
             Debug.Log("Bad");
@@ -96,6 +104,8 @@ public class PresserTap : MonoBehaviour
                 CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[4];
             if (tapType == 1)
                 CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[6];
+            if (tapType == 2)
+                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[5];
             Presser.FindObjectOfType<Presser>().PressureScore += 3;
             Destroy(NextNote);
             Debug.Log("Good");
@@ -106,6 +116,8 @@ public class PresserTap : MonoBehaviour
                 CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[1];
             if (tapType == 1)
                 CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[3];
+            if (tapType == 2)
+                CatPress.gameObject.GetComponent<Image>().sprite = PressReaction[2];
             Presser.FindObjectOfType<Presser>().PressureScore += 4;
             Destroy(NextNote);
             Debug.Log("Perfect!");

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Place : MonoBehaviour
 {
     [Header("SetValue")] 
@@ -43,7 +43,7 @@ public class Place : MonoBehaviour
     {
         if (_toolTip.button == Enums.MoveButton.RootOfReadButton)
         {
-            // 씬전환
+            SceneManager.LoadScene("main");
         }
 
         toolTipController.SetUp(_toolTip);
