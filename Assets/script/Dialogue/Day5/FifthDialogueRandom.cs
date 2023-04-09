@@ -65,6 +65,7 @@ public class FifthDialogueRandom : MonoBehaviour
 
     bool CustomerEnd = false;
     bool CustomerStart = false;
+    bool isLorenaCome = false;
     public void Start()
     {
         CustomerStart = true;
@@ -146,18 +147,6 @@ public class FifthDialogueRandom : MonoBehaviour
             }
         }
     }
-
-    public void StopDialogue()
-    {
-        isDialogueEnd = false;
-        Buyer.gameObject.GetComponent<Button>().interactable = false;
-    }
-    public void StartDialogue()
-    {
-        isDialogueEnd = true;
-        Buyer.gameObject.GetComponent<Button>().interactable = true;
-        ACount++;
-    }
     public void NextDialogue()
     {
         StopAll();
@@ -177,21 +166,11 @@ public class FifthDialogueRandom : MonoBehaviour
                     StartCoroutine(NormalChat(BuyerOrder[0]));
                     ACount++;
                 }
-                if (ACount == 2)
-                {
-                    StopDialogue();
-                    Invoke("StartDialogue", 5f);
-                    GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("LorenaCutScene");
-                    GameObject.Find("Dialogue").transform.GetChild(1).gameObject.SetActive(true);
-                    //GameObject.Find("seller").transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "무슨 향수?";
-                }
-                else if (ACount == 3)
-                {
-                    GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("Lorena1");
-                    //GameObject.Find("seller").transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
-                    GameObject.Find("Dialogue").transform.GetChild(1).gameObject.SetActive(false);
-                }
 
+                /*if (DS.Customer_ID[0] == 29 && ACount == 3)
+                { 
+                
+                }*/
                 if (isDialogueEnd == false)
                 {
                     RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[ACount - 1];
@@ -217,6 +196,8 @@ public class FifthDialogueRandom : MonoBehaviour
             {
                 if (ACount == 0)
                 {
+                    if (GameObject.Find("SoundManager").GetComponent<SoundManager>().isBgmPlay == false)
+                        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
                     RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<CriminalImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerOrderFace[0];
@@ -417,7 +398,42 @@ public class FifthDialogueRandom : MonoBehaviour
         }
     }
 
+    public void StoryCome()
+    {
+        if (DS.Customer_ID[0] == 29 && isLorenaCome == true)
+        {
+            int temp;
+            temp = DS.Customer_ID[0];
 
+            for (int i = 0; i < DS.Customer_ID.Length - 1; i++)
+            {
+                DS.Customer_ID[i] = DS.Customer_ID[i + 1];
+            }
+            DS.Customer_ID[DS.Customer_ID.Length - 1] = temp;
+        }
+        if (DS.Customer_ID[0] == 30 && isLorenaCome == true)
+        {
+            int temp;
+            temp = DS.Customer_ID[0];
+
+            for (int i = 0; i < DS.Customer_ID.Length - 1; i++)
+            {
+                DS.Customer_ID[i] = DS.Customer_ID[i + 1];
+            }
+            DS.Customer_ID[DS.Customer_ID.Length - 1] = temp;
+        }
+        if (DS.Customer_ID[0] == 31 && isLorenaCome == true)
+        {
+            int temp;
+            temp = DS.Customer_ID[0];
+
+            for (int i = 0; i < DS.Customer_ID.Length - 1; i++)
+            {
+                DS.Customer_ID[i] = DS.Customer_ID[i + 1];
+            }
+            DS.Customer_ID[DS.Customer_ID.Length - 1] = temp;
+        }
+    }
     public void A_Start()//손님 : 입장, 향수 구매 이유 제시
     {
         if (CustomerStart == true)
@@ -537,7 +553,10 @@ public class FifthDialogueRandom : MonoBehaviour
     public void End()
     {
         CustomerEnd = true;
-        if (DailyResult.GetComponent<DailyResult>().personNum < 5 && isDialogueEnd == true)
+        if (DS.Customer_ID[0] == 29 || DS.Customer_ID[0] == 30 || DS.Customer_ID[0] == 31)
+            isLorenaCome = true;
+
+        if (DailyResult.GetComponent<DailyResult>().personNum < 6 && isDialogueEnd == true)
         {
             if (DailyResult.GetComponent<DailyResult>().personNum == 2)//손님 3명 가고 나서 점심으로 바뀜
             {
@@ -572,11 +591,13 @@ public class FifthDialogueRandom : MonoBehaviour
             Customer.gameObject.SetActive(false);
             Buyer.gameObject.SetActive(false);
             GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
+
+            StoryCome();
             Invoke("A_Start", 5f);//손님 가고 5초 뒤에 다음 손님 등장.
         }
 
 
-        if (DailyResult.GetComponent<DailyResult>().personNum == 5 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
+        if (DailyResult.GetComponent<DailyResult>().personNum == 6 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
         {
             CustomerStart = false;
             Customer.SetActive(false);
@@ -588,10 +609,17 @@ public class FifthDialogueRandom : MonoBehaviour
 
     public void DailyWindowOpen()
     {
+        Invoke("CriminalResult", 3f);
+        CriminalSystem.FindObjectOfType<CriminalSystem>().CriminalDailyResult();
         DailyResult.transform.localPosition = new Vector3(0, 0, 0);
         DailyResult.GetComponent<Animator>().enabled = true;
     }
-
+    public void CriminalResult()
+    {
+        GameObject.Find("DailyResult").transform.GetChild(8).gameObject.SetActive(true);
+        CriminalSystem.FindObjectOfType<CriminalSystem>().isDeclareSuccess = false;
+        CriminalSystem.FindObjectOfType<CriminalSystem>().isCriminalSell = false;
+    }
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";
