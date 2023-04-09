@@ -6,12 +6,12 @@ public class MainMenu : MonoBehaviour
     public void OnNewGameClicked()
     {
         GameDataManager.Instance.NewGameStart();
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Main");
     }
     
     public void OnLoadGameClicked()
     {
-        //SceneManager.LoadScene("Main");
         GameDataManager.Instance.LoadData();
+        SceneManager.LoadScene("Main");
     }
 }

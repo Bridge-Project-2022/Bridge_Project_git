@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        if (isTimerStart == true && GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
+        if (isTimerStart == true)
         {
             TimerStart();
         }

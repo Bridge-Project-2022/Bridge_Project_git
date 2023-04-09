@@ -475,9 +475,9 @@ public class FourthDialogueRandom : MonoBehaviour
     public void End()
     {
         CustomerEnd = true;
-        if (DailyResult.GetComponent<DailyResult>().personNum < 5 && isDialogueEnd == true)
+        if (DailyResult.GetComponent<DailyResult>().personNum < 9 && isDialogueEnd == true)
         {
-            if (DailyResult.GetComponent<DailyResult>().personNum == 2)//손님 3명 가고 나서 점심으로 바뀜
+            if (DailyResult.GetComponent<DailyResult>().personNum == 3)//손님 3명 가고 나서 점심으로 바뀜
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "afternoon";
                 //CriminalImage.FindObjectOfType<CriminalImage>().CurrentTime = "afternoon";
@@ -486,7 +486,7 @@ public class FourthDialogueRandom : MonoBehaviour
                 WindowBG.GetComponent<SpriteRenderer>().sprite = BG_Sprite[4];
 
             }
-            else if (DailyResult.GetComponent<DailyResult>().personNum == 4)//손님 6명 가고 나서 저녁으로 바뀜
+            else if (DailyResult.GetComponent<DailyResult>().personNum == 6)//손님 6명 가고 나서 저녁으로 바뀜
             {
                 RandomImage.FindObjectOfType<RandomImage>().CurrentTime = "night";
                 //CriminalImage.FindObjectOfType<CriminalImage>().CurrentTime = "night";
@@ -514,7 +514,7 @@ public class FourthDialogueRandom : MonoBehaviour
         }
 
 
-        if (DailyResult.GetComponent<DailyResult>().personNum == 5 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
+        if (DailyResult.GetComponent<DailyResult>().personNum == 9 && CustomerEnd == true)//손님 9명 가고 나서 최종 창이 뜸.
         {
             CustomerStart = false;
             Customer.SetActive(false);
