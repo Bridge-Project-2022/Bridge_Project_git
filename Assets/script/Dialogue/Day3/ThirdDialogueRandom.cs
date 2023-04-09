@@ -49,7 +49,7 @@ public class ThirdDialogueRandom : MonoBehaviour
     public string[] BuyerFeel = new string[10];
     public Sprite[] BG_Sprite = new Sprite[5];
 
-    public bool AStart = false;
+    bool AStart = false;
     bool D1Start = false;
     bool D2Start = false;
     bool EStart = false;
@@ -167,6 +167,16 @@ public class ThirdDialogueRandom : MonoBehaviour
                     StartCoroutine(NormalChat(BuyerOrder[0]));
                     ACount++;
                 }
+                if (ACount == 4)
+                {
+                    GameObject.Find("Dialogue").transform.GetChild(3).gameObject.SetActive(true);
+                    GameObject.Find("seller").transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "무슨 향수?";
+                }
+                else if (ACount == 5)
+                {
+                    //GameObject.Find("seller").transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                    GameObject.Find("Dialogue").transform.GetChild(3).gameObject.SetActive(false);
+                }
 
                 if (isDialogueEnd == false)
                 {
@@ -193,8 +203,6 @@ public class ThirdDialogueRandom : MonoBehaviour
             {
                 if (ACount == 0)
                 {
-                    if (GameObject.Find("SoundManager").GetComponent<SoundManager>().isBgmPlay == false)
-                        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
                     RC.GetComponent<RandomImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<CriminalImage>().CurrentFeel = BuyerOrderFace[0];
                     RC.GetComponent<StoryCustomerImage>().CurrentFeel = BuyerOrderFace[0];
@@ -405,15 +413,6 @@ public class ThirdDialogueRandom : MonoBehaviour
             Customer.gameObject.SetActive(true);
             Buyer.gameObject.SetActive(true);
 
-            if (GameObject.Find("CriminalSystem").GetComponent<CriminalSystem>().isDeclareClick == false)
-            {
-                GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
-            }
-            if (DailyResult.GetComponent<DailyResult>().personNum == 0)
-            {
-                GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(true);
-            }
-
             AStart = true;
             isDialogueStart = true;
             NextDialogue();
@@ -433,10 +432,6 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public void C_2_Start()//유저 : 거부 - 거부 이유 제시
     {
-        if (GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().Customer_ID[0] == 16)//로레나일 경우
-        {
-            GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "C";
-        }
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         DailyResult.GetComponent<DailyResult>().personNum += 1;
@@ -514,6 +509,10 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public void End()
     {
+        if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == true)
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
+        }
         CustomerEnd = true;
         GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique = false;
         if (DailyResult.GetComponent<DailyResult>().personNum < 6 && isDialogueEnd == true)
@@ -567,17 +566,10 @@ public class ThirdDialogueRandom : MonoBehaviour
 
     public void DailyWindowOpen()
     {
-        Invoke("CriminalResult", 3f);
-        CriminalSystem.FindObjectOfType<CriminalSystem>().CriminalDailyResult();
         DailyResult.transform.localPosition = new Vector3(0, 0, 0);
         DailyResult.GetComponent<Animator>().enabled = true;
     }
-    public void CriminalResult()
-    {
-        GameObject.Find("DailyResult").transform.GetChild(8).gameObject.SetActive(true);
-        CriminalSystem.FindObjectOfType<CriminalSystem>().isDeclareSuccess = false;
-        CriminalSystem.FindObjectOfType<CriminalSystem>().isCriminalSell = false;
-    }
+
     IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
     {
         string writerText = "";

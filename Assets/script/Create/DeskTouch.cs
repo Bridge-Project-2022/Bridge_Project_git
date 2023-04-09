@@ -28,8 +28,7 @@ public class DeskTouch : MonoBehaviour
     public GameObject ClickItem;
     public GameObject Perfume;
 
-    public CriminalSystem CriminalSystem;
-    public GameObject Declaration;
+
     public Sprite Alpa;
     public void Start()
     {
@@ -62,9 +61,6 @@ public class DeskTouch : MonoBehaviour
         Manufacture.gameObject.SetActive(true);
         inven.gameObject.SetActive(true);
         isDeskUp = true;
-
-        if (Declaration.activeSelf)
-            Declaration.SetActive(false);
 
         for (int i = 0; i < baseSlot.transform.childCount; i++)
         {
@@ -107,14 +103,6 @@ public class DeskTouch : MonoBehaviour
 
             ClickItem.SetActive(false);
 
-            if (NextDay.FindObjectOfType<NextDay>().day >= 3)
-            {
-                if (CriminalSystem.isDeclareClick == true)
-                    Declaration.SetActive(false);
-                else
-                    Declaration.SetActive(true);
-            }
-
             GameObject.Find("Perfume").GetComponent<PerfumeColor>().PerfumeReset();
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("perfumeTouch");
             GameObject.Find("Etc").transform.GetChild(2).gameObject.SetActive(true);
@@ -146,7 +134,6 @@ public class DeskTouch : MonoBehaviour
             isDeskUp = false;
             Invoke("PerfumeDialogue", 0.3f);
         }
-        TotalScore.FindObjectOfType<TotalScore>().gameOverCheck();
     }
 
     public void PerfumeDialogue()
@@ -154,14 +141,9 @@ public class DeskTouch : MonoBehaviour
         if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutResult == false)
         {
             DayCheck.FindObjectOfType<DayCheck>().E1_Check();
-            if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().isUnique == true)
-                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("Lorena1");
-            else
-                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
-        }
-        else
-        {
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
         }
+        else
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
     }
 }

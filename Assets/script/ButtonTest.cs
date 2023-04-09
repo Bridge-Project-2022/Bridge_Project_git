@@ -22,6 +22,6 @@ public class ButtonTest : MonoBehaviour
         GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
 
         nd.day = day - 1;
-        nd.DayCheckTest();
+        //nd.DayCheckTest();
     }
 }

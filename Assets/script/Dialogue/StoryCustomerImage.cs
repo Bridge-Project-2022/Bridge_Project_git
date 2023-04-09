@@ -21,14 +21,6 @@ public class StoryCustomerImage : MonoBehaviour
 
     public GameObject Customer;
 
-    public string ThirdLorenaResult = "";
-    public string FourthLorenaResult = "";
-    public string SixthLorenaResult = "";
-
-    public Sprite LorenaCut1;
-    public Sprite LorenaCut2;
-    public Sprite LorenaCut3;
-
     void Update()
     {
         CurrentTime = this.GetComponent<RandomImage>().CurrentTime;
@@ -65,7 +57,7 @@ public class StoryCustomerImage : MonoBehaviour
 
     public void RCFeeling()
     {
-        if (CurrentName == "로레나" || CurrentName == "로레나A" || CurrentName == "로레나BC" || CurrentName == "로레나B" || CurrentName == "로레나C" || CurrentName == "로레나1" || CurrentName == "로레나2")
+        if (CurrentName == "로레나")
         {
             if (isUnique == true)
             {

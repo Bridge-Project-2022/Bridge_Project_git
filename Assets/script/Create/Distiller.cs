@@ -73,7 +73,7 @@ public class Distiller : MonoBehaviour
 
         if (isBaseRight == true)
         {
-            GameObject.Find("DailyResult").GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
@@ -82,7 +82,7 @@ public class Distiller : MonoBehaviour
         else if (isBaseRight == false)
         {
             TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
-            GameObject.Find("DailyResult").GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
         }
         GameObject.Find("InvenUI").GetComponent<Button>().interactable = false;

@@ -7,7 +7,7 @@ public class SeventhDialogueScript : MonoBehaviour
     public GameObject Distiller;
 
     public string Customer_Name = "";
-    public int[] Customer_ID = new int[7];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
+    public int[] Customer_ID = new int[5];//한 날짜에 오는 손님의 아이디 (손님 수만큼 할당)
     public string[] Customer_PerfumeOrder = new string[10];//손님 향수 주문 대사
     public string[] Customer_IntensityOrder = new string[5];//향수 강도 대사
     public string[] Customer_Flavoring = new string[3];//원하는 향료 선택(베, 미, 탑)
@@ -21,8 +21,10 @@ public class SeventhDialogueScript : MonoBehaviour
 
 
     public bool isCriminal = false;
+    public bool isUnique = false;
 
     public int CriminalID = 10;
+    public int UniqueID = 1000;
 
     public GameObject RC;
 
@@ -31,7 +33,7 @@ public class SeventhDialogueScript : MonoBehaviour
         //손님 아이디 배열에 1-9까지 중에 랜덤으로 넣되 중복되지 않도록 배치함. 
         for (int i = 0; i < Customer_ID.Length; i++)
         {
-            Customer_ID[i] = Random.Range(40, 47);
+            Customer_ID[i] = Random.Range(32, 38);
             for (int j = 0; j < i; j++)
             {
                 if (Customer_ID[i] == Customer_ID[j])
@@ -50,21 +52,22 @@ public class SeventhDialogueScript : MonoBehaviour
         Customer H = CustomerManager.Instance.days.day[6].customer[3];
         Customer D = CustomerManager.Instance.days.day[6].customer[4];
         Customer G = CustomerManager.Instance.days.day[6].customer[5];
-        Customer Lorena = CustomerManager.Instance.days.day[6].customer[6];
 
 
         if (Customer_ID[0] == B.id)
         {
             Customer_Name = B.name;
 
-            if (B.uniqueGuest == false)
+            if (B.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = B.id;
             }
 
-            if (B.criminalGuest == false)
+            if (B.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = B.id;
             }
 
             foreach (string str in B.dialogue.visitComment)
@@ -180,14 +183,16 @@ public class SeventhDialogueScript : MonoBehaviour
         {
             Customer_Name = D.name;
 
-            if (D.uniqueGuest == false)
+            if (D.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = D.id;
             }
 
-            if (D.criminalGuest == false)
+            if (D.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = D.id;
             }
 
             foreach (string str in D.dialogue.visitComment)
@@ -303,14 +308,16 @@ public class SeventhDialogueScript : MonoBehaviour
         {
             Customer_Name = G.name;
 
-            if (G.uniqueGuest == false)
+            if (G.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = G.id;
             }
 
-            if (G.criminalGuest == false)
+            if (G.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                RC.GetComponent<CriminalImage>().isCriminal = true;
+                RC.GetComponent<CriminalImage>().CriminaID = G.id;
             }
 
             foreach (string str in G.dialogue.visitComment)
@@ -426,14 +433,16 @@ public class SeventhDialogueScript : MonoBehaviour
         {
             Customer_Name = I.name;
 
-            if (I.uniqueGuest == false)
+            if (I.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = I.id;
             }
 
-            if (I.criminalGuest == false)
+            if (I.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                isCriminal = true;
+                CriminalID = I.id;
             }
 
             foreach (string str in I.dialogue.visitComment)
@@ -549,14 +558,16 @@ public class SeventhDialogueScript : MonoBehaviour
         {
             Customer_Name = H.name;
 
-            if (H.uniqueGuest == false)
+            if (H.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = H.id;
             }
 
-            if (H.criminalGuest == false)
+            if (H.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                isCriminal = true;
+                CriminalID = H.id;
             }
 
             foreach (string str in H.dialogue.visitComment)
@@ -672,14 +683,16 @@ public class SeventhDialogueScript : MonoBehaviour
         {
             Customer_Name = J.name;
 
-            if (J.uniqueGuest == false)
+            if (J.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = J.id;
             }
 
-            if (J.criminalGuest == false)
+            if (J.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                isCriminal = true;
+                CriminalID = J.id;
             }
 
             foreach (string str in J.dialogue.visitComment)
@@ -785,130 +798,6 @@ public class SeventhDialogueScript : MonoBehaviour
                     foreach (string str in J.dialogue.noExistFace)
                     {
                         ReactFace = J.dialogue.noExistFace;
-                    }
-                }
-            }
-
-        }
-
-        if (Customer_ID[0] == Lorena.id)
-        {
-            Customer_Name = Lorena.name;
-
-            if (Lorena.uniqueGuest == true)
-            {
-                RC.GetComponent<StoryCustomerImage>().isUnique = true;
-                RC.GetComponent<StoryCustomerImage>().UniqueID = Lorena.id;
-            }
-
-            if (Lorena.criminalGuest == false)
-            {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
-            }
-
-            foreach (string str in Lorena.dialogue.visitComment)
-            {
-                Customer_PerfumeOrder = Lorena.dialogue.visitComment;
-            }
-
-            foreach (string str in Lorena.dialogue.requestComment)
-            {
-                Customer_IntensityOrder = Lorena.dialogue.requestComment;
-            }
-
-            foreach (string str in Lorena.dialogue.refusalComment)
-            {
-                Customer_RejectReaction = Lorena.dialogue.refusalComment;
-            }
-
-            foreach (string str in Lorena.dialogue.visitFace)
-            {
-                OrderFace = Lorena.dialogue.visitFace;
-            }
-
-            foreach (string str in Lorena.dialogue.requestFace)
-            {
-                IntensityFace = Lorena.dialogue.requestFace;
-            }
-
-            foreach (string str in Lorena.dialogue.refusalFace)
-            {
-                RejectFace = Lorena.dialogue.refusalFace;
-            }
-
-            Distiller.GetComponent<Distiller>().DistillerStatus = Lorena.currentPerfume.perfumeForce[0];
-
-            Customer_Flavoring[0] = Lorena.currentPerfume.bassNotes;
-            Customer_Flavoring[1] = Lorena.currentPerfume.middleNotes;
-            Customer_Flavoring[2] = Lorena.currentPerfume.topNotes[0];
-
-
-            if (GameObject.FindObjectOfType<TotalScore>().RightItem == 3)//베미탑 모두 올바른 향료 사용한 경우 -> 평판 보고 판단
-            {
-                if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
-                {
-                    foreach (string str in Lorena.dialogue.resultGoodComment)
-                    {
-                        Customer_PerfumeReaction = Lorena.dialogue.resultGoodComment;
-                    }
-
-                    foreach (string str in Lorena.dialogue.resultGoodFace)
-                    {
-                        ReactFace = Lorena.dialogue.resultGoodFace;
-                    }
-                }
-
-                else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
-                {
-                    foreach (string str in Lorena.dialogue.resultNormalComment)
-                    {
-                        Customer_PerfumeReaction = Lorena.dialogue.resultNormalComment;
-                    }
-
-                    foreach (string str in Lorena.dialogue.resultNormalFace)
-                    {
-                        ReactFace = Lorena.dialogue.resultNormalFace;
-                    }
-                }
-
-                else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
-                {
-                    foreach (string str in Lorena.dialogue.resultBadComment)
-                    {
-                        Customer_PerfumeReaction = Lorena.dialogue.resultBadComment;
-                    }
-
-                    foreach (string str in Lorena.dialogue.resultBadFace)
-                    {
-                        ReactFace = Lorena.dialogue.resultBadFace;
-                    }
-                }
-            }
-            else//향료를 하나라도 다르게 사용한 경우
-            {
-                if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
-                {
-                    foreach (string str in Lorena.dialogue.resultGoodComment)
-                    {
-                        Customer_PerfumeReaction = Lorena.dialogue.noFlavorComment;
-                    }
-
-                    foreach (string str in Lorena.dialogue.noFlavorFace)
-                    {
-                        ReactFace = Lorena.dialogue.noFlavorFace;
-                    }
-                }
-
-                else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
-                {
-                    foreach (string str in Lorena.dialogue.resultGoodComment)
-                    {
-                        Customer_PerfumeReaction = Lorena.dialogue.noExistComment;
-                    }
-
-                    foreach (string str in Lorena.dialogue.noExistFace)
-                    {
-                        ReactFace = Lorena.dialogue.noExistFace;
                     }
                 }
             }

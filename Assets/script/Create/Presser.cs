@@ -62,7 +62,7 @@ public class Presser : MonoBehaviour
             Receipt.gameObject.SetActive(false);
             if (isMiddleRight == true)
             {
-                GameObject.Find("DailyResult").GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+                GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
                 TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
                 TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
                 TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
@@ -71,7 +71,7 @@ public class Presser : MonoBehaviour
             else if (isMiddleRight == false)
             {
                 TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
-                GameObject.Find("DailyResult").GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+                GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
                 TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             }
             GameObject.Find("Manufacture").transform.GetChild(7).gameObject.SetActive(false);
@@ -157,7 +157,7 @@ public class Presser : MonoBehaviour
         else//튜토리얼일 경우
         {
             Receipt.gameObject.SetActive(false);
-            GameObject.Find("DailyResult").GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;

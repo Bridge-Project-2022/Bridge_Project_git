@@ -20,6 +20,7 @@ public class ThirdDialogueScript : MonoBehaviour
     public string[] ReactFace = new string[5];
 
     public bool isCriminal = false;
+    public bool isUnique = false;
 
     public int CriminalID = 10;
     public int UniqueID = 10;
@@ -31,7 +32,7 @@ public class ThirdDialogueScript : MonoBehaviour
         //손님 아이디 배열에 1-9까지 중에 랜덤으로 넣되 중복되지 않도록 배치함. 
         for (int i = 0; i < Customer_ID.Length; i++)
         {
-            Customer_ID[i] = Random.Range(11, 17);
+            Customer_ID[i] = Random.Range(9, 15);
             for (int j = 0; j < i; j++)
             {
                 if (Customer_ID[i] == Customer_ID[j])
@@ -48,22 +49,24 @@ public class ThirdDialogueScript : MonoBehaviour
         Customer G = CustomerManager.Instance.days.day[2].customer[1];
         Customer B = CustomerManager.Instance.days.day[2].customer[2];
         Customer D = CustomerManager.Instance.days.day[2].customer[3];
-        Customer A = CustomerManager.Instance.days.day[2].customer[4];
-        Customer Lorena = CustomerManager.Instance.days.day[2].customer[5];
+        Customer Lorena = CustomerManager.Instance.days.day[2].customer[4];
+        Customer A = CustomerManager.Instance.days.day[2].customer[5];
 
 
         if (Customer_ID[0] == B.id)
         {
             Customer_Name = B.name;
 
-            if (B.uniqueGuest == false)
+            if (B.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = B.id;
             }
 
-            if (B.criminalGuest == false)
+            if (B.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                isCriminal = true;
+                CriminalID = B.id;
             }
 
             foreach (string str in B.dialogue.visitComment)
@@ -179,14 +182,16 @@ public class ThirdDialogueScript : MonoBehaviour
         {
             Customer_Name = F.name;
 
-            if (F.uniqueGuest == false)
+            if (F.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = F.id;
             }
 
-            if (F.criminalGuest == false)
+            if (F.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                isCriminal = true;
+                CriminalID = F.id;
             }
 
             foreach (string str in F.dialogue.visitComment)
@@ -302,14 +307,16 @@ public class ThirdDialogueScript : MonoBehaviour
         {
             Customer_Name = D.name;
 
-            if (D.uniqueGuest == false)
+            if (D.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = D.id;
             }
 
-            if (D.criminalGuest == false)
+            if (D.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                isCriminal = true;
+                CriminalID = D.id;
             }
 
             foreach (string str in D.dialogue.visitComment)
@@ -425,14 +432,15 @@ public class ThirdDialogueScript : MonoBehaviour
         {
             Customer_Name = G.name;
 
-            if (G.uniqueGuest == false)
+            if (G.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = G.id;
             }
 
             if (G.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = true;
+                isCriminal = true;
                 CriminalID = G.id;
             }
 
@@ -548,15 +556,17 @@ public class ThirdDialogueScript : MonoBehaviour
         if (Customer_ID[0] == Lorena.id)
         {
             Customer_Name = Lorena.name;
+
             if (Lorena.uniqueGuest == true)
             {
                 RC.GetComponent<StoryCustomerImage>().isUnique = true;
                 RC.GetComponent<StoryCustomerImage>().UniqueID = Lorena.id;
             }
 
-            if (Lorena.criminalGuest == false)
+            if (Lorena.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                isCriminal = true;
+                CriminalID = Lorena.id;
             }
 
             foreach (string str in Lorena.dialogue.visitComment)
@@ -600,7 +610,6 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "A";
                     foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.resultGoodComment;
@@ -614,7 +623,6 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "A";
                     foreach (string str in Lorena.dialogue.resultNormalComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.resultNormalComment;
@@ -628,7 +636,6 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "B";
                     foreach (string str in Lorena.dialogue.resultBadComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.resultBadComment;
@@ -644,7 +651,6 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "B";
                     foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.noFlavorComment;
@@ -658,7 +664,6 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "B";
                     foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.noExistComment;
@@ -677,14 +682,16 @@ public class ThirdDialogueScript : MonoBehaviour
         {
             Customer_Name = A.name;
 
-            if (A.uniqueGuest == false)
+            if (A.uniqueGuest == true)
             {
-                RC.GetComponent<StoryCustomerImage>().isUnique = false;
+                isUnique = true;
+                UniqueID = A.id;
             }
 
-            if (A.criminalGuest == false)
+            if (A.criminalGuest == true)
             {
-                RC.GetComponent<CriminalImage>().isCriminal = false;
+                isCriminal = true;
+                CriminalID = A.id;
             }
 
             foreach (string str in A.dialogue.visitComment)

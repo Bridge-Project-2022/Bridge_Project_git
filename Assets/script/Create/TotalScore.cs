@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class TotalScore : MonoBehaviour
 {
@@ -117,7 +116,7 @@ public class TotalScore : MonoBehaviour
         {
             //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
             Debug.Log("하나라도 고르긴 했는데 맞는 향료가 아닐 경우");
-            perfumePrice = totalScore * 3;
+            perfumePrice = totalScore;
             float imsiMoney = fd.Money;
             fd.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, fd.Money));
@@ -134,7 +133,7 @@ public class TotalScore : MonoBehaviour
         {
             Debug.Log("3개 향료 다 맞은 경우");
             float imsiMoney = fd.Money;
-            perfumePrice = rightPrice + totalScore * 3;
+            perfumePrice = rightPrice + totalScore;
             fd.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, fd.Money));
             GameObject.Find("DailyResult").GetComponent<DailyResult>().allRevenue += perfumePrice;
@@ -192,31 +191,6 @@ public class TotalScore : MonoBehaviour
             }
         }
         GameObject.Find("DailyResult").GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
-    }
-
-    public void gameOverCheck()
-    {
-        if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 0)
-        {
-            if (GameObject.Find("Dialogue").transform.GetChild(2).gameObject.activeSelf)
-                GameObject.Find("Dialogue").transform.GetChild(2).gameObject.SetActive(false);
-
-            GameObject.Find("popup").transform.GetChild(3).gameObject.SetActive(true);
-
-            Invoke("buyerFalse", 0.5f);
-            Invoke("goTitle", 4f);
-        }
-    }
-
-    void buyerFalse()
-    {
-        if (GameObject.Find("Dialogue").transform.GetChild(4).gameObject.activeSelf)
-            GameObject.Find("Dialogue").transform.GetChild(4).gameObject.SetActive(false);
-        GameObject.Find("typing").GetComponent<AudioSource>().Stop();
-    }
-    public void goTitle()
-    {
-        SceneManager.LoadScene("Title"); 
     }
     public void totalPrice()
     {

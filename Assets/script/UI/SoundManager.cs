@@ -34,7 +34,6 @@ public class SoundManager : MonoBehaviour
 
     public GameObject newsPanel;
 
-    public bool isBgmPlay = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -150,31 +149,26 @@ public class SoundManager : MonoBehaviour
         switch (action)
         {
             case "news":
-                isBgmPlay = false;
                 bgmAudioSource.clip = news;
                 bgmAudioSource.volume = 0.8f;
                 break;
 
             case "main":
-                isBgmPlay = true;
                 bgmAudioSource.clip = main;
                 bgmAudioSource.volume = 0.7f;
                 break;
 
             case "Lorena1":
-                isBgmPlay = false;
                 bgmAudioSource.clip = Lorena1;
                 bgmAudioSource.volume = 1f;
                 break;
 
             case "LorenaCutScene":
-                isBgmPlay = false;
                 bgmAudioSource.clip = LorenaCutScene;
                 bgmAudioSource.volume = 1f;
                 break;
 
             case "create_asmr":
-                isBgmPlay = false;
                 bgmAudioSource.clip = create_asmr;
                 bgmAudioSource.volume = 0.7f;
                 break;

@@ -16,10 +16,10 @@ public class GameData
 
     public GameData()
     {
-        this.money = 10000;
-        this.day = 1;
+        this.money = 500;
+        this.day = 2;
         this.reputation = 60;
-        this.reputationValue = 0.6f;
+        this.reputationValue = 0.0f;
         this.bgm = 1.0f;
         this.sfx = 1.0f;
         this.soundEnable = false;

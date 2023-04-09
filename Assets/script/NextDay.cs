@@ -52,55 +52,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
     public void DayCheck()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("DayFinish");
-        DailyResult.GetComponent<Animator>().enabled = false;
-        DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
-
-        SceneManager.LoadScene("MoveSystem");
-    }
-    public void MoveAfterDayCheck()
-    {
-        if (day == 1)
-        {
-            day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (day == 2)
-        {
-            day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (day == 3)
-        {
-            day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (day == 4)
-        {
-            day++;
-            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
-            Invoke("GoToTitle", 3f);
-        }
-        else if (day == 5)
-        {
-            day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (day == 6)
-        {
-            day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (day == 7)
-        {
-            day++;
-            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
-            Invoke("GoToTitle", 3f);
-        }
-    }
-
-    public void DayCheckTest()
-    {
+        GameDataManager.FindObjectOfType<GameDataManager>().SaveData();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("DayFinish");
         DailyResult.GetComponent<Animator>().enabled = false;
         DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
@@ -165,6 +117,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
         RandomBuyer.SetActive(false);
         buyer.SetActive(false);
 
+        Debug.Log(day);
         if (day == 2)
         {
             Invoke("SecondDayStart", 3f);
@@ -183,9 +136,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
         }
         if (day == 6)
         {
-            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
-            Invoke("GoToTitle", 3f);
-            //Invoke("SixthDayStart", 3f);
+            Invoke("SixthDayStart", 3f);
         }
         if (day == 7)
         {
@@ -208,6 +159,10 @@ public class NextDay : MonoBehaviour, IDataPersistence
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(true);
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("main");
         Invoke("SellerStart", 2f);
+
+    }
+    public void SaveData()
+    {
 
     }
     public void NewsTimePanel()
@@ -300,8 +255,6 @@ public class NextDay : MonoBehaviour, IDataPersistence
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<DialogueRandom>().enabled = false;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = true;
-        GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().enabled = false;
-        GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
 
         MiddleSlots.anchoredPosition = new Vector3(0, -28, 0); //-28, +306
@@ -319,8 +272,6 @@ public class NextDay : MonoBehaviour, IDataPersistence
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = false;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = true;
-        GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().enabled = false;
-        GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
 
         TopSlots.anchoredPosition = new Vector3(0, -28, 0);
@@ -338,8 +289,6 @@ public class NextDay : MonoBehaviour, IDataPersistence
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = true;
-        GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = false;
-        GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
 
@@ -354,8 +303,6 @@ public class NextDay : MonoBehaviour, IDataPersistence
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = false;
         Trigger.GetComponent<FifthDialogueRandom>().enabled = true;
-        GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().enabled = false;
-        GameObject.Find("DialogueScript5").GetComponent<FifthDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
 
         MiddleSlots.anchoredPosition = new Vector3(0, -56, 0);
@@ -375,8 +322,6 @@ public class NextDay : MonoBehaviour, IDataPersistence
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<FifthDialogueRandom>().enabled = false;
         Trigger.GetComponent<SixthDialogueRandom>().enabled = true;
-        GameObject.Find("DialogueScript5").GetComponent<FifthDialogueScript>().enabled = false;
-        GameObject.Find("DialogueScript6").GetComponent<SixthDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
 
@@ -391,8 +336,6 @@ public class NextDay : MonoBehaviour, IDataPersistence
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<SixthDialogueRandom>().enabled = false;
         Trigger.GetComponent<SeventhDialogueRandom>().enabled = true;
-        GameObject.Find("DialogueScript6").GetComponent<SixthDialogueScript>().enabled = false;
-        GameObject.Find("DialogueScript7").GetComponent<SeventhDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
     }
 
@@ -404,7 +347,6 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        Debug.Log("S");
         data.day = this.day;
     }
 

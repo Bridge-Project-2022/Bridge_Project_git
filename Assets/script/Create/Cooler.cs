@@ -101,7 +101,7 @@ public class Cooler : MonoBehaviour
         {
             if (isTopRight == true)
             {
-                GameObject.Find("DailyResult").GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+                GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
                 TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
                 TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
                 TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
@@ -110,7 +110,7 @@ public class Cooler : MonoBehaviour
             else if (isTopRight == false)
             {
                 TotalScore.FindObjectOfType<TotalScore>().UseItem += 1;
-                GameObject.Find("DailyResult").GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+                GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
                 TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             }
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("coolerTouch");
@@ -183,7 +183,7 @@ public class Cooler : MonoBehaviour
             GameObject.Find("Mask_Arrow").transform.GetChild(10).gameObject.SetActive(false);
             GameObject.Find("TutorialDialogue").gameObject.SetActive(false);
             GameObject.Find("BlackPanel").SetActive(false);
-            GameObject.Find("DailyResult").GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
+            GameObject.Find("Canvas").transform.GetChild(9).GetComponent<DailyResult>().originCost += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().originPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().rightPrice += ClickedItem.itemPrice;
             TotalScore.FindObjectOfType<TotalScore>().RightItem += 1;
