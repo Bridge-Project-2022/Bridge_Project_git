@@ -32,6 +32,9 @@ public class PlaceController : MonoBehaviour
         //     if (!placeDialogDic.ContainsKey(item.place))
         //         placeDialogDic.Add(item.place, item);
         // }
+        
+        if (data.PlaceEntity == null)
+            data = Resources.Load<PlaceDialogDB>("Data/PlaceDialogDB");
 
         for (int i = 0; i < data.PlaceEntity.Count; i++)
         {

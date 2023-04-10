@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ToolTipController : MonoBehaviour
@@ -84,6 +85,11 @@ public class ToolTipController : MonoBehaviour
             cutScene.SetUp(_toolTip);
             placeController.VisitPlace(_toolTip.button);
         }
+    }
+
+    public void ReturnHome()
+    {
+        GameDataManager.Instance.LoadData();
     }
 
     private void OnEnable()

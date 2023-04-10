@@ -1960,7 +1960,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1497313894}
         m_TargetAssemblyTypeName: ToolTipController, Assembly-CSharp
-        m_MethodName: CutSceneLoad
+        m_MethodName: ReturnHome
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

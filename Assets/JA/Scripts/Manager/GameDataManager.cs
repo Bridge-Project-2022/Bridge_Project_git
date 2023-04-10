@@ -138,8 +138,8 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void SaveData()
     {
-        Debug.Log("저장체크");
-        Debug.Log(dataPersistenceObjects);
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        Debug.Log(dataPersistenceObjects.Count + "!!!");
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);
@@ -147,8 +147,6 @@ public class GameDataManager : Singleton<GameDataManager>
         // 저장 후 처리
         
         dataHandler.Save(gameData);
-
-        
     }
     
     /// <summary>

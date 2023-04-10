@@ -146,8 +146,8 @@ public class NextDay : MonoBehaviour, IDataPersistence
     {
         Declaration.gameObject.SetActive(false);
         Customer.gameObject.SetActive(false);
-        CustomerTxt[0] = "¿À´Ã °¡Á®¿Â Çâ·á Á» º¼ÅÙ°¡?";
-        CustomerTxt[1] = "´õ ÇÊ¿äÇÑ ¹°°ÇÀÌ ÀÖ³ª?";
+        CustomerTxt[0] = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ù°ï¿½?";
+        CustomerTxt[1] = "ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö³ï¿½?";
 
         DayPanel.gameObject.SetActive(true);
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
@@ -266,7 +266,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
         StartCoroutine(NormalChat(CustomerTxt[1]));
     }
 
-    IEnumerator NormalChat(string narration)// Å¸ÀÌÇÎ È¿°ú -> ¿©±â¼­ ÇâÀÇ ¼¼±â¿¡ µû¸¥ Áõ·ù±â ·ÎÁ÷ °áÁ¤ °¡´É
+    IEnumerator NormalChat(string narration)// Å¸ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ -> ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         string writerText = "";
 
@@ -410,6 +410,7 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
     public void ClickSaveBtn()
     {
-        GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().SaveData();
+        //GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().SaveData();
+        GameDataManager.Instance.SaveData();
     }
 }
