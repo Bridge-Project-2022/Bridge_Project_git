@@ -25,6 +25,8 @@ public class Enums
         AlleyButton,
         TreeButton,
         LorenaButton,
-        AronButton
+        AronButton,
+        MountainButton,
+        LighthouseButton
     }
 }
