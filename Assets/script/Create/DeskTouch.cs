@@ -107,7 +107,7 @@ public class DeskTouch : MonoBehaviour
 
             ClickItem.SetActive(false);
 
-            if (NextDay.FindObjectOfType<NextDay>().day >= 3)
+            if (GameDataManager.Instance.Day >= 3)
             {
                 if (CriminalSystem.isDeclareClick == true)
                     Declaration.SetActive(false);

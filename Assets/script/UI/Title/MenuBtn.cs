@@ -78,7 +78,7 @@ public class MenuBtn : MonoBehaviour
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         NewsFadePanel.SetActive(true);
-        if (NextDay.FindObjectOfType<NextDay>().day != 1)
+        if (GameDataManager.Instance.Day != 1)
         {
             NextDay.FindObjectOfType<NextDay>().NextDayClick();
         }
@@ -89,7 +89,7 @@ public class MenuBtn : MonoBehaviour
     {
         NewsFadePanel.gameObject.SetActive(false);
         GameObject.Find("NewsTime").gameObject.SetActive(false);
-        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
             GameObject.Find("Panels").transform.GetChild(0).gameObject.SetActive(true);
         }

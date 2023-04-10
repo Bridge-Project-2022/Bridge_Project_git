@@ -78,15 +78,15 @@ public class TotalScore : MonoBehaviour
         }
         RightItemPrice = baseItem.itemPrice + middleItem.itemPrice + topItem.itemPrice;
 
-        if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 30)
+        if (GameDataManager.Instance.Reputation <= 30)
         {
             ReputationHandle.GetComponent<Image>().sprite = ReputationBad;
         }
-        else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 60 && FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 30)
+        else if (GameDataManager.Instance.Reputation <= 60 && GameDataManager.Instance.Reputation > 30)
         {
             ReputationHandle.GetComponent<Image>().sprite = ReputationNormal;
         }
-        else if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation > 60)
+        else if (GameDataManager.Instance.Reputation > 60)
         {
             ReputationHandle.GetComponent<Image>().sprite = ReputationGood;
         }
@@ -102,13 +102,13 @@ public class TotalScore : MonoBehaviour
             //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
             Debug.Log("하나도 안고르고 바로 향수 제조 선택한 경우");
             perfumePrice = 0;
-            float imsiMoney = fd.Money;
-            fd.Money += perfumePrice;
-            StartCoroutine(Count(imsiMoney, fd.Money));
+            float imsiMoney = GameDataManager.Instance.Money;
+            GameDataManager.Instance.Money += perfumePrice;
+            StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
             GameObject.Find("DailyResult").GetComponent<DailyResult>().allRevenue += perfumePrice;
             Debug.Log("평판 밷");
-            float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
-            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+            float imsiReputation = GameDataManager.Instance.Reputation;
+            GameDataManager.Instance.Reputation -= 5;
             ReputationSlider.GetComponent<Slider>().value -= 0.05f;
             //StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
@@ -118,13 +118,13 @@ public class TotalScore : MonoBehaviour
             //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
             Debug.Log("하나라도 고르긴 했는데 맞는 향료가 아닐 경우");
             perfumePrice = totalScore * 3;
-            float imsiMoney = fd.Money;
-            fd.Money += perfumePrice;
-            StartCoroutine(Count(imsiMoney, fd.Money));
+            float imsiMoney = GameDataManager.Instance.Money;
+            GameDataManager.Instance.Money += perfumePrice;
+            StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
             GameObject.Find("DailyResult").GetComponent<DailyResult>().allRevenue += perfumePrice;
             Debug.Log("평판 밷");
-            float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
-            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+            float imsiReputation = GameDataManager.Instance.Reputation;
+            GameDataManager.Instance.Reputation -= 5;
             ReputationSlider.GetComponent<Slider>().value -= 0.05f;
             //StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
@@ -133,18 +133,18 @@ public class TotalScore : MonoBehaviour
         else if ( RightItem == 3 && originPrice > 0)//3개 향료 다 맞은 경우
         {
             Debug.Log("3개 향료 다 맞은 경우");
-            float imsiMoney = fd.Money;
+            float imsiMoney = GameDataManager.Instance.Money;
             perfumePrice = rightPrice + totalScore * 3;
-            fd.Money += perfumePrice;
-            StartCoroutine(Count(imsiMoney, fd.Money));
+            GameDataManager.Instance.Money += perfumePrice;
+            StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
             GameObject.Find("DailyResult").GetComponent<DailyResult>().allRevenue += perfumePrice;
-            float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+            float imsiReputation = GameDataManager.Instance.Reputation;
             if (RightItem == 3)
             {
                 if (reputNum == 35)
                 {
                     Debug.Log("평판 베리굳");
-                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
+                    GameDataManager.Instance.Reputation += 10;
                     ReputationSlider.GetComponent<Slider>().value += 0.1f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verygood";
@@ -153,7 +153,7 @@ public class TotalScore : MonoBehaviour
                 else if (reputNum < 35 && reputNum >= 10)
                 {
                     Debug.Log("평판 굳");
-                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 6;
+                    GameDataManager.Instance.Reputation += 6;
                     ReputationSlider.GetComponent<Slider>().value += 0.06f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "good";
@@ -162,7 +162,7 @@ public class TotalScore : MonoBehaviour
                 else if (reputNum < 10 && reputNum >= 0)
                 {
                     Debug.Log("평판 노멀");
-                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 1;
+                    GameDataManager.Instance.Reputation += 1;
                     ReputationSlider.GetComponent<Slider>().value += 0.01f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "normal";
@@ -171,7 +171,7 @@ public class TotalScore : MonoBehaviour
                 else if (reputNum < 0 && reputNum >= -10)
                 {
                     Debug.Log("평판 밷");
-                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+                    GameDataManager.Instance.Reputation -= 5;
                     ReputationSlider.GetComponent<Slider>().value -= 0.05f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "bad";
@@ -180,23 +180,23 @@ public class TotalScore : MonoBehaviour
                 else if (reputNum < -10 && reputNum >= -35)
                 {
                     Debug.Log("평판 베리밷");
-                    FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
+                    GameDataManager.Instance.Reputation -= 8;
                     ReputationSlider.GetComponent<Slider>().value -= 0.08f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verybad";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
                 }
                 Debug.Log("최종 향수 가격 : " + totalScore);
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Money += totalScore;
+                GameDataManager.Instance.Money += totalScore;
                 //Invoke("ResetAll", 2f);
             }
         }
-        GameObject.Find("DailyResult").GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        GameObject.Find("DailyResult").GetComponent<DailyResult>().todayReputation = GameDataManager.Instance.Reputation;
     }
 
     public void gameOverCheck()
     {
-        if (FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation <= 0)
+        if (GameDataManager.Instance.Reputation <= 0)
         {
             if (GameObject.Find("Dialogue").transform.GetChild(2).gameObject.activeSelf)
                 GameObject.Find("Dialogue").transform.GetChild(2).gameObject.SetActive(false);

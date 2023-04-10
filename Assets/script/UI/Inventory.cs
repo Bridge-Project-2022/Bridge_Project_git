@@ -417,7 +417,7 @@ public class Inventory : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        Debug.Log(data);
+        Debug.Log("c");
         for (int i = 0; i < Baseslots.Count; i++)
         {
             data.baseItemList[i] = this.Baseslots[i].item;

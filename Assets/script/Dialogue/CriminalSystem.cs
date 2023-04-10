@@ -38,7 +38,7 @@ public class CriminalSystem : MonoBehaviour
     }
     public void MontageShow()
     {
-        if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        if (GameDataManager.Instance.Day == 3)
         {
             if (CriminalNum[0] == 1)
             {
@@ -58,7 +58,7 @@ public class CriminalSystem : MonoBehaviour
             }
         }
 
-        if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        if (GameDataManager.Instance.Day == 4)
         {
             if (CriminalNum[0] == 1)
             {
@@ -78,7 +78,7 @@ public class CriminalSystem : MonoBehaviour
             }
         }
 
-        if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        if (GameDataManager.Instance.Day == 5)
         {
             if (CriminalNum[0] == 1)
             {
@@ -122,22 +122,22 @@ public class CriminalSystem : MonoBehaviour
         {
             if (isDeclareClick == true)//일반 손님 신고한 경우 - 10 차감
             {
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 10;
+                GameDataManager.Instance.Reputation -= 10;
             }
             if (isDeclareClick == false)//끝까지 신고 버튼 못누른 경우 - 15 차감
             {
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 15;
+                GameDataManager.Instance.Reputation -= 15;
             }
         }
         if (isDeclareSuccess == true)//범죄자 신고 성공한 경우
         {
             if (isDeclareClick == true && isCriminalSell == true)//신고는 했는데 판매 승낙한 경우 - 평판 5 차감
             {
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 5;
+                GameDataManager.Instance.Reputation -= 5;
             }
             if (isDeclareClick == false && isCriminalSell == false)//신고 성공하고 향수 판매도 안한 경우 - 평판 10 가산
             {
-                FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation += 10;
+                GameDataManager.Instance.Reputation += 10;
             }
         }
         TotalScore.FindObjectOfType<TotalScore>().gameOverCheck();

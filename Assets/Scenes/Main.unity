@@ -39569,6 +39569,7 @@ GameObject:
   - component: {fileID: 1532829888}
   - component: {fileID: 1532829887}
   - component: {fileID: 1532829890}
+  - component: {fileID: 1532829891}
   m_Layer: 5
   m_Name: NextDay
   m_TagString: Untagged
@@ -39714,7 +39715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762f595195a3e854893d6a3805be7ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 1
   DailyResult: {fileID: 2015426897}
   RandomBuyer: {fileID: 772955856}
   buyer: {fileID: 2130944401}
@@ -39742,6 +39742,18 @@ MonoBehaviour:
   BaseSlots: {fileID: 889111547}
   MiddleSlots: {fileID: 1690763797}
   TopSlots: {fileID: 1832409693}
+--- !u!114 &1532829891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532829885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17af34daec2e9714ca74c50391d29b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1534612176
 GameObject:
   m_ObjectHideFlags: 0
@@ -45953,7 +45965,7 @@ RectTransform:
   m_GameObject: {fileID: 1779291982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.58521, y: 0.58521, z: 0.58521}
   m_Children: []
   m_Father: {fileID: 2015426898}
   m_RootOrder: 7
@@ -45961,7 +45973,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 25, y: -308}
-  m_SizeDelta: {x: 337, y: 127}
+  m_SizeDelta: {x: 521, y: 142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779291984
 MonoBehaviour:
@@ -48587,8 +48599,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time: 8
-  Money: 10000
-  Reputation: 60
   GameMoney: {fileID: 1877822973}
   GameReputation: {fileID: 1770041898}
   Customer: {fileID: 1106566495}

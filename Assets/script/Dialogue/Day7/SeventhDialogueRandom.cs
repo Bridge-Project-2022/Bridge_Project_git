@@ -400,28 +400,28 @@ public class SeventhDialogueRandom : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         DailyResult.GetComponent<DailyResult>().personNum += 1;
         DailyResult.GetComponent<DailyResult>().rejectNum += 1;
-        float imsiReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        float imsiReputation = GameDataManager.Instance.Reputation;
         rejectCnt += 1;
         if (rejectCnt == 1)
         {
-            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 8;
+            GameDataManager.Instance.Reputation -= 8;
             GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.08f;
             //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
         else if (rejectCnt == 2)
         {
-            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 10;
+            GameDataManager.Instance.Reputation -= 10;
             GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.1f;
             //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
         if (rejectCnt >= 3)
         {
-            FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation -= 15;
+            GameDataManager.Instance.Reputation -= 15;
             GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.15f;
             //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
 
-        DailyResult.GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        DailyResult.GetComponent<DailyResult>().todayReputation = GameDataManager.Instance.Reputation;
         Select.SetActive(false);
         isDialogueStart = false;
         Buyer.gameObject.SetActive(false);
@@ -458,7 +458,7 @@ public class SeventhDialogueRandom : MonoBehaviour
 
     public void F_1Start()
     {
-        DailyResult.GetComponent<DailyResult>().todayReputation = FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation;
+        DailyResult.GetComponent<DailyResult>().todayReputation = GameDataManager.Instance.Reputation;
         Select.SetActive(false);
         CustomerFeel.FindObjectOfType<CustomerFeel>().GetComponent<CustomerFeel>().declareStart = false;
         isDialogueStart = false;

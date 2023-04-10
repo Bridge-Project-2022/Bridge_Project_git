@@ -7,8 +7,8 @@ using TMPro;
 public class FirstDaySetting : MonoBehaviour, IDataPersistence
 {
     public int Time = 8;
-    public int Money = 10000;
-    public int Reputation = 60;
+    //public int Money = 10000;
+    //public int Reputation = 60;
 
     public TextMeshProUGUI GameMoney;
     public GameObject GameReputation;
@@ -22,7 +22,7 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
         CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
         CustomerTxt[1] = "더 필요한 물건이 있나?";
 
-        if (GameObject.Find("NextDay").GetComponent<NextDay>().day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
             GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
             Invoke("FirstDayStart", 8f);
@@ -32,10 +32,10 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     private void Update()
     {
         
-        GameMoney.text = Money.ToString();
-        GameReputation.gameObject.GetComponent<Text>().text = Reputation.ToString();
+        GameMoney.text = GameDataManager.Instance.Money.ToString();
+        GameReputation.gameObject.GetComponent<Text>().text = GameDataManager.Instance.Reputation.ToString();
 
-        if (Reputation < 0)
+        if (GameDataManager.Instance.Reputation < 0)
         { 
             //배드 엔딩 ㄱ
         }
@@ -98,18 +98,18 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.Money = data.money;
-        this.Reputation = data.reputation;
+        GameDataManager.Instance.Money = data.money;
+        GameDataManager.Instance.Reputation = data.reputation;
         GameObject.Find("ReputationSlider").GetComponent<Slider>().value = data.reputationValue;
-        if (this.Reputation <= 30)
+        if (GameDataManager.Instance.Reputation <= 30)
         {
             GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationBad;
         }
-        else if (this.Reputation <= 60 && this.Reputation > 30)
+        else if (GameDataManager.Instance.Reputation <= 60 && GameDataManager.Instance.Reputation > 30)
         {
             GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationNormal;
         }
-        else if (this.Reputation > 60)
+        else if (GameDataManager.Instance.Reputation > 60)
         {
             GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
         }
@@ -117,8 +117,9 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        data.money = this.Money;
-        data.reputation = this.Reputation;
+        Debug.Log("a");
+        data.money = GameDataManager.Instance.Money;
+        data.reputation = GameDataManager.Instance.Reputation;
         data.reputationValue = GameObject.Find("ReputationSlider").GetComponent<Slider>().value;
     }
 }

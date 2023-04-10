@@ -17,15 +17,15 @@ public class CustomerFeel : MonoBehaviour
 
     void Update()
     {
-        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
             CurrentName = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_Name.ToString();
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        else if (GameDataManager.Instance.Day == 2)
         {
             CurrentName = GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().Customer_Name.ToString();
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        else if (GameDataManager.Instance.Day == 3)
         {
             CurrentName = GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().Customer_Name.ToString();
 

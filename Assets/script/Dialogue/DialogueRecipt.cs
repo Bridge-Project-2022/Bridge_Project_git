@@ -15,36 +15,36 @@ public class DialogueRecipt : MonoBehaviour
 
     void Update()
     {
-        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
             DialogueScript = GameObject.Find("DialogueScript1").gameObject;
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        else if (GameDataManager.Instance.Day == 2)
         {
             DialogueScript = GameObject.Find("DialogueScript2").gameObject;
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        else if (GameDataManager.Instance.Day == 3)
         {
             DialogueScript = GameObject.Find("DialogueScript3").gameObject;
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        else if (GameDataManager.Instance.Day == 4)
         {
             DialogueScript = GameObject.Find("DialogueScript4").gameObject;
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        else if (GameDataManager.Instance.Day == 5)
         {
             DialogueScript = GameObject.Find("DialogueScript5").gameObject;
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        else if (GameDataManager.Instance.Day == 6)
         {
             DialogueScript = GameObject.Find("DialogueScript6").gameObject;
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        else if (GameDataManager.Instance.Day == 7)
         {
             DialogueScript = GameObject.Find("DialogueScript7").gameObject;
         }
 
-        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
             if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
             {
@@ -70,7 +70,7 @@ public class DialogueRecipt : MonoBehaviour
             
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        else if (GameDataManager.Instance.Day == 2)
         {
             foreach (string str in DialogueScript.GetComponent<SecondDialogueScript>().Customer_PerfumeOrder)
             {
@@ -88,7 +88,7 @@ public class DialogueRecipt : MonoBehaviour
             ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        else if (GameDataManager.Instance.Day == 3)
         {
             foreach (string str in DialogueScript.GetComponent<ThirdDialogueScript>().Customer_PerfumeOrder)
             {
@@ -106,7 +106,7 @@ public class DialogueRecipt : MonoBehaviour
             ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        else if (GameDataManager.Instance.Day == 4)
         {
             foreach (string str in DialogueScript.GetComponent<FourthDialogueScript>().Customer_PerfumeOrder)
             {
@@ -124,7 +124,7 @@ public class DialogueRecipt : MonoBehaviour
             ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        else if (GameDataManager.Instance.Day == 5)
         {
             foreach (string str in DialogueScript.GetComponent<FifthDialogueScript>().Customer_PerfumeOrder)
             {
@@ -142,7 +142,7 @@ public class DialogueRecipt : MonoBehaviour
             ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        else if (GameDataManager.Instance.Day == 6)
         {
             foreach (string str in DialogueScript.GetComponent<SixthDialogueScript>().Customer_PerfumeOrder)
             {
@@ -160,7 +160,7 @@ public class DialogueRecipt : MonoBehaviour
             ReceiptText.GetComponent<Text>().text = "\n" + "\n" + "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        else if (GameDataManager.Instance.Day == 7)
         {
             foreach (string str in DialogueScript.GetComponent<SeventhDialogueScript>().Customer_PerfumeOrder)
             {

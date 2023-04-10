@@ -130,7 +130,7 @@ public class Store : MonoBehaviour
         int MiddleslotCount = MiddleslotRoot.childCount;
         int TopslotCount = TopslotRoot.childCount;
 
-        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
             for (int i = 0; i <= 3; i++)
             {
@@ -180,7 +180,7 @@ public class Store : MonoBehaviour
             }
         }
        
-        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        else if (GameDataManager.Instance.Day == 2)
         {
             Array.Resize(ref MiddleItemList, 7);
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -260,7 +260,7 @@ public class Store : MonoBehaviour
             }
 
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        else if (GameDataManager.Instance.Day == 3)
         {
             Array.Resize(ref MiddleItemList, 8);
             Array.Resize(ref TopItemList, 7);
@@ -349,7 +349,7 @@ public class Store : MonoBehaviour
                 }
             }
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        else if (GameDataManager.Instance.Day == 4)
         {
             Array.Resize(ref TopItemList, 8);
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -428,7 +428,7 @@ public class Store : MonoBehaviour
             }
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        else if (GameDataManager.Instance.Day == 5)
         {
             Array.Resize(ref MiddleItemList, 9);
             Array.Resize(ref TopItemList, 9);
@@ -506,7 +506,7 @@ public class Store : MonoBehaviour
             }
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        else if (GameDataManager.Instance.Day == 6)
         {
             Array.Resize(ref MiddleItemList, 10);
 
@@ -584,7 +584,7 @@ public class Store : MonoBehaviour
             }
         }
 
-        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        else if (GameDataManager.Instance.Day == 7)
         {
             Array.Resize(ref MiddleItemList, 11);
             BaseBuyAllBtn.GetComponent<Button>().interactable = true;
@@ -870,9 +870,9 @@ public class Store : MonoBehaviour
 
         if (slot.item.itemCount < 0)
             slot.item.itemCount = 0;
-        float imsiMoney = fd.Money;
-        fd.Money -= slot.item.itemPrice * BuyNum;
-        StartCoroutine(Count(imsiMoney, fd.Money));
+        float imsiMoney = GameDataManager.Instance.Money;
+        GameDataManager.Instance.Money -= slot.item.itemPrice * BuyNum;
+        StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
 
         int cnt = 0;
         for (int i = 0; i < BaseItemList.Length; i++)
@@ -906,9 +906,9 @@ public class Store : MonoBehaviour
         if (Middleslot.item.itemCount < 0)
             Middleslot.item.itemCount = 0;
 
-        float imsiMoney = fd.Money;
-        fd.Money -= Middleslot.item.itemPrice * BuyNum;
-        StartCoroutine(Count(imsiMoney, fd.Money));
+        float imsiMoney = GameDataManager.Instance.Money;
+        GameDataManager.Instance.Money -= Middleslot.item.itemPrice * BuyNum;
+        StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
 
         int cnt = 0;
         for (int i = 0; i < MiddleItemList.Length; i++)
@@ -943,9 +943,9 @@ public class Store : MonoBehaviour
         if (Topslot.item.itemCount < 0)
             Topslot.item.itemCount = 0;
 
-        float imsiMoney = fd.Money;
-        fd.Money -= Topslot.item.itemPrice * BuyNum;
-        StartCoroutine(Count(imsiMoney, fd.Money));
+        float imsiMoney = GameDataManager.Instance.Money;
+        GameDataManager.Instance.Money -= Topslot.item.itemPrice * BuyNum;
+        StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
 
         int cnt = 0;
         for (int i = 0; i < TopItemList.Length; i++)
@@ -1047,9 +1047,9 @@ public class Store : MonoBehaviour
                 BaseItemList[i].itemCount = 0;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
-        float imsiMoney = fd.Money;
-        fd.Money -= slotItemPrice;
-        StartCoroutine(Count(imsiMoney, fd.Money));
+        float imsiMoney = GameDataManager.Instance.Money;
+        GameDataManager.Instance.Money -= slotItemPrice;
+        StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
 
         int cnt = 0;
         for (int i = 0; i < BaseItemList.Length; i++)
@@ -1087,9 +1087,9 @@ public class Store : MonoBehaviour
                 MiddleItemList[i].itemCount = 0;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
-        float imsiMoney = fd.Money;
-        fd.Money -= MiddleslotItemPrice;
-        StartCoroutine(Count(imsiMoney, fd.Money));
+        float imsiMoney = GameDataManager.Instance.Money;
+        GameDataManager.Instance.Money -= MiddleslotItemPrice;
+        StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
 
         int cnt = 0;
         for (int i = 0; i < MiddleItemList.Length; i++)
@@ -1125,9 +1125,9 @@ public class Store : MonoBehaviour
                 TopItemList[i].itemCount = 0;
         }
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("money");
-        float imsiMoney = fd.Money;
-        fd.Money -= TopslotItemPrice;
-        StartCoroutine(Count(imsiMoney, fd.Money));
+        float imsiMoney = GameDataManager.Instance.Money;
+        GameDataManager.Instance.Money -= TopslotItemPrice;
+        StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
 
         int cnt = 0;
         for (int i = 0; i < TopItemList.Length; i++)
@@ -1211,7 +1211,7 @@ public class Store : MonoBehaviour
         if (TopAllBuyNum > 1)
             TopAllBuyMinusBtn.gameObject.GetComponent<Button>().interactable = true;
 
-        if ((BuyNum + 1) * slot.item.itemPrice > fd.Money)
+        if ((BuyNum + 1) * slot.item.itemPrice > GameDataManager.Instance.Money)
         {
             Debug.Log("잔돈 없음. 더이상 추가 불가");
             BasePlusBtn.gameObject.GetComponent<Button>().interactable = false;
@@ -1225,7 +1225,7 @@ public class Store : MonoBehaviour
             TopPlusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
 
-        if (fd.Money <= slotItemPrice)
+        if (GameDataManager.Instance.Money <= slotItemPrice)
         {
             //Debug.Log("잔액 부족");
             BaseAllBuyPlusBtn.gameObject.GetComponent<Button>().interactable = false;

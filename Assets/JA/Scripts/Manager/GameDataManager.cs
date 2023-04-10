@@ -138,17 +138,19 @@ public class GameDataManager : Singleton<GameDataManager>
     /// </summary>
     public void SaveData()
     {
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        /*this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         Debug.Log(dataPersistenceObjects.Count + "!!!");
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);
-        }
+        }*/
         // 저장 후 처리
-        
+        BGM = GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value;
+        SFX = GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value;
+
         dataHandler.Save(gameData);
     }
-    
+
     /// <summary>
     /// 이어하기 클릭 후 호출
     /// </summary>
@@ -159,21 +161,43 @@ public class GameDataManager : Singleton<GameDataManager>
         SceneManager.LoadScene("Main");
         
         this.gameData = dataHandler.Load();
-        
+
         // if (this.gameData == null)
         // {
         //     NewGameStart();
         // }
-        
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+
+        dataHandler.Load();
+
+        Invoke("LoadDay", 0.01f);
+        /*this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         
         // 불러오기 처리
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.LoadData(gameData);
-        }
+        }*/
     }
 
+    public void LoadDay()
+    {
+        NextDay.FindObjectOfType<NextDay>().DayCheckTest();
+
+        Inventory.FindObjectOfType<Inventory>().LoadData(gameData);
+
+        if (GameDataManager.Instance.Reputation <= 30)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationBad;
+        }
+        else if (GameDataManager.Instance.Reputation <= 60 && GameDataManager.Instance.Reputation > 30)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationNormal;
+        }
+        else if (GameDataManager.Instance.Reputation > 60)
+        {
+            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
+        }
+    }
     #endregion
 
     #region UtillsMethod

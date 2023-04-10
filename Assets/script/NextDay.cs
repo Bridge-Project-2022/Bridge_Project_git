@@ -6,9 +6,9 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 
-public class NextDay : MonoBehaviour, IDataPersistence
+public class NextDay : Singleton<NextDay>
 {
-    public int day = 1;
+    //public int day = 1;
     public GameObject DailyResult;
     public GameObject RandomBuyer;
     public GameObject buyer;
@@ -60,40 +60,40 @@ public class NextDay : MonoBehaviour, IDataPersistence
     }
     public void MoveAfterDayCheck()
     {
-        if (day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 2)
+        else if (GameDataManager.Instance.Day == 2)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 3)
+        else if (GameDataManager.Instance.Day == 3)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 4)
+        else if (GameDataManager.Instance.Day == 4)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
         }
-        else if (day == 5)
+        else if (GameDataManager.Instance.Day == 5)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 6)
+        else if (GameDataManager.Instance.Day == 6)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 7)
+        else if (GameDataManager.Instance.Day == 7)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
         }
@@ -105,39 +105,39 @@ public class NextDay : MonoBehaviour, IDataPersistence
         DailyResult.GetComponent<Animator>().enabled = false;
         DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
 
-        if (day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 2)
+        else if (GameDataManager.Instance.Day == 2)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 3)
+        else if (GameDataManager.Instance.Day == 3)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 4)
+        else if (GameDataManager.Instance.Day == 4)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 5)
+        else if (GameDataManager.Instance.Day == 5)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 6)
+        else if (GameDataManager.Instance.Day == 6)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
-        else if (day == 7)
+        else if (GameDataManager.Instance.Day == 7)
         {
-            day++;
+            GameDataManager.Instance.Day++;
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
         }
@@ -146,13 +146,13 @@ public class NextDay : MonoBehaviour, IDataPersistence
     {
         Declaration.gameObject.SetActive(false);
         Customer.gameObject.SetActive(false);
-        CustomerTxt[0] = "���� ������ ��� �� ���ٰ�?";
-        CustomerTxt[1] = "�� �ʿ��� ������ �ֳ�?";
+        CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
+        CustomerTxt[1] = "더 필요한 물건이 있나?";
 
         DayPanel.gameObject.SetActive(true);
         GameObject.Find("SoundManager").transform.GetChild(0).GetComponent<AudioSource>().gameObject.SetActive(false);
-        DayPanelDay1.GetComponent<TextMeshProUGUI>().text = (day).ToString();
-        DayPanelDay2.GetComponent<TextMeshProUGUI>().text = (day).ToString();
+        DayPanelDay1.GetComponent<TextMeshProUGUI>().text = (GameDataManager.Instance.Day).ToString();
+        DayPanelDay2.GetComponent<TextMeshProUGUI>().text = (GameDataManager.Instance.Day).ToString();
         Invoke("DayStartPanel", 6f);
 
         DailyResult.GetComponent<DailyResult>().personNum = 0;
@@ -165,33 +165,33 @@ public class NextDay : MonoBehaviour, IDataPersistence
         RandomBuyer.SetActive(false);
         buyer.SetActive(false);
 
-        if (day == 2)
+        if (GameDataManager.Instance.Day == 2)
         {
             Invoke("SecondDayStart", 3f);
         }
-        if (day == 3)
+        if (GameDataManager.Instance.Day == 3)
         {
             Invoke("ThirdDayStart", 3f);
         }
-        if (day == 4)
+        if (GameDataManager.Instance.Day == 4)
         {
             Invoke("FourthDayStart", 3f);
         }
-        if (day == 5)
+        if (GameDataManager.Instance.Day == 5)
         {
             Invoke("FifthDayStart", 3f);
         }
-        if (day == 6)
+        if (GameDataManager.Instance.Day == 6)
         {
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
             //Invoke("SixthDayStart", 3f);
         }
-        if (day == 7)
+        if (GameDataManager.Instance.Day == 7)
         {
             Invoke("SeventhDayStart", 3f);
         }
-        if (day == 8)
+        if (GameDataManager.Instance.Day == 8)
         {
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
@@ -214,39 +214,39 @@ public class NextDay : MonoBehaviour, IDataPersistence
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("news");
         NewsPanel.gameObject.SetActive(true);
-        if (day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
             NewsPanel.GetComponent<Image>().sprite = NewsIMG[0];
         }
-        if (day == 2)
+        if (GameDataManager.Instance.Day == 2)
         {
             NewsPanel.GetComponent<Image>().sprite = NewsIMG[1];
         }
-        if (day == 3)
+        if (GameDataManager.Instance.Day == 3)
         {
             NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
             CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
             NewsPanel.GetComponent<Image>().sprite = NewsIMG[2];
         }
-        if (day == 4)
+        if (GameDataManager.Instance.Day == 4)
         {
             NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
             CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
             NewsPanel.GetComponent<Image>().sprite = NewsIMG[3];
         }
-        if (day == 5)
+        if (GameDataManager.Instance.Day == 5)
         {
             NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
             CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
             NewsPanel.GetComponent<Image>().sprite = NewsIMG[4];
         }
-        if (day == 6)
+        if (GameDataManager.Instance.Day == 6)
         {
             NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
             CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
             NewsPanel.GetComponent<Image>().sprite = NewsIMG[5];
         }
-        if (day == 7)
+        if (GameDataManager.Instance.Day == 7)
         {
             NewsPanel.transform.GetChild(0).gameObject.SetActive(true);
             CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
@@ -398,19 +398,19 @@ public class NextDay : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.day = data.day - 1;
+        GameDataManager.Instance.Day = data.day - 1;
         NextDayClick();
     }
 
     public void SaveData(ref GameData data)
     {
-        Debug.Log("S");
-        data.day = this.day;
+        data.day = GameDataManager.Instance.Day;
     }
 
     public void ClickSaveBtn()
     {
-        //GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().SaveData();
+        Inventory.FindObjectOfType<Inventory>().SaveData(ref gameData);
+
         GameDataManager.Instance.SaveData();
     }
 }

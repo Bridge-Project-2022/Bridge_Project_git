@@ -32,31 +32,31 @@ public class StoryCustomerImage : MonoBehaviour
     void Update()
     {
         CurrentTime = this.GetComponent<RandomImage>().CurrentTime;
-        if (NextDay.FindObjectOfType<NextDay>().day == 1)
+        if (GameDataManager.Instance.Day == 1)
         {
             CurrentName = GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().Customer_Name.ToString();
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 2)
+        else if (GameDataManager.Instance.Day == 2)
         {
             CurrentName = GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().Customer_Name.ToString();
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 3)
+        else if (GameDataManager.Instance.Day == 3)
         {
             CurrentName = GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().Customer_Name.ToString();
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 4)
+        else if (GameDataManager.Instance.Day == 4)
         {
             CurrentName = GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().Customer_Name.ToString();
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 5)
+        else if (GameDataManager.Instance.Day == 5)
         {
             CurrentName = GameObject.Find("DialogueScript5").GetComponent<FifthDialogueScript>().Customer_Name.ToString();
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 6)
+        else if (GameDataManager.Instance.Day == 6)
         {
             CurrentName = GameObject.Find("DialogueScript6").GetComponent<SixthDialogueScript>().Customer_Name.ToString();
         }
-        else if (NextDay.FindObjectOfType<NextDay>().day == 7)
+        else if (GameDataManager.Instance.Day == 7)
         {
             CurrentName = GameObject.Find("DialogueScript7").GetComponent<SeventhDialogueScript>().Customer_Name.ToString();
         }
