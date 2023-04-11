@@ -575,6 +575,7 @@ public class ThirdDialogueRandom : MonoBehaviour
     public void CriminalResult()
     {
         GameObject.Find("DailyResult").transform.GetChild(8).gameObject.SetActive(true);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("stamp");
         CriminalSystem.FindObjectOfType<CriminalSystem>().isDeclareSuccess = false;
         CriminalSystem.FindObjectOfType<CriminalSystem>().isCriminalSell = false;
     }

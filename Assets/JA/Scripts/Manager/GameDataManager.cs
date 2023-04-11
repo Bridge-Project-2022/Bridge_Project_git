@@ -134,6 +134,27 @@ public class GameDataManager : Singleton<GameDataManager>
         }
     }
 
+    public void LoadInvenData()
+    {
+        Inventory.FindObjectOfType<Inventory>().ResetInven();
+
+        for (int i = 0; i < gameData.baseItemList.Count; i++)
+        {
+            gameData.baseItemList[i].InvenItemNum -= 1;
+            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.baseItemList[i]);
+        }
+        for (int i = 0; i < gameData.middleItemList.Count; i++)
+        {
+            gameData.middleItemList[i].InvenItemNum -= 1;
+            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.middleItemList[i]);
+        }
+        for (int i = 0; i < gameData.topItemList.Count; i++)
+        {
+            gameData.topItemList[i].InvenItemNum -= 1;
+            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.topItemList[i]);
+        }
+    }
+
     /*public void RemoveItem(ItemProperty item)
     {
         if (item == null)
@@ -215,7 +236,7 @@ public class GameDataManager : Singleton<GameDataManager>
 
         return new List<IDataPersistence>(dataPersistences);
     }
-    
+
     #endregion
 }
 

@@ -25,6 +25,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip perfumeTouch;
     public AudioClip coolParticle;
     public AudioClip coolFail;
+    public AudioClip stamp;
 
     public AudioClip news;
     public AudioClip main;
@@ -138,6 +139,12 @@ public class SoundManager : MonoBehaviour
 
             case "coolFail":
                 sfxAudioSource.clip = coolFail;
+                sfxAudioSource.volume = 0.76f;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "stamp":
+                sfxAudioSource.clip = stamp;
                 sfxAudioSource.volume = 0.76f;
                 sfxAudioSource.loop = false;
                 break;

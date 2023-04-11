@@ -106,7 +106,7 @@ public class NextDay : Singleton<NextDay>
 
     public void DayCheckTest()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("DayFinish");
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("DayFinish");
         DailyResult.GetComponent<Animator>().enabled = false;
         DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
 
@@ -257,7 +257,6 @@ public class NextDay : Singleton<NextDay>
             CriminalSystem.FindObjectOfType<CriminalSystem>().MontageShow();
             NewsPanel.GetComponent<Image>().sprite = NewsIMG[6];
         }
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayBGM("news");
     }
     public void SellerStart()
     {

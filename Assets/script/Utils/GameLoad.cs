@@ -8,11 +8,11 @@ public class GameLoad : MonoBehaviour
     private GameData gameData;
     void Start()
     {
-        if (GameDataManager.Instance.isLoad == true)//로드를 한 경우
+        if (GameDataManager.Instance.Day > 1)//로드를 한 경우
         {
             NextDay.FindObjectOfType<NextDay>().DayCheckTest();
 
-            Inventory.FindObjectOfType<Inventory>().LoadData(gameData);
+            GameDataManager.Instance.LoadInvenData();
 
             if (GameDataManager.Instance.Reputation <= 30)
             {
@@ -26,7 +26,6 @@ public class GameLoad : MonoBehaviour
             {
                 GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
             }
-            GameDataManager.Instance.isLoad = false;
         }
     }
 
