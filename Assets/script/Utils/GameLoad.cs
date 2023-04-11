@@ -5,14 +5,22 @@ using UnityEngine.UI;
 
 public class GameLoad : MonoBehaviour
 {
+    public Slider bgmSlider;
+    public Slider sfxSlider;
+    public Slider reputationSlider;
+
     private GameData gameData;
-    void Start()
+    void Awake()
     {
         if (GameDataManager.Instance.Day > 1)//로드를 한 경우
         {
             NextDay.FindObjectOfType<NextDay>().DayCheckTest();
 
             GameDataManager.Instance.LoadInvenData();
+
+            bgmSlider.value = GameDataManager.Instance.BGM;
+            sfxSlider.value = GameDataManager.Instance.SFX;
+            reputationSlider.value = GameDataManager.Instance.ReputationValue;
 
             if (GameDataManager.Instance.Reputation <= 30)
             {

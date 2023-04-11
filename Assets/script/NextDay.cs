@@ -63,46 +63,6 @@ public class NextDay : Singleton<NextDay>
     {
         SceneManager.LoadScene("MoveSystem");
     }
-    public void MoveAfterDayCheck()
-    {
-        if (GameDataManager.Instance.Day == 1)
-        {
-            GameDataManager.Instance.Day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (GameDataManager.Instance.Day == 2)
-        {
-            GameDataManager.Instance.Day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (GameDataManager.Instance.Day == 3)
-        {
-            GameDataManager.Instance.Day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (GameDataManager.Instance.Day == 4)
-        {
-            GameDataManager.Instance.Day++;
-            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
-            Invoke("GoToTitle", 3f);
-        }
-        else if (GameDataManager.Instance.Day == 5)
-        {
-            GameDataManager.Instance.Day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (GameDataManager.Instance.Day == 6)
-        {
-            GameDataManager.Instance.Day++;
-            Invoke("NewsTimePanel", 2f);
-        }
-        else if (GameDataManager.Instance.Day == 7)
-        {
-            GameDataManager.Instance.Day++;
-            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
-            Invoke("GoToTitle", 3f);
-        }
-    }
 
     public void DayCheckTest()
     {
@@ -112,37 +72,43 @@ public class NextDay : Singleton<NextDay>
 
         if (GameDataManager.Instance.Day == 1)
         {
-            GameDataManager.Instance.Day++;
+            //GameDataManager.Instance.Day++;
             Invoke("NewsTimePanel", 2f);
         }
         else if (GameDataManager.Instance.Day == 2)
         {
-            GameDataManager.Instance.Day++;
+            //GameDataManager.Instance.Day++;
+            GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
             Invoke("NewsTimePanel", 2f);
         }
         else if (GameDataManager.Instance.Day == 3)
         {
-            GameDataManager.Instance.Day++;
+            //GameDataManager.Instance.Day++;
+            GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
             Invoke("NewsTimePanel", 2f);
         }
         else if (GameDataManager.Instance.Day == 4)
         {
-            GameDataManager.Instance.Day++;
+            //GameDataManager.Instance.Day++;
+            GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
             Invoke("NewsTimePanel", 2f);
         }
         else if (GameDataManager.Instance.Day == 5)
         {
-            GameDataManager.Instance.Day++;
+            //GameDataManager.Instance.Day++;
+            GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
             Invoke("NewsTimePanel", 2f);
         }
         else if (GameDataManager.Instance.Day == 6)
         {
-            GameDataManager.Instance.Day++;
+            //GameDataManager.Instance.Day++;
+            GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
             Invoke("NewsTimePanel", 2f);
         }
         else if (GameDataManager.Instance.Day == 7)
         {
-            GameDataManager.Instance.Day++;
+            //GameDataManager.Instance.Day++;
+            GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
             GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
             Invoke("GoToTitle", 3f);
         }

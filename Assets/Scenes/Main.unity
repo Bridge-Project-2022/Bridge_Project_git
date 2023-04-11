@@ -34417,6 +34417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdac1a39062c714d999a4e162bf5f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgmSlider: {fileID: 907681487}
+  sfxSlider: {fileID: 1686489157}
+  reputationSlider: {fileID: 1758361152}
 --- !u!4 &1292670486
 Transform:
   m_ObjectHideFlags: 0
