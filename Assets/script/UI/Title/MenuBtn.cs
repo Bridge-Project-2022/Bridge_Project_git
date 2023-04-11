@@ -26,6 +26,9 @@ public class MenuBtn : MonoBehaviour
             Menu.GetComponent<Image>().sprite = open;
             Menu.transform.GetChild(0).gameObject.SetActive(true);
             Menu.transform.GetChild(1).gameObject.SetActive(true);
+            Scene scene = SceneManager.GetActiveScene();
+            if(scene.name == "Main")
+                Menu.transform.GetChild(2).gameObject.SetActive(true);
         }
 
         else if (Menu.GetComponent<Image>().sprite == open)
@@ -33,6 +36,9 @@ public class MenuBtn : MonoBehaviour
             Menu.GetComponent<Image>().sprite = close;
             Menu.transform.GetChild(0).gameObject.SetActive(false);
             Menu.transform.GetChild(1).gameObject.SetActive(false);
+            Scene scene = SceneManager.GetActiveScene();
+            if (scene.name == "Main")
+                Menu.transform.GetChild(2).gameObject.SetActive(false);
         }
     }
     public void OptionBtnClicked()

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 public class ButtonTest : MonoBehaviour
 {
-    public int day = 3;
+    //public int day = 3;
     public NextDay nd;
     public void DaySkipBtn()
     {
@@ -21,7 +21,7 @@ public class ButtonTest : MonoBehaviour
         GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().enabled = false;
         GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
 
-        GameDataManager.Instance.Day = day - 1;
+        GameDataManager.Instance.Day++;
         nd.DayCheckTest();
     }
 }
