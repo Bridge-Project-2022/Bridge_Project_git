@@ -6,6 +6,10 @@
     "bgm": 1.0,
     "sfx": 1.0,
     "soundEnable": false,
+    "isLoad" = false,
+    "ThirdLorenaResult" = "C",
+    "FourthLorenaResult = "C",
+    "FifthLorenaResult" = "C",
     "baseItemList": [
         {
             "name": "",

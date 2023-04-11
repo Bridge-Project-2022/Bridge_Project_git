@@ -11,10 +11,10 @@ public class LoadingSceneManager : MonoBehaviour
     private float time;
     public TextMeshProUGUI Loading;
     public TextMeshProUGUI LoadingRandomText;
-    public string[] LoadingText = new string[11];
+    public string[] LoadingText = new string[19];
     void Start()
     {
-        LoadingRandomText.text = LoadingText[Random.Range(0,11)];
+        LoadingRandomText.text = LoadingText[Random.Range(0,19)];
         StartCoroutine(LoadAsynSceneCoroutine());
     }
 
@@ -37,6 +37,6 @@ public class LoadingSceneManager : MonoBehaviour
 
     public void clickLoadingText()
     {
-        LoadingRandomText.text = LoadingText[Random.Range(0, 11)];
+        LoadingRandomText.text = LoadingText[Random.Range(0, 19)];
     }
 }

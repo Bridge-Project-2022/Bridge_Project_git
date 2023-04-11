@@ -435,7 +435,7 @@ public class ThirdDialogueRandom : MonoBehaviour
     {
         if (GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().Customer_ID[0] == 16)//로레나일 경우
         {
-            GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "C";
+            GameDataManager.Instance.ThirdLorenaResult = "C";
         }
         isSelectStart = false;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");

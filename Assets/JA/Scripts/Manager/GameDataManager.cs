@@ -69,7 +69,31 @@ public class GameDataManager : Singleton<GameDataManager>
         get => gameData.soundEnable;
         set => gameData.soundEnable = value;
     }
-    
+
+    public bool isLoad
+    {
+        get => gameData.isLoad;
+        set => gameData.isLoad = value;
+    }
+
+    public string ThirdLorenaResult
+    {
+        get => gameData.ThirdLorenaResult;
+        set => gameData.ThirdLorenaResult = value;
+    }
+
+    public string FourthLorenaResult
+    {
+        get => gameData.FourthLorenaResult;
+        set => gameData.FourthLorenaResult = value;
+    }
+
+    public string FifthLorenaResult
+    {
+        get => gameData.FifthLorenaResult;
+        set => gameData.FifthLorenaResult = value;
+    }
+
     public void AddBaseItem(ItemProperty item)
     {
         if (item == null)
@@ -145,8 +169,12 @@ public class GameDataManager : Singleton<GameDataManager>
             dataPersistence.SaveData(ref gameData);
         }*/
         // 저장 후 처리
+        Debug.Log("저장하기");
+
         BGM = GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value;
         SFX = GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value;
+
+        Inventory.FindObjectOfType<Inventory>().SaveData(ref gameData);
 
         dataHandler.Save(gameData);
     }
@@ -159,8 +187,8 @@ public class GameDataManager : Singleton<GameDataManager>
         Debug.Log("불러오기");
         
         SceneManager.LoadScene("Main");
-        
-        this.gameData = dataHandler.Load();
+
+        //this.gameData = dataHandler.Load();
 
         // if (this.gameData == null)
         // {
@@ -169,7 +197,6 @@ public class GameDataManager : Singleton<GameDataManager>
 
         dataHandler.Load();
 
-        Invoke("LoadDay", 0.01f);
         /*this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         
         // 불러오기 처리
@@ -177,26 +204,6 @@ public class GameDataManager : Singleton<GameDataManager>
         {
             dataPersistence.LoadData(gameData);
         }*/
-    }
-
-    public void LoadDay()
-    {
-        NextDay.FindObjectOfType<NextDay>().DayCheckTest();
-
-        Inventory.FindObjectOfType<Inventory>().LoadData(gameData);
-
-        if (GameDataManager.Instance.Reputation <= 30)
-        {
-            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationBad;
-        }
-        else if (GameDataManager.Instance.Reputation <= 60 && GameDataManager.Instance.Reputation > 30)
-        {
-            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationNormal;
-        }
-        else if (GameDataManager.Instance.Reputation > 60)
-        {
-            GameObject.Find("ReputationHandle").GetComponent<Image>().sprite = TotalScore.FindObjectOfType<TotalScore>().ReputationGood;
-        }
     }
     #endregion
 

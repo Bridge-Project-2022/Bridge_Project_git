@@ -420,15 +420,16 @@ public class Inventory : MonoBehaviour, IDataPersistence
         Debug.Log("c");
         for (int i = 0; i < Baseslots.Count; i++)
         {
-            data.baseItemList[i] = this.Baseslots[i].item;
+            GameDataManager.Instance.AddBaseItem(Baseslots[i].item);
+            //data.baseItemList[i] = this.Baseslots[i].item;
         }
         for (int i = 0; i < Middleslots.Count; i++)
         {
-            data.middleItemList[i] = this.Middleslots[i].item;
+            GameDataManager.Instance.AddMiddleItem(Middleslots[i].item);
         }
         for (int i = 0; i < Topslots.Count; i++)
         {
-            data.topItemList[i] = this.Topslots[i].item;
+            GameDataManager.Instance.AddTopItem(Topslots[i].item);
         }
     }
 }

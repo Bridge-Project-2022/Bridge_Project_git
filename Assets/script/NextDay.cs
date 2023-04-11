@@ -56,6 +56,11 @@ public class NextDay : Singleton<NextDay>
         DailyResult.GetComponent<Animator>().enabled = false;
         DailyResult.transform.localPosition = new Vector3(-2168, 1162, 0);
 
+        Invoke("MoveSceneLoad", 1f);
+    }
+
+    public void MoveSceneLoad()
+    {
         SceneManager.LoadScene("MoveSystem");
     }
     public void MoveAfterDayCheck()
@@ -409,8 +414,6 @@ public class NextDay : Singleton<NextDay>
 
     public void ClickSaveBtn()
     {
-        Inventory.FindObjectOfType<Inventory>().SaveData(ref gameData);
-
         GameDataManager.Instance.SaveData();
     }
 }

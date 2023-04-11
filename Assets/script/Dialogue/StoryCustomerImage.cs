@@ -21,9 +21,9 @@ public class StoryCustomerImage : MonoBehaviour
 
     public GameObject Customer;
 
-    public string ThirdLorenaResult = "";
-    public string FourthLorenaResult = "";
-    public string SixthLorenaResult = "";
+    //public string ThirdLorenaResult = "";
+    //public string FourthLorenaResult = "";
+    //public string SixthLorenaResult = "";
 
     public Sprite LorenaCut1;
     public Sprite LorenaCut2;

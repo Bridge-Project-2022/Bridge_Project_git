@@ -34485,6 +34485,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1292670484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292670486}
+  - component: {fileID: 1292670485}
+  m_Layer: 0
+  m_Name: GameLoad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1292670485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292670484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdac1a39062c714d999a4e162bf5f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1292670486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292670484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1048.3926, y: 1408.9481, z: -148.78888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300762351
 GameObject:
   m_ObjectHideFlags: 0
@@ -35139,8 +35182,6 @@ MonoBehaviour:
   open: {fileID: 21300000, guid: d976e091f2cf3b0418c3e18ce16d7049, type: 3}
   close: {fileID: 21300000, guid: 8b8f97f336201ca45a9b425ddb4d5424, type: 3}
   Menu: {fileID: 1341131579}
-  NewsFadePanel: {fileID: 146509535}
-  RepHandle: {fileID: 385449661}
   GameQuit: {fileID: 99359195}
   main: {fileID: 8300000, guid: 11f3de9522c691e4e95917c6a3f17503, type: 3}
   OptionPanel: {fileID: 1800782098}
@@ -48603,6 +48644,7 @@ MonoBehaviour:
   GameReputation: {fileID: 1770041898}
   Customer: {fileID: 1106566495}
   TutorialPanel: {fileID: 54881073}
+  RepHandle: {fileID: 385449661}
 --- !u!114 &1877822973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50868,9 +50910,6 @@ MonoBehaviour:
   isUnique: 0
   UniqueID: 1000
   Customer: {fileID: 772955856}
-  ThirdLorenaResult: 
-  FourthLorenaResult: 
-  SixthLorenaResult: 
   LorenaCut1: {fileID: 21300000, guid: 38be348a053a9d04abc506011edcc127, type: 3}
   LorenaCut2: {fileID: 21300000, guid: 56170d98ed110d24b8fa2846396374c4, type: 3}
   LorenaCut3: {fileID: 21300000, guid: 8e8b0ddd6a6ddc9449e81870d326d5a4, type: 3}

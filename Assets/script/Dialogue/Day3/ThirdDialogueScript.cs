@@ -600,7 +600,7 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verygood") || (GameObject.FindObjectOfType<TotalScore>().reputation == "good"))
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "A";
+                    GameDataManager.Instance.ThirdLorenaResult = "A";
                     foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.resultGoodComment;
@@ -614,7 +614,7 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (GameObject.FindObjectOfType<TotalScore>().reputation == "normal")
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "A";
+                    GameDataManager.Instance.ThirdLorenaResult = "A";
                     foreach (string str in Lorena.dialogue.resultNormalComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.resultNormalComment;
@@ -628,7 +628,7 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if ((GameObject.FindObjectOfType<TotalScore>().reputation == "verybad") || (GameObject.FindObjectOfType<TotalScore>().reputation == "bad"))
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "B";
+                    GameDataManager.Instance.ThirdLorenaResult = "B";
                     foreach (string str in Lorena.dialogue.resultBadComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.resultBadComment;
@@ -644,7 +644,7 @@ public class ThirdDialogueScript : MonoBehaviour
             {
                 if (GameObject.FindObjectOfType<TotalScore>().originPrice == 0 && TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)//향료를 하나라도 넣지 않고 바로 향수 제조한 경우
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "B";
+                    GameDataManager.Instance.ThirdLorenaResult = "B";
                     foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.noFlavorComment;
@@ -658,7 +658,7 @@ public class ThirdDialogueScript : MonoBehaviour
 
                 else if (TotalScore.FindObjectOfType<TotalScore>().isAllFinished == true)
                 {
-                    GameObject.Find("RC").GetComponent<StoryCustomerImage>().ThirdLorenaResult = "B";
+                    GameDataManager.Instance.ThirdLorenaResult = "B";
                     foreach (string str in Lorena.dialogue.resultGoodComment)
                     {
                         Customer_PerfumeReaction = Lorena.dialogue.noExistComment;

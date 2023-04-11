@@ -30,7 +30,9 @@ public class ToolTipController : MonoBehaviour
     [SerializeField] private PlaceController placeController;
     
     private ToolTip _toolTip;
-    
+
+    public Slider bgmSlider;
+    public Slider sfxSlider;
     public void SetUp(ToolTip tip)
     {
         _toolTip = tip;
@@ -89,6 +91,8 @@ public class ToolTipController : MonoBehaviour
 
     public void ReturnHome()
     {
+        GameDataManager.Instance.BGM = bgmSlider.value;
+        GameDataManager.Instance.SFX = sfxSlider.value;
         GameDataManager.Instance.LoadData();
     }
 

@@ -10,10 +10,6 @@ public class MenuBtn : MonoBehaviour
     public Sprite close;
 
     public GameObject Menu;
-    public GameObject NewsFadePanel;
-
-    public GameObject RepHandle;
-
     public GameObject GameQuit;
     public AudioClip main;
     public GameObject OptionPanel;
@@ -21,10 +17,6 @@ public class MenuBtn : MonoBehaviour
     void Start()
     {
         Menu.GetComponent<Image>().sprite = close;
-    }
-    private void Update()
-    {
-        RepHandle.GetComponent<Image>().SetNativeSize();
     }
 
     public void MenuClick()
@@ -77,7 +69,7 @@ public class MenuBtn : MonoBehaviour
     public void NewsClose()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
-        NewsFadePanel.SetActive(true);
+        GameObject.Find("Panels").transform.GetChild(3).gameObject.SetActive(true);
         if (GameDataManager.Instance.Day != 1)
         {
             NextDay.FindObjectOfType<NextDay>().NextDayClick();
@@ -87,7 +79,7 @@ public class MenuBtn : MonoBehaviour
 
     public void CloseNews()
     {
-        NewsFadePanel.gameObject.SetActive(false);
+        GameObject.Find("Panels").transform.GetChild(3).gameObject.SetActive(false);
         GameObject.Find("NewsTime").gameObject.SetActive(false);
         if (GameDataManager.Instance.Day == 1)
         {

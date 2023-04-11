@@ -509,11 +509,11 @@ public class FourthDialogueRandom : MonoBehaviour
 
         if (GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().Customer_ID[0] == 22)//로레나일 경우
         {
-            GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "C";
+            GameDataManager.Instance.FourthLorenaResult = "C";
         }
         if (GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().Customer_ID[0] == 23)//로레나일 경우
         {
-            GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult = "C";
+            GameDataManager.Instance.FourthLorenaResult = "C";
         }
         GameObject.Find("Etc").transform.GetChild(5).gameObject.SetActive(false);
         isSelectStart = false;

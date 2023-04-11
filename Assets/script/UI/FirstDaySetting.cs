@@ -16,7 +16,7 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     public GameObject TutorialPanel;
 
     string[] CustomerTxt = new string[2];
-
+    public GameObject RepHandle;
     public void FirstStart()
     {
         CustomerTxt[0] = "오늘 가져온 향료 좀 볼텐가?";
@@ -31,14 +31,10 @@ public class FirstDaySetting : MonoBehaviour, IDataPersistence
     }
     private void Update()
     {
-        
+        RepHandle.GetComponent<Image>().SetNativeSize();
+
         GameMoney.text = GameDataManager.Instance.Money.ToString();
         GameReputation.gameObject.GetComponent<Text>().text = GameDataManager.Instance.Reputation.ToString();
-
-        if (GameDataManager.Instance.Reputation < 0)
-        { 
-            //배드 엔딩 ㄱ
-        }
     }
 
     public void FirstDayStart()

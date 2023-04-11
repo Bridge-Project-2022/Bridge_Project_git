@@ -15,9 +15,9 @@ public class MainMenu : MonoBehaviour
     
     public void OnLoadGameClicked()
     {
-        if (GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().Day > 1)
+        if (GameDataManager.Instance.Day > 1)
         {
-            GameObject.Find("GameDataManager(singleton)").GetComponent<GameDataManager>().LoadData();
+            GameDataManager.Instance.LoadData();
         }
         else
         {

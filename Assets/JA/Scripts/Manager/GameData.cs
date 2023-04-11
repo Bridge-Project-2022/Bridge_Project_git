@@ -10,6 +10,10 @@ public class GameData
     public float bgm;
     public float sfx;
     public bool soundEnable;
+    public bool isLoad;
+    public string ThirdLorenaResult;
+    public string FourthLorenaResult;
+    public string FifthLorenaResult;
     public List<ItemProperty> baseItemList;
     public List<ItemProperty> middleItemList;
     public List<ItemProperty> topItemList;
@@ -23,6 +27,10 @@ public class GameData
         this.bgm = 1.0f;
         this.sfx = 1.0f;
         this.soundEnable = false;
+        this.isLoad = false;
+        this.ThirdLorenaResult = "C";
+        this.FourthLorenaResult = "C";
+        this.FifthLorenaResult = "C";
         this.baseItemList = new List<ItemProperty>();
         this.middleItemList = new List<ItemProperty>();
         this.topItemList = new List<ItemProperty>();

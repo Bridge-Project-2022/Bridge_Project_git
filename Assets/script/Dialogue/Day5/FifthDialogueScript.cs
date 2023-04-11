@@ -53,7 +53,7 @@ public class FifthDialogueScript : MonoBehaviour
         Customer LorenaB = CustomerManager.Instance.days.day[4].customer[6];
         Customer LorenaC = CustomerManager.Instance.days.day[4].customer[7];
 
-        if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult == "A")
+        if (GameDataManager.Instance.FourthLorenaResult == "A")
         {
             if (Customer_ID[0] == 30 || Customer_ID[0] == 31)
             {
@@ -61,7 +61,7 @@ public class FifthDialogueScript : MonoBehaviour
             }
         }
 
-        if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult == "B")
+        if (GameDataManager.Instance.FourthLorenaResult == "B")
         {
             if (Customer_ID[0] == 29 || Customer_ID[0] == 31)
             {
@@ -69,7 +69,7 @@ public class FifthDialogueScript : MonoBehaviour
             }
         }
 
-        if (GameObject.Find("RC").GetComponent<StoryCustomerImage>().FourthLorenaResult == "C")
+        if (GameDataManager.Instance.FourthLorenaResult == "C")
         {
             if (Customer_ID[0] == 29 || Customer_ID[0] == 30)
             {
