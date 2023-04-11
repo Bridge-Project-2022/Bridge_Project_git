@@ -86,4 +86,15 @@ public class MenuBtn : MonoBehaviour
             GameObject.Find("Panels").transform.GetChild(0).gameObject.SetActive(true);
         }
     }
+
+    public void credit()
+    {
+        GameObject.Find("CreditPanel").transform.GetChild(0).gameObject.SetActive(true);
+        Invoke("creditClose", 31f);
+    }
+
+    public void creditClose()
+    {
+        GameObject.Find("CreditPanel").transform.GetChild(0).gameObject.SetActive(false);
+    }
 }

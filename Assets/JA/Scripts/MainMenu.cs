@@ -35,8 +35,12 @@ public class MainMenu : MonoBehaviour
 
     public void credit()
     {
-        unsupportedTxt.SetActive(true);
-        unsupportedTxt.GetComponent<TextMeshProUGUI>().text = "현재 지원되지 않는 기능입니다.";
-        Invoke("unsupported", 2f);
+        GameObject.Find("CreditPanel").transform.GetChild(0).gameObject.SetActive(true);
+        Invoke("creditClose", 31f);
+    }
+
+    public void creditClose()
+    {
+        GameObject.Find("CreditPanel").transform.GetChild(0).gameObject.SetActive(false);
     }
 }
