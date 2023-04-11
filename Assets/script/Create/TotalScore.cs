@@ -110,6 +110,7 @@ public class TotalScore : MonoBehaviour
             float imsiReputation = GameDataManager.Instance.Reputation;
             GameDataManager.Instance.Reputation -= 5;
             ReputationSlider.GetComponent<Slider>().value -= 0.05f;
+            GameDataManager.Instance.ReputationValue -= 0.05f;
             //StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
         }
@@ -126,6 +127,7 @@ public class TotalScore : MonoBehaviour
             float imsiReputation = GameDataManager.Instance.Reputation;
             GameDataManager.Instance.Reputation -= 5;
             ReputationSlider.GetComponent<Slider>().value -= 0.05f;
+            GameDataManager.Instance.ReputationValue -= 0.05f;
             //StartCoroutine(Countt(imsiReputation, fd.Reputation));
             reputation = "bad";
         }
@@ -146,6 +148,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 베리굳");
                     GameDataManager.Instance.Reputation += 10;
                     ReputationSlider.GetComponent<Slider>().value += 0.1f;
+                    GameDataManager.Instance.ReputationValue += 0.1f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verygood";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "good";
@@ -155,6 +158,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 굳");
                     GameDataManager.Instance.Reputation += 6;
                     ReputationSlider.GetComponent<Slider>().value += 0.06f;
+                    GameDataManager.Instance.ReputationValue += 0.06f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "good";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "good";
@@ -164,6 +168,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 노멀");
                     GameDataManager.Instance.Reputation += 1;
                     ReputationSlider.GetComponent<Slider>().value += 0.01f;
+                    GameDataManager.Instance.ReputationValue += 0.01f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "normal";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "basic";
@@ -173,6 +178,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 밷");
                     GameDataManager.Instance.Reputation -= 5;
                     ReputationSlider.GetComponent<Slider>().value -= 0.05f;
+                    GameDataManager.Instance.ReputationValue -= 0.05f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "bad";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
@@ -182,6 +188,7 @@ public class TotalScore : MonoBehaviour
                     Debug.Log("평판 베리밷");
                     GameDataManager.Instance.Reputation -= 8;
                     ReputationSlider.GetComponent<Slider>().value -= 0.08f;
+                    GameDataManager.Instance.ReputationValue -= 0.08f;
                     //StartCoroutine(Countt(imsiReputation, fd.Reputation));
                     reputation = "verybad";
                     //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";

@@ -192,9 +192,6 @@ public class GameDataManager : Singleton<GameDataManager>
         // 저장 후 처리
         Debug.Log("저장하기");
 
-        BGM = GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(2).GetComponent<Slider>().value;
-        SFX = GameObject.Find("Panels").transform.GetChild(4).GetChild(1).GetChild(4).GetComponent<Slider>().value;
-
         Inventory.FindObjectOfType<Inventory>().SaveData(ref gameData);
 
         dataHandler.Save(gameData);

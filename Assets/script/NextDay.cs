@@ -18,7 +18,8 @@ public class NextDay : Singleton<NextDay>
     public GameObject DayPanelDay1;
     public GameObject DayPanelDay2;
     public GameObject Declaration;
-
+    public Slider bgmSlider;
+    public Slider sfxSlider;
     public Sprite BG_Sprite;
     public Sprite WD_Sprite;
 
@@ -379,6 +380,8 @@ public class NextDay : Singleton<NextDay>
 
     public void ClickSaveBtn()
     {
+        GameDataManager.Instance.SFX = sfxSlider.value;
+        GameDataManager.Instance.BGM = bgmSlider.value;
         GameDataManager.Instance.SaveData();
     }
 }

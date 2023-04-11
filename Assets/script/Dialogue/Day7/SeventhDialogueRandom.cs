@@ -406,18 +406,21 @@ public class SeventhDialogueRandom : MonoBehaviour
         {
             GameDataManager.Instance.Reputation -= 8;
             GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.08f;
+            GameDataManager.Instance.ReputationValue -= 0.08f;
             //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
         else if (rejectCnt == 2)
         {
             GameDataManager.Instance.Reputation -= 10;
             GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.1f;
+            GameDataManager.Instance.ReputationValue -= 0.1f;
             //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
         if (rejectCnt >= 3)
         {
             GameDataManager.Instance.Reputation -= 15;
             GameObject.Find("ReputationSlider").GetComponent<Slider>().value -= 0.15f;
+            GameDataManager.Instance.ReputationValue -= 0.15f;
             //StartCoroutine(Count(imsiReputation, FirstDaySetting.FindObjectOfType<FirstDaySetting>().Reputation));
         }
 

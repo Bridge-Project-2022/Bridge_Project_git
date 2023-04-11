@@ -23,7 +23,6 @@ public class SoundController : MonoBehaviour//, IDataPersistence
     public void SetBGMVolume(float volume)
     {
         BGMSource.volume = volume;
-        Debug.Log(BGMSource.volume);
     }
 
     public void SetSFXVolume(float volume)
