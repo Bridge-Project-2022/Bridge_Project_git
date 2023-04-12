@@ -652,6 +652,8 @@ public class Tutorial : MonoBehaviour
                     isTutCreate = false;
                     GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(true);
                     GameObject.Find("Etc").transform.GetChild(7).gameObject.GetComponent<Image>().sprite = alpa;
+                    GameObject.Find("Etc").transform.GetChild(6).gameObject.SetActive(false);
+                    GameObject.Find("Etc").transform.GetChild(7).gameObject.SetActive(false);
                     Manufacture.transform.GetChild(3).GetComponent<Button>().interactable = true;
                     DayCheck.FindObjectOfType<DayCheck>().A_Start_Check();
                 }
