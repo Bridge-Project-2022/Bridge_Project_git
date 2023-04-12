@@ -103,4 +103,8 @@ public class MenuBtn : MonoBehaviour
     {
         GameObject.Find("CreditPanel").transform.GetChild(0).gameObject.SetActive(false);
     }
+    public void ScreenSize()
+    {
+        GameObject.Find("ScreenSizePanel").transform.GetChild(0).gameObject.SetActive(true);
+    }
 }

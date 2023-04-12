@@ -39,6 +39,10 @@ public class MainMenu : MonoBehaviour
         Invoke("creditClose", 31f);
     }
 
+    public void ScreenSize()
+    {
+        GameObject.Find("ScreenSizePanel").transform.GetChild(0).gameObject.SetActive(true);
+    }
     public void creditClose()
     {
         GameObject.Find("CreditPanel").transform.GetChild(0).gameObject.SetActive(false);
