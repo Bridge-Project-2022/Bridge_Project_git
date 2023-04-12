@@ -118,7 +118,7 @@ public class TotalScore : MonoBehaviour
         {
             //GameObject.Find("RC").GetComponent<RandomImage>().CurrentFeel = "bad";
             Debug.Log("하나라도 고르긴 했는데 맞는 향료가 아닐 경우");
-            perfumePrice = totalScore * 3;
+            perfumePrice = totalScore * 5;
             float imsiMoney = GameDataManager.Instance.Money;
             GameDataManager.Instance.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
@@ -136,7 +136,7 @@ public class TotalScore : MonoBehaviour
         {
             Debug.Log("3개 향료 다 맞은 경우");
             float imsiMoney = GameDataManager.Instance.Money;
-            perfumePrice = rightPrice + totalScore * 3;
+            perfumePrice = rightPrice + totalScore * 5;
             GameDataManager.Instance.Money += perfumePrice;
             StartCoroutine(Count(imsiMoney, GameDataManager.Instance.Money));
             GameObject.Find("DailyResult").GetComponent<DailyResult>().allRevenue += perfumePrice;

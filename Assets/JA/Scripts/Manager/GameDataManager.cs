@@ -204,7 +204,7 @@ public class GameDataManager : Singleton<GameDataManager>
     {
         Debug.Log("불러오기");
         
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Loading");
 
         //this.gameData = dataHandler.Load();
 

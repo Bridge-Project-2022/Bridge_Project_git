@@ -62,7 +62,7 @@ public class NextDay : Singleton<NextDay>
 
     public void MoveSceneLoad()
     {
-        SceneManager.LoadScene("MoveSystem");
+        SceneManager.LoadScene("Loading2");
     }
 
     public void DayCheckTest()
@@ -74,37 +74,37 @@ public class NextDay : Singleton<NextDay>
         if (GameDataManager.Instance.Day == 1)
         {
             //GameDataManager.Instance.Day++;
-            Invoke("NewsTimePanel", 2f);
+            Invoke("NewsTimePanel", 0.01f);
         }
         else if (GameDataManager.Instance.Day == 2)
         {
             //GameDataManager.Instance.Day++;
             GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
-            Invoke("NewsTimePanel", 2f);
+            Invoke("NewsTimePanel", 0.01f);
         }
         else if (GameDataManager.Instance.Day == 3)
         {
             //GameDataManager.Instance.Day++;
             GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
-            Invoke("NewsTimePanel", 2f);
+            Invoke("NewsTimePanel", 0.01f);
         }
         else if (GameDataManager.Instance.Day == 4)
         {
             //GameDataManager.Instance.Day++;
             GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
-            Invoke("NewsTimePanel", 2f);
+            Invoke("NewsTimePanel", 0.01f);
         }
         else if (GameDataManager.Instance.Day == 5)
         {
             //GameDataManager.Instance.Day++;
             GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
-            Invoke("NewsTimePanel", 2f);
+            Invoke("NewsTimePanel", 0.01f);
         }
         else if (GameDataManager.Instance.Day == 6)
         {
             //GameDataManager.Instance.Day++;
             GameObject.Find("Trigger").GetComponent<DialogueRandom>().enabled = false;
-            Invoke("NewsTimePanel", 2f);
+            Invoke("NewsTimePanel", 0.01f);
         }
         else if (GameDataManager.Instance.Day == 7)
         {
@@ -290,6 +290,7 @@ public class NextDay : Singleton<NextDay>
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<SecondDialogueRandom>().enabled = false;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = true;
+        GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().enabled = false;
         GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
@@ -309,6 +310,8 @@ public class NextDay : Singleton<NextDay>
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<ThirdDialogueRandom>().enabled = false;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = true;
+        GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
@@ -325,6 +328,9 @@ public class NextDay : Singleton<NextDay>
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<FourthDialogueRandom>().enabled = false;
         Trigger.GetComponent<FifthDialogueRandom>().enabled = true;
+        GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript5").GetComponent<FifthDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
@@ -346,6 +352,10 @@ public class NextDay : Singleton<NextDay>
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<FifthDialogueRandom>().enabled = false;
         Trigger.GetComponent<SixthDialogueRandom>().enabled = true;
+        GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript5").GetComponent<FifthDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript6").GetComponent<SixthDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
@@ -362,6 +372,11 @@ public class NextDay : Singleton<NextDay>
         GameObject Trigger = GameObject.Find("Trigger").gameObject;
         Trigger.GetComponent<SixthDialogueRandom>().enabled = false;
         Trigger.GetComponent<SeventhDialogueRandom>().enabled = true;
+        GameObject.Find("DialogueScript1").GetComponent<DialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().enabled = false;
+        GameObject.Find("DialogueScript5").GetComponent<FifthDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript6").GetComponent<SixthDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript7").GetComponent<SeventhDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();

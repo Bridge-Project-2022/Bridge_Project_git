@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Loading2.unity
+    guid: 64656932531629942b7ddac67d688fcc
+  - enabled: 1
     path: Assets/Scenes/MoveSystem.unity
     guid: efd29eaff9051484f8c3b7223bf1fa51
+  - enabled: 1
+    path: Assets/Scenes/Loading3.unity
+    guid: 4781ded2d4fcfa54ca6e4c040108509d
   m_configObjects: {}

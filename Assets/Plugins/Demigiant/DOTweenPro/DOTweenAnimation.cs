@@ -142,7 +142,10 @@ namespace DG.Tweening
             if (tween != null && tween.active) tween.Kill();
             tween = null;
         }
-
+        public void bellSound()
+        {
+            GameObject.Find("Ball").GetComponent<AudioSource>().Play();
+        }
         /// <summary>
         /// Creates/recreates the tween without playing it, but first rewinding and killing the existing one if present.
         /// </summary>
