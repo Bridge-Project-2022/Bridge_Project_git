@@ -20,6 +20,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: "\uAF2C\uB9C8 \uC544\uC774"
     face: B_basic_night
@@ -27,6 +29,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: "\uC5B4\uB978"
     face: J_basic_night
@@ -35,6 +39,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: J_basic_night
@@ -45,6 +51,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: J_good_night
@@ -54,6 +62,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: B_good_night
@@ -62,6 +72,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: J_good_night
@@ -70,6 +82,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: J_good_night
@@ -78,6 +92,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: B_basic_night
@@ -85,6 +101,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: 
@@ -92,6 +110,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: 
@@ -99,6 +119,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: 
@@ -107,13 +129,17 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
-    name: "\uB098"
+    name: 
     face: 
     dialog: "\uC544\uBB34\uB3C4 \uC5C6\uC73C\uC2E0\uAC00\uC694?"
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: 
@@ -121,13 +147,17 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
-    name: "\uB098"
+    name: 
     face: 
     dialog: "\uB2E4\uC74C\uC5D0 \uB2E4\uC2DC \uC624\uB294 \uAC8C \uC88B\uACA0\uC5B4."
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: 
@@ -136,6 +166,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: D_good_night
@@ -143,6 +175,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: C_basic_night
@@ -150,6 +184,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: D_basic_night
@@ -158,6 +194,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: C_basic_night
@@ -166,6 +204,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: D_basic_night
@@ -174,6 +214,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: D_basic_night
@@ -183,6 +225,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: D_basic_night
@@ -191,6 +235,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: C_basic_night
@@ -198,6 +244,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: D_sad_night
@@ -205,6 +253,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: D_sad_night
@@ -213,6 +263,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: D_bad_night
@@ -221,6 +273,8 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 1
     name: 
     face: C_good_night
@@ -228,89 +282,113 @@ MonoBehaviour:
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_bad_night
     dialog: "\uC774\uBCF4\uAC8C!"
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_basic_night
     dialog: "\uC774 \uC57C\uC2EC\uD55C \uBC24\uC5D0 \uC0B0\uC5D0 \uC624\uB974\uB824\uB358
       \uAC83\uC740 \uC544\uB2D0\uD14C\uC9C0..?"
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_good_night
     dialog: "\uC624\uD638.. \uB204\uAD70\uAC00 \uD588\uB354\uB2C8, \uADF8 \uC2E0\uAE30\uD55C
       \uAC00\uAC8C \uC8FC\uC778\uC774\uAD6C\uB9CC."
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_good_night
     dialog: "\uD558\uD558, \uADF8 \uB9C8\uBC95 \uC7AC\uB8CC\uB4E4\uC744 \uC5EC\uAE30\uC11C
       \uAD6C\uD558\uB294 \uAC74\uAC00..?"
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_basic_night
     dialog: "\uB0B4\uAC00 \uADF8 \uBE44\uBC00\uC740 \uC9C0\uCF1C\uC8FC\uACA0\uB2E4\uB9CC..,"
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_basic_night
     dialog: "\uC624\uB298\uC740 \uC774 \uC0B0\uC5D0 \uBC24\uC744 \uC624\uB974\uC9C0
       \uC54A\uB294 \uAC8C \uC88B\uC744\uAC78\uC138."
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: ???
+    name: 
     face: 
     dialog: "(\uB0D0-\uC639)"
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_good_night
     dialog: "\uC544\uC774\uACE0~ \uC62C\uD574\uB294 \uB2E4\uB4E4 \uC77C\uCC0D \uB3CC\uC544\uC624\uC168\uB124."
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_good_night
     dialog: "\uC774\uB807\uAC8C \uB9E4\uB144 \uC6B0\uB9AC \uB9C8\uC744\uC5D0 \uACE0\uC591\uC774\uB4E4\uC774
       \uCC3E\uC544\uC628\uB2E4\uB124."
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: "\uC758\uBB38\uC758 \uD560\uC544\uBC84\uC9C0"
+    name: "\uD560\uC544\uBC84\uC9C0"
     face: K_basic_night
     dialog: "\uADFC\uB370 \uC694\uC998\uB530\uB77C \uACE0\uC591\uC774 \uC18C\uB9AC\uAC00
       \uC65C \uC774\uB9AC \uB9CE\uC774 \uB4E4\uB9AC\uC9C0..?"
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
-    name: ???
+    name: 
     face: 
     dialog: "(\uB0D0\uC544-\uC639)"
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
     name: 
     face: E_basic_night
@@ -318,6 +396,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
     name: 
     face: F_basic_night
@@ -325,6 +405,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
     name: 
     face: E_sad_night
@@ -334,6 +416,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
     name: 
     face: F_basic_night
@@ -342,6 +426,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
     name: 
     face: E_basic_night
@@ -349,6 +435,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
     name: 
     face: F_good_night
@@ -357,6 +445,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 2
     name: 
     face: E_good_night
@@ -365,6 +455,8 @@ MonoBehaviour:
     place: 2
     placeImage: Movemap_Place_Tree
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: 
@@ -372,6 +464,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: 
@@ -379,6 +473,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_vacant_night
@@ -386,13 +482,17 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: "\uB098"
+    name: 
     face: 
     dialog: "\uB85C\uB808\uB098\uC528..?"
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_vacant_night
@@ -400,13 +500,17 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: "\uB098"
+    name: 
     face: 
     dialog: "\uC5B4.. \uAD1C\uCC2E\uC73C\uC2E0\uAC00\uC694..?"
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_faint2_night
@@ -415,14 +519,18 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: "\uB098"
+    name: 
     face: 
     dialog: "\uC0AC\uB791\uD588\uB358 \uC0AC\uB78C\uACFC\uC758 \uCD94\uC5B5\uC744
       \uC9C0\uC6B0\uB294 \uAC74 \uB204\uAD6C\uC5D0\uAC8C\uB098 \uD798\uB4E0 \uC77C\uC774\uC5D0\uC694.."
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_faint2_night
@@ -431,6 +539,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_faint2_night
@@ -438,6 +548,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_cry_night
@@ -446,6 +558,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_cry_night
@@ -454,6 +568,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_cry_night
@@ -462,14 +578,18 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: "\uB098"
+    name: 
     face: 
     dialog: "\uB85C\uB808\uB098\uC528, \uC624\uB298\uB9CC\uD07C\uC740 \uD734\uC2DD\uC744
       \uCDE8\uD574\uBCF4\uB294 \uAC74 \uC5B4\uB54C\uC694..?"
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_cry_night
@@ -477,6 +597,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: "\uB85C\uB808\uB098"
     face: L01_faint2_night
@@ -484,6 +606,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: Packman
@@ -492,6 +616,8 @@ MonoBehaviour:
     place: 6
     placeImage: Movemap_Place_Lighthouse
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: Packman
@@ -500,6 +626,8 @@ MonoBehaviour:
     place: 6
     placeImage: Movemap_Place_Lighthouse
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: Packman
@@ -507,6 +635,8 @@ MonoBehaviour:
     place: 6
     placeImage: Movemap_Place_Lighthouse
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: Packman
@@ -516,6 +646,8 @@ MonoBehaviour:
     place: 6
     placeImage: Movemap_Place_Lighthouse
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: Packman
@@ -524,6 +656,8 @@ MonoBehaviour:
     place: 6
     placeImage: Movemap_Place_Lighthouse
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: Packman
@@ -532,6 +666,8 @@ MonoBehaviour:
     place: 6
     placeImage: Movemap_Place_Lighthouse
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
     name: 
     face: Packman
@@ -539,84 +675,106 @@ MonoBehaviour:
     place: 6
     placeImage: Movemap_Place_Lighthouse
     special: 1
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: C_good_night
     dialog: "\uC5ED\uC2DC \uCD95\uC81C \uAE30\uAC04\uC774 \uCD5C\uACE0\uC57C!"
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: B_good_night
     dialog: "\uC5C4\uB9C8! \uB098\uB3C4 \uC800\uAC70 \uC0AC\uC918!!"
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: G_good_night
     dialog: "\uD558\uD558! \uC774\uC81C\uC57C \uC6B0\uB9AC \uB9C8\uC744\uC5D0 \uD65C\uAE30\uAC00
       \uC0DD\uAE34 \uAC70 \uAC19\uB124."
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: H_basic_night
     dialog: "\uADF8\uB7EC\uAC8C, \uAC70\uB9AC\uC5D0 \uC0AC\uB78C\uC774 \uBC14\uAE00\uBC14\uAE00\uD55C
       \uAC74 \uC815\uB9D0 \uC624\uB79C\uB9CC\uC774\uC57C!"
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: G_good_night
     dialog: "\uC694\uC998 \uB9C8\uC744\uC744 \uB458\uB7EC\uBCFC \uC5EC\uC720\uB3C4
       \uC5C6\uC774 \uADF8\uC800 \uBC14\uC058\uAC8C\uB9CC \uC9C0\uB0C8\uB294\uB370\u2026."
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: G_good_night
     dialog: "\uC774\uB7F0 \uCD95\uC81C \uAE30\uAC04\uC774 \uC788\uC73C\uB2C8 \uB9AC\uD504
       \uC12C\uC73C\uB85C \uAC00\uBC84\uB9B0 \uAC00\uC871\uB4E4\uC774 \uC0DD\uAC01\uB098\uB294\uAD6C\uBA3C."
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: H_good_night
     dialog: "\uADF8\uB798\uB3C4 \uB9AC\uD504 \uC12C\uC5D0\uC11C \uC6B0\uB9AC \uCD95\uC81C\uC5D0
       \uB300\uD55C \uC18C\uBB38\uC774 \uC790\uC790\uD558\uB2E4\uB358\uB370?"
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: G_good_night
     dialog: "\uC624! \uADF8\uB807\uB2E4\uBA74 \uC5EC\uAE30\uC800\uAE30\uC5D0\uC11C
       \uC0AC\uB78C\uB4E4\uC774 \uC544\uC8FC \uB9CE\uC774 \uB180\uB7EC \uC624\uACA0\uAD70."
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: G_good_night
     dialog: "\uAE30\uD68C\uAC00 \uB41C\uB2E4\uBA74.. \uC624\uB79C\uB9CC\uC5D0 \uAC00\uC871\uB4E4\uB3C4
       \uBCFC \uC218 \uC788\uACA0\uC5B4."
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 3
-    name: 
+    name: "\uC9C0\uB098\uAC00\uB294 \uC0AC\uB78C"
     face: H_good_night
     dialog: "\uB9DE\uC544! \uC0C8\uB85C\uC6B4 \uC0AC\uB78C\uB4E4\uC744 \uB9DE\uC774\uD560
       \uC0DD\uAC01\uC5D0 \uBC8C\uC368 \uC2E0\uC774 \uB098\uB294\uAC78?"
     place: 1
     placeImage: Movemap_Place_Street
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: 
@@ -624,6 +782,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: 
@@ -631,6 +791,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: 
@@ -638,6 +800,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: 
@@ -645,6 +809,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: 
@@ -652,6 +818,8 @@ MonoBehaviour:
     place: 3
     placeImage: Movemap_Place_Lorea
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: A_good_night
@@ -660,6 +828,8 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: A_good_night
@@ -668,6 +838,8 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: F_good_night
@@ -675,6 +847,8 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: A_bad_night
@@ -682,6 +856,8 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: F_good_night
@@ -690,6 +866,8 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: A_sad_night
@@ -698,6 +876,8 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: A_sad_night
@@ -705,6 +885,8 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: F_basic_night
@@ -713,6 +895,8 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse
   - day: 4
     name: 
     face: F_basic_night
@@ -721,3 +905,5 @@ MonoBehaviour:
     place: 5
     placeImage: Movemap_Place_Wood
     special: 0
+    explanation: "\uC7A5\uC18C \uC124\uBA85"
+    explanationImage: LightHouse

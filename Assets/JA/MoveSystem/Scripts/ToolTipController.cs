@@ -17,6 +17,7 @@ public class ToolTipController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI placeTypeTitleText;
     [SerializeField] private TextMeshProUGUI placeTypeExplanationText;
     [SerializeField] private Image notice;
+    [SerializeField] private Image placeImage;
     [SerializeField] private Sprite noticeImage;
     [SerializeField] private Sprite specialNoticeImage;
 
@@ -69,6 +70,10 @@ public class ToolTipController : MonoBehaviour
                 notice.sprite = noticeImage;
 
             //placeTypeExplanationText.text = titleText;
+
+            var data = placeController.GetPlaceDialogData(GameDataManager.Instance.Day, tip.button);
+            placeTypeExplanationText.text = data[0].explanation;
+            placeImage.sprite = Resources.Load<Sprite>("MoveSystem/PopupImage/" + data[0].explanationImage);
             
             placeType.SetActive(true);
         }

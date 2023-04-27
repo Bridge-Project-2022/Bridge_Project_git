@@ -21,7 +21,7 @@ public class GameData
     public GameData()
     {
         this.money = 10000;
-        this.day = 1;
+        this.day = 3;
         this.reputation = 60;
         this.reputationValue = 0.6f;
         this.bgm = 1.0f;
