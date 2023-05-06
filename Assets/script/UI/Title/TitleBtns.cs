@@ -7,6 +7,7 @@ public class TitleBtns : MonoBehaviour
 {
     public GameObject[] TitleBtnList;
     public Button MyBtn;
+    public AudioClip Click;
 
     [SerializeField]
     private GameObject OptionPanel;
@@ -26,6 +27,8 @@ public class TitleBtns : MonoBehaviour
 
     public void OptionBtnClicked()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().clip = Click;
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
         OptionPanel.SetActive(true);
     }
 
@@ -67,6 +70,8 @@ public class TitleBtns : MonoBehaviour
 
     public void ExitBtnClicked()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().clip = Click;
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -76,6 +81,8 @@ public class TitleBtns : MonoBehaviour
 
     public void OptionCloseBtnClicked()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().clip = Click;
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
         OptionPanel.SetActive(false);
     }
 

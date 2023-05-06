@@ -6,8 +6,11 @@ public class MainMenu : MonoBehaviour
 {
     public bool gameStart = false;
     public GameObject unsupportedTxt;
+    public AudioClip Click;
     public void OnNewGameClicked()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().clip = Click;
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
         gameStart = true;
         GameDataManager.Instance.NewGameStart();
         SceneManager.LoadScene("Start");
@@ -15,6 +18,8 @@ public class MainMenu : MonoBehaviour
     
     public void OnLoadGameClicked()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().clip = Click;
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
         if (GameDataManager.Instance.Day > 1)
         {
             GameDataManager.Instance.LoadData();
@@ -35,16 +40,22 @@ public class MainMenu : MonoBehaviour
 
     public void credit()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().clip = Click;
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
         GameObject.Find("CreditPanel").transform.GetChild(0).gameObject.SetActive(true);
         Invoke("creditClose", 31f);
     }
 
     public void ScreenSize()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().clip = Click;
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
         GameObject.Find("ScreenSizePanel").transform.GetChild(0).gameObject.SetActive(true);
     }
     public void creditClose()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().clip = Click;
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
         GameObject.Find("CreditPanel").transform.GetChild(0).gameObject.SetActive(false);
     }
 }

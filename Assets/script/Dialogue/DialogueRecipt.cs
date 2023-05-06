@@ -58,8 +58,8 @@ public class DialogueRecipt : MonoBehaviour
                     IntensityOrder = DialogueScript.GetComponent<DialogueScript>().Customer_IntensityOrder;
                 }
 
-                string PerfumeOrderText = string.Join("", PerfumeOrder);
-                string IntensityOrderText = string.Join("", IntensityOrder);
+                string PerfumeOrderText = string.Join("  ", PerfumeOrder);
+                string IntensityOrderText = string.Join("  ", IntensityOrder);
 
                 ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
             }
@@ -82,8 +82,8 @@ public class DialogueRecipt : MonoBehaviour
                 IntensityOrder = DialogueScript.GetComponent<SecondDialogueScript>().Customer_IntensityOrder;
             }
 
-            string PerfumeOrderText = string.Join("", PerfumeOrder);
-            string IntensityOrderText = string.Join("", IntensityOrder);
+            string PerfumeOrderText = string.Join("  ", PerfumeOrder);
+            string IntensityOrderText = string.Join("  ", IntensityOrder);
 
             ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
@@ -100,8 +100,8 @@ public class DialogueRecipt : MonoBehaviour
                 IntensityOrder = DialogueScript.GetComponent<ThirdDialogueScript>().Customer_IntensityOrder;
             }
 
-            string PerfumeOrderText = string.Join("", PerfumeOrder);
-            string IntensityOrderText = string.Join("", IntensityOrder);
+            string PerfumeOrderText = string.Join("  ", PerfumeOrder);
+            string IntensityOrderText = string.Join("  ", IntensityOrder);
 
             ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
@@ -118,8 +118,8 @@ public class DialogueRecipt : MonoBehaviour
                 IntensityOrder = DialogueScript.GetComponent<FourthDialogueScript>().Customer_IntensityOrder;
             }
 
-            string PerfumeOrderText = string.Join("", PerfumeOrder);
-            string IntensityOrderText = string.Join("", IntensityOrder);
+            string PerfumeOrderText = string.Join("  ", PerfumeOrder);
+            string IntensityOrderText = string.Join("  ", IntensityOrder);
 
             ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
@@ -136,8 +136,8 @@ public class DialogueRecipt : MonoBehaviour
                 IntensityOrder = DialogueScript.GetComponent<FifthDialogueScript>().Customer_IntensityOrder;
             }
 
-            string PerfumeOrderText = string.Join("", PerfumeOrder);
-            string IntensityOrderText = string.Join("", IntensityOrder);
+            string PerfumeOrderText = string.Join("  ", PerfumeOrder);
+            string IntensityOrderText = string.Join("  ", IntensityOrder);
 
             ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
@@ -154,8 +154,8 @@ public class DialogueRecipt : MonoBehaviour
                 IntensityOrder = DialogueScript.GetComponent<SixthDialogueScript>().Customer_IntensityOrder;
             }
 
-            string PerfumeOrderText = string.Join("", PerfumeOrder);
-            string IntensityOrderText = string.Join("", IntensityOrder);
+            string PerfumeOrderText = string.Join("  ", PerfumeOrder);
+            string IntensityOrderText = string.Join("  ", IntensityOrder);
 
             ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
@@ -172,8 +172,8 @@ public class DialogueRecipt : MonoBehaviour
                 IntensityOrder = DialogueScript.GetComponent<SeventhDialogueScript>().Customer_IntensityOrder;
             }
 
-            string PerfumeOrderText = string.Join("", PerfumeOrder);
-            string IntensityOrderText = string.Join("", IntensityOrder);
+            string PerfumeOrderText = string.Join("  ", PerfumeOrder);
+            string IntensityOrderText = string.Join("  ", IntensityOrder);
 
             ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
         }
