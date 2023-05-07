@@ -1150,6 +1150,7 @@ public class Store : MonoBehaviour
     }
     public void Close()
     {
+        GameObject.Find("Etc").transform.GetChild(9).gameObject.SetActive(false);
         if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutBuy == false)
         {
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
@@ -1185,6 +1186,21 @@ public class Store : MonoBehaviour
 
     public void Update()
     {
+        for (int i = 0; i < slotRoot.childCount; i++)
+        {
+            if (slotRoot.GetChild(i).GetComponent<Slot>().item.itemPrice > GameDataManager.Instance.Money)
+                slotRoot.GetChild(i).GetComponent<Button>().interactable = false;
+        }
+        for (int i = 0; i < MiddleslotRoot.childCount; i++)
+        {
+            if (MiddleslotRoot.GetChild(i).GetComponent<Slot>().item.itemPrice > GameDataManager.Instance.Money)
+                MiddleslotRoot.GetChild(i).GetComponent<Button>().interactable = false;
+        }
+        for (int i = 0; i < TopslotRoot.childCount; i++)
+        {
+            if (TopslotRoot.GetChild(i).GetComponent<Slot>().item.itemPrice > GameDataManager.Instance.Money)
+                TopslotRoot.GetChild(i).GetComponent<Button>().interactable = false;
+        }
         if (BuyNum <= 1)
         {
             BaseMinusBtn.gameObject.GetComponent<Button>().interactable = false;
@@ -1213,7 +1229,6 @@ public class Store : MonoBehaviour
 
         if ((BuyNum + 1) * slot.item.itemPrice > GameDataManager.Instance.Money)
         {
-            Debug.Log("잔돈 없음. 더이상 추가 불가");
             BasePlusBtn.gameObject.GetComponent<Button>().interactable = false;
             MiddlePlusBtn.gameObject.GetComponent<Button>().interactable = false;
             TopPlusBtn.gameObject.GetComponent<Button>().interactable = false;
@@ -1224,7 +1239,18 @@ public class Store : MonoBehaviour
             MiddlePlusBtn.gameObject.GetComponent<Button>().interactable = true;
             TopPlusBtn.gameObject.GetComponent<Button>().interactable = true;
         }
-
+        if (GameDataManager.Instance.Money < slotItemPrice)
+        {
+            BaseBuyAllBtn.GetComponent<Button>().interactable = false;
+        }
+        if (GameDataManager.Instance.Money < MiddleslotItemPrice)
+        {
+            MiddleBuyAllBtn.GetComponent<Button>().interactable = false;
+        }
+        if (GameDataManager.Instance.Money < TopslotItemPrice)
+        {
+            TopBuyAllBtn.GetComponent<Button>().interactable = false;
+        }
         if (GameDataManager.Instance.Money <= slotItemPrice)
         {
             //Debug.Log("잔액 부족");

@@ -26,6 +26,14 @@ public class UIOnOff : MonoBehaviour
     }
     public void StoreOpen()
     {
+        if (GameObject.Find("Etc").transform.GetChild(9).gameObject.GetComponent<Image>().sprite.name == "향료 아저씨")
+        {
+            Inven.transform.position = new Vector3(960, 540, 0);
+            GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+            GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+        }
+        GameObject.Find("Etc").transform.GetChild(9).gameObject.SetActive(true);
         //Debug.Log("보따리 오픈");
         FirstDaySetting.FindObjectOfType<FirstDaySetting>().StopAllCoroutines();
         GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
@@ -47,7 +55,7 @@ public class UIOnOff : MonoBehaviour
         {
             InvenStoreBtn.GetComponent<Image>().sprite = StoreImg;
             InvenStoreBtn.GetComponent<Image>().SetNativeSize();
-            InvenStoreBtn.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            InvenStoreBtn.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
             GameObject.Find("Store").transform.GetChild(1).gameObject.SetActive(false);
             GameObject.Find("Store").transform.GetChild(2).gameObject.SetActive(false);
@@ -61,7 +69,7 @@ public class UIOnOff : MonoBehaviour
         {
             InvenStoreBtn.GetComponent<Image>().sprite = InvenImg;
             InvenStoreBtn.GetComponent<Image>().SetNativeSize();
-            InvenStoreBtn.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            InvenStoreBtn.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
             GameObject.Find("Store").transform.GetChild(1).gameObject.SetActive(true);
             GameObject.Find("Store").transform.GetChild(2).gameObject.SetActive(true);

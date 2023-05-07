@@ -362,7 +362,14 @@ public class Inventory : MonoBehaviour, IDataPersistence
     }
     public void Close()
     {
-        this.transform.Translate(new Vector3(2000, 2000, 0));
+        if (store.gameObject.activeSelf == true)
+        {
+            FirstDaySetting.FindObjectOfType<FirstDaySetting>().SellerEnd();
+            this.transform.Translate(new Vector3(2000, 2000, 0));
+            store.Close();
+        }
+        else
+            this.transform.Translate(new Vector3(2000, 2000, 0));
         //this.gameObject.SetActive(false);
     }
 
