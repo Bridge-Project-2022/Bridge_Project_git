@@ -33,8 +33,8 @@ public class Tutorial : MonoBehaviour
 
     bool isArrowTrue = true;//true일때만 대화 넘기기 화살표 보여짐
 
-    bool isTutStart = false;
-    bool isTutStore = false;
+    public bool isTutStart = false;
+    public bool isTutStore = false;
     public bool isTutBuy = false;
     public bool isTutCreate = false;
     public bool isTutResult = false;
@@ -48,7 +48,7 @@ public class Tutorial : MonoBehaviour
 
     int startCnt = 0;
     int storeCnt = 0;
-    int buyCnt = 0;
+    public int buyCnt = 0;
     public int createCnt = 0;
     public int resultCnt = 0;
 
@@ -82,7 +82,11 @@ public class Tutorial : MonoBehaviour
                 }
             }
         }
-
+        if (buyCnt == 18)
+        {
+            if (isDialogueEnd == true)
+                TutorialDialogue.GetComponent<Button>().interactable = true;
+        }
         if (createCnt == 9)
         {
             if (isDialogueEnd == true)
@@ -298,6 +302,8 @@ public class Tutorial : MonoBehaviour
                     if (buyCnt == 18)//제작대 넘어감, 미니 대화창으로 변경
                     {
                         GameObject.Find("Etc").transform.GetChild(2).GetComponent<DeskTouch>().TouchDesk();
+                       if(isDialogueEnd == false)
+                            TutorialDialogue.GetComponent<Button>().interactable = false;
                         BlackPanel.SetActive(true);
                         TutCustomer.SetActive(false);
                         TutorialDialogue.SetActive(true);

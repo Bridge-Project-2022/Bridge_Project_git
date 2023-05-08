@@ -96,8 +96,8 @@ public class ToolTipController : MonoBehaviour
 
     public void ReturnHome()
     {
-        GameDataManager.Instance.BGM = bgmSlider.value;
-        GameDataManager.Instance.SFX = sfxSlider.value;
+        //GameDataManager.Instance.BGM = bgmSlider.value;
+        //GameDataManager.Instance.SFX = sfxSlider.value;
         GameDataManager.Instance.Day++;
         GameDataManager.Instance.LoadData();
     }

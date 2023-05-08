@@ -46,7 +46,7 @@ public class DialogueRecipt : MonoBehaviour
 
         if (GameDataManager.Instance.Day == 1)
         {
-            if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false)
+            if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == false && GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutBuy == false)
             {
                 foreach (string str in DialogueScript.GetComponent<DialogueScript>().Customer_PerfumeOrder)
                 {
@@ -63,7 +63,7 @@ public class DialogueRecipt : MonoBehaviour
 
                 ReceiptText.GetComponent<Text>().text = "\n" + PerfumeOrderText + "\n" + "\n" + IntensityOrderText + "\n";
             }
-            else//튜토리얼일 경우
+            else if (GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutBuy == true || GameObject.Find("Panels").transform.GetChild(9).GetComponent<Tutorial>().isTutCreate == true)//튜토리얼일 경우
             {
                 ReceiptText.GetComponent<Text>().text = "\n" + "나는 향료를 구하는 여정 중에 만났던 작은 산새 하나가 떠오르는군. 우연한 계기로 여정을 함께 하게 됐었다네." + "\n" + "그 조그만 새와 함께 있다보면 꽤 행복했어. 콩 한쪽도 나누어 먹었지, 허허. 지금은 어찌 지내는지 궁금하구만." + "\n" + "아무튼, 부디 그 때의 기억을 언제고 다시 추억할 수 있게끔 해주게나." + "\n" + "\n" + "아, 향은 강한 편이 좋겠어. 나의 기억만큼 진한 향 말이야." + "\n";
             }
