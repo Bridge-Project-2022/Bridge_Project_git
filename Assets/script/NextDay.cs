@@ -151,7 +151,9 @@ public class NextDay : Singleton<NextDay>
         }
         if (GameDataManager.Instance.Day == 5)
         {
-            Invoke("FifthDayStart", 3f);
+            GameObject.Find("popup").transform.GetChild(1).gameObject.SetActive(true);
+            Invoke("GoToTitle", 3f);
+            //Invoke("FifthDayStart", 3f);
         }
         if (GameDataManager.Instance.Day == 6)
         {
@@ -294,7 +296,8 @@ public class NextDay : Singleton<NextDay>
         GameObject.Find("DialogueScript2").GetComponent<SecondDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
-
+        MiddleSlots.anchoredPosition = new Vector3(0, -28, 0); //-28, +306
+        MiddleSlots.sizeDelta = new Vector2(1302, 780);
         TopSlots.anchoredPosition = new Vector3(0, -28, 0);
         TopSlots.sizeDelta = new Vector2(1302, 780);
     }
@@ -315,6 +318,10 @@ public class NextDay : Singleton<NextDay>
         GameObject.Find("DialogueScript3").GetComponent<ThirdDialogueScript>().enabled = false;
         GameObject.Find("DialogueScript4").GetComponent<FourthDialogueScript>().enabled = true;
         //TopBar.FindObjectOfType<TopBar>().DayBtnClose();
+        MiddleSlots.anchoredPosition = new Vector3(0, -28, 0); //-28, +306
+        MiddleSlots.sizeDelta = new Vector2(1302, 780);
+        TopSlots.anchoredPosition = new Vector3(0, -28, 0);
+        TopSlots.sizeDelta = new Vector2(1302, 780);
     }
 
     public void FifthDayStart()

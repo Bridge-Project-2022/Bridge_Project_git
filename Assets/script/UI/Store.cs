@@ -287,6 +287,9 @@ public class Store : MonoBehaviour
             {
                 Middleslot = MiddleslotRoot.GetChild(j).GetComponent<Slot>();
                 Middleslot.GetComponent<UnityEngine.UI.Button>().interactable = true;
+                MiddleslotRoot.GetChild(4).gameObject.SetActive(true);
+                MiddleslotRoot.GetChild(5).gameObject.SetActive(true);
+                MiddleslotRoot.GetChild(6).gameObject.SetActive(true);
                 if (j < MiddleitemBuffer.items.Count)
                 {
                     Middleslot.SetItem(MiddleitemBuffer.items[j]);
@@ -386,7 +389,10 @@ public class Store : MonoBehaviour
 
                 Middleslots.Add(Middleslot);
             }
-
+            MiddleslotRoot.GetChild(4).gameObject.SetActive(true);
+            MiddleslotRoot.GetChild(5).gameObject.SetActive(true);
+            MiddleslotRoot.GetChild(6).gameObject.SetActive(true);
+            MiddleslotRoot.GetChild(7).gameObject.SetActive(true);
             for (int k = 0; k <= 7; k++)
             {
                 Topslot = TopslotRoot.GetChild(k).GetComponent<Slot>();
@@ -401,7 +407,9 @@ public class Store : MonoBehaviour
                 }
                 Topslots.Add(Topslot);
             }
-
+            TopslotRoot.GetChild(4).gameObject.SetActive(true);
+            TopslotRoot.GetChild(5).gameObject.SetActive(true);
+            TopslotRoot.GetChild(6).gameObject.SetActive(true);
             TopslotRoot.transform.GetChild(7).gameObject.SetActive(true);
             MiddleslotRoot.GetChild(7).GetChild(5).gameObject.SetActive(false);
             TopslotRoot.GetChild(7).GetChild(5).gameObject.SetActive(true);
@@ -1190,16 +1198,22 @@ public class Store : MonoBehaviour
         {
             if (slotRoot.GetChild(i).GetComponent<Slot>().item.itemPrice > GameDataManager.Instance.Money)
                 slotRoot.GetChild(i).GetComponent<Button>().interactable = false;
+            else
+                slotRoot.GetChild(i).GetComponent<Button>().interactable = true;
         }
         for (int i = 0; i < MiddleslotRoot.childCount; i++)
         {
             if (MiddleslotRoot.GetChild(i).GetComponent<Slot>().item.itemPrice > GameDataManager.Instance.Money)
                 MiddleslotRoot.GetChild(i).GetComponent<Button>().interactable = false;
+            else
+                MiddleslotRoot.GetChild(i).GetComponent<Button>().interactable = true;
         }
         for (int i = 0; i < TopslotRoot.childCount; i++)
         {
             if (TopslotRoot.GetChild(i).GetComponent<Slot>().item.itemPrice > GameDataManager.Instance.Money)
                 TopslotRoot.GetChild(i).GetComponent<Button>().interactable = false;
+            else
+                TopslotRoot.GetChild(i).GetComponent<Button>().interactable = true;
         }
         if (BuyNum <= 1)
         {
@@ -1243,14 +1257,20 @@ public class Store : MonoBehaviour
         {
             BaseBuyAllBtn.GetComponent<Button>().interactable = false;
         }
+        else
+            BaseBuyAllBtn.GetComponent<Button>().interactable = true;
         if (GameDataManager.Instance.Money < MiddleslotItemPrice)
         {
             MiddleBuyAllBtn.GetComponent<Button>().interactable = false;
         }
+        else
+            MiddleBuyAllBtn.GetComponent<Button>().interactable = true;
         if (GameDataManager.Instance.Money < TopslotItemPrice)
         {
             TopBuyAllBtn.GetComponent<Button>().interactable = false;
         }
+        else
+            TopBuyAllBtn.GetComponent<Button>().interactable = true;
         if (GameDataManager.Instance.Money <= slotItemPrice)
         {
             //Debug.Log("잔액 부족");
