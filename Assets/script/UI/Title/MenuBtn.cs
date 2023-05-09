@@ -21,7 +21,7 @@ public class MenuBtn : MonoBehaviour
 
     public void MenuClick()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         if (this.GetComponent<Image>().sprite == close)
         {
             Menu.GetComponent<Image>().sprite = open;
@@ -44,29 +44,29 @@ public class MenuBtn : MonoBehaviour
     }
     public void OptionBtnClicked()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         OptionPanel.SetActive(true);
     }
 
     public void OptionCloseBtnClicked()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         OptionPanel.SetActive(false);
     }
 
     public void HomeIconClick()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameQuit.gameObject.SetActive(true);
     }
     public void QuitYes()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         SceneManager.LoadScene("Title");
     }
     public void QuitNo()
     {
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("click");
         GameQuit.gameObject.SetActive(false);
     }
     public void ShowUnsupportedMessage()

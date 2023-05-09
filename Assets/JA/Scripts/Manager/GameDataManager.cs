@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameDataManager : Singleton<GameDataManager>
 {
@@ -18,6 +19,9 @@ public class GameDataManager : Singleton<GameDataManager>
     private FileDataHandler dataHandler;
 
     public bool isGameStart = false;
+    public List<Slot> Baseslot;
+    public List<Slot> Middleslot;
+    public List<Slot> Topslot;
 
     private void Awake()
     {
@@ -28,6 +32,10 @@ public class GameDataManager : Singleton<GameDataManager>
         dataHandler = new FileDataHandler(Application.persistentDataPath, runTimeGameDataFileName);
     }
 
+    public void Start()
+    {
+        
+    }
     #region Property
 
     public int Money
@@ -137,24 +145,66 @@ public class GameDataManager : Singleton<GameDataManager>
     public void LoadInvenData()
     {
         Inventory.FindObjectOfType<Inventory>().ResetInven();
-
         for (int i = 0; i < gameData.baseItemList.Count; i++)
         {
-            gameData.baseItemList[i].InvenItemNum -= 1;
-            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.baseItemList[i]);
+
+            Inventory.FindObjectOfType<Inventory>().LoadInvenItem(gameData.baseItemList[i], gameData.baseItemList[i].InvenItemNum);
+
         }
         for (int i = 0; i < gameData.middleItemList.Count; i++)
         {
-            gameData.middleItemList[i].InvenItemNum -= 1;
-            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.middleItemList[i]);
+
+            Inventory.FindObjectOfType<Inventory>().LoadInvenItem(gameData.middleItemList[i], gameData.middleItemList[i].InvenItemNum);
+
         }
         for (int i = 0; i < gameData.topItemList.Count; i++)
         {
-            gameData.topItemList[i].InvenItemNum -= 1;
-            Inventory.FindObjectOfType<Inventory>().BuyItem(gameData.topItemList[i]);
+
+            Inventory.FindObjectOfType<Inventory>().LoadInvenItem(gameData.topItemList[i], gameData.topItemList[i].InvenItemNum);
+
         }
     }
 
+    public void LoadInvenItem(ItemProperty item)
+    {
+
+        Baseslot = new List<Slot>();
+        GameObject BaseSlots = GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).GetChild(2).GetChild(0).gameObject;
+        Middleslot = new List<Slot>();
+        GameObject MiddleSlots = GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).GetChild(2).GetChild(0).gameObject;
+        Topslot = new List<Slot>();
+        GameObject TopSlots = GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).GetChild(2).GetChild(0).gameObject;
+
+        if (item.itemType == "Base")
+        {
+            Debug.Log("b");
+            for (int i = 0; i < BaseSlots.transform.childCount; i++)
+            {
+                if (BaseSlots.transform.GetChild(i).GetComponent<Slot>().item != null)
+                {
+                    BaseSlots.transform.GetChild(i).GetComponent<Slot>().SetInvenItem(item);
+                }
+                else
+                    break;
+            }
+        }
+        if (item.itemType == "Middle")
+        {
+            Debug.Log("m");
+            for (int i = 0; i < MiddleSlots.transform.childCount; i++)
+            {
+                MiddleSlots.transform.GetChild(i).GetComponent<Slot>().SetInvenItem(item);
+            }
+        }
+        if (item.itemType == "Top")
+        {
+            Debug.Log("t");
+            for (int i = 0; i < TopSlots.transform.childCount; i++)
+            {
+                TopSlots.transform.GetChild(i).GetComponent<Slot>().SetInvenItem(item);
+            }
+        }
+    }
     /*public void RemoveItem(ItemProperty item)
     {
         if (item == null)

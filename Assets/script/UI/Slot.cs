@@ -50,7 +50,6 @@ public class Slot : MonoBehaviour
             image.enabled = true;
             gameObject.name = item.name;
             image.sprite = item.sprite;
-            //Debug.Log("ss");
             itemCount.text = item.itemCount.ToString() + "개 보유";
             itemName.text = item.name + "향료";
         }
