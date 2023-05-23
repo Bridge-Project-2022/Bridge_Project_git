@@ -19,9 +19,9 @@ public class UIOnOff : MonoBehaviour
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("inven");
         Inven.SetActive(true);
         Inven.transform.position = new Vector3(960, 540, 0);
-        GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-        GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+        //GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        //GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        //GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
 
     }
     public void StoreOpen()
@@ -31,9 +31,9 @@ public class UIOnOff : MonoBehaviour
             if (GameObject.Find("Etc").transform.GetChild(9).gameObject.GetComponent<Image>().sprite.name == "향료 아저씨")
             {
                 Inven.transform.position = new Vector3(960, 540, 0);
-                GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-                GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-                GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+                //GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                //GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+                //GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
             }
             GameObject.Find("Etc").transform.GetChild(9).gameObject.SetActive(true);
             //Debug.Log("보따리 오픈");
@@ -63,9 +63,9 @@ public class UIOnOff : MonoBehaviour
             GameObject.Find("Store").transform.GetChild(1).gameObject.SetActive(false);
             GameObject.Find("Store").transform.GetChild(2).gameObject.SetActive(false);
             Inven.transform.position = new Vector3(960, 540, 0);
-            GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-            GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-            GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+            //GameObject.Find("Inventory").transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            //GameObject.Find("Inventory").transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+            //GameObject.Find("Inventory").transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
             isInvenClick = true;
         }
         else

@@ -149,6 +149,7 @@ public class FourthDialogueRandom : MonoBehaviour
     }
     public void StartDialogue()
     {
+        ACount++;
         NextDialogue();
     }
 
@@ -324,6 +325,15 @@ public class FourthDialogueRandom : MonoBehaviour
             }
             else
             {
+                if (DS.Customer_ID[0] == 23 && D2Count == 6)
+                {
+                    GameObject.Find("Dialogue").transform.GetChild(3).gameObject.SetActive(true);
+                    GameObject.Find("seller").transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "·Î·¹³ª¾¾, ±¦ÂúÀº °Å ¸Â¾Æ¿ä?";
+                }
+                if (DS.Customer_ID[0] == 23 && D2Count == 7)
+                {
+                    GameObject.Find("Dialogue").transform.GetChild(3).gameObject.SetActive(false);
+                }
                 if (isDialogueEnd == false)
                 {
                     RC.GetComponent<RandomImage>().CurrentFeel = BuyerRejectFace[D2Count - 1];

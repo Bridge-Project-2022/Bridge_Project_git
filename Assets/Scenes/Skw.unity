@@ -247,6 +247,7 @@ MonoBehaviour:
   image: {fileID: 409348387}
   itemPrice: {fileID: 1026573175}
   itemCount: {fileID: 1838406482}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -493,6 +494,7 @@ MonoBehaviour:
   image: {fileID: 1327046389}
   itemPrice: {fileID: 316545841}
   itemCount: {fileID: 1584264062}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -2823,6 +2825,7 @@ MonoBehaviour:
   image: {fileID: 879227000}
   itemPrice: {fileID: 1538747807}
   itemCount: {fileID: 467515671}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -2995,8 +2998,19 @@ MonoBehaviour:
   Particle3: {fileID: 1990399509}
   topInvenSlots: {fileID: 0}
   TopItemName: 
+  ResultCount: 0
+  goodCount: 0
+  ItemSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ItemBurnSprites:
   - {fileID: 21300000, guid: 9646ba97b11748f46a4528f1e66d7c22, type: 3}
+  Receipt: {fileID: 0}
+  isTopRight: 0
+  isCooling: 0
 --- !u!114 &259027811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6848,6 +6862,7 @@ MonoBehaviour:
   image: {fileID: 1139091029}
   itemPrice: {fileID: 1117157468}
   itemCount: {fileID: 1580613261}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -7747,7 +7762,12 @@ MonoBehaviour:
   slotRoot: {fileID: 448242365}
   MiddleslotRoot: {fileID: 712833410}
   TopslotRoot: {fileID: 0}
-  IB: {fileID: 0}
+  BaseitemBuffer: {fileID: 0}
+  MiddleitemBuffer: {fileID: 0}
+  TopitemBuffer: {fileID: 0}
+  slots: []
+  Middleslots: []
+  Topslots: []
   fd: {fileID: 553879028}
   inven: {fileID: 593916714}
   ItemDetail: {fileID: 1797663582}
@@ -7784,6 +7804,9 @@ MonoBehaviour:
   TopAllBuyMinusBtn: {fileID: 0}
   TopAllBuyPlusBtn: {fileID: 0}
   BuyNum: 1
+  AllBuyNum: 1
+  MiddleAllBuyNum: 1
+  TopAllBuyNum: 1
   slot: {fileID: 0}
   Middleslot: {fileID: 0}
   Topslot: {fileID: 0}
@@ -7799,7 +7822,6 @@ MonoBehaviour:
   BaseBuyBtn: {fileID: 0}
   MiddleBuyBtn: {fileID: 0}
   TopBuyBtn: {fileID: 0}
-  alertText: {fileID: 168354116}
   BaseItemList:
   - name: 
     sprite: {fileID: 0}
@@ -8044,6 +8066,8 @@ MonoBehaviour:
     itemExplanation: 
     isNew: 0
   maxItemNum: 0
+  openCnt: 0
+  Basecnt: 0
 --- !u!114 &533936709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8589,6 +8613,7 @@ MonoBehaviour:
   image: {fileID: 764405722}
   itemPrice: {fileID: 2107459380}
   itemCount: {fileID: 1325696323}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -8667,12 +8692,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b218f2105c3574e40ac38016e53f06fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Day: 1
   Time: 8
-  Money: 50000
-  Reputation: 60
   GameMoney: {fileID: 553879027}
   GameReputation: {fileID: 0}
+  Customer: {fileID: 0}
+  TutorialPanel: {fileID: 0}
+  RepHandle: {fileID: 0}
 --- !u!114 &553879029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9266,10 +9291,16 @@ MonoBehaviour:
   storeSlotRoot: {fileID: 448242365}
   store: {fileID: 533936708}
   Baseslots: []
+  LoadBaseslots: []
   Middleslots: []
+  LoadMiddleslots: []
   Topslots: []
+  LoadTopslots: []
   isSame: 1
   isAllsame: 0
+  InvenOrigin: {fileID: 0}
+  InvenReset: {fileID: 0}
+  isResetTrue: 0
 --- !u!1 &619142024
 GameObject:
   m_ObjectHideFlags: 0
@@ -9898,6 +9929,7 @@ MonoBehaviour:
   image: {fileID: 540484354}
   itemPrice: {fileID: 1801771021}
   itemCount: {fileID: 83539877}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -11444,6 +11476,7 @@ MonoBehaviour:
   image: {fileID: 158682561}
   itemPrice: {fileID: 523588170}
   itemCount: {fileID: 1678250231}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -11615,6 +11648,7 @@ MonoBehaviour:
   image: {fileID: 759892900}
   itemPrice: {fileID: 1591402591}
   itemCount: {fileID: 1518207173}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -12144,6 +12178,7 @@ MonoBehaviour:
   image: {fileID: 97996848}
   itemPrice: {fileID: 367512989}
   itemCount: {fileID: 414451374}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -12774,14 +12809,14 @@ MonoBehaviour:
     itemType: 
     itemExplanation: 
     isNew: 0
-  body: {fileID: 593425506}
-  handle: {fileID: 1538945179}
-  button: {fileID: 1396025302}
-  PressItem: {fileID: 77812739}
+  NotePattern: {fileID: 0}
+  PressureScore: 0
   PressCount: 0
   isEnd: 0
   MiddleItemName: 
   middleInvenSlots: {fileID: 0}
+  Receipt: {fileID: 0}
+  isMiddleRight: 0
 --- !u!114 &789864094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13023,7 +13058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &821769106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13170,6 +13205,7 @@ MonoBehaviour:
   image: {fileID: 877414105}
   itemPrice: {fileID: 1724289478}
   itemCount: {fileID: 1661646734}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -14889,10 +14925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677e30db9bfd4d3418d4e2e71db07902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Seller: {fileID: 538095438}
-  Buyer: {fileID: 324784064}
-  BuyerDialogue: {fileID: 1112674179}
-  SellerDialogue: {fileID: 627794168}
 --- !u!4 &931888351
 Transform:
   m_ObjectHideFlags: 0
@@ -15555,6 +15587,7 @@ MonoBehaviour:
   image: {fileID: 229814916}
   itemPrice: {fileID: 619142024}
   itemCount: {fileID: 514344477}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -16722,6 +16755,7 @@ MonoBehaviour:
   image: {fileID: 1944895380}
   itemPrice: {fileID: 971090757}
   itemCount: {fileID: 1169399592}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -17178,16 +17212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e3ddce78805a3468ffe12cf9060d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info:
-    BuyerSentences:
-    - id: 0
-      dialogue: "\uC548\uB155\uD558\uC138\uC694"
-    - id: 1
-      dialogue: "\uC81C\uAC00 \uC0AC\uB791\uD588\uB358 \uADF8\uC758 \uD5A5\uC744
-        \uB9E1\uACE0\uC2F6\uC5B4\uC694."
-    - id: 2
-      dialogue: "\uAC10\uC0AC\uD569\uB2C8\uB2E4."
-    SellerSentences: []
 --- !u!114 &1080367101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18302,6 +18326,7 @@ MonoBehaviour:
   image: {fileID: 956038112}
   itemPrice: {fileID: 1469391715}
   itemCount: {fileID: 625987505}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -19664,6 +19689,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Store: {fileID: 533936707}
   Inven: {fileID: 593916714}
+  InvenStoreBtn: {fileID: 0}
+  InvenImg: {fileID: 0}
+  StoreImg: {fileID: 0}
+  isInvenClick: 0
 --- !u!114 &1195420725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21264,6 +21293,7 @@ MonoBehaviour:
   image: {fileID: 191248961}
   itemPrice: {fileID: 1710343155}
   itemCount: {fileID: 942237140}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -22174,6 +22204,7 @@ MonoBehaviour:
   image: {fileID: 1469220212}
   itemPrice: {fileID: 880998566}
   itemCount: {fileID: 1167571018}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -24695,6 +24726,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EndPoint: {fileID: 496548995}
   Notes: {fileID: 172264138}
+  result: {fileID: 0}
+  CatPress: {fileID: 0}
+  PressReaction:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ChildList: []
+  isPressDown: 0
 --- !u!1 &1522571483
 GameObject:
   m_ObjectHideFlags: 0
@@ -25847,9 +25896,15 @@ MonoBehaviour:
   middleSlot: {fileID: 0}
   topSlot: {fileID: 0}
   TopBar: {fileID: 0}
+  MoneyBar: {fileID: 0}
   Receipt: {fileID: 0}
   InvenUI: {fileID: 0}
   Customer: {fileID: 0}
+  ClickItem: {fileID: 0}
+  Perfume: {fileID: 0}
+  CriminalSystem: {fileID: 0}
+  Declaration: {fileID: 0}
+  Alpa: {fileID: 0}
 --- !u!114 &1597506567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27362,9 +27417,15 @@ MonoBehaviour:
   middleSlot: {fileID: 0}
   topSlot: {fileID: 0}
   TopBar: {fileID: 0}
+  MoneyBar: {fileID: 0}
   Receipt: {fileID: 0}
   InvenUI: {fileID: 0}
   Customer: {fileID: 0}
+  ClickItem: {fileID: 0}
+  Perfume: {fileID: 0}
+  CriminalSystem: {fileID: 0}
+  Declaration: {fileID: 0}
+  Alpa: {fileID: 0}
 --- !u!114 &1701747099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27455,10 +27516,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9061dbb0c523f34ca2a89070c419ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RC: {fileID: 0}
   Buyer: {fileID: 0}
   Select: {fileID: 0}
   Customer: {fileID: 0}
   Distiller: {fileID: 0}
+  DistillerUI: {fileID: 0}
   Presser: {fileID: 0}
   Cooler: {fileID: 0}
   DailyResult: {fileID: 0}
@@ -27498,6 +27561,30 @@ MonoBehaviour:
   - 
   - 
   - 
+  BuyerOrderFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerIntensityFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerRejectFace:
+  - 
+  - 
+  - 
+  - 
+  - 
+  BuyerReactFace:
+  - 
+  - 
+  - 
+  - 
+  - 
   BuyerFeel:
   - 
   - 
@@ -27515,11 +27602,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  AStart: 0
-  D1Start: 0
-  D2Start: 0
-  EStart: 0
-  FeelCnt: 0
+  ACount: 0
+  D2Count: 0
+  ECount: 0
   isDialogueStart: 0
 --- !u!114 &1708815524
 MonoBehaviour:
@@ -28997,6 +29082,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Store: {fileID: 533936707}
   Inven: {fileID: 593916714}
+  InvenStoreBtn: {fileID: 0}
+  InvenImg: {fileID: 0}
+  StoreImg: {fileID: 0}
+  isInvenClick: 0
 --- !u!114 &1863492954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30006,6 +30095,7 @@ MonoBehaviour:
   image: {fileID: 1023564942}
   itemPrice: {fileID: 1957357209}
   itemCount: {fileID: 967671595}
+  itemName: {fileID: 0}
   ClickedItem:
     name: 
     sprite: {fileID: 0}
@@ -30381,6 +30471,10 @@ MonoBehaviour:
   NoteStartPos: {fileID: 685598355}
   NoteParent: {fileID: 172264138}
   Note: {fileID: 5305641465114603057, guid: 386f5b03c22a6c04d8d005417398ada2, type: 3}
+  LeftNote: {fileID: 0}
+  BothNote: {fileID: 0}
+  RightNote: {fileID: 0}
+  DestroyCnt: 0
 --- !u!1 &1947208079
 GameObject:
   m_ObjectHideFlags: 0
@@ -32959,6 +33053,102 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1831312777}
     m_Modifications:
+    - target: {fileID: 5699166682920015799, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166682920015799, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166682920015799, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166682920015799, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166682920015799, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166682920015799, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166683687124472, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166683687124472, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166683687124472, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166683687124472, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166683687124472, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166683687124472, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684459905780, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684459905780, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684459905780, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684459905780, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684459905780, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684459905780, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684497677416, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684497677416, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684497677416, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684497677416, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684497677416, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684497677416, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5699166684501562389, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -33046,6 +33236,10 @@ PrefabInstance:
     - target: {fileID: 5699166684501562474, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
       propertyPath: m_Name
       value: BuHyangWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699166684501562474, guid: 40d05ca26560995448bc6009d31307f6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40d05ca26560995448bc6009d31307f6, type: 3}

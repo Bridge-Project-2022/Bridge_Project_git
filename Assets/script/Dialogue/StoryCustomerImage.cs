@@ -105,7 +105,7 @@ public class StoryCustomerImage : MonoBehaviour
                     else if (CurrentTime == "night")
                         Customer.GetComponent<Image>().sprite = L01_Image[11];
                 }
-                if (CurrentFeel == "L02_paintful1")
+                if (CurrentFeel == "L02_painful1")
                 {
                     if (CurrentTime == "morning")
                         Customer.GetComponent<Image>().sprite = L02_Image[0];
@@ -114,7 +114,7 @@ public class StoryCustomerImage : MonoBehaviour
                     else if (CurrentTime == "night")
                         Customer.GetComponent<Image>().sprite = L02_Image[2];
                 }
-                if (CurrentFeel == "L02_paintful2")
+                if (CurrentFeel == "L02_painful2")
                 {
                     if (CurrentTime == "morning")
                         Customer.GetComponent<Image>().sprite = L02_Image[3];
